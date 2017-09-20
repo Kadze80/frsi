@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <p:dialog header="Юридические лица" widgetVar="wLpPickerDlg" modal="true" width="750">
+            <h:form id="lpPickerForm">
+                <p:messages/>
+                <p:remoteCommand name="rcShowLpPicker" actionListener="#{lpPickerBean.onShow}"
+                                 update="tblLpPicker lpPickerFilterName lpPickerFilterIdn"
+                                 oncomplete="onLpPickerLoaded();"/>
+                <div id="lp-picker-filter">
+                    <p:fieldset legend="Фильтры">
+                        Наименование:
+                        <h:inputText id="lpPickerFilterName" value="#{lpPickerBean.filterName}"
+                                     style="width: 150px"/>
+                        ИИН:
+                        <h:inputText id="lpPickerFilterIdn" value="#{lpPickerBean.filterIdn}"
+                                     style="width: 150px"/>
+                        &#160;
+                        Искать в налоговой:
+                        <p:selectBooleanCheckbox id="unionPickerFilterTax" value="#{lpPickerBean.searchInTax}" />
+                        &#160;
+                        <p:commandButton actionListener="#{lpPickerBean.filter}" value="Поиск"
+                                         oncomplete="PF('wTblLpPicker').filter();" update="@form:lpPickSelect"/>
+                    </p:fieldset>
+                </div>
+                    <p:dataTable id="tblLpPicker" widgetVar="wTblLpPicker" lazy="true" binding="#{lpPickerBean.dataTable}"
+                                 value="#{lpPickerBean.ldmReflegalPersonItem}" var="item" rowKey="#{item.id}"
+                                 selectionMode="single" selection="#{lpPickerBean.legalPersonItem}" rows="25"
+                                 resizableColumns="true"
+                                 paginator="true" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}"
+                                 rowsPerPageTemplate="10,25,50" emptyMessage="#{res.noRecordsFound}"
+                                 reflow="true"
+                                 scrollable="true" scrollHeight="320">
+                        <p:ajax event="rowSelect" update="@form:lpPickSelect"/>
+                        <p:column headerText="ИИН" style="width:7em;">
+                            <h:outputText value="#{item.idn}"/>
+                        </p:column>
+                        <p:column headerText="Наименование" style="width:10em;">
+                            <h:outputText value="#{item.nameRu}"/>
+                        </p:column>
+                        <p:column headerText="Тип организации" style="width:10em;">
+                            <h:outputText value="#{item.orgTypeName}"/>
+                        </p:column>
+                    </p:dataTable>
+                <div id="lp-picker-footer">
+                    <p:commandButton id="lpPickSelect" value="Выбрать" actionListener="#{lpPickerBean.passValue}"
+                                     disabled="#{lpPickerBean.legalPersonItem==null}"
+                                     oncomplete="pass_legalperson()" update="lpPickerSelectedValue"/>
+                    <p:commandButton type="button" value="Пустое значение" onclick="pass_legalperson(true)"/>
+                </div>
+                <h:inputHidden id="lpPickerKey"/>
+                <h:inputHidden value="#{lpPickerBean.selectedValue}" id="lpPickerSelectedValue"/>
+            </h:form>
+        </p:dialog>
+
+        <h:outputScript library="pickers" name="LpPicker_v26.js"/>
+    </composite:implementation>
+</ui:component>

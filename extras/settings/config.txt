@@ -1,0 +1,34 @@
+=================================
+  Front-end server (Web-portal)
+=================================
+
+- Install and tune JDK 1.7
+- Install and tune GlassFish 3.1.2.2
+- Install and tune a database for Liferay
+- Install and tune Liferay portal
+
+- Add JVM option for GlassFish: -Dfrsi.back.orb.host=<Back-end server's address>
+- Add JVM option for GlassFish: -Dfrsi.back.orb.port=3700
+
+- Deploy frsi-portlet.war
+
+.../glassfish3/portal-ext.properties
+session.timeout=30
+session.timeout.redirect.on.expire=true
+
+.../domain1/applications/liferay-portal/WEB-INF/web.xml
+<session-timeout>30</session-timeout>
+
+=================================
+  Back-end server
+=================================
+
+- Install and tune JDK 1.7
+- Install and tune GlassFish 3.1.2.2
+- Create database FRSI
+- Create JDBC connection pool "FrsiPool" and resource "jdbc/FrsiPool" for GlassFish
+
+- Add to /etc/hosts:
+    frsi.oracle.local
+
+- Deploy frsi-ear.ear

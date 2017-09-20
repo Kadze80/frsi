@@ -1,0 +1,8 @@
+#banner .company-title {
+    float: none;
+    margin: 0px 0 0;
+    position: static;
+}
+#heading{
+    height:0px;
+}

@@ -1,0 +1,4 @@
+-- Grant/Revoke object privileges 
+grant execute on GET_REPORT_VALUE to ESSP;
+grant select on V_FORM_BALANCE_ACCOUNT to ESSP;
+grant select on V_FORM_KL_6 to ESSP;

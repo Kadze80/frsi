@@ -1,0 +1,30 @@
+-- Create table
+create table REPORT_HISTORY_LIST
+(
+  id                NUMBER(14) not null,
+  report_history_id NUMBER(14) not null,
+  key               VARCHAR2(150) not null,
+  value             VARCHAR2(500),
+  value_type        VARCHAR2(10),
+  ref               VARCHAR2(50),
+  multi_value       NUMBER
+);
+-- Add comments to the columns 
+comment on column REPORT_HISTORY_LIST.id
+  is 'Идентификатор';
+comment on column REPORT_HISTORY_LIST.report_history_id
+  is 'Id Таблицы  report_history';
+comment on column REPORT_HISTORY_LIST.key
+  is 'Наименование ключа';
+comment on column REPORT_HISTORY_LIST.value
+  is 'Значение ключа';
+  comment on column REPORT_HISTORY_LIST.value_type
+  is 'Тип значения';
+comment on column REPORT_HISTORY_LIST.ref
+  is 'Наименование справочника';
+comment on column REPORT_HISTORY_LIST.multi_value
+  is 'Признак множественного выбора из справочник (null или 0 - нет, 1 - да)';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table REPORT_HISTORY_LIST
+  add constraint PK_REPORT_HISTORY_LIST primary key (ID);
+create index IDX_REPORT_HISTORY_LIST_1 on REPORT_HISTORY_LIST (REPORT_HISTORY_ID, KEY);

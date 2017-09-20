@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+	name="I108"
+	languageCode="ru" title="Таблица 5 - Достаточность собственного капитала ИО РК (ИО)"
+	shortName="Таблица 5 - Дост. собств. кап. ИО РК (ИО)"
+	beginDate="2016-01-01" endDate=""
+	typeCode="OUTPUT"
+	tag='{ "keyFields" : {"I108_array":"num"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">
+		Таблица 5 - Достаточность собственного капитала ипотечных организаций РК
+	</h3>
+	<span style="display: block; text-align: center;">
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+<div>
+	<table name="array" class="dataTable">
+		<thead>
+			<tr>
+				<th>Наименование показателя</th>
+				<th><StaticText value="$ReportDate(.f(Y))"/></th>
+				<th><StaticText value="$ReportDate"/></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Оплаченный уставный капитал (в т.ч. дополнительный капитал), тыс.тенге</td>
+				<td><InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+			</tr>
+			<tr>
+				<td>Расчетный собственный капитал, тыс.тенге</td>
+				<td><InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+			</tr>
+			<tr>
+				<td>Коэффициент достаточности собственного капитала (к1>=0,06)</td>
+				<td><InputText name="v1" key="num" keyValue="3" readonly="true" mask="money3"/></td>
+				<td><InputText name="v2" key="num" keyValue="3" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr>
+				<td>Коэффициент достаточности собственного капитала (к1-2>=0,06)</td>
+				<td><InputText name="v1" key="num" keyValue="4" readonly="true" mask="money3"/></td>
+				<td><InputText name="v2" key="num" keyValue="4" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr>
+				<td>Коэффициент достаточности собственного капитала (к1-3>=0,12)</td>
+				<td><InputText name="v1" key="num" keyValue="5" readonly="true" mask="money3"/></td>
+				<td><InputText name="v2" key="num" keyValue="5" readonly="true" mask="money3"/></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(n+3) {
+		text-align: left;
+	}
+	]]>
+</style>
+<script>
+	<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#I108_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

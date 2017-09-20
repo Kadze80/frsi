@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="N106"
+        languageCode="ru" title="Качество ссудного портфеля НБО (ОООВБО)"
+        shortName="Кач-во ссуд-го портф. НБО (ОООВБО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"N106_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Качество ссудного портфеля небанковских организаций</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <div>
+        <table name="array" class="dataTable">
+            <thead>
+                <tr>
+                    <th rowspan="3">№ п/п</th>
+                    <th rowspan="3">Наименование показателя</th>
+                    <th colspan="2"><StaticText value="$ReportDate(.f(Y))"/></th>
+                    <th colspan="2"><StaticText value="$ReportDate(.f(Q))"/></th>
+                    <th rowspan="2">Прирост, в %</th>
+                </tr>
+                <tr>
+                    <th>сумма основного долга, тыс.тенге</th>
+                    <th>в % к итогу</th>
+                    <th>сумма основного долга, тыс.тенге</th>
+                    <th>в % к итогу</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Ссудный портфель, в т.ч. финансовая аренда</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Займы по которым отсутствует просроченная задолженность по основному долгу</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Займы с просроченной задолженностью, в т.ч.</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Просроченная задолженность по основному долгу и вознаграждению со сроком от 1 до 30 дней</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Просроченная задолженность по основному долгу и вознаграждению со сроком от 31 до 60 дней</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Просроченная задолженность по основному долгу и вознаграждению со сроком от 61 до 90 дней</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="6" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="6" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="6" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="6" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="6" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Просроченная задолженность по основному долгу и вознаграждению со сроком свыше 90 дней</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="7" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="7" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="7" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="7" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="7" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Провизии по займам с просроченной задолженностью свыше 90 дней</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="10" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="10" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="10" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="10" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="10" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Коэффициент покрытия займов с просроченной задолженностью свыше 90 дней провизиями по ним</td>
+                    <td colspan="2">
+                        <InputText name="v1" key="num" keyValue="11" readonly="true" mask="money0"/>
+                    </td>
+                    <td colspan="2">
+                        <InputText name="v3" key="num" keyValue="11" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+            table.dataTable td:nth-child(1) {
+                text-align: left;
+                width:20px
+            }
+            table.dataTable td:nth-child(2) {
+                text-align: left;
+            }
+        ]]>
+    </style>
+    <script>
+        <![CDATA[
+            function updateCalculatedFields() {
+            }
+        ]]>
+    </script>
+    <script2>
+        <![CDATA[
+            function fixTable(fix){
+                $("#N106_array").tableHeadFixer({unFix:!fix, head:true});
+            }
+        ]]>
+    </script2>
+</Form>

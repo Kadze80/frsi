@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+		xmlns:composite="http://java.sun.com/jsf/composite"
+		xmlns:p="http://primefaces.org/ui">
+
+	<composite:interface>
+		<composite:attribute name="update"/>
+	</composite:interface>
+
+	<composite:implementation>
+		<p:dialog id="dialogPickSecurity" widgetVar="wDialogPickSecurity" header="Выбор эмитента"  width="640" height="640" modal="true">
+			<h:form id="form">
+				<h:panelGrid columns="2">
+					<h:outputText value="Фильтр по наименованию:"/>
+					<h:panelGroup>
+						<h:outputText value="Фильтр по дате: "/>
+						<p:selectBooleanCheckbox value="#{pickSecurityBean.useIssuerDateFilter}"/>
+					</h:panelGroup>
+					<h:panelGroup>
+						<p:inputText value="#{pickSecurityBean.issuerNameFilter}" style="width: 24em;"/>&#160;
+						<p:commandButton value="#{res.search}" actionListener="#{pickSecurityBean.refreshIssuers()}" update="@form"/>&#160;&#160;
+					</h:panelGroup>
+					<p:calendar value="#{pickSecurityBean.issuerDateFilter}" pattern="yyyy-MM-dd"/>
+				</h:panelGrid>
+				<br/>
+				<p:dataTable id="tableIssuers" var="issuer" value="#{pickSecurityBean.issuers}" scrollable="true" scrollHeight="250"
+				             selection="#{pickSecurityBean.selectedIssuer}" rowKey="#{issuer.id}" selectionMode="single" sortBy="#{issuer.nameRu}" emptyMessage="#{res.noRecordsFound}">
+					<p:ajax event="rowSelect" listener="#{pickSecurityBean.clearSecurities}" update="@form,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedIssuerValue"/>
+					<p:ajax event="rowUnselect" listener="#{pickSecurityBean.clearSecurities}" update="@form,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedIssuerValue"/>
+					<p:column headerText="Эмитенты" sortBy="#{issuer.nameRu}">
+						<h:outputText value="#{issuer.nameRu}"/>
+					</p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton value="Выбрать эмитента" oncomplete="passSecurityIssuer()" update="#{cc.attrs.update}" disabled="#{pickSecurityBean.selectedIssuer==null}"/>&#160;&#160;
+				<p:commandButton value="Отобразить ценные бумаги" actionListener="#{pickSecurityBean.refreshSecurities}" update="tableSecurities,btnPassSecurity"/>
+				<br/><br/>
+				<p:dataTable id="tableSecurities" var="security" value="#{pickSecurityBean.securities}" scrollable="true" scrollHeight="150"
+				             selection="#{pickSecurityBean.selectedSecurity}" rowKey="#{security.id}" selectionMode="single" sortBy="#{security.nin}" emptyMessage="#{res.noRecordsFound}">
+					<p:ajax event="rowSelect" update="@form:btnPassSecurity,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedSecurityValue"/>
+					<p:ajax event="rowUnselect" update="@form:btnPassSecurity,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedSecurityValue"/>
+					<p:column headerText="Ценные бумаги" sortBy="#{security.nin}">
+						<h:outputText value="#{security.nin}"/>
+					</p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton id="btnPassSecurity" value="Выбрать ценную бумагу" oncomplete="passSecurity()" update="#{cc.attrs.update}" disabled="#{pickSecurityBean.selectedSecurity==null}"/>
+			</h:form>
+			<h:form id="hidden">
+				<h:inputHidden id="receiverInfo"/>
+				<h:inputHidden id="pickedIssuerValue" value="#{pickSecurityBean.pickedIssuerValue}"/>
+				<h:inputHidden id="pickedSecurityValue" value="#{pickSecurityBean.pickedSecurityValue}"/>
+			</h:form>
+		</p:dialog>
+		<h:outputScript library="components" name="dialog-pick-security.js"/>
+	</composite:implementation>
+</ui:component>

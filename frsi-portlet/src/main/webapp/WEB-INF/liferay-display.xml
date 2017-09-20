@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.1.0//EN" "http://www.liferay.com/dtd/liferay-display_6_1_0.dtd">
+
+<display>
+	<category name="category.frsi-system">
+		<portlet id="frsi-tools"/>
+		<portlet id="frsi-template"/>
+		<portlet id="frsi-query"/>
+		<portlet id="frsi-su-formtemplate"/>
+	</category>
+	<category name="category.frsi-admin">
+		<portlet id="frsi-admin"/>
+		<portlet id="frsi-adm"/>
+		<portlet id="frsi-audit"/>
+		<portlet id="frsi-ref-protocol"/>
+		<portlet id="frsi-notice-settings"/>
+		<portlet id="frsi-notice-user-settings"/>
+		<portlet id="frsi-notice-mail"/>
+		<portlet id="frsi-settings"/>
+		<portlet id="frsi-garter"/>
+	</category>
+	<category name="category.frsi-superuser">
+		<portlet id="frsi-su-ref"/>
+		<portlet id="frsi-su-info"/>
+		<portlet id="frsi-su-outputdata"/>
+		<portlet id="frsi-su-formdata"/>
+	</category>
+	<category name="category.frsi-respondent">
+        <portlet id="frsi-download"/>
+        <portlet id="frsi-upload"/>
+		<portlet id="frsi-reports"/>
+        <portlet id="frsi-su-refunload"/>
+	</category>
+</display>

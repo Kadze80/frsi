@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="I111"
+        languageCode="ru" title="Сводный баланс по ИО (ИО)"
+        shortName="Сводный баланс по ИО (ИО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"I111_a":"n"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Сводный баланс по ипотечным организациям Республики Казахстан</h3>
+
+    <span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+    <span style="width:50%; display: block; text-align: right;">(в тысячах тенге)</span>
+
+    <div style="width:50%;">
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование группы счетов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" style="font-weight: bold;">I класс - Активы</td>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td>Деньги</td>
+                    <td><InputText name="v1" key="n" keyValue="1000" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1010</td>
+                    <td>Аффинированные драгоценные металлы</td>
+                    <td><InputText name="v1" key="n" keyValue="1010" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1050</td>
+                    <td>Корреспондентские счета</td>
+                    <td><InputText name="v1" key="n" keyValue="1050" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1100</td>
+                    <td>Требования к Национальному Банку Республики Казахстан</td>
+                    <td><InputText name="v1" key="n" keyValue="1100" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1150</td>
+                    <td>Банкноты национальной валюты до выпуска в обращение</td>
+                    <td><InputText name="v1" key="n" keyValue="1150" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1200</td>
+                    <td>Ценные бумаги, учитываемые по справедливой стоимости через прибыль или убыток</td>
+                    <td><InputText name="v1" key="n" keyValue="1200" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1250</td>
+                    <td>Вклады, размещенные в других банках</td>
+                    <td><InputText name="v1" key="n" keyValue="1250" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1300</td>
+                    <td>Займы, предоставленные другим банкам</td>
+                    <td><InputText name="v1" key="n" keyValue="1300" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1320</td>
+                    <td>Займы и финансовый лизинг, предоставленные организациям, осуществляющим отдельные виды банковских операций</td>
+                    <td><InputText name="v1" key="n" keyValue="1320" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1350</td>
+                    <td>Расчеты с филиалами</td>
+                    <td><InputText name="v1" key="n" keyValue="1350" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1400</td>
+                    <td>Требования к клиентам</td>
+                    <td><InputText name="v1" key="n" keyValue="1400" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1450</td>
+                    <td>Ценные бумаги, имеющиеся в наличии для продажи</td>
+                    <td><InputText name="v1" key="n" keyValue="1450" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1460</td>
+                    <td>Операции «обратное РЕПО» с ценными бумагами</td>
+                    <td><InputText name="v1" key="n" keyValue="1460" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1470</td>
+                    <td>Инвестиции в капитал и субординированный долг</td>
+                    <td><InputText name="v1" key="n" keyValue="1470" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1480</td>
+                    <td>Ценные бумаги, удерживаемые до погашения</td>
+                    <td><InputText name="v1" key="n" keyValue="1480" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1490</td>
+                    <td>Прочие долговые инструменты в категории «займы и дебиторская задолженность»</td>
+                    <td><InputText name="v1" key="n" keyValue="1490" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1550</td>
+                    <td>Расчеты по платежам</td>
+                    <td><InputText name="v1" key="n" keyValue="1550" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1600</td>
+                    <td>Товарно-материальные запасы</td>
+                    <td><InputText name="v1" key="n" keyValue="1600" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1610</td>
+                    <td>Долгосрочные активы, предназначенные для продажи</td>
+                    <td><InputText name="v1" key="n" keyValue="1610" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1650/1690</td>
+                    <td>Основные средства и нематериальные активы</td>
+                    <td><InputText name="v1" key="n" keyValue="1650_1690" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1700</td>
+                    <td>Начисленные доходы, связанные с получением вознаграждения</td>
+                    <td><InputText name="v1" key="n" keyValue="1700" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1790</td>
+                    <td>Предоплата вознаграждения и расходов</td>
+                    <td><InputText name="v1" key="n" keyValue="1790" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1810</td>
+                    <td>Начисленные комиссионные доходы</td>
+                    <td><InputText name="v1" key="n" keyValue="1810" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1830</td>
+                    <td>Просроченные комиссионные доходы</td>
+                    <td><InputText name="v1" key="n" keyValue="1830" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1850</td>
+                    <td>Прочие дебиторы</td>
+                    <td><InputText name="v1" key="n" keyValue="1850" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1880</td>
+                    <td>Секьюритизируемые активы</td>
+                    <td><InputText name="v1" key="n" keyValue="1880" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>1890</td>
+                    <td>Требования по операциям с производными финансовыми инструментами и дилинговым операциям</td>
+                    <td><InputText name="v1" key="n" keyValue="1890" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Итого активы</td>
+                    <td></td>
+                    <td><InputText name="v1" key="n" keyValue="1" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <div style="width:50%;">
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование группы счетов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" style="font-weight: bold;">II класс - Обязательства</td>
+                </tr>
+                <tr>
+                    <td>2010</td>
+                    <td>Корреспондентские счета</td>
+                    <td><InputText name="v1" key="n" keyValue="2010" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>Вклады до востребования других банков</td>
+                    <td><InputText name="v1" key="n" keyValue="2020" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2030</td>
+                    <td>Займы, полученные от Правительства Республики Казахстан, местных исполнительных органов Республики Казахстан и национального управляющего холдинга</td>
+                    <td><InputText name="v1" key="n" keyValue="2030" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2040</td>
+                    <td>Займы, полученные от международных финансовых организаций</td>
+                    <td><InputText name="v1" key="n" keyValue="2040" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2050</td>
+                    <td>Займы, полученные от других банков и организаций, осуществляющих отдельные виды банковских операций</td>
+                    <td><InputText name="v1" key="n" keyValue="2050" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2110</td>
+                    <td>Займы овернайт</td>
+                    <td><InputText name="v1" key="n" keyValue="2110" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2120</td>
+                    <td>Срочные вклады</td>
+                    <td><InputText name="v1" key="n" keyValue="2120" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2150</td>
+                    <td>Расчеты с филиалами</td>
+                    <td><InputText name="v1" key="n" keyValue="2150" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2200</td>
+                    <td>Обязательства перед клиентами</td>
+                    <td><InputText name="v1" key="n" keyValue="2200" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2255</td>
+                    <td>Операции «РЕПО» с ценными бумагами</td>
+                    <td><InputText name="v1" key="n" keyValue="2255" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2300</td>
+                    <td>Выпущенные в обращение ценные бумаги</td>
+                    <td><InputText name="v1" key="n" keyValue="2300" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2400</td>
+                    <td>Субординированные долги</td>
+                    <td><InputText name="v1" key="n" keyValue="2400" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2550</td>
+                    <td>Расчеты по платежам</td>
+                    <td><InputText name="v1" key="n" keyValue="2550" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2700</td>
+                    <td>Начисленные расходы, связанные с выплатой вознаграждения</td>
+                    <td><InputText name="v1" key="n" keyValue="2700" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2770</td>
+                    <td>Начисленные расходы по административно-хозяйственной деятельности</td>
+                    <td><InputText name="v1" key="n" keyValue="2770" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2790</td>
+                    <td>Предоплата вознаграждения и доходов</td>
+                    <td><InputText name="v1" key="n" keyValue="2790" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2810</td>
+                    <td>Начисленные комиссионные расходы</td>
+                    <td><InputText name="v1" key="n" keyValue="2810" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2830</td>
+                    <td>Просроченные комиссионные расходы</td>
+                    <td><InputText name="v1" key="n" keyValue="2830" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2850</td>
+                    <td>Прочие кредиторы</td>
+                    <td><InputText name="v1" key="n" keyValue="2850" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2880</td>
+                    <td>Обязательства по секьюритизируемым активам</td>
+                    <td><InputText name="v1" key="n" keyValue="2880" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>2890</td>
+                    <td>Обязательства по операциям с производными финансовыми инструментами и дилинговым операциям</td>
+                    <td><InputText name="v1" key="n" keyValue="2890" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Итого обязательства</td>
+                    <td></td>
+                    <td><InputText name="v1" key="n" keyValue="2" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <div style="width:50%;">
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование группы счетов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3" style="font-weight: bold;">III класс - Капитал</td>
+                </tr>
+                <tr>
+                    <td>3000</td>
+                    <td>Уставный капитал</td>
+                    <td><InputText name="v1" key="n" keyValue="3000" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>3100</td>
+                    <td>Дополнительный капитал</td>
+                    <td><InputText name="v1" key="n" keyValue="3100" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>3200</td>
+                    <td>Резервы (провизии) на общебанковские риски</td>
+                    <td><InputText name="v1" key="n" keyValue="3200" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>3400</td>
+                    <td>Динамические резервы</td>
+                    <td><InputText name="v1" key="n" keyValue="3400" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>3500</td>
+                    <td>Резервный капитал и резервы переоценки</td>
+                    <td><InputText name="v1" key="n" keyValue="3500" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Итого капитал</td>
+                    <td></td>
+                    <td><InputText name="v1" key="n" keyValue="3" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <div style="width:50%;">
+        <table name="a" class="dataTable">
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold;">Итого пассивы</td>
+                    <td></td>
+                    <td><InputText name="v1" key="n" keyValue="4" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: left;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+width:70%;
+}
+table.dataTable td:nth-child(3) {
+text-align: center;
+width:15%;
+}
+]]>
+    </style>
+    <script>
+        <![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+    </script>
+    <script2>
+        <![CDATA[
+function fixTable(fix){ 
+
+}
+]]>
+    </script2>
+</Form>

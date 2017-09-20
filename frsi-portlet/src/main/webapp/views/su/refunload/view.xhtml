@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{refUnLoadBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="mainForm">
+            <h:panelGroup id ="pgtb" >
+                <p:toolbar id ="mbActions" >
+                    <f:facet name="left">
+                        <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{refUnLoadBean.refreshList()}" update="@form:pgdt" icon="ui-icon-arrowrefresh-1-s" />
+
+                        <span class="ui-separator">
+                            <span class="ui-icon ui-icon-grip-dotted-vertical" />
+                        </span>
+                        <p:commandButton value="Выгрузить в XML" title="Выгрузить выбранный(ые) справочник(и) в XML" ajax="false"  icon="ui-icon-arrowthickstop-1-s" >
+                            <p:fileDownload value="#{refUnLoadBean.unLoadRef()}"/>
+                        </p:commandButton>
+                    </f:facet>
+                </p:toolbar>
+            </h:panelGroup>
+            <p:panel>
+                <p:outputLabel value="Дата выгрузки:  " />
+                <p:calendar value="#{refUnLoadBean.date}" pattern="dd.MM.yyyy" navigator="true" locale="ru" mask="true"/>
+            </p:panel>
+
+            <h:panelGroup id ="pgdt" >
+                <p:dataTable id="nsiTable" value="#{refUnLoadBean.refList}" var="refItem" resizableColumns="true" selection="#{refUnLoadBean.selectedRef}" rowKey="#{refItem}"
+                             paginator="true" paginatorPosition="bottom"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="5,10,15,20,25,30" rows="30"
+                             sortBy="#{refItem.name}" emptyMessage="#{res.noRecordsFound}">
+                    <p:ajax event="rowSelect" update="@form:pgtb" />
+                    <p:ajax event="rowUnselect" update="@form:pgtb" />
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center" />
+                    <p:column headerText="#{res.name}" sortBy="#{refItem.name}"><h:outputText value="#{refItem.name}"/></p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+
+
+        <p:growl id="messages" showDetail="true" />
+    </h:body>
+</f:view>

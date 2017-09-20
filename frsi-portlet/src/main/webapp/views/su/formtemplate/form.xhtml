@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+	encoding="UTF8"
+	locale="#{facesContext.externalContext.requestLocale}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:components="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/form.css?v=1.5"/>
+		<script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/autoNumeric.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/datepicker-ru.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/timepicker-ru.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/common.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/form.js?v=13"/>
+	</h:head>
+
+	<h:body onload="updateLayout();">
+		<components:ajax-status/>
+		<components:dialog-error id="ccDialogError"/>
+		<h:form>
+			<p:toolbar>
+				<f:facet name="left">
+					<p:commandButton value="#{res.back}" action="/views/su/formtemplate/view?faces-redirect=true" icon="ui-icon-arrowreturn-1-w"/>
+				</f:facet>
+			</p:toolbar>
+			<p:layout id="layoutMain" widgetVar="wLayoutMain" styleClass="layout-main" style="width: 100%; height: 320px;" resizeTitle="Переместить" expandTitle="Развернуть" collapseTitle="Свернуть" closeTitle="Закрыть">
+				<p:layoutUnit id="luForm" position="center" styleClass="lu-form" style="width: 100%;">
+					<h:outputText value="#{suFormBean.html}" escape="false"/><br/>
+				</p:layoutUnit>
+				<p:layoutUnit id="luMessages" position="south" header="Сообщения" size="20%" resizable="true" closable="true" collapsible="true" collapsed="true" styleClass="lu-messages">
+					<h:panelGroup id="groupMessages">
+						<h:panelGroup id="groupValidation" rendered="false">
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:layoutUnit>
+			</p:layout>
+		</h:form>
+
+		<h:form id="hidden" style="display: none;">
+			<input type="button" value="Test" onclick="updateHiddenValue([{name:'tag', value: 'test'}]);"/>
+			<p:remoteCommand name="updateHiddenValue" actionListener="#{reportBean.hiddenListener}" oncomplete="onUpdateHiddenValue();" update=":hidden:hiddenValue"/>
+			<h:inputText id="hiddenValue" value="#{reportBean.hiddenValue}" style="width: 100%;"/>
+		</h:form>
+
+		<components:dialog-pick-bank id="ccDialogPickBank" update="@all"/>
+		<components:dialog-pick-issuer id="ccDialogPickIssuer" update="@all"/>
+		<components:dialog-pick-security id="ccDialogPickSecurity" update="@all"/>
+		<components:dialog-pick-securityinfo id="ccDialogPickSecurityInfo" update="@all"/>
+		<components:dialog-pick-lp id="ccDialogPickLegalPerson" update="@all"/>
+		<components:dialog-pick-person id="ccDialogPickPerson" update="@all"/>
+	</h:body>
+</f:view>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope"><!--Конверт сообщения-->
+	<Header><!--Заголовок сообщения-->
+		<MessageInfo>
+			<To>NSI0PLBL</To>
+			<From>FNBDITXX</From>
+			<MessageID>FNBDITXX-NSI-00001068</MessageID>
+			<ReMessageID/>
+			<MessageType>NSI_NBRK_OBLAST</MessageType>
+			<Priority>5</Priority>
+			<CreationTime>2014-11-06T09:55:54</CreationTime>
+		</MessageInfo>
+	</Header>
+	<Body><!--Тело сообщения-->
+	<CommonInfo>
+		<GuideKind>FULL</GuideKind>
+		<EntityCnt>16</EntityCnt>
+	</CommonInfo>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>1</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-04-08</OperDate>
+			<EntityID>1</EntityID>
+			<BeginDate>2005-04-08</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>75</Code>
+			<ShortNameKaz>Алматы қ.</ShortNameKaz>
+			<NameKaz>Алматы қаласы</NameKaz>
+			<Name>г. Алматы</Name>
+			<ShortName>г. Алматы</ShortName>
+			<CodeBikStat>06</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>2</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-04-08</OperDate>
+			<EntityID>2</EntityID>
+			<BeginDate>2005-04-08</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>71</Code>
+			<ShortNameKaz>Астана қ.</ShortNameKaz>
+			<NameKaz>Астана қаласы</NameKaz>
+			<Name>г. Астана</Name>
+			<ShortName>г. Астана</ShortName>
+			<CodeBikStat>54</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>3</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>103</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>19</Code>
+			<ShortNameKaz>Алматы обл.</ShortNameKaz>
+			<NameKaz>Алматы облысы</NameKaz>
+			<Name>Алматинская область</Name>
+			<ShortName>Алматинская обл.</ShortName>
+			<CodeBikStat>05</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>4</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>110</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>43</Code>
+			<ShortNameKaz>Қызылорда обл.</ShortNameKaz>
+			<NameKaz>Қызылорда облысы</NameKaz>
+			<Name>Кызылординская область</Name>
+			<ShortName>Кызылординская обл.</ShortName>
+			<CodeBikStat>21</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>5</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>125</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>63</Code>
+			<ShortNameKaz>Шығыс Қазақстан обл.</ShortNameKaz>
+			<NameKaz>Шығыс Қазақстан облысы</NameKaz>
+			<Name>Восточно-Казахстанская область</Name>
+			<ShortName>Восточно-Казахстанская обл.</ShortName>
+			<CodeBikStat>09</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>6</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>126</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>11</Code>
+			<ShortNameKaz>Ақмола обл.</ShortNameKaz>
+			<NameKaz>Ақмола облысы</NameKaz>
+			<Name>Акмолинская область</Name>
+			<ShortName>Акмолинская обл.</ShortName>
+			<CodeBikStat>53</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>7</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>127</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>15</Code>
+			<ShortNameKaz>Ақтөбе обл.</ShortNameKaz>
+			<NameKaz>Ақтөбе облысы</NameKaz>
+			<Name>Актюбинская область</Name>
+			<ShortName>Актюбинская обл.</ShortName>
+			<CodeBikStat>03</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>8</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>128</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>23</Code>
+			<ShortNameKaz>Атырау обл.</ShortNameKaz>
+			<NameKaz>Атырау облысы</NameKaz>
+			<Name>Атырауская область</Name>
+			<ShortName>Атырауская обл.</ShortName>
+			<CodeBikStat>12</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>9</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>129</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>27</Code>
+			<ShortNameKaz>Батыс Қазақстан обл.</ShortNameKaz>
+			<NameKaz>Батыс Қазақстан облысы</NameKaz>
+			<Name>Западно-Казахстанская область</Name>
+			<ShortName>Западно-Казахстанская обл.</ShortName>
+			<CodeBikStat>49</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>10</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>130</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>31</Code>
+			<ShortNameKaz>Жамбыл обл.</ShortNameKaz>
+			<NameKaz>Жамбыл облысы</NameKaz>
+			<Name>Жамбылская область</Name>
+			<ShortName>Жамбылская обл.</ShortName>
+			<CodeBikStat>14</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>11</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>131</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>35</Code>
+			<ShortNameKaz>Қарағанды обл.</ShortNameKaz>
+			<NameKaz>Қарағанды облысы</NameKaz>
+			<Name>Карагандинская область</Name>
+			<ShortName>Карагандинская обл.</ShortName>
+			<CodeBikStat>18</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>12</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>132</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>39</Code>
+			<ShortNameKaz>Қостанай обл.</ShortNameKaz>
+			<NameKaz>Қостанай облысы</NameKaz>
+			<Name>Костанайская область</Name>
+			<ShortName>Костанайская обл.</ShortName>
+			<CodeBikStat>27</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>13</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>133</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>47</Code>
+			<ShortNameKaz>Маңғыстау обл.</ShortNameKaz>
+			<NameKaz>Маңғыстау облысы</NameKaz>
+			<Name>Мангистауская область</Name>
+			<ShortName>Мангистауская обл.</ShortName>
+			<CodeBikStat>29</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>14</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>134</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>51</Code>
+			<ShortNameKaz>Оңтүстік Қазақстан обл.</ShortNameKaz>
+			<NameKaz>Оңтүстік Қазақстан облысы</NameKaz>
+			<Name>Южно-Казахстанская область</Name>
+			<ShortName>Южно-Казахстанская обл.</ShortName>
+			<CodeBikStat>58</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>15</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>135</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>55</Code>
+			<ShortNameKaz>Павлодар обл.</ShortNameKaz>
+			<NameKaz>Павлодар облысы</NameKaz>
+			<Name>Павлодарская область</Name>
+			<ShortName>Павлодарская обл.</ShortName>
+			<CodeBikStat>32</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>16</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-12-31</OperDate>
+			<EntityID>136</EntityID>
+			<BeginDate>1901-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code>59</Code>
+			<ShortNameKaz>Солтүстік Қазақстан обл.</ShortNameKaz>
+			<NameKaz>Солтүстік Қазақстан облысы</NameKaz>
+			<Name>Северо-Казахстанская область</Name>
+			<ShortName>Северо-Казахстанская обл.</ShortName>
+			<CodeBikStat>36</CodeBikStat>
+		</EntityCustom>
+	</Entity>
+</Body>
+</Envelope>

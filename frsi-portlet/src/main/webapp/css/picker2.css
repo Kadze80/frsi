@@ -1,0 +1,465 @@
+/* Version 1.0 */
+.picker-wrapper {
+    top: 0;
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.5);
+    z-index: 3001;
+}
+
+
+.picker-inner-wrapper{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.picker {
+    width: 600px;
+    height: 390px;
+    background-color: #fff;
+    border: 1px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+.picker-filter {
+    margin: 5px;
+}
+
+.picker-filter input {
+    width: 400px;
+}
+
+.picker-footer {
+    height: 25px;
+    margin: 3px;
+    float: right;
+}
+
+.picker-data {
+    clear: both;
+    border-top: 1px solid #963;
+    border-bottom: 1px solid #963;
+    overflow: auto;
+    width: 600px;
+}
+
+#picker-bank-v2 .picker-data {
+    height: 318px;
+}
+
+#picker-bank-v2 .picker {
+    height: 410px;
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+html > body div.picker-data {
+    overflow: hidden;
+    width: 600px
+}
+
+/* define width of table. IE browsers only                 */
+div.picker-data table {
+    float: left;
+    width: 584px;
+    border-collapse: collapse;
+}
+
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+html > body div.picker-data table {
+    width: 600px
+}
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+table.picker-table thead tr {
+    position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html > body table.picker-table thead tr {
+    display: block
+}
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html > body table.picker-table tbody {
+    display: block;
+    height: 290px;
+    overflow: auto;
+    width: 100%
+}
+
+table.picker-table thead {
+    color: #FFF;
+}
+
+table.picker-table tbody tr {
+    cursor: pointer;
+}
+
+table.picker-table tbody tr:active {
+    background-color: #FECA40;
+}
+
+table.picker-table tbody tr:hover {
+    background-color: #99CCFF;
+}
+
+td.hidden-column, th.hidden-column {
+    display: none;
+}
+
+/* make the TH elements pretty */
+table.picker-table thead th {
+    background: #C96;
+    border-left: 1px solid #EB8;
+    border-right: 1px solid #B74;
+    border-top: 1px solid #EB8;
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: left
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+table.picker-table tbody td, table.picker-table tbody tr.normalRow td {
+    background: #FFF;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px
+}
+
+table.picker-table tbody tr.alternateRow td {
+    background: #EEE;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px
+}
+
+table.picker-table tbody tr.selected-row td {
+    background: #BBB;
+    /*color: crimson;*/
+}
+
+.tabs ul {
+    font: normal 14px arial, sans, sans-serif;
+    -list-style-type: none;
+    border-bottom: 1px solid gray;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 26px;
+}
+
+.tabs ul li {
+    display: inline;
+    float: left;
+    height: 24px;
+    min-width: 80px;
+    text-align: center;
+    padding: 0;
+    margin: 1px 0px 0px 0px;
+    border: 1px solid gray;
+}
+
+.tabs ul li.selected {
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+}
+
+.tabs ul li span {
+    float: left;
+    color: #666;
+    text-decoration: none;
+    padding: 4px;
+    text-align: center;
+    background-color: #eee;
+    min-width: 80px;
+    border-bottom: 1px solid gray;
+}
+
+.tabs ul li span.selected {
+    color: #000;
+    /*font-weight: bold;*/
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.tabs ul li span:hover {
+    color: #000;
+    /*font-weight: bold;*/
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.tab-container {
+    background: white;
+    border-bottom: 1px solid gray;
+    border-top: none;
+    height: 324px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+
+.hidden-tab {
+    display: none;
+}
+
+/*PickerPerson styles*/
+
+#picker-person-v2 .picker-data {
+    height: 290px;
+    border-bottom: none;
+}
+
+#filter_legal_person_bin_v2 {
+    width: 100px;
+}
+
+#filter_legal_person_name_v2 {
+    width: 250px;
+}
+
+/*PickerBank styles*/
+/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
+/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+#picker-bank-v2 table.picker-table thead th {
+    width: 0px
+}
+
+#picker-bank-v2 table.picker-table th + th {
+    width: 584px
+}
+
+/* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
+/* All other non-IE browsers.                                            */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+#picker-bank-v2 table.picker-table tbody td {
+    width: 0px
+}
+
+#picker-bank-v2 table.picker-table tbody td + td {
+    width: 584px
+}
+
+#picker-person-v2 table.picker-table thead th {
+    width: 0px
+}
+
+/*picker-person*/
+#picker-person-v2 table.picker-table th + th {
+    width: 200px
+}
+
+#picker-person-v2 table.picker-table th + th + th{
+    width: 400px
+}
+
+#picker-person-v2 table.picker-table tbody td {
+    width: 0px
+}
+
+#picker-person-v2 table.picker-table tbody td + td {
+    width: 200px
+}
+
+#picker-person-v2 table.picker-table tbody td + td + td{
+    width: 384px
+}
+
+#picker-person-v2 table.picker-table tbody {
+    height: 260px;
+}
+
+/*picker-legal-person*/
+#picker-legal-person-v2 table.picker-table thead th {
+    width: 0px
+}
+
+#picker-legal-person-v2 table.picker-table th + th {
+    width: 200px
+}
+
+#picker-legal-person-v2 table.picker-table th + th + th{
+    width: 400px
+}
+
+#picker-legal-person-v2 table.picker-table tbody td {
+    width: 0px
+}
+
+#picker-legal-person-v2 table.picker-table tbody td + td {
+    width: 200px
+}
+
+#picker-legal-person-v2 table.picker-table tbody td + td + td{
+    width: 384px
+}
+
+#picker-legal-person-v2 .picker-data {
+    height: 318px;
+    border-bottom: none;
+}
+
+#picker-legal-person-v2 .picker {
+    height: 410px;
+}
+
+#filter_legal_person_bin_lp_v2 {
+    width: 100px;
+}
+
+#filter_legal_person_name_lp_v2 {
+    width: 250px;
+}
+
+
+/*GeneralPicker*/
+hidden-column {
+    display: none;
+}
+
+#picker-data {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+}
+
+#pickerTable .selected-row {
+    background-color: #787878;
+    color: #ffffff;
+}
+
+#pickerTable tbody tr:hover {
+    background-color: #99CCFF;
+}
+
+#pickerTable tbody tr {
+    cursor: pointer;
+}
+
+/*#pickerTable thead, #pickerTable tbody { display: block; }
+
+#pickerTable  tbody {
+    height: 290px;       !* Just for the demo          *!
+    overflow: auto;    !* Trigger vertical scroll    *!
+}*/
+
+#pickerTable thead th {
+    background: #C96;
+    border-left: 1px solid #EB8;
+    border-right: 1px solid #B74;
+    border-top: 1px solid #EB8;
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: left
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+#pickerTable tbody td {
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px
+}
+
+#picker-filter {
+    margin: 5px;
+}
+
+#picker-filter input {
+    width: 400px;
+}
+
+#picker-footer {
+    height: 25px;
+    margin: 3px;
+    float: right;
+}
+
+#picker-pager {
+    margin: auto;
+}
+
+/*UnionPicker*/
+#union-picker-data {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+}
+
+#unionPickerTable .selected-row {
+    background-color: #787878;
+    color: #ffffff;
+}
+
+#unionPickerTable tbody tr:hover {
+    background-color: #99CCFF;
+}
+
+#unionPickerTable tbody tr {
+    cursor: pointer;
+}
+
+#unionPickerTable thead th {
+    background: #C96;
+    border-left: 1px solid #EB8;
+    border-right: 1px solid #B74;
+    border-top: 1px solid #EB8;
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: left
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+#unionPickerTable tbody td {
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px
+}
+
+#union-picker-filter {
+    margin: 5px;
+}
+
+#unionPickerFilterName{
+    width: 150px;
+}
+
+#unionPickerFilterName{
+    width: 150px;
+}
+
+#union-picker-footer {
+    height: 25px;
+    margin: 3px;
+    float: right;
+}
+
+#union-picker-pager {
+    margin: auto;
+}

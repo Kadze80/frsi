@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="fs_repo_apk_kp_out"
+languageCode="ru" title="Сводный отчет об операциях «РЕПО», «обратное РЕПО» (АПК,КП)"
+shortName="Свод отч об опер «РЕПО»,«обратное РЕПО» (АПК,КП)"
+beginDate="2014-01-01" endDate=""
+tag='{ "sortFields" : [{"name":"fs_repo_apk_kp_out_array*name_emitter"}], "keyFields" : {"fs_repo_apk_kp_out_array":"num"} }'
+typeCode="CONSOLIDATED"
+xmlVersion="1"
+style="" styleClass="">
+
+<h3 style="text-align: center;">Сводный отчет об операциях «РЕПО», «обратное РЕПО» организаций, осуществляющих отдельные виды банковских операций Республики Казахстан</h3>
+<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+<div>
+	<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th rowspan="2">№ п/п</th>
+			<th rowspan="2">Содержание операции</th>
+			<th rowspan="2">Вид ценной бумаги</th>
+			<th rowspan="2">Национальный идентификационный номер, международный идентификационный номер</th>
+			<th rowspan="2">Количество ценных бумаг в РЕПО, штук</th>
+			<th colspan="2">Сумма РЕПО</th>
+			<th rowspan="2">Начисленное вознаграждение</th>
+			<th rowspan="2">Дисконтированная стоимость будущих денежных потоков</th>
+			<th rowspan="2">Размер резервов (провизии), сформированных в соответствии с международными стандартами финансовой отчетности</th>
+		</tr>
+		<tr fixed="nf">
+			<th>в тысячах тенге</th>
+			<th>в иностранной валюте  (эквивалент в тысячах тенге)</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+		</tr>
+</thead>
+<tbody>
+		<tr>
+			<td>1</td>
+			<td>Операции «РЕПО»</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr>
+			<td>1.1</td>
+			<td>Организованный рынок</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="1.1" auto="true" mask="money0" readonly="true"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="1.1" auto="true" mask="money0" readonly="true"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.1.1">
+			<td>1.1.1</td>
+			<td>«Прямой» способ</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="1.1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="1.1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.1.2">
+			<td>1.1.2</td>
+			<td>«Автоматический» способ</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="1.1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="1.1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.2">
+			<td>1.2</td>
+			<td>Неорганизованный рынок</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Операции «обратное РЕПО»</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>Организованный рынок</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="2.1.1">
+			<td>2.1.1</td>
+			<td>«Прямой» способ</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="2.1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="2.1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="2.1.2">
+			<td>2.1.2</td>
+			<td>«Автоматический» способ</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="2.1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="2.1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="2.2">
+			<td>2.2</td>
+			<td>Неорганизованный рынок</td>
+			<td></td>
+			<td></td>
+			<td>
+				<InputText name="countcb_repo" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thoustenge" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="sumrepo_thouscurr" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="reward" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="dcf" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="prov_intstand" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<DynamicRow>
+			<td><StaticText value="$DynamicRowIdText"/></td>
+			<td><ReceiverInput name="name_emitter" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_issuers" refCode="rec_id" refCaption="name_ru" style="width: 20em; text-align: left;"/></td>
+			<td><InputSelect name="vid_cb" key="num" keyValue="$DynamicRowId" readonly="true" ref="ref_security_variety" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+			<td><ReceiverInput name="nin_iin" key="num" keyValue="$DynamicRowId" readonly="true"  ref="ref_securities" refCode="rec_id" refCaption="nin"/></td>
+			<td><InputText name="countcb_repo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="sumrepo_thoustenge" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="sumrepo_thouscurr" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="reward" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="dcf" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="prov_intstand" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+		</DynamicRow>
+</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: left;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#fs_repo_apk_kp_out_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+}
+]]>
+</script2>
+</Form>

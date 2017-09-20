@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://primefaces.org/ui">
+
+	<composite:interface>
+		<composite:attribute name="update"/>
+	</composite:interface>
+
+	<composite:implementation>
+		<p:dialog id="dialogPickBank" widgetVar="wDialogPickBank" header="Выбор банка"  width="800" height="640" modal="true">
+			<h:form id="form">
+				<h:outputText value="Наименование: "/>
+				<p:inputText value="#{pickBankBean.nameFilter}" style="width: 12em;"/>&#160;&#160;
+				<p:commandButton value="#{res.search}" actionListener="#{pickBankBean.searchBanks}" update="@form"/>&#160;
+				<p:commandButton value="#{res.clear}" actionListener="#{pickBankBean.clearFilters}" style="font-weight: normal;" update="@form"/>
+				<br/><br/>
+				<p:dataTable id="tableBanks" var="bank" value="#{pickBankBean.banks}" scrollable="true" scrollHeight="501"
+				             selection="#{pickBankBean.selectedBank}" rowKey="#{bank.id}" selectionMode="single" sortBy="#{bank.nameRu}" emptyMessage="#{res.noRecordsFound}">
+					<p:ajax event="rowSelect" update="@form,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedValue"/>
+					<p:ajax event="rowUnselect" update="@form,:#{fn:substringAfter(cc.clientId,':')}:hidden:pickedValue"/>
+					<p:column headerText="Банки" sortBy="#{bank.nameRu}">
+						<h:outputText value="#{bank.nameRu}"/>
+					</p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton value="#{res.pick}" actionListener="#{cc.attrs.pickAction}" oncomplete="passBank()" update="#{cc.attrs.update}" disabled="#{pickBankBean.selectedBank==null}"/>
+			</h:form>
+			<h:form id="hidden">
+				<h:inputHidden id="receiverInfo"/>
+				<h:inputHidden id="pickedValue" value="#{pickBankBean.pickedValue}"/>
+			</h:form>
+		</p:dialog>
+		<h:outputScript library="components" name="dialog-pick-bank.js"/>
+	</composite:implementation>
+</ui:component>

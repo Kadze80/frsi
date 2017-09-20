@@ -1,0 +1,43 @@
+/* Version 0.2 */
+.customDialog {
+    visibility: hidden;
+    position:fixed !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.customDialog .customDialogContent {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    bottom: 50px;
+    left: 50px;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.customDialog .customDialogBody {
+    position: absolute;
+    top: 0;
+    bottom: 40px;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
+
+.customDialog .customDialogFooter {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    height: 30px;
+    padding: 5px;
+}
+
+.customDialogCloseButton{
+    float: right;
+}

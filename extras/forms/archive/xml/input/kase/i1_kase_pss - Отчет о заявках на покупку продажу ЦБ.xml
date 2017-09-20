@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+		name="i1_kase_pss"
+		languageCode="ru" title="I1_KASE_PSS - Отчет о заявках на покупку продажу ЦБ"
+		shortName="I1_KASE_PSS - Отчет о заявках на покупку продажу ЦБ"
+		beginDate="2014-01-01" endDate=""
+		typeCode="INPUT"
+		style="" styleClass="">
+
+	<h3 style="text-align: center;">
+		I1_KASE_PSS - Отчет о заявках на покупку продажу ЦБ
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/><br/>
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th rowspan="2">Номер заявки</th>
+					<th colspan="2">Дата и время подачи заявки</th>
+					<th rowspan="2">Тип заявки</th>
+					<th rowspan="2">Направление заявки</th>
+					<th rowspan="2">Вид рынка</th>
+					<th rowspan="2">Категория</th>
+					<th rowspan="2">Подкатегория</th>
+					<th rowspan="2">Код ценной бумаги</th>
+					<th rowspan="2">Идентификационный номер ценной бумаги</th>
+					<th rowspan="2">Валюта номинала</th>
+					<th rowspan="2">Цена</th>
+					<th rowspan="2">Чистая цена</th>
+					<th rowspan="2">Доходность по долговым ценным бумагам</th>
+					<th rowspan="2">Количество</th>
+					<th rowspan="2">Объем</th>
+					<th rowspan="2">Код члена организатора торгов</th>
+					<th rowspan="2">Счет депо</th>
+					<th rowspan="2">Тип счета</th>
+					<th rowspan="2">Тип субсчета</th>
+					<th rowspan="2">Тип владельца счета</th>
+					<th rowspan="2">Персональный идентификационный номер (ID)</th>
+					<th rowspan="2">Признак заявки</th>
+					<th rowspan="2">Статус заявки</th>
+					<th colspan="2">Дата и время снятия заявки</th>
+				</tr>
+				<tr fixed="nf">
+					<th>дата</th>
+					<th>время</th>
+					<th>дата</th>
+					<th>время</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+					<th>11</th>
+					<th>12</th>
+					<th>13</th>
+					<th>14</th>
+					<th>15</th>
+					<th>16</th>
+					<th>17</th>
+					<th>18</th>
+					<th>19</th>
+					<th>20</th>
+					<th>21</th>
+					<th>22</th>
+					<th>23</th>
+					<th>24</th>
+					<th>25</th>
+					<th>26</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="group" class="groupHeader">
+					<td><Plus/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="groupHeader">
+					<td>Всего</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><InputText name="v12" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money4"/></td>
+					<td><InputText name="v13" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money4"/></td>
+					<td><InputText name="v14" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money4"/></td>
+					<td></td>
+					<td><InputText name="v16" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money4"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<DynamicRow>
+					<td><Minus/><StaticText value="$DynamicRowIdText"/></td>
+					<td><InputDate name="v2" key="num" keyValue="$DynamicRowId" valueType="date" style="width: 8em; text-align: center;"/></td>
+					<td><InputTime name="v3" key="num" keyValue="$DynamicRowId" valueType="time" style="width: 8em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="num" keyValue="$DynamicRowId" required="true" ref="ref_request_type" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v5" key="num" keyValue="$DynamicRowId" required="true" ref="ref_request_way" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v6" key="num" keyValue="$DynamicRowId" required="true" ref="ref_market_kind" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v7" key="num" keyValue="$DynamicRowId" required="true" ref="ref_category" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v8" key="num" keyValue="$DynamicRowId" required="true" ref="ref_subcategory" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputText name="v9" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputText name="v10" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputText name="v11" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputText name="v12" key="num" keyValue="$DynamicRowId" mask="money4"/></td>
+					<td><InputText name="v13" key="num" keyValue="$DynamicRowId" mask="money4"/></td>
+					<td><InputText name="v14" key="num" keyValue="$DynamicRowId" mask="money4"/></td>
+					<td><InputText name="v15" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v16" key="num" keyValue="$DynamicRowId" mask="money4"/></td>
+					<td><InputText name="v17" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputText name="v18" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputSelect name="v19" key="num" keyValue="$DynamicRowId" required="true" ref="ref_account_type" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v20" key="num" keyValue="$DynamicRowId" required="true" ref="ref_subaccount_type" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v21" key="num" keyValue="$DynamicRowId" required="true" ref="ref_type_holder_acc" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputText name="v22" key="num" keyValue="$DynamicRowId" style="width: 8em; text-align: left;"/></td>
+					<td><InputSelect name="v23" key="num" keyValue="$DynamicRowId" required="true" ref="ref_request_feature" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputSelect name="v24" key="num" keyValue="$DynamicRowId" required="true" ref="ref_request_sts" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputDate name="v25" key="num" keyValue="$DynamicRowId" valueType="date" style="width: 8em; text-align: center;"/></td>
+					<td><InputTime name="v26" key="num" keyValue="$DynamicRowId" valueType="time" style="width: 8em; text-align: center;"/></td>
+				</DynamicRow>
+			</tbody>
+		</table>
+	</div>
+
+	<br/><br/><br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель:</td>
+			<td><InputText name="ceo" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер:</td>
+			<td><InputText name="chief_accountant" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Исполнитель:</td>
+			<td><InputText name="drafted_by" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Дата:</td>
+			<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+		</tr>
+	</table>
+
+	<style>
+		<![CDATA[
+			table.dataTable td:nth-child(1) {
+				text-align: left;
+				min-width: 5em;
+			}
+		]]>
+	</style>
+	<script>
+		<![CDATA[
+			function updateCalculatedFields() {
+			var cn = [];
+			cn[12] = "v12";
+			cn[13] = "v13";
+			cn[14] = "v14";
+			cn[16] = "v16";
+
+			for (var col = 12; col <= 16; col++)
+				if (cn[col] && cn[col].length) {
+					var groupId = "i1_kase_pss_array*" + cn[col] + ":num:group";
+					var total = sumInputValuesByGroup(groupId);
+					setInputValue("i1_kase_pss_array*" + cn[col] + ":num:Itogo", total);
+				}
+			}
+		]]>
+	</script>
+	<script2>
+		<![CDATA[
+			var fixed;
+			function fixTable(fix,type){
+				if((type==1 && fixed) || (type == 0)) {
+					$("#i1_kase_pss_array").tableHeadFixer({unFix:!fix, head:true});
+					fixed = fix;
+				}
+			}
+		]]>
+	</script2>
+</Form>

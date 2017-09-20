@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+    name="Test_reports"
+    languageCode="ru" title="Test"
+    shortName="Test"
+    beginDate="2014-01-01" endDate=""
+    typeCode="OUTPUT"
+    periodCount="1"
+    style="" styleClass="">
+
+    <h3 style="text-align: center;">Test</h3>
+    <span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+    <span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+        <tr>
+            <th>№ п/п</th>
+            <DynamicCell header="true"><StaticText value="@DynamicCellDate"/></DynamicCell>
+        </tr>
+        <tr>
+            <th>1</th>
+            <DynamicCell header="true"><StaticText value="@DynamicCellNum:2"/></DynamicCell>
+        </tr>
+</thead>
+<tbody>
+        <tr>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <DynamicCell><InputText name="test_field1@DynamicCellId" key="num" keyValue="1" readonly="true" mask="money0"/></DynamicCell>
+        </tr>
+</tbody>
+    </table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+    table.dataTable td:nth-child(1) {
+        text-align: left;
+    }
+    table.dataTable td:nth-child(2) {
+        text-align: center;
+    }
+    table.dataTable tr.groupHeader td:nth-child(2) {
+        text-align: left;
+    }
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+    </script>
+<script2>
+<![CDATA[
+function fixTable(fix){}
+]]>
+</script2>
+</Form>

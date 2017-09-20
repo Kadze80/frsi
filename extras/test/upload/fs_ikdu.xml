@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report form="fs_ikdu">
+	<data>
+		<item key="fs_ikdu_array*name_jurper:num:$D.1.1" value='ТОО «КТ «Алтын Адам»'/>
+		<item key="fs_ikdu_array*cost:num:$D.1.1" value="100000"/>
+		<item key="fs_ikdu_array*balval_vsego:num:$D.1.1" value="10000"/>
+		<item key="fs_ikdu_array*balval_rew:num:$D.1.1" value="1000"/>
+		<item key="fs_ikdu_array*balval_prov:num:$D.1.1" value='100'/>
+		<item key="fs_ikdu_array*count:num:$D.1.1" value="10"/>
+		<item key="fs_ikdu_array*share:num:$D.1.1" value="1"/>
+		<item key="fs_ikdu_array*date_acq:num:$D.1.1" value="26.09.2014"/>
+		<item key="fs_ikdu_array*note:num:$D.1.1" value="Notes 1"/>
+
+		<item key="fs_ikdu_array*name_jurper:num:$D.1.2" value='ТОО "Mickey Mouse"'/>
+		<item key="fs_ikdu_array*cost:num:$D.1.2" value="200000"/>
+		<item key="fs_ikdu_array*balval_vsego:num:$D.1.2" value="20000"/>
+		<item key="fs_ikdu_array*balval_rew:num:$D.1.2" value="2000"/>
+		<item key="fs_ikdu_array*balval_prov:num:$D.1.2" value='200'/>
+		<item key="fs_ikdu_array*count:num:$D.1.2" value="20"/>
+		<item key="fs_ikdu_array*share:num:$D.1.2" value="2"/>
+		<item key="fs_ikdu_array*date_acq:num:$D.1.2" value="26.05.2014"/>
+		<item key="fs_ikdu_array*note:num:$D.1.2" value="Notes 2"/>
+
+		<item key="fs_ikdu*ceo::" value="Chief Executive Officer"/>
+		<item key="fs_ikdu*chief_accountant::" value="Chief Accountant"/>
+		<item key="fs_ikdu*drafted_by::" value="Drafted By"/>
+		<item key="fs_ikdu*signature_date::" value="23.11.2015"/>
+	</data>
+</report>

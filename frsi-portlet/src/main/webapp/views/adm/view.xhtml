@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{admBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/report_preview.css?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <style>
+            .ui-datatable tbody td.wrap {
+                white-space: normal;
+                width: auto;
+            }
+            .canceled-warrant{
+                color: #BBBBBB;
+            }
+        </style>
+        <script>
+            function handleTabChange() {
+                var currentTabId = $("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:permissionForm\\:hiCurrentTabId").val();
+                if(currentTabId==='tabForms'){
+                    rcUpdateFormsTab();
+                }
+            }
+
+            function overlayGalleriaPreview(){
+                var div = document.getElementById("dlgGalleriaPreview");
+                if(div.style.visibility == "visible"){
+                    div.style.visibility = "hidden";
+                } else {
+                    div.style.visibility = "visible";
+                }
+            }
+        </script>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="mainForm">
+            <table>
+                <tr>
+                    <td style="padding-bottom: 5px">
+                        <h:panelGroup id="grpActions">
+                        <p:commandButton id="refresh" value="#{res.refresh}" actionListener="#{admBean.refresh()}" update="@form"
+                                         disabled="#{!userBean.hasPermission('PERMIS:UPDATE')}"/>&#160;
+                        <p:commandButton id="bAddUG" value="#{res.addUserGroup}" actionListener="#{admBean.onSetUserGroup(true)}"
+                                         oncomplete="PF('wUserGroupDialog').show()" update=":userGroupForm"
+                                         disabled="#{!userBean.hasPermission('PERMIS:USER_GROUP:ADD')}"/>&#160;
+                        <p:commandButton id="bEditUG" value="#{res.edit}" actionListener="#{admBean.onSetUserGroup(false)}"
+                                         oncomplete="PF('wUserGroupDialog').show()" update=":userGroupForm"
+                                         disabled="#{admBean.selectedUserGroup==null || !userBean.hasPermission('PERMIS:USER_GROUP:EDIT')}"/>&#160;
+                        <p:commandButton id="bDeleteUG" value="#{res.deleteUserGroup}" actionListener="#{admBean.onSetIsGroup(true)}"
+                                         oncomplete="PF('wConfirmDialog').show()" update=":confirmDialogForm"
+                                         disabled="#{admBean.selectedUserGroup==null || !userBean.hasPermission('PERMIS:USER_GROUP:DELETE')}"/>&#160;
+                        <p:commandButton id="bGPermissions" value="#{res.permissions_group}" actionListener="#{admPermissionBean.onPermissions(true)}"
+                                         oncomplete="PF('wPermissionsDialog').show()" update=":permissionForm"
+                                         disabled="#{admBean.selectedUserGroup==null || !userBean.hasPermission('PERMIS:GROUP_PERMIS')}"/>
+
+                        </h:panelGroup>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:panelGroup id="grpFilters">
+                            <h:outputText value="Роли: &#160;"/>
+                            <p:inputText value="#{admBean.filterRolesText}" readonly="true" style="width:7em"/>
+                            <p:commandButton value="..." actionListener="#{admBean.onFilterRolesShow}" oncomplete="PF('wDlgFilterRoles').show()" update=":frmFilterRoles"/>
+
+                            <h:outputText value="&#160;&#160;&#160;&#160;Типы субъектов:&#160;"/>
+                            <p:inputText value="#{admBean.filterSubjectTypesText}" readonly="true" style="width:7em"/>
+                            <p:commandButton value="..." actionListener="#{admBean.onFilterSubjectTypesShow}" oncomplete="PF('wDlgFilterSubjectTypes').show()" update=":frmFilterSubjectTypes"/>
+
+                            <h:outputText value="&#160;&#160;&#160;&#160;Филиалы:&#160;"/>
+                            <p:inputText value="#{admBean.filterDepartmentsText}" readonly="true" style="width:7em"/>
+                            <p:commandButton value="..." actionListener="#{admBean.onFilterDepartmentsShow}" oncomplete="PF('wDlgFilterDepartments').show()" update=":frmFilterDepartments"/>
+
+                            <h:outputText value="&#160;&#160;&#160;&#160;Наименование группы:&#160;"/>
+                            <p:inputText value="#{admBean.filterGroupName}" style="width:15em"/>
+
+                            <h:outputText value="&#160;&#160;&#160;&#160;Пользователь:&#160;"/>
+                            <p:inputText value="#{admBean.filterUser}" style="width:15em"/>
+
+                            <p:commandButton value="Поиск" actionListener="#{admBean.refresh}" update="@form:userGroupTable @form:userTable @form:grpActions" title="Поиск по выбранным параметрам" icon="ui-icon-search"/>
+                            <p:commandButton value="Очистить" actionListener="#{admBean.clearFilters}" update="@form:grpFilters" style="font-weight: normal" title="Очистить параметры поиска" icon="ui-icon-trash"/>&#160;
+                        </h:panelGroup>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:dataTable id="userGroupTable" value="#{admBean.userGroups}" var="userGroup" resizableColumns="true"
+                                     selectionMode="single" selection="#{admBean.selectedUserGroup}" rowKey="#{userGroup}"
+                                     scrollable="true" scrollHeight="300" sortBy="#{userGroup.name}" emptyMessage="#{res.noRecordsFound}">
+                            <p:ajax event="rowSelect" listener="#{admBean.onUserGroupSelect}" update=":mainForm:bGPermissions :mainForm:bEditUG :mainForm:bDeleteUG :mainForm:bAddUToUG :mainForm:grpUserFilters :mainForm:userTable :mainForm:bUPermissions :mainForm:bEditU :mainForm:bDeleteUFromUG"/>
+                            <p:column headerText="#{res.name}" sortBy="#{userGroup.name}"><h:outputText value="#{userGroup.name}"/></p:column>
+                            <p:column headerText="Роль" style="width:15%;" sortBy="#{admBean.getRoleName(userGroup.roleId)}"><h:outputText value="#{admBean.getRoleName(userGroup.roleId)}"/></p:column>
+                            <p:column headerText="Тип субъекта" styleClass="wrap" style="width:7%;" sortBy="#{admBean.getSubjectTypeName(userGroup.refSubjectTypeRecId)}"><h:outputText value="#{admBean.getSubjectTypeName(userGroup.refSubjectTypeRecId)}"/></p:column>
+                            <p:column headerText="Филиал" styleClass="wrap" style="width:20%;" sortBy="#{admBean.getDepartmentName(userGroup.refDepartmentRecId)}"><h:outputText value="#{admBean.getDepartmentName(userGroup.refDepartmentRecId)}"/></p:column>
+                            <p:column headerText="Подотчетное лицо" styleClass="wrap" style="width:20%;" sortBy="#{admBean.getRespondentName(userGroup.refRespondentRecId)}"><h:outputText value="#{admBean.getRespondentName(userGroup.refRespondentRecId)}"/></p:column>
+                            <p:column headerText="#{res.description}" styleClass="wrap" sortBy="#{userGroup.description}"><h:outputText value="#{userGroup.description}"/></p:column>
+                        </p:dataTable>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px 0px">
+                        <p:commandButton id="refreshU" value="#{res.refresh}" actionListener="#{admBean.refreshUsers}" update="@form"
+                                         disabled="#{!userBean.hasPermission('PERMIS:UPDATE')}" />&#160;
+                        <p:commandButton id="bAddUToUG" value="#{res.addUserToUserGroup}"
+                                         actionListener="#{admBean.onSetUser(true)}"
+                                         oncomplete="PF('wUserDialog').show()" update=":userForm"
+                                         disabled="#{admBean.selectedUserGroup==null || !userBean.hasPermission('PERMIS:USER:ADD_TO_GROUP')}"/>&#160;
+                        <p:commandButton id="bEditU" value="#{res.edit}" actionListener="#{admBean.onSetUser(false)}"
+                                         oncomplete="PF('wUserDialog').show()" update=":userForm"
+                                         disabled="#{admBean.selectedUser==null || !userBean.hasPermission('PERMIS:USER:EDIT')}"/>&#160;
+                        <p:commandButton id="bDeleteUFromUG" value="#{res.deleteUserFromUserGroup}" actionListener="#{admBean.onSetIsGroup(false)}"
+                                         oncomplete="PF('wConfirmDialog').show()" update=":confirmDialogForm"
+                                         disabled="#{admBean.selectedUser==null || !userBean.hasPermission('PERMIS:USER:DELETE_FROM_GROUP')}"/>&#160;
+                        <p:commandButton id="bUPermissions" value="#{res.permissions_user}" actionListener="#{admPermissionBean.onPermissions(false)}"
+                                         oncomplete="PF('wPermissionsDialog').show()" update=":permissionForm"
+                                         disabled="#{admBean.selectedUser==null || !userBean.hasPermission('PERMIS:USER_PERMIS')}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 2em; padding-bottom: 3px">
+                        <h:panelGroup id="grpUserFilters">
+                            <h:outputText value="${res.respondents}&#160;"/>
+                            <p:inputText value="#{admBean.filterRespondentsText}" readonly="true" style="width:7em"/>
+                            <p:commandButton value="..." actionListener="#{admBean.onFilterRespondentsShow}" oncomplete="PF('wDlgFilterRespondents').show()" update=":frmFilterRespondents"/>
+                        </h:panelGroup>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:dataTable id="userTable" widgetVar="wUserTable" value="#{admBean.users}" var="user" resizableColumns="true"
+                                     selectionMode="single" selection="#{admBean.selectedUser}" rowKey="#{user}"
+                                     scrollable="true" scrollHeight="300" sortBy="#{user.screenName}" emptyMessage="#{res.noRecordsFound}">
+                            <p:ajax event="rowSelect" update=":mainForm:bUPermissions :mainForm:bEditU :mainForm:bDeleteUFromUG"/>
+                            <p:column headerText="#{res.display_name}" sortBy="#{user.screenName}"><h:outputText value="#{user.screenName}"/></p:column>
+                            <p:column headerText="#{res.last_name}" sortBy="#{user.lastName}"><h:outputText value="#{user.lastName}"/></p:column>
+                            <p:column headerText="#{res.first_name}" sortBy="#{user.firstName}"><h:outputText value="#{user.firstName}"/></p:column>
+                            <p:column headerText="#{res.email_address}" sortBy="#{user.emailAddress}"><h:outputText value="#{user.emailAddress}"/></p:column>
+                            <p:column headerText="#{res.respondent}" styleClass="wrap" style="width:25%;" sortBy="#{admBean.getRespondentNameByUser(user)}" rendered="#{!admBean.isNBUserGroup()}">
+                                <h:outputText value="#{admBean.getRespondentNameByUser(user)}"/>
+                            </p:column>
+                            <p:column headerText="Блокирован" sortBy="#{user.blocked}" style="text-align:center;">
+                                <p:selectBooleanCheckbox value="#{user.blocked}" disabled="true"/>
+                            </p:column>
+                            <p:column headerText="${res.idn}" sortBy="#{user.idn}" style="width:10em;text-align:center;"><h:outputText value="#{user.idn}"/></p:column>
+                            <p:column headerText="${res.appointment}" sortBy="#{admBean.getPostItemName(user.refPostId)}"><h:outputText value="#{admBean.getPostItemName(user.refPostId)}"/></p:column>
+                            <p:column headerText="Должен подписывать" sortBy="#{user.mustSign}" style="text-align:center;">
+                                <p:selectBooleanCheckbox value="#{user.mustSign}" disabled="true"/>
+                            </p:column>
+                        </p:dataTable>
+                    </td>
+                </tr>
+            </table>
+
+        </h:form>
+
+        <h:form id="permissionForm">
+            <h:inputHidden id="hiCurrentTabId" value="#{admPermissionBean.currentTabId}"/>
+            <p:remoteCommand name="rcUpdateFormsTab" update="#{admPermissionBean.showFormsTab?'@form:tvPermissions:tabFormsContent':''}"/>
+            <p:dialog id="permissionsDialog" widgetVar="wPermissionsDialog" modal="true" width="1160" resizable="false">
+                <f:facet name="header">
+                    <h:outputFormat value="#{res.permissions_for}">
+                        <f:param value="#{admPermissionBean.group ? admBean.selectedUserGroup.name : admBean.selectedUser.lastName}" />
+                    </h:outputFormat>
+                </f:facet>
+                <p:tabView id="tvPermissions" activeIndex="#{admPermissionBean.activeTabIndex}" widgetVar="wTVPermissions">
+                    <p:ajax event="tabChange" listener="#{admPermissionBean.onTabChange}" update="@form:hiCurrentTabId" oncomplete="handleTabChange()"/>
+                    <!--<p:ajax event="tabChange" listener="#{admPermissionBean.onTabChange}" update="#{admPermissionBean.showFormsTab?'@form:hiCurrentTabId @form:tvPermissions:tabFormsContent':''}"/>-->
+                    <p:tab title="#{res.general}" id="tabGeneral">
+                        <p:scrollPanel mode="native" style="height: 430px; width: auto;">
+                            <p:tree id="permissionsTree" value="#{admPermissionBean.permissionTree}" var="node"
+                                    selectionMode="checkbox" selection="#{admPermissionBean.selectedPermissions}" style="width: auto">
+                                <p:ajax event="select" listener="#{admPermissionBean.onPermissionChange(node, true)}" global="false"/>
+                                <p:ajax event="unselect" listener="#{admPermissionBean.onPermissionChange(node, false)}" global="false"/>
+                                <p:treeNode type="node" expandedIcon="ui-icon-folder-open" collapsedIcon="ui-icon-folder-collapsed"><h:outputText value="#{node.getTitle(admBean.languageCode)}"/></p:treeNode>
+                                <p:treeNode type="leaf" icon="ui-icon-document"><h:outputText value="#{node.getTitle(admBean.languageCode)}"/></p:treeNode>
+                            </p:tree>
+                        </p:scrollPanel>
+                    </p:tab>
+                    <p:tab title="Филиалы" id="tabDepartments" rendered="#{admPermissionBean.showDepartmentTab}">
+                        <p:dataTable id="departmentTable" value="#{admPermissionBean.departments}" var="department" resizableColumns="true"
+                                     selectionMode="single" selection="#{admPermissionBean.selectedDepartment}" rowKey="#{department}"
+                                     scrollable="true" scrollHeight="430" sortBy="#{department.department.nameRu}" emptyMessage="#{res.noRecordsFound}">
+                            <p:column headerText="#{res.name}"><h:outputText value="#{department.department.nameRu}" sortBy="#{department.department.nameRu}"/></p:column>
+                            <p:column headerText="#{res.choose}" width="55" >
+                                <f:facet name="header">
+                                    <h:outputText value="#{res.choose}"/><br/>
+                                    <p:commandButton actionListener="#{admPermissionBean.changeAllPermissionDepartments(true)}" update="departmentTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                    <p:commandButton actionListener="#{admPermissionBean.changeAllPermissionDepartments(false)}" update="departmentTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                </f:facet>
+                                <p:selectBooleanCheckbox value="#{department.active}" id="departmentPermission"
+                                                         valueChangeListener="#{admPermissionBean.onDepartmentCheckboxChange(department)}">
+                                    <p:ajax global="false"/>
+                                </p:selectBooleanCheckbox>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Типы субъектов" id="tabSubjectTypes" rendered="#{admPermissionBean.showSubjectTypesTab}">
+                        <p:dataTable id="subjectTypeTable" value="#{admPermissionBean.permissionSubjectTypes}" var="subjectType" resizableColumns="true"
+                                     selectionMode="single" selection="#{admPermissionBean.selectedPermissionSubjectType}" rowKey="#{subjectType}"
+                                     scrollable="true" scrollHeight="430" sortBy="#{subjectType.subjectType.nameRu}" emptyMessage="#{res.noRecordsFound}">
+                            <p:column headerText="#{res.name}"><h:outputText value="#{subjectType.subjectType.nameRu}" sortBy="#{subjectType.subjectType.nameRu}"/></p:column>
+                            <p:column headerText="#{res.choose}" width="55" >
+                                <f:facet name="header">
+                                    <h:outputText value="#{res.choose}"/><br/>
+                                    <p:commandButton actionListener="#{admPermissionBean.changeAllPermissionSubjectTypes(true)}" update="subjectTypeTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                    <p:commandButton actionListener="#{admPermissionBean.changeAllPermissionSubjectTypes(false)}" update="subjectTypeTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                </f:facet>
+                                <p:selectBooleanCheckbox value="#{subjectType.active}" id="subjectTypePermission"
+                                                         valueChangeListener="#{admPermissionBean.onSubjectTypeCheckboxChange(subjectType)}">
+                                    <p:ajax global="false"/>
+                                </p:selectBooleanCheckbox>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="#{res.respondents}" id="tabRespondents" rendered="#{admPermissionBean.showRespondentsTab}">
+                        <p:scrollPanel mode="native" style="height: 430px; width: auto;">
+                            <p:tree id="respondentsTree" value="#{admPermissionBean.respondentTree}" var="node" selectionMode="checkbox" selection="#{admPermissionBean.selectedRespondents}" style="width: 95%;">
+                                <p:ajax event="select" listener="#{admPermissionBean.onRespondentSelect}"  global="false"/>
+                                <p:ajax event="unselect" listener="#{admPermissionBean.onRespondentUnSelect}"  global="false"/>
+                                <p:treeNode type="subject_type" expandedIcon="ui-icon-folder-open" collapsedIcon="ui-icon-folder-collapsed"><h:outputText value="#{node.shortNameRu==null?node.nameRu:node.shortNameRu}"/></p:treeNode>
+                                <p:treeNode type="respondent" icon="ui-icon-document"><h:outputText value="#{node.respondent.nameRu}"/></p:treeNode>
+                            </p:tree>
+                        </p:scrollPanel>
+                    </p:tab>
+                    <p:tab title="#{res.forms}" id="tabForms" rendered="#{admPermissionBean.showFormsTab}">
+                        <h:panelGroup id="tabFormsContent" layout="block">
+                        <table>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td style="padding-right: 1em; vertical-align: top;">
+                                                <p:outputLabel for="formType" value="Тип формы: " /><br/>
+                                                <p:selectOneMenu id="formType" value="#{admPermissionBean.selectedFormTypeCode}" style="width:200px">
+                                                    <p:ajax listener="#{admPermissionBean.onFormTypeCodeChange}" update="tabFormsContent grpFilterFormSubjectTypes"/>
+                                                    <f:selectItems value="#{admPermissionBean.formTypeCodesMap}" />
+                                                </p:selectOneMenu>
+                                            </td>
+                                <td style="padding-right: 1em; vertical-align: top;">
+                                    <h:panelGroup id="grpFilterFormSubjectTypes">
+                                    <p:outputLabel for="subjectType" value="${res.subject_type}: " /><br/>
+                                    <p:selectOneMenu id="subjectType" value="#{admPermissionBean.selectedSubjectTypeRecId}" style="width:200px">
+                                        <p:ajax listener="#{admPermissionBean.onSubjectTypeChange()}" update="permissionFormTable grpFilterFormRespondents"/>
+                                        <f:selectItem itemLabel="#{res.all}..." itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="#{admPermissionBean.subjectTypesInvariantMap}" />
+                                    </p:selectOneMenu>
+                                    </h:panelGroup>
+                                </td>
+                                <td style="padding-right: 1em; vertical-align: top; #{admPermissionBean.showRespondentsFilter()?'':'display:none'}">
+                                    <h:panelGroup id="grpFilterFormRespondents">
+                                        <h:outputText value="${res.respondents}:&#160;"/><br/>
+                                        <p:inputText value="#{admPermissionBean.filterFormRespondentsText}"
+                                                     readonly="true" style="width:400px"/>
+                                        <p:commandButton value="..."
+                                                         actionListener="#{admPermissionBean.onFilterFormRespondentsShow}"
+                                                         oncomplete="PF('wDlgFilterFormRespondents').show()"
+                                                         update=":frmFilterFormRespondents" process="@this"/>
+                                    </h:panelGroup>
+                                </td>
+                                <td style="padding-right: 1em; vertical-align: top;">
+                                    <h:panelGroup >
+                                        <h:outputText value="НПА:"/><br/>
+                                        <p:inputText id="grpFilterNpa" value="#{admPermissionBean.filterNPAText}" readonly="true" style="width:10em"/>
+                                        <p:commandButton value="..." oncomplete="PF('wDlgFilterNPA').show()" update=":frmFilterNPA"/>
+                                    </h:panelGroup>
+                                </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <p:dataTable id="permissionFormTable" widgetVar="wPermissionFormTable" value="#{admPermissionBean.ldmPfContainer}" lazy="true" filteredValue="#{admPermissionBean.filteredPfContainers}" var="pfContainer" rowKey="#{pfContainer.id}"
+                                                 selectionMode="single" selection="#{admPermissionBean.selectedPfContainer}"
+                                                 sortBy="#{pfContainer.formCode}" scrollable="true" scrollHeight="400" style="width: auto"
+                                                 resizableColumns="true" emptyMessage="#{res.noRecordsFound}" filterDelay="1000"
+                                                 rows="25" paginator="true" paginatorPosition="bottom" binding="#{admPermissionBean.pfContainerDataTable}"
+                                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                 currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="10,25,50">
+                                        <p:column headerText="#{res.code}" sortBy="#{pfContainer.formCode}" width="120"
+                                                  filterBy="#{pfContainer.formCode}" filterMatchMode="contains">
+                                            <h:outputText value="#{pfContainer.formCode}"/></p:column>
+                                        <p:column headerText="#{res.name}" sortBy="#{pfContainer.formName}" styleClass="wrap"
+                                                  filterBy="#{pfContainer.formName}" filterMatchMode="contains" filterStyle="width: 350px"><h:outputText value="#{pfContainer.formName}"/></p:column>
+                                        <p:column headerText="Тип" sortBy="#{pfContainer.formTypeName}" width="55"><h:outputText value="#{pfContainer.formTypeName}"/></p:column>
+                                        <p:column headerText="#{res.permission_show}" width="55" >
+                                            <f:facet name="header">
+                                                <h:outputText value="#{res.permission_show}"/><br/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllShowPermissions(true)}" update="permissionFormTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllShowPermissions(false)}" update="permissionFormTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                            </f:facet>
+                                            <p:commandButton id="showChangeButton" icon="#{pfContainer.show?'ui-icon-check':'ui-icon-close'}" actionListener="#{admPermissionBean.onChangePermissionForm}" update="@this">
+                                                <f:attribute name="pfContainer" value="#{pfContainer}"/>
+                                                <f:attribute name="permissionName" value="F:SHOW"/>
+                                                <f:attribute name="updateIds" value="showActiveCount"/>
+                                            </p:commandButton>
+                                            <h:outputText id="showActiveCount" value="#{admPermissionBean.getActiveItemsCount(pfContainer,'F:SHOW')}"/>
+                                        </p:column>
+                                        <p:column width="55" rendered="#{admPermissionBean.showPermissionEdit}">
+                                            <f:facet name="header">
+                                                <h:outputText value="#{res.permission_edit}"/><br/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllEditPermissions(true)}" update="permissionFormTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllEditPermissions(false)}" update="permissionFormTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                            </f:facet>
+                                            <p:commandButton id="editChangeButton" icon="#{pfContainer.edit?'ui-icon-check':'ui-icon-close'}" actionListener="#{admPermissionBean.onChangePermissionForm}" update="@this">
+                                                <f:attribute name="pfContainer" value="#{pfContainer}"/>
+                                                <f:attribute name="permissionName" value="F:EDIT"/>
+                                                <f:attribute name="updateIds" value="editActiveCount"/>
+                                            </p:commandButton>
+                                            <h:outputText id="editActiveCount" value="#{admPermissionBean.getActiveItemsCount(pfContainer,'F:EDIT')}"/>
+                                        </p:column>
+                                        <p:column width="55" rendered="#{admPermissionBean.showPermissionDelete}">
+                                            <f:facet name="header">
+                                                <h:outputText value="#{res.permission_delete}"/><br/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllDeletePermissions(true)}" update="permissionFormTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllDeletePermissions(false)}" update="permissionFormTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                            </f:facet>
+                                            <p:commandButton id="deleteChangeButton" icon="#{pfContainer.delete?'ui-icon-check':'ui-icon-close'}" actionListener="#{admPermissionBean.onChangePermissionForm}" update="@this">
+                                                <f:attribute name="pfContainer" value="#{pfContainer}"/>
+                                                <f:attribute name="permissionName" value="F:DELETE"/>
+                                                <f:attribute name="updateIds" value="deleteActiveCount"/>
+                                            </p:commandButton>
+                                            <h:outputText id="deleteActiveCount" value="#{admPermissionBean.getActiveItemsCount(pfContainer,'F:DELETE')}"/>
+                                        </p:column>
+                                        <p:column width="70" rendered="#{admPermissionBean.showPermissionApprove}">
+                                            <f:facet name="header">
+                                                <h:outputText value="#{res.permission_approve}"/><br/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllApprovePermissions(true)}" update="permissionFormTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllApprovePermissions(false)}" update="permissionFormTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                            </f:facet>
+                                            <p:commandButton id="approveChangeButton" icon="#{pfContainer.approve?'ui-icon-check':'ui-icon-close'}" actionListener="#{admPermissionBean.onChangePermissionForm}" update="@this">
+                                                <f:attribute name="pfContainer" value="#{pfContainer}"/>
+                                                <f:attribute name="permissionName" value="F:APPROVE"/>
+                                                <f:attribute name="updateIds" value="approveActiveCount"/>
+                                            </p:commandButton>
+                                            <h:outputText id="approveActiveCount" value="#{admPermissionBean.getActiveItemsCount(pfContainer,'F:APPROVE')}"/>
+                                        </p:column>
+                                        <p:column width="75" rendered="#{admPermissionBean.showPermissionDisapprove}">
+                                            <f:facet name="header">
+                                                <h:outputText value="#{res.permission_disapprove}"/><br/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllDisapprovePermissions(true)}" update="permissionFormTable" icon="ui-icon-check" title="#{res.check_all}"/>
+                                                <p:commandButton actionListener="#{admPermissionBean.changeAllDisapprovePermissions(false)}" update="permissionFormTable" icon="ui-icon-close" title="#{res.uncheck_all}"/>
+                                            </f:facet>
+                                            <p:commandButton id="disapproveChangeButton" icon="#{pfContainer.disapprove?'ui-icon-check':'ui-icon-close'}" actionListener="#{admPermissionBean.onChangePermissionForm}" update="@this">
+                                                <f:attribute name="pfContainer" value="#{pfContainer}"/>
+                                                <f:attribute name="permissionName" value="F:DISAPPROVE"/>
+                                                <f:attribute name="updateIds" value="disapproveActiveCount"/>
+                                            </p:commandButton>
+                                            <h:outputText id="disapproveActiveCount" value="#{admPermissionBean.getActiveItemsCount(pfContainer,'F:DISAPPROVE')}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </td>
+                            </tr>
+                        </table>
+                        </h:panelGroup>
+                    </p:tab>
+                </p:tabView>
+                <h:panelGroup layout="block" style="padding-top: 5px;">
+                    <p:commandButton value="#{res.save}" action="#{admPermissionBean.onSavePermissions()}" oncomplete="if (!args.hasErrors){PF('wPermissionsDialog').hide();}"/>&#160;&#160;
+                    <p:commandButton id="bCloseDialog" value="#{res.cancel}" onclick="PF('wPermissionsDialog').hide()" type="button"/>&#160;&#160;&#160;
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <p:dialog id="dlgFilterNPA" widgetVar="wDlgFilterNPA" header="Фильтр по НПА" modal="true" resizable="false" width="800">
+            <h:form id="frmFilterNPA">
+                <p:dataTable value="#{admPermissionBean.npaList}" var="npa"
+                             rowKey="#{npa.code}" sortBy="#{npa.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admPermissionBean.filterNPA}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{npa.nameRu}">
+                        <h:outputText value="#{npa.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admPermissionBean.onFilterNPAHide}" oncomplete="PF('wDlgFilterNPA').hide()" update=":permissionForm:tvPermissions:grpFilterNpa, :permissionForm:tvPermissions:permissionFormTable" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterNPA').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <h:form id="userGroupForm">
+            <p:dialog id="userGroupDialog" widgetVar="wUserGroupDialog" modal="true" header="#{admBean.add ? res.addUserGroup : res.edit}" width="820px" height="450px" resizable="true">
+                <p:tabView id="tvUG" activeIndex="#{admBean.activeUserGroupTabIndex}">
+                    <p:tab title="#{res.general}">
+                        <p:messages id="messagesUG" showDetail="true" autoUpdate="true" closable="true" for="userGroupDialogErr" /><br/>
+                        <p:scrollPanel mode="native" style="height: 250px; width: auto;">
+                            <p:panelGrid columns="2" id="user_group_panel">
+                                <h:outputText value="Наименование группы*:" style="font-weight: bold; margin-right: 10px"/>
+                                <p:inputText value="#{admBean.editingUserGroup.name}" style="width: 600px"/>
+                                <h:outputText value="Примечание:" style="font-weight: bold; margin-right: 10px"/>
+                                <p:inputText value="#{admBean.editingUserGroup.description}" style="width: 600px"/>
+                                <h:outputLabel value="Роль*:" style="font-weight: bold; margin-right: 10px"/>
+                                <h:selectOneMenu value="#{admBean.editingUserGroup.roleId}" style="width: 600px">
+                                    <f:selectItem itemLabel="" itemValue="#{0}"/>
+                                    <f:selectItems value="#{admBean.rolesInvariantMap}" />
+                                </h:selectOneMenu>
+                                <h:outputLabel for="respondent_subj_type_add" value="Тип субъекта:" style="font-weight: bold; margin-right: 10px"/>
+                                <h:selectOneMenu id="respondent_subj_type_add" value="#{admBean.editingUserGroup.refSubjectTypeRecId}" style="width: 600px">
+                                    <p:ajax listener="#{admBean.refreshGroupComboboxRespondents}" update="user_group_panel" process="user_group_panel"/>
+                                    <f:selectItem itemLabel="" itemValue="#{0}"/>
+                                    <f:selectItems value="#{admBean.subjectTypesInvariantMap}" />
+                                </h:selectOneMenu>
+                                <h:outputLabel for="respondent_department_add" value="Филиал:" style="font-weight: bold; margin-right: 10px"/>
+                                <h:selectOneMenu id="respondent_department_add" value="#{admBean.editingUserGroup.refDepartmentRecId}" style="width: 600px">
+                                    <p:ajax listener="#{admBean.refreshGroupComboboxRespondents}" update="user_group_panel"/>
+                                    <f:selectItem itemLabel="" itemValue="#{0}"/>
+                                    <f:selectItems value="#{admBean.departmentsInvariantMap}" />
+                                </h:selectOneMenu>
+                                <h:outputText value="#{res.respondent}:" style="font-weight: bold; margin-right: 10px"/>
+                                <h:selectOneMenu value="#{admBean.editingUserGroup.refRespondentRecId}" style="width: 600px">
+                                    <p:ajax />
+                                    <f:selectItem itemLabel="" itemValue="#{0}"/>
+                                    <f:selectItems value="#{admBean.groupComboboxRespondents}" var="respondent"
+                                                   itemLabel="#{respondent.nameRu}" itemValue="#{respondent.recId}"/>
+                                </h:selectOneMenu>
+                            </p:panelGrid>
+                        </p:scrollPanel>
+                    </p:tab>
+                    <p:tab title="Сайты" rendered="#{!admBean.add}">
+                        <table>
+                            <tr>
+                                <td style="padding-bottom: 5px">
+                                    <p:commandButton id="refreshG" value="#{res.refresh}" actionListener="#{admBean.refreshGroups()}" update="groupTable bDeleteG"/>&#160;
+                                    <p:commandButton id="bAddG" value="#{res.add}" actionListener="#{admBean.onSetSearchGroup()}"
+                                                     oncomplete="PF('wGroupSearchDialog').show()" update=":groupSearchForm"
+                                                     disabled="#{!userBean.hasPermission('PERMIS:GROUP:ADD')}"/>&#160;
+                                    <p:commandButton id="bDeleteG" value="#{res.delete}" actionListener="#{admBean.onDeleteGroup()}" update="groupTable bDeleteG"
+                                                     disabled="#{admBean.selectedGroup.groupId == 0 || !userBean.hasPermission('PERMIS:GROUP:DELETE')}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:dataTable id="groupTable" value="#{admBean.groups}" var="group" resizableColumns="true"
+                                                 selectionMode="single" selection="#{admBean.selectedGroup}" rowKey="#{group}"
+                                                 scrollable="true" scrollHeight="200" sortBy="#{group.name}" emptyMessage="#{res.noRecordsFound}">
+                                        <p:ajax event="rowSelect" update=":userGroupForm:tvUG:bDeleteG"/>
+                                        <p:column headerText="#{res.name}" sortBy="#{group.name}"><h:outputText value="#{group.name}"/></p:column>
+                                    </p:dataTable>
+                                </td>
+                            </tr>
+                        </table>
+                    </p:tab>
+                </p:tabView>
+                <h:panelGroup layout="block" style="padding-top: 5px;">
+                    <p:commandButton value="#{admBean.add ? res.add : res.edit}" action="#{admBean.onSaveUserGroup()}" oncomplete="if (!args.hasErrors){PF('wUserGroupDialog').hide();}"
+                                     update=":mainForm:userGroupTable :mainForm:grpUserFilters #{admBean.add ? ':mainForm:bEditUG :mainForm:bDeleteUG :mainForm:bAddUToUG :mainForm:userTable :mainForm:bUPermissions :mainForm:bEditU :mainForm:bDeleteUFromUG' : ''}"/>&#160;&#160;
+                    <p:commandButton id="bCloseUserGroupDialog" value="#{res.cancel}" onclick="PF('wUserGroupDialog').hide()" type="button"/>&#160;&#160;&#160;
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="userForm">
+            <p:dialog id="userDialog" widgetVar="wUserDialog" modal="true" header="#{admBean.add ? res.addUserToUserGroup : res.edit}" width="800px" height="530px" resizable="true"
+                      onShow="PF('wTVUser').select(0);">
+                <p:tabView id="tvUser" widgetVar="wTVUser" activeIndex="${admBean.activeUserTabIndex}">
+                <p:tab title="#{res.general}">
+                <p:messages id="messagesU" showDetail="true" autoUpdate="true" closable="true" for="userDialogErr" /><br/>
+                <p:panelGrid columns="2" id="user_panel">
+                    <h:outputText value="Экранное имя*:" />
+                    <p:panelGrid columns="2" style="border: medium hidden;">
+                        <p:inputText value="#{admBean.editingUser.screenName}" readonly="true" style="width: 200px; padding-left: 0px"/>
+                        <p:commandButton id="bOpenSearchForm" value="..." actionListener="#{admBean.onSetSearchUser()}"
+                                         oncomplete="PF('wUserSearchDialog').show()" update=":userSearchForm" process=":userForm"
+                                         disabled="#{admBean.editingUser.id != null}"/>
+                    </p:panelGrid>
+                    <h:outputText value="Фамилия:" />
+                    <p:inputText value="#{admBean.editingUser.lastName}" readonly="true" style="width: 200px"/>
+                    <h:outputText value="Имя:" />
+                    <p:inputText value="#{admBean.editingUser.firstName}" readonly="true" style="width: 200px"/>
+                    <h:outputText value="Отчество:" />
+                    <p:inputText value="#{admBean.editingUser.middleName}" readonly="true" style="width: 200px"/>
+                    <h:outputText value="Блокирован:" />
+                    <p:selectBooleanCheckbox value="#{admBean.editingUser.blocked}"/>
+                    <h:outputText value="#{res.respondent}*:" rendered="#{!admBean.isNBUserGroup()}"/>
+                    <h:selectOneMenu value="#{admBean.editingUser.respondentId}" style="width: 500px" rendered="#{!admBean.isNBUserGroup()}">
+                        <p:ajax listener="#{admBean.showHideIdnVat}" update="user_panel"/>
+                        <f:selectItem itemLabel="#{res.select}..." itemValue="#{0}"/>
+                        <f:selectItems value="#{admBean.respondents}" var="respondent"
+                                       itemLabel="#{respondent.nameRu}" itemValue="#{respondent.recId}"/>
+                    </h:selectOneMenu>
+                    <h:outputText value="#{res.idn}:"  rendered="#{admBean.renderUserPassportIdn()}"/>
+                    <p:inputText value="#{admBean.editingUserIdn}" disabled="#{admBean.editingNaturalPerson}" style="width: 200px"  rendered="#{admBean.renderUserPassportIdn()}"/>
+                    <h:outputText value="Номер паспорта:" rendered="#{admBean.renderUserPassportIdn()}"/>
+                    <p:inputText value="#{admBean.editingUserPassport}" disabled="#{admBean.editingNaturalPerson}" style="width: 200px" rendered="#{admBean.renderUserPassportIdn()}"/>
+                    <h:outputText value="#{res.appointment}:" rendered="#{admBean.showRefPost}"/>
+                    <h:selectOneMenu value="#{admBean.editingUser.refPostId}" rendered="#{admBean.showRefPost}" style="width: 500px">
+                        <p:ajax />
+                        <f:selectItem itemLabel="#{res.select}..." itemValue="#{0}"/>
+                        <f:selectItems value="#{admBean.postItemsInvariantMap}"/>
+                    </h:selectOneMenu>
+                    <h:outputText value="Должен подписывать отчеты:" rendered="#{admBean.showMustSign}"/>
+                    <p:selectBooleanCheckbox value="#{admBean.editingUser.mustSign}" rendered="#{admBean.showMustSign}"/>
+                    <h:outputText value="Пользователь дизайнера форм:" rendered="#{admBean.showDesignUserName}" />
+                    <h:selectOneMenu value="#{admBean.editingUser.designUserName}" rendered="#{admBean.showDesignUserName}" style="width: 500px">
+                        <f:selectItem itemLabel="#{res.select}..." itemValue=""/>
+                        <f:selectItems value="#{admBean.designUsers}" var="designUser" itemValue="#{designUser}"
+                                       itemLabel="#{designUser}" />
+                    </h:selectOneMenu>
+                </p:panelGrid>
+                </p:tab>
+                    <p:tab title="Доверенности" rendered="${admBean.showUserWarrantTab}">
+                        <p:toolbar id="tbUserWarrant">
+                            <f:facet name="left">
+                                <p:commandButton id="btnAddWarrant" value="#{res.add}"
+                                                 action="#{admBean.onAddUserWarrant}" update=":frmUserWarrant" oncomplete="PF('wDlgUserWarrant').show();"
+                                                 title="Открыть выбранный отчёт"/>
+                                <p:commandButton id="btnEditWarrant" value="#{res.edit}"
+                                                 actionListener="#{admBean.onEditWarrant}"  update=":frmUserWarrant" oncomplete="PF('wDlgUserWarrant').show();"
+                                                 disabled="#{admBean.selectedUserWarrant==null || admBean.selectedUserWarrant.readonly || admBean.selectedUserWarrant.canceled}"
+                                                 title="Редактировать доверенность"/>
+                                <p:commandButton type="button" id="btnCancelWarrant" value="Отозвать"
+                                                 disabled="#{admBean.selectedUserWarrant==null || admBean.selectedUserWarrant.canceled}"
+                                                 onclick="PF('wConfirmDialogCancelUserWarrant').show();"
+                                                 title="Отозвать доверенность"/>
+                                <p:commandButton type="button" id="btnDeleteWarrant" value="#{res.delete}"
+                                                 disabled="#{admBean.selectedUserWarrant==null || admBean.selectedUserWarrant.readonly}"
+                                                 onclick="PF('wConfirmDialogDeleteUserWarrant').show();"
+                                                 title="Редактировать доверенность"/>
+                                <p:commandButton value="Файлы" actionListener="#{admBean.onShowWarrantFiles}" update=":frmWarrantFiles"
+                                                 disabled="#{admBean.selectedUserWarrant==null}"
+                                                 oncomplete="PF('wDlgWarrantFiles').show();"/>
+                            </f:facet>
+                        </p:toolbar>
+                        <p:dataTable id="userWarrantTable" value="#{admBean.userWarrants}" var="warrant"
+                                     resizableColumns="true"
+                                     selectionMode="single" selection="#{admBean.selectedUserWarrant}"
+                                     rowKey="#{warrant}"
+                                     scrollable="true" scrollHeight="290" sortBy="#{warrant.beginDate}"
+                                     emptyMessage="#{res.noRecordsFound}"
+                        rowStyleClass="#{warrant.canceled?'canceled-warrant':''}">
+                            <p:ajax event="rowSelect" update="@form:tvUser:tbUserWarrant"/>
+                            <p:column headerText="Номер" style="width: 4em">
+                                <h:outputText value="#{warrant.code}" sortBy="#{warrant.code}"/>
+                                <h:outputText value="&#160;"/>
+                                <h:graphicImage url="/resources/icons16/image.png" rendered="#{admBean.renderWarrantIcon(warrant)}" styleClass="icon" />
+                            </p:column>
+                            <p:column headerText="Доверяющий" style="width:15em;"><h:outputText value="#{warrant.principalName}" sortBy="#{warrant.principalName}"/></p:column>
+                            <p:column headerText="Дата начала"><h:outputText value="#{warrant.beginDate}" sortBy="#{warrant.beginDate}">
+                                <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+                            </h:outputText></p:column>
+                            <p:column headerText="Дата окончания"><h:outputText value="#{warrant.endDate}" sortBy="#{warrant.endDate}">
+                                <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+                            </h:outputText></p:column>
+                            <p:column headerText="Статус" style="width: 7em"><h:outputText value="#{warrant.canceled?'Отозван':'Актуальный'}" sortBy="#{warrant.canceled}"/></p:column>
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+                <h:panelGroup layout="block" style="padding-top: 5px;">
+                    <p:commandButton value="#{admBean.add ? res.add : res.edit}" actionListener="#{admBean.onSaveUser()}" validateClient="true" oncomplete="if (!args.hasErrors){PF('wUserDialog').hide();}"
+                                     update=":mainForm:userTable #{admBean.add ? ':mainForm:bUPermissions :mainForm:bEditU :mainForm:bDeleteUFromUG' : ''}"/>&#160;&#160;
+                    <p:commandButton id="bCloseUserDialog" value="#{res.cancel}" onclick="PF('wUserDialog').hide()" type="button"/>&#160;&#160;&#160;
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmUserWarrant">
+            <p:dialog id="dlgUserWarrant" widgetVar="wDlgUserWarrant" header="Доверенность" modal="true" width="500">
+                <p:messages id="messagesUserWarrant" showDetail="true" autoUpdate="true" closable="true" for="userWarrantDialogError" /><br/>
+                <p:panelGrid columns="2" style="margin-bottom:10px; height: 120px" cellpadding="5">
+                    <h:outputLabel for="warrantCode" value="Номер:"
+                                   style="font-weight:bold; margin-right: 10px;"/>
+                    <h:inputText id="warrantCode" value="#{admBean.editingUserWarrant.code}"/>
+
+                    <h:outputText for="warrantAttorney" value="Доверяющий:" />
+                    <h:selectOneMenu id="warrantAttorney" value="#{admBean.editingUserWarrant.principal}" style="width: 300px">
+                        <f:selectItem itemLabel="#{res.select}..." itemValue="#{0}"/>
+                        <f:selectItems value="#{admBean.respondentUsers}" var="user"
+                                       itemLabel="#{user.fio}" itemValue="#{user.userId}"/>
+                    </h:selectOneMenu>
+
+                    <p:outputLabel for="warrantBeginDate" value="Дата начала:*"/>
+                    <p:calendar id="warrantBeginDate" style="width: 250px"  value="#{admBean.editingUserWarrant.beginDate}" pattern="dd.MM.yyyy" mask="true" navigator="true" locale="ru"  />
+
+                    <p:outputLabel for="warrantEndDate" value="Дата окончания:"/>
+                    <p:calendar id="warrantEndDate" style="width: 250px"  value="#{admBean.editingUserWarrant.endDate}" pattern="dd.MM.yyyy" mask="true" navigator="true" locale="ru" />
+                </p:panelGrid>
+
+                <h:panelGroup style="float: right">
+                    <p:commandButton value="#{res.save}" actionListener="#{admBean.onSaveUserWarrant}" validateClient="true" oncomplete="if (!args.hasErrors) PF('wDlgUserWarrant').hide()" update=":userForm:tvUser:userWarrantTable"/>
+                    <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgUserWarrant').hide()"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmConfirmCancelUserWarrant">
+            <p:confirmDialog id="confirmDialogCancelUserWarrant" widgetVar="wConfirmDialogCancelUserWarrant" message="Вы уверены, что хотите отозвать выбранную доверенность?" header="#{res.deletion}" severity="alert">
+                <p:commandButton value="Отозвать" actionListener="#{admBean.cancelWarrant}" oncomplete="PF('wConfirmDialogCancelUserWarrant').hide()"
+                                 update=":userForm:tvUser:userWarrantTable :userForm:tvUser:tbUserWarrant"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wConfirmDialogCancelUserWarrant').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <h:form id="frmConfirmDeleteUserWarrant">
+            <p:confirmDialog id="confirmDialogDeleteUserWarrant" widgetVar="wConfirmDialogDeleteUserWarrant" message="Вы уверены, что хотите удалить выбранную доверенность?" header="#{res.deletion}" severity="alert">
+                <p:commandButton value="#{res.delete}" actionListener="#{admBean.deleteWarrant}" oncomplete="PF('wConfirmDialogDeleteUserWarrant').hide()"
+                                 update=":userForm:tvUser:userWarrantTable :userForm:tvUser:tbUserWarrant"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wConfirmDialogDeleteUserWarrant').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <h:form id="userSearchForm" >
+            <p:dialog id="userSearchDialog" widgetVar="wUserSearchDialog" modal="true" header="Окно для поиска пользователя Портала" width="1000px" height="500px" resizable="false">
+                <p:messages id="messagesSF" showDetail="true" autoUpdate="true" closable="true" for="addUserToUserGroupDialogErr" /><br/>
+                <h:outputLabel for="screen_name" value="Экранное имя:" style="font-weight:bold; margin-right: 5px;"/>
+                <p:inputText id="screen_name" value="#{admBean.searchUser.screenName}" style="width: 140px"/>
+                &#160;
+                <h:outputLabel for="last_name" value="Фамилия:" style="font-weight:bold; margin-right: 5px;"/>
+                <p:inputText id="last_name" value="#{admBean.searchUser.lastName}" style="width: 140px"/>
+                &#160;
+                <h:outputLabel for="first_name" value="Имя:" style="font-weight:bold; margin-right: 5px;"/>
+                <p:inputText id="first_name" value="#{admBean.searchUser.firstName}" style="width: 140px"/>
+                &#160;
+                <h:outputLabel for="middle_name" value="Отчество:" style="font-weight:bold; margin-right: 5px;"/>
+                <p:inputText id="middle_name" value="#{admBean.searchUser.middleName}" style="width: 140px"/>
+                &#160;
+                <p:commandButton value="Поиск" actionListener="#{admBean.onSearchedUsers()}" update="@form:foundUserTable"/>
+                &#160;
+                <p:dataTable id="foundUserTable" value="#{admBean.foundUsers}" var="foundUser" resizableColumns="true"
+                             selectionMode="single" selection="#{admBean.selectedFoundUser}" rowKey="#{foundUser}"
+                             scrollable="true" scrollHeight="300" emptyMessage="#{res.noRecordsFound}" sortBy="#{foundUser.screenName}">
+                    <p:ajax event="rowSelect" update="@form:footer" global="false"/>
+                    <p:ajax event="rowUnselect" update="@form:footer" global="false"/>
+                    <p:ajax event="sort" global="false"/>
+                    <p:column headerText="Экранное имя" sortBy="#{foundUser.screenName}" style="width:8em"><h:outputText value="#{foundUser.screenName}"/></p:column>
+                    <p:column headerText="Фамилия" sortBy="#{foundUser.lastName}" styleClass="wrap" style="width:18em"><h:outputText value="#{foundUser.lastName}"/></p:column>
+                    <p:column headerText="Имя" sortBy="#{foundUser.firstName}" style="width:18em"><h:outputText value="#{foundUser.firstName}"/></p:column>
+                    <p:column headerText="Отчество" sortBy="#{foundUser.middleName}" style="width:18em"><h:outputText value="#{foundUser.middleName}"/></p:column>
+                </p:dataTable>
+                <br/>
+                <h:panelGroup id="footer">
+                    <p:commandButton value="#{res.ok}" actionListener="#{admBean.onAddFoundUser()}" validateClient="true" disabled="#{admBean.selectedFoundUser == null}"
+                                     oncomplete="PF('wUserDialog').show();PF('wUserSearchDialog').hide()" update=":userForm"/>&#160;&#160;
+                    <p:commandButton value="#{res.cancel}" onclick="PF('wUserSearchDialog').hide()"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="confirmDialogForm">
+            <p:confirmDialog id="confirmDialog" widgetVar="wConfirmDialog" message="#{admBean.group ? admBean.deleteUserGroupMessage : res.deleteUserFromUserGroup}" header="#{res.deletion}" severity="alert">
+                <p:commandButton value="#{res.delete}" actionListener="#{admBean.onDelete()}" oncomplete="PF('wConfirmDialog').hide()"
+                                 update="#{admBean.group ? ':mainForm:bEditUG :mainForm:bDeleteUG :mainForm:userGroupTable :mainForm:bAddUToUG :mainForm:grpUserFilters' : ''} :mainForm:userTable :mainForm:bUPermissions :mainForm:bEditU :mainForm:bDeleteUFromUG"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wConfirmDialog').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <h:form id="groupSearchForm" >
+            <p:dialog id="groupSearchDialog" widgetVar="wGroupSearchDialog" modal="true" header="Окно для поиска сайтов Портала" width="700px" height="380px" resizable="false">
+                <p:dataTable id="foundGroupTable" value="#{admBean.foundGroups}" var="foundGroup" resizableColumns="true"
+                             selectionMode="single" selection="#{admBean.selectedFoundGroup}" rowKey="#{foundGroup}"
+                             scrollable="true" scrollHeight="300" emptyMessage="#{res.noRecordsFound}" sortBy="#{foundGroup.name}">
+                    <p:ajax event="rowSelect" update="@form:groupFooter" global="false"/>
+                    <p:column headerText="Наименование" sortBy="#{foundGroup.name}"><h:outputText value="#{foundGroup.name}"/></p:column>
+                </p:dataTable>
+                <br/>
+                <h:panelGroup id="groupFooter">
+                    <p:commandButton value="#{res.ok}" actionListener="#{admBean.onAddFoundGroup()}" validateClient="true" disabled="#{admBean.selectedFoundGroup.groupId == 0}"
+                                     oncomplete="PF('wUserGroupDialog').show();PF('wGroupSearchDialog').hide()" update=":userGroupForm"/>&#160;&#160;
+                    <p:commandButton value="#{res.cancel}" onclick="PF('wGroupSearchDialog').hide()"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <p:dialog id="dlgFilterRoles" widgetVar="wDlgFilterRoles" header="Фильтр по ролям" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterRoles">
+                <p:dataTable value="#{admBean.roles}" var="role"
+                             rowKey="#{role}" sortBy="#{role.name}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admBean.filterRoles}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{role.name}">
+                        <h:outputText value="#{role.name}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admBean.onFilterRolesHide}" oncomplete="PF('wDlgFilterRoles').hide()" update=":mainForm:grpFilters" styleClass="filter-button" style="margin-top: 5px;"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRoles').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterSubjectTypes" widgetVar="wDlgFilterSubjectTypes" header="Фильтр по типам субъекта" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterSubjectTypes">
+                <p:dataTable value="#{admBean.subjectTypeItems}" var="subjectType"
+                             rowKey="#{subjectType}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admBean.filterSubjectTypes}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название">
+                        <h:outputText value="#{subjectType.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admBean.onFilterSubjectTypesHide}" oncomplete="PF('wDlgFilterSubjectTypes').hide()" update=":mainForm:grpFilters" styleClass="filter-button" style="margin-top: 5px;"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterSubjectTypes').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterDepartments" widgetVar="wDlgFilterDepartments" header="Фильтр по филиалам" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterDepartments">
+                <p:dataTable value="#{admBean.departmentItems}" var="department"
+                             rowKey="#{department}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admBean.filterDepartments}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название">
+                        <h:outputText value="#{department.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admBean.onFilterDepartmentsHide}" oncomplete="PF('wDlgFilterDepartments').hide()" update=":mainForm:grpFilters" styleClass="filter-button" style="margin-top: 5px;"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterDepartments').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterRespondents" widgetVar="wDlgFilterRespondents" header="Фильтр по подотчетным лицам" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterRespondents">
+                <p:dataTable value="#{admBean.respondents}" var="respondent"
+                             rowKey="#{respondent}" sortBy="#{respondent.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admBean.filterRespondents}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{respondent.nameRu}">
+                        <h:outputText value="#{respondent.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admBean.onFilterRespondentsHide}" oncomplete="PF('wDlgFilterRespondents').hide()" update=":mainForm:grpUserFilters" styleClass="filter-button" style="margin-top: 5px;"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRespondents').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterFormRespondents" widgetVar="wDlgFilterFormRespondents" header="Фильтр по подотчетным лицам" modal="true" resizable="false" width="940">
+            <h:form id="frmFilterFormRespondents">
+                <p:dataTable value="#{admPermissionBean.formRespondents}" var="respondent"
+                             rowKey="#{respondent}" sortBy="#{respondent.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{admPermissionBean.filterFormRespondents}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{respondent.nameRu}" style="width:20em;">
+                        <h:outputText value="#{respondent.nameRu}"/>
+                    </p:column>
+                    <p:column headerText="Доверенность" sortBy="#{admPermissionBean.getRespondentWarrantInfo(respondent)}" style="width:10em;">
+                        <h:outputText value="#{admPermissionBean.getRespondentWarrantInfo(respondent)}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{admPermissionBean.onFilterFormRespondentsHide}" oncomplete="PF('wDlgFilterFormRespondents').hide()" styleClass="filter-button" style="margin-top: 5px;"
+                                 update="#{admPermissionBean.showFormsTab?':permissionForm:tvPermissions:grpFilterFormRespondents :permissionForm:tvPermissions:permissionFormTable':''}"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterFormRespondents').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog header="Загрузка/выгрузка файлов доверенности" widgetVar="wDlgWarrantFiles" modal="true" width="1000" height="420" resizable="false" >
+            <h:form id="frmWarrantFiles">
+                <h:panelGroup>
+                    <p:toolbar id="tbWarrantFiles">
+                        <f:facet name="left">
+                            <p:commandButton value="Загрузить" title="Загрузить письмо" oncomplete="PF('wUploadWarrantFileDlg').show()" icon="ui-icon-arrowreturnthick-1-n"
+                                             disabled="#{admBean.fileEditingUserWarrant.canceled || admBean.fileEditingUserWarrant.readonly}"/>
+                            <p:commandButton value="Выгрузить" title="Выгрузить письмо" ajax="false" icon="ui-icon-arrowthickstop-1-s" disabled="#{admBean.selectedWarrantFile == null}">
+                                <p:fileDownload value="#{admBean.onDownloadWarrantFile()}"/>
+                            </p:commandButton>
+                            <p:commandButton value="Удалить" title="Удалить выбранный файл" oncomplete="PF('wDlgConfirmDeleteWarrantFile').show()"
+                                             disabled="#{admBean.selectedWarrantFile==null || admBean.fileEditingUserWarrant.canceled || admBean.fileEditingUserWarrant.readonly}" icon="ui-icon-trash" />
+                            <p:commandButton value="Просмотреть" actionListener="#{admBean.prepareGalleria(admBean.fileEditingUserWarrant.files, admBean.selectedWarrantFile)}" disabled="#{admBean.selectedWarrantFile == null}"
+                                             oncomplete="if(!args.hasErrors) overlayGalleriaPreview();" update=":frmGalleriaPreview, :frmFooter"/>
+                        </f:facet>
+                    </p:toolbar>
+                </h:panelGroup>
+                <p:dataTable value="#{admBean.fileEditingUserWarrant.files}" sortBy="#{file.fileName}" var="file"  resizableColumns="true" selection="#{admBean.selectedWarrantFile}"
+                             rowKey="#{file}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" scrollable="true" scrollHeight="300" rows="2147483647" >
+                    <p:ajax event="rowSelect" update="@form:tbWarrantFiles" global="false"/>
+                    <p:ajax event="rowUnselect" update="@form:tbWarrantFiles" global="false"/>
+                    <p:ajax event="sort" global="false"/>
+                    <p:column headerText="Наименование файла" sortBy="#{file.fileName}" styleClass="wrap" style="width:40em;" ><h:outputText value="#{file.fileName}"/></p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton value="#{res.save}" actionListener="#{admBean.onSaveWarrantFiles}" oncomplete="PF('wDlgWarrantFiles').hide()"
+                                 disabled="#{admBean.fileEditingUserWarrant.canceled || admBean.fileEditingUserWarrant.readonly}"/>
+                <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgWarrantFiles').hide()" />
+                <br/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog header="Загрузка" widgetVar="wUploadWarrantFileDlg" modal="true" onHide="" >
+            <h:outputText value="Выберите файл и нажмите кнопку загрузить"/><br/><br/>
+            <h:outputText value="Название файла не должно превышать 100 символов. Размер файла не должен превышать 5 мегабайт."/><br/><br/>
+            <h:outputText value="Для загрузки доступны следующие типы файлов:"/><br/>
+            <h:outputText value="- Microsoft Word (*.doc, *.docx);"/><br/>
+            <h:outputText value="- Microsoft Excel (*.xls, *.xlsx, *.xlsxm);"/><br/>
+            <h:outputText value="- Pdf-файл (*.pdf);"/><br/>
+            <h:outputText value="- Jpeg, Gif, Png, Tif, Tiff -файлы (*.jpg,*.jpeg,*.gif,*.png,*.tif,*.tiff)."/><br/><br/>
+            <h:form>
+                <p:fileUpload fileUploadListener="#{admBean.onUploadWarrantFile}" mode="advanced" dragDropSupport="false" update=":frmWarrantFiles"
+                              sizeLimit="5242880" allowTypes="/(\.|\/)(xls|xlsx|xlsm|pdf|doc|docx|jpg|jpeg|gif|png|tif|tiff|XLS|XLSX|XLSM|PDF|DOC|DOCX|JPG|JPEG|GIF|PNG|TIF|TIFF)$/" oncomplete="PF('wUploadWarrantFileDlg').hide()"
+                              label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+                              invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}">
+                </p:fileUpload>
+            </h:form>
+        </p:dialog>
+
+        <p:confirmDialog id="dlgConfirmDeleteWarrantFile" widgetVar="wDlgConfirmDeleteWarrantFile" message="#{res.deleteItemConfirmMessage}" header="#{res.deletion}" severity="alert">
+            <h:form>
+                <p:commandButton value="#{res.delete}" actionListener="#{admBean.deleteWarrantFile}" oncomplete="PF('wDlgConfirmDeleteWarrantFile').hide()" update=":frmWarrantFiles"/>
+                <p:commandButton type="button" value="#{res.cancel}" onclick="PF('wDlgConfirmDeleteWarrantFile').hide()"/>
+            </h:form>
+        </p:confirmDialog>
+
+        <div id="dlgGalleriaPreview" class="customDialog ui-widget">
+            <div class="customDialogContent">
+                <div class="customDialogBody">
+                    <h:form id="frmGalleriaPreview" style="width: 100%; height: 100%;">
+                        <object data="#{admBean.curImage.path}" type="application/pdf" style="height: 100%; width: 100%;">
+                            Возникла ошибка при отображении записки
+                        </object>
+                    </h:form>
+                </div>
+                <div class="customDialogFooter">
+                    <h:form id="frmFooter">
+                        <p style="position: absolute; left:0.5%; top: 40%;font-size: 11pt;">#{admBean.curImage.title}</p>
+                        <div style="position: absolute; left: 44%; top:10%">
+                            <p:commandButton title="Первая" actionListener="#{admBean.getCurObject('FIRST',admBean.curImage,admBean.imageList)}" icon="ui-icon-seek-prev" update=":frmGalleriaPreview,:frmFooter" disabled="#{admBean.curImage.index == 0}"/>
+                            <p:commandButton title="Предыдущая" actionListener="#{admBean.getCurObject('PREV',admBean.curImage,admBean.imageList)}" icon="ui-icon-carat-1-w" update=":frmGalleriaPreview,:frmFooter" disabled="#{admBean.curImage.index == 0}"/>
+                        </div>
+                        <div style="position: absolute; left: 49%; top: 15%;">
+                            <p style="font-size: 11pt; font-weight: bold;">(#{admBean.curImage.index+1}/#{reportBean.imageList.size()})</p>
+                        </div>
+                        <div style="position: absolute; left: 52%; top: 10%;">
+                            <p:commandButton title="Следующая" actionListener="#{admBean.getCurObject('NEXT',admBean.curImage,admBean.imageList)}" icon="ui-icon-carat-1-e" update=":frmGalleriaPreview,:frmFooter" disabled="#{admBean.curImage.index == admBean.imageList.size() - 1}" />
+                            <p:commandButton title="Последняя" actionListener="#{admBean.getCurObject('LAST',admBean.curImage,admBean.imageList)}" icon="ui-icon-seek-next" update=":frmGalleriaPreview,:frmFooter" disabled="#{admBean.curImage.index == admBean.imageList.size() - 1}" />
+                        </div>
+                        <button type="button" style="float: right" onclick="overlayGalleriaPreview();">Закрыть</button>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>

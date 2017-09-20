@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="fs_oi_mfo"
+languageCode="ru" title="Отчет об основных источниках привлеченных денег (МФО)"
+shortName="Отч об осн ист привл денег (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_oi_mfo_array":"n"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 4<br/>
+		к постановлению Правления<br/>
+		Национального Банка Республики Казахстан<br/>
+		от «___» ________ 2016 года № ___<br/>
+		Форма<br/>
+	</span>
+
+	<h3 style="text-align: center;">
+		Отчет об основных источниках привлеченных денег
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th rowspan="3">№ п/п</th>
+					<th rowspan="3" style="min-width: 42em;">Наименование кредитора </th>
+					<th rowspan="3">Бизнес-идентификационный номер (для юридического лица) или индивидуальный идентификационный номер (для физического лица, в том числе индивидуального предпринимателя при наличии)</th>
+					<th rowspan="3">Страна регистрации</th>
+					<th colspan="4">Займы </th>
+					<th colspan="4">Кредиторская задолженность</th>
+					<th rowspan="2" colspan="3">Прочие источники </th>
+					<th rowspan="3">Всего</th>
+				</tr>
+				<tr fixed="nf">
+					<th colspan="2">долгосрочные</th>
+					<th colspan="2">краткосрочные</th>
+					<th colspan="2">долгосрочные</th>
+					<th colspan="2">краткосрочные</th>
+				</tr>
+				<tr fixed="nf">
+					<th>всего</th>
+					<th>из них в иностранной валюте</th>
+					<th>всего</th>
+					<th>из них в иностранной валюте</th>
+					<th>всего</th>
+					<th>из них в иностранной валюте</th>
+					<th>всего</th>
+					<th>из них в иностранной валюте</th>
+					<th>всего</th>
+					<th>из них в иностранной валюте</th>
+					<th>примечание</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th style="min-width: 25em;">2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th>9</th>
+					<th>10</th>
+					<th>11</th>
+					<th>12</th>
+					<th>13</th>
+					<th>14</th>
+					<th style="min-width: 25em;">15</th>
+					<th>16</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="1">
+					<td>1</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="1" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="1"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="1" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="1" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="1" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="2">
+					<td>2</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="2" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="2"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="2" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="2" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="2" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="3">
+					<td>3</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="3" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="3"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="3" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="3" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="3" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="4">
+					<td>4</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="4" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="4"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="4" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="4" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="4" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="5">
+					<td>5</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="5" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="5"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="5" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="5" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="5" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="6">
+					<td>6</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="6" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="6"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="6" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="6" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="6" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="7">
+					<td>7</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="7" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="7"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="7" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="7" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="7" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="8">
+					<td>8</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="8" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="8"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="8" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="8" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="8" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="9">
+					<td>9</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="9" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="9"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="9" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="9" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="9" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="10">
+					<td>10</td>
+					<td>
+						<Plus/>
+						<InputText name="name" key="n" keyValue="10" readonly="true" multiLine="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="10"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="10" readonly="true" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s),validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="10" ref="ref_country" refCode="rec_id" refCaption="name_ru" valueCheckFunc="RIsAColumnNZ([fs_oi_mfo_array*v16],s)" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="10" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr class="groupHeader">
+					<td></td>
+					<td>ИТОГО</td>
+					<td></td>
+					<td></td>
+					<td><InputText name="v5" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v8" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v10" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v12" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v14" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td><InputText name="v16" key="n" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<DynamicRow>
+					<td><StaticText value="$DynamicRowIdText"/></td>
+					<td><Minus/>
+						<InputText name="name" key="n" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" style="width: 35em; text-align: left;"/>
+						<Pick ref="person" receiver="name" key="n" keyValue="$DynamicRowId"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="$DynamicRowId" required="true" readonly="true" valueCheckFunc="validateIDN()" style="width: 10em; text-align: center;"/></td>
+					<td><InputSelect name="v4" key="n" keyValue="$DynamicRowId" required="true" ref="ref_country" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+					<td><InputText name="v5" key="n" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="RIsAColumnLE([fs_oi_mfo_array*v6])"/></td>
+					<td><InputText name="v6" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v7" key="n" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="RIsAColumnLE([fs_oi_mfo_array*v8])"/></td>
+					<td><InputText name="v8" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v9" key="n" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="RIsAColumnLE([fs_oi_mfo_array*v10])"/></td>
+					<td><InputText name="v10" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v11" key="n" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="RIsAColumnLE([fs_oi_mfo_array*v12])"/></td>
+					<td><InputText name="v12" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v13" key="n" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="RIsAColumnLE([fs_oi_mfo_array*v14])"/></td>
+					<td><InputText name="v14" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v15" key="n" keyValue="$DynamicRowId" multiLine="true" style="width: 25em; text-align: left;"/></td>
+					<td><InputText name="v16" key="n" keyValue="$DynamicRowId" readonly="true" auto="true" mask="money0"/></td>
+				</DynamicRow>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td colspan="2">Первый руководитель или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="ceo_date" valueType="date" valueFunc="CeoSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Главный бухгалтер или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="chief_accountant_date" valueType="date" valueFunc="ChiefSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Исполнитель</td>
+		</tr>
+		<tr>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="drafted_by_date" valueType="date" valueFunc="FirstSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">(фамилия, имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Телефон:<InputText name="drafted_by_tel" required="true" style="width: 15em;"/></td>
+		</tr>
+	</table>
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: center;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var groupId, v, sum;
+	var argColumns = ["v5","v7","v9","v11","v13"];
+
+	for (var i = 5; i < 15; i++) {
+		sum = 0;
+		for (var j = 1; j < 11; j++) {
+			groupId = "fs_oi_mfo_array*v" + i + ":n:" + j;
+			v = sumInputValuesByGroup(groupId);
+			setInputValue(groupId, v);
+			sum += v;
+		}
+		setInputValue("fs_oi_mfo_array*v" + i + ":n:11", sum);
+	}
+
+	for (var gid = 1; gid <= 11; gid++) {
+		sum = 0;
+		for (i = 0; i < 5; i++) {
+			groupId = "fs_oi_mfo_array*" + argColumns[i] + ":n:" + gid;
+			sum += getInputValue(groupId);
+		}
+		var colGroupId = "fs_oi_mfo_array*v16:n:" + gid;
+		setInputValue(colGroupId, sum);
+		updateDynamicRowsColumn(colGroupId, argColumns);
+	}
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_oi_mfo_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

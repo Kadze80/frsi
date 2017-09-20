@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <div class="picker-wrapper ui-widget" id="picker-bank-v2">
+            <div class="picker-inner-wrapper">
+                <div class="picker">
+                    <div class="picker-filter">
+                        <label for="filter_bank_name_v2">Наименование:</label>
+                        <input id="filter_bank_name_v2" type="text"/>
+                    </div>
+                    <div class="picker-data">
+                        <table class="picker-table" id="picker-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-column">REC_ID</th>
+                                <th>Банки</th>
+                            </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <h:outputText value="*при отсутствии необходимого банка - обратитесь в НБРК." style="text-align: left; margin-left: 5px; color: dodgerblue"/>
+                    <div class="picker-footer">
+                        <button disabled="disabled" class="select-button">Выбрать</button>
+                        <button class="cancel-button">Отмена</button>
+                        <button class="empty-button">Пустое значение</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h:outputScript library="pickers" name="Picker2_v3.js"/>
+        <h:outputScript library="components" name="Table.js"/>
+        <h:outputScript library="pickers" name="BankPicker2_v9.js"/>
+    </composite:implementation>
+</ui:component>

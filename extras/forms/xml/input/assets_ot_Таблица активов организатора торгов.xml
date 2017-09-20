@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+		name="assets_ot"
+		languageCode="ru" title="Таблица активов организатора торгов, взвешенных по степени кредитного риска вложений (ОТ)"
+		shortName="Таб актив орг торгов, взвеш по степени кред риска вложений (ОТ)"
+		beginDate="2014-01-01" endDate=""
+		typeCode="INPUT"
+		xmlVersion="1"
+		tag='{ "keyFields" : {"assets_ot_array":"num"} }'
+		style="" styleClass="">
+	<span style="display: block; text-align: right;">
+		Приложение 1 <br/>
+		к Правилам расчета пруденциальных<br/>
+		нормативов для организатора торгов
+	</span>
+
+	<h3 style="text-align: center;">
+		Таблица активов организатора торгов, взвешенных по степени кредитного риска вложений
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+	<table name="array" class="dataTable">
+	  <thead>
+		<tr>
+			<th>№</th>
+			<th>Наименование статей</th>
+			<th>Сумма</th>
+			<th>Степень риска в процентах</th>
+			<th>Сумма к расчету</th>
+		</tr>
+   	  </thead>
+	  <tbody>	
+		<tr class="groupHeader">
+			<td colspan="5">I группа</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Наличные тенге</td>
+			<td><InputText name="sum" key="num" keyValue="1" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="1" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="1" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Наличная иностранная валюта стран, имеющих суверенный рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="2" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="2" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="2" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Аффинированные драгоценные металлы</td>
+			<td><InputText name="sum" key="num" keyValue="3" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="3" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="3" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Вклады в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num" keyValue="4" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="4" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="4" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Вклады в центральных банках стран, с суверенным рейтингом не ниже «АА-» агентства «Standard &amp; Poor's» или рейтингом аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="5" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="5" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="5" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Вклады в международных финансовых организациях, с долговым рейтингом не ниже «АА-» агентства «Standard &amp; Poor's» или рейтингом аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="6" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="6" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="6" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Дебиторская задолженность Правительства Республики Казахстан</td>
+			<td><InputText name="sum" key="num" keyValue="7" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="7" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="7" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>Дебиторская задолженность местных органов власти Республики Казахстан по налогам и другим платежам в бюджет</td>
+			<td><InputText name="sum" key="num" keyValue="8" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="8" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="8" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>Государственные ценные бумаги Республики Казахстан, выпущенные Правительством Республики Казахстан и Национальным Банком Республики Казахстан</td>
+			<td><InputText name="sum" key="num" keyValue="9" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="9" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="9" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Ценные бумаги, выпущенные акционерным обществом «Фонд национального благосостояния «Самрук-Казына»</td>
+			<td><InputText name="sum" key="num" keyValue="10" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="10" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="10" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>Ценные бумаги, имеющие статус государственных, выпущенные центральными правительствами иностранных государств, суверенный рейтинг которых не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинга аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="11" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="11" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="11" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>Ценные бумаги, выпущенные международными финансовыми организациями, имеющими долговой рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="12" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="12" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="12" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td colspan="5">II группа</td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>Наличная иностранная валюта стран, имеющих суверенный рейтинг ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и стран, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="13" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="13"  mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="13" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>Деньги на корреспондентских счетах в Республиканском государственном предприятии на праве хозяйственного ведения «Казахстанский центр межбанковских расчетов Национального Банка Республики Казахстан»</td>
+			<td><InputText name="sum" key="num" keyValue="14" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="14" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="14" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>Вклады в центральных банках стран, имеющих суверенный рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="15" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="15"  mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="15" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>Вклады в международных финансовых организациях, имеющих долговой рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="16" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="16" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="16" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>17</td>
+			<td>Вклады в организациях, имеющих долговой рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="17" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="17" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="17" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>18</td>
+			<td>Деньги на корреспондентских счетах в организациях, имеющих долговой рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="18" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="18" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="18" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>19</td>
+			<td>Дебиторская задолженность местных органов власти Республики Казахстан, за исключением дебиторской задолженности, отнесенной к І группе риска</td>
+			<td><InputText name="sum" key="num" keyValue="19" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="19" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="19" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>20</td>
+			<td>Дебиторская задолженность организаций, имеющих долговой рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="20" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="20" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="20" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>21</td>
+			<td>Ценные бумаги, имеющие статус государственных, выпущенные центральными правительствами стран, имеющих суверенный рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="21" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="21" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="21" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>22</td>
+			<td>Ценные бумаги, выпущенные международными финансовыми организациями, имеющими долговой рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="22" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="22" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="22" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>23</td>
+			<td>Ценные бумаги, выпущенные местными органами власти Республики Казахстан</td>
+			<td><InputText name="sum" key="num" keyValue="23" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="23" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="23" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>24</td>
+			<td>Ценные бумаги, выпущенные местными органами власти стран, суверенный рейтинг которых не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="24" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="24" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="24" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>25</td>
+			<td>Ценные бумаги, выпущенные организациями, имеющими долговой рейтинг не ниже «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="25" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="25" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="25" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>26</td>
+			<td>Позиции секьюритизации, удерживаемые организатором торгов на балансе и имеющие кредитный рейтинг от «ААА» до «АА-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств или рейтинговую оценку от «kzAAA» до «kzAA-»по национальной шкале агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня по национальной шкале одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="26" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="26" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="26" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td colspan="5">III группа</td>
+
+		</tr>
+		<tr>
+			<td>27</td>
+			<td>Неаффинированные драгоценные металлы</td>
+			<td><InputText name="sum" key="num" keyValue="27" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="27" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="27" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>28</td>
+			<td>Долговые ценные бумаги, выпущенные Акционерным обществом «Банк Развития Казахстана»</td>
+			<td><InputText name="sum" key="num" keyValue="28" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="28" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="28" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>29</td>
+			<td>Вклады в центральных банках стран, имеющих суверенный рейтинг от «ВВВ+» до «ВВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="29" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="29" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="29" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>30</td>
+			<td>Вклады в международных финансовых организациях, имеющих долговой рейтинг от «ВВВ+»до «ВВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="30" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="30" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="30" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>31</td>
+			<td>Вклады в организациях, имеющих долговой рейтинг от «А+»до «А-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="31" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="31" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="31" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>32</td>
+			<td>Деньги на корреспондентских счетах в организациях, имеющих долговой рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="32" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="32" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="32" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>33</td>
+			<td>Дебиторская задолженность организаций, имеющих долговой рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="33" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="33" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="33" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>34</td>
+			<td>Ценные бумаги, имеющие статус государственных, выпущенные центральными правительствами стран, имеющих суверенный рейтинг от «ВВВ+»до «ВВВ-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="34" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="34" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="34" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>35</td>
+			<td>Ценные бумаги, выпущенные международными финансовыми организациями, имеющими долговой рейтинг от «ВВВ+»до «ВВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="35" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="35" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="35" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>36</td>
+			<td>Ценные бумаги, выпущенные местными органами власти стран, имеющих суверенный рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="36" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="36" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="36" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>37</td>
+			<td>Ценные бумаги, выпущенные организациями, имеющими долговой рейтинг от «А+» до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="37" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="37" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="37" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>38</td>
+			<td>Позиции секьюритизации, удерживаемые организатором торгов на балансе и имеющие кредитный рейтинг от «А+»до «А-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств или рейтинговую оценку от «kzA+» до «kzA-»по национальной шкале агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня по национальной шкале одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="38" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="38" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="38" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td colspan="5">IV группа</td>
+
+		</tr>
+		<tr>
+			<td>39</td>
+			<td>Вклады в центральных банках стран, имеющих суверенный рейтинг от «ВВ+» до «В-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и стран, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="39" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="39" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="39" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>40</td>
+			<td>Вклады в международных финансовых организациях, имеющих долговой рейтинг от «ВВ+» до «В-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и международных финансовых организациях, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="40" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="40" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="40" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>41</td>
+			<td>Вклады в организациях-резидентах Республики Казахстан, имеющих долговой рейтинг ниже «А-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, организациях-резидентах Республики Казахстан, не имеющих соответствующей рейтинговой оценки, и организациях- нерезидентах Республики Казахстан, имеющих долговой рейтинг от «ВВВ+» до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="41" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="41" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="41" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>42</td>
+			<td>Деньги на корреспондентских счетах в организациях-резидентах Республики Казахстан, имеющих долговой рейтинг ниже «А-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, организациях- резидентах Республики Казахстан, не имеющих соответствующей рейтинговой оценки, и организациях-нерезидентах Республики Казахстан, имеющих долговой рейтинг от «ВВВ+» до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="42" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="42" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="42" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>43</td>
+			<td>Дебиторская задолженность организаций- резидентов Республики Казахстан, имеющих долговой рейтинг ниже «А-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, организаций-резидентов Республики Казахстан, не имеющих соответствующей рейтинговой оценки, и организаций-нерезидентов Республики Казахстан, имеющих долговой рейтинг от «ВВВ+» до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="43" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="43" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="43" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>44</td>
+			<td>Дебиторская задолженность физических лиц</td>
+			<td><InputText name="sum" key="num" keyValue="44" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="44" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="44" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>45</td>
+			<td>Ценные бумаги, имеющие статус государственных, выпущенные центральными правительствами стран, имеющих суверенный рейтинг от «ВВ+» до «В-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и стран, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="45" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="45" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="45" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>46</td>
+			<td>Ценные бумаги, выпущенные местными органами власти стран, имеющих суверенный рейтинг от «ВВВ+» до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и стран, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="46" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="46" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="46" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>47</td>
+			<td>Ценные бумаги, выпущенные: международными финансовыми организациями, имеющими долговой рейтинг от «ВВ+» до «В-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и международными финансовыми организациями, не имеющими соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="47" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="47" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="47" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>48</td>
+			<td>Ценные бумаги, выпущенные организациями- резидентами Республики Казахстан, имеющими долговой рейтинг ниже «А-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, организациями-резидентами Республики Казахстан, не имеющими соответствующей рейтинговой оценки, и организациями-нерезидентами Республики Казахстан, имеющими долговой рейтинг от «ВВВ+» до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="48" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="48" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="48" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>49</td>
+			<td>Позиции секьюритизации, удерживаемые организатором торгов на балансе и имеющие кредитный рейтинг от «ВВВ+» до «ВВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств или рейтинговую оценку от «kzBBB+» до «kzBBB-» по национальной шкале агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня по национальной шкале одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="49" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="49" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="49" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>50</td>
+			<td>Расчеты по платежам</td>
+			<td><InputText name="sum" key="num" keyValue="50" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="50" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="50" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>51</td>
+			<td>Основные средства</td>
+			<td><InputText name="sum" key="num" keyValue="51" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="51" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="51" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>52</td>
+			<td>Материальные запасы</td>
+			<td><InputText name="sum" key="num" keyValue="52" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="52" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="52" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>53</td>
+			<td>Предоплата суммы вознаграждения и расходов</td>
+			<td><InputText name="sum" key="num" keyValue="53" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="53" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="53" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td colspan="5">V группа</td>
+		</tr>
+		<tr>
+			<td>54</td>
+			<td>Лицензионное программное обеспечение, приобретенное для целей основной деятельности организатора торгов и соответствующее Международному стандарту финансовой отчетности 38</td>
+			<td><InputText name="sum" key="num" keyValue="54" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="54" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="54" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>55</td>
+			<td>Вклады в центральных банках стран, имеющих суверенный рейтинг ниже «В-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="55" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="55" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="55" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>56</td>
+			<td>Вклады в международных финансовых организациях, имеющих долговой рейтинг ниже «В-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="56" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="56" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="56" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>57</td>
+			<td>Вклады в организациях-нерезидентах Республики Казахстан, имеющих долговой рейтинг ниже «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и организациях-нерезидентах Республики Казахстан, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="57" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="57" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="57" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>58</td>
+			<td>Деньги на корреспондентских счетах в организациях-нерезидентах Республики Казахстан, имеющих долговой рейтинг ниже «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и организациях-нерезидентах Республики Казахстан, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="58" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="58" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="58" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>59</td>
+			<td>Вклады в организациях-нерезидентах Республики Казахстан, зарегистрированных на территории иностранных государств, указанных в примечании к настоящему приложению</td>
+			<td><InputText name="sum" key="num" keyValue="59" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="59" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="59" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>60</td>
+			<td>Деньги на корреспондентских счетах в организациях-нерезидентах Республики Казахстан, зарегистрированных на территории иностранных государств, указанных в примечании к настоящему приложению</td>
+			<td><InputText name="sum" key="num" keyValue="60" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="60" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="60" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>61</td>
+			<td>Дебиторская задолженность организаций-нерезидентов Республики Казахстан, имеющих долговой рейтинг ниже «ВВ-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и организаций-нерезидентов Республики Казахстан, не имеющих соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="61" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="61" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="61" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>62</td>
+			<td>Дебиторская задолженность организаций- нерезидентов Республики Казахстан, зарегистрированных на территории иностранных государств, указанных в примечании к настоящему приложению</td>
+			<td><InputText name="sum" key="num" keyValue="62" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="62" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="62" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>63</td>
+			<td>Ценные бумаги, выпущенные центральными правительствами стран, имеющих суверенный рейтинг ниже «В-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="63" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="63" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="63" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>64</td>
+			<td>Ценные бумаги, выпущенные местными органами власти стран, суверенный рейтинг которых ниже «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="64" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="64" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="64" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>65</td>
+			<td>Ценные бумаги, выпущенные международными финансовыми организациями, имеющими долговой рейтинг ниже «В-»агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="65" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="65" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="65" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>66</td>
+			<td>Ценные бумаги, выпущенные организациями- нерезидентами Республики Казахстан, имеющими долговой рейтинг ниже «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств, и организациями - нерезидентами Республики Казахстан, не имеющими соответствующей рейтинговой оценки</td>
+			<td><InputText name="sum" key="num" keyValue="66" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="66" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="66" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>67</td>
+			<td>Ценные бумаги, выпущенные организациями-нерезидентами Республики Казахстан, зарегистрированными на территории иностранных государств, указанных в примечании к настоящему приложению</td>
+			<td><InputText name="sum" key="num" keyValue="67" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="67" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="67" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>68</td>
+			<td>Позиции секьюритизации, удерживаемые организатором торгов на балансе и имеющие кредитный рейтинг от «ВВ+»до «ВВ-» агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня одного из других рейтинговых агентств или рейтинговую оценку от «kzBB+» до «kzBB-» по национальной шкале агентства «Standard &amp; Poor's» или рейтинг аналогичного уровня по национальной шкале одного из других рейтинговых агентств</td>
+			<td><InputText name="sum" key="num" keyValue="68" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="68" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="68" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>69</td>
+			<td>Негосударственные долговые ценные бумаги, имеющие рейтинговую оценку ниже уровня, указанного в строке 51 настоящего приложения, а также не имеющие рейтинговую оценку, включенные в сектор «долговые ценные бумаги» по категории «долговые ценные бумаги субъектов квазигосударственного сектора» официального списка фондовой биржи в соответствии с постановлением Правления Национального Банка Республики Казахстан от 22 октября 2014 года № 189 «Об утверждении Требований к эмитентам и их ценным бумагам, допускаемым (допущенным) к обращению на фондовой бирже, а также к отдельным категориям списка фондовой биржи», зарегистрированным в Реестре государственной регистрации нормативных правовых актов под № 9871</td>
+			<td><InputText name="sum" key="num" keyValue="69" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="69" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="69" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>70</td>
+			<td>Негосударственные долговые ценные бумаги организаций Республики Казахстан,
+				выпущенные в соответствии с
+				законодательством Республики Казахстан
+				и других государств, за исключением ценных бумаг, указанных в строках 72 и 73, настоящего приложения,  соответствующие следующим требованиям:
+				<br/>1) государственная регистрация эмитента долговых ценных бумаг осуществлена не менее чем за один год до дня подачи заявления о включении его ценных бумаг в официальный список фондовой биржи;
+				<br/>2) эмитент долговых ценных бумаг составляет финансовую отчетность в соответствии с МСФО или СФО США;
+				<br/>3) аудит финансовой отчетности эмитента долговых ценных бумаг производится одной из аудиторских организаций, входящих в перечень признаваемых фондовой биржей аудиторских организаций на основании их соответствия квалификационным требованиям;
+				<br/>4) эмитентом долговых ценных бумаг представлялась фондовой бирже финансовая отчетность (в случае наличия дочерней (дочерних) организации (организаций) - консолидированная финансовая отчетность), подтвержденная аудиторским отчетом, за последний завершенный финансовый год;
+				<br/>5) собственный капитал эмитента долговых ценных бумаг составляет сумму, эквивалентную не менее трехсот сорока тысячекратного размера месячного расчетного показателя, установленного законом о республиканском бюджете на соответствующий финансовый год согласно финансовой отчетности на последнюю отчетную дату (в случае наличия дочерней (дочерних) организации (организаций) - консолидированной финансовой отчетности), подтвержденной аудиторским отчетом;
+				<br/>6) наличие чистой прибыли эмитента долговых ценных бумаг за один из трех завершенных финансовых года согласно финансовой отчетности на последнюю отчетную дату (в случае наличия дочерней (дочерних) организации (организаций) - консолидированной финансовой отчетности), подтвержденной аудиторским отчетом;
+				<br/>7) объем продаж эмитента долговых ценных бумаг – нефинансовой организации, за исключением лизинговой организации и кредитного товарищества, по основной деятельности за последний финансовый год по данным финансовой отчетности (в случае наличия дочерней (дочерних) организации (организаций) - консолидированной финансовой отчетности), подтвержденной аудиторским отчетом, составляет сумму, эквивалентную не менее трехсот сорока тысячекратного размера месячного расчетного показателя установленного законом о республиканском бюджете на соответствующий финансовый год;
+				<br/>8) наличие кодекса корпоративного управления, утвержденного общим собранием акционеров эмитента долговых ценных бумаг;
+				<br/>9) в учредительных документах эмитента долговых ценных бумаг и (или) проспекте выпуска ценных бумаг не содержится норм, которые ущемляют или ограничивают права собственников ценных бумаг на их отчуждение (передачу)
+			</td>
+			<td><InputText name="sum" key="num" keyValue="70" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="70" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="70" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr>
+			<td>71</td>
+			<td>Прочие финансовые инструменты</td>
+			<td><InputText name="sum" key="num" keyValue="71" mask="money0"/></td>
+			<td><InputText name="deg_risk" key="num" keyValue="71" mask="money0" value="100" readonly="true"/></td>
+			<td><InputText name="sum_calc" key="num" keyValue="71" mask="money0" readonly="true"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого:</td>
+			<td><InputText name="sum" key="num" keyValue="ItogoAssetsOt" readonly="true" auto="true" mask="money0"/></td>
+			<td>x</td>
+			<td><InputText name="sum_calc" key="num" keyValue="ItogoAssetsOt" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+          </tbody>
+	</table>
+	</div>
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель:</td>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер:</td>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Исполнитель:</td>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;" /></td>
+		</tr>
+		<tr>
+			<td>Дата:</td>
+			<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true" /></td>
+		</tr>
+	</table>
+	<style>
+		table.dataTable td:nth-child(1) {
+		text-align: center;
+		}
+		table.dataTable td:nth-child(2) {
+		text-align: left;
+		}
+		table.dataTable td:nth-child(n+3) {
+		text-align: center;
+		}
+	</style>
+	<script>
+		<![CDATA[
+		function updateCalculatedFields() {
+			var sumA=0;
+			var sumС=0;
+			for(var i=1; i <= 71; i++) {
+				var A = Cells("sum",i);
+				var B = Cells("deg_risk",i);
+				var C = A*B/100;
+				setInputValue("assets_ot_array*sum_calc:num:"+i, C);
+				sumA +=A;
+				sumС +=C;
+			}
+
+			setInputValue("assets_ot_array*sum:num:ItogoAssetsOt", sumA);
+			setInputValue("assets_ot_array*sum_calc:num:ItogoAssetsOt", sumС);
+		}
+	function Cells(cn, vrow){
+		var pref = "assets_ot_array*"+cn+":num:"+vrow;
+		var v = getInputValue(pref);
+		return v;
+	}
+	]]>
+	</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#assets_ot_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

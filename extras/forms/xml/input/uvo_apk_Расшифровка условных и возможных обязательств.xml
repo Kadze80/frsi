@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="uvo_apk"
+languageCode="ru" title="Расшифровка условных и возможных обязательств, взвешенных с учетом кредитного риска (АПК)"
+shortName="Расш усл и возм обяз, взвеш с уч кред риска(АПК)"
+beginDate="2014-01-01" endDate="2017-04-01"
+typeCode="INPUT"
+tag='{ "keyFields" : {"uvo_apk_array":"num"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+Приложение 7<br/>
+к Инструкции о нормативных значениях,<br/>
+методике расчетов пруденциальных<br/>
+нормативов для ипотечных организаций,<br/>
+дочерних организаций национального<br/>
+управляющего холдинга в сфере<br/>
+агропромышленного комплекса, а также<br/>
+форм и сроков представления отчетности<br/>
+об их выполнении<br/>
+</span>
+
+<h3 style="text-align: center;">Отчет об остатках на внебалансовых счетах условных и возможных требований и обязательств</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>№</th>
+	<th>Наименование статей</th>
+	<th>Сумма</th>
+	<th>Коэффициент конверсии в процентах</th>
+	<th>Коэффициент кредитного риска</th>
+	<th>Сумма к расчету</th>
+</tr>
+</thead>
+<tbody>
+<tr class="groupHeader">
+	<td colspan="6">I группа</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>Гарантии и поручительства организации, обязательства по которым полностью обеспечены: встречными гарантиями (поручительствами) Правительства Республики Казахстан, Национального Банка Республики Казахстан, центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг на уровне «АА-» и выше агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; деньгами или аффинированными драгоценными металлами, предоставленными в распоряжение организации; ценными бумагами Правительства Республики Казахстан, Национального Банка Республики Казахстан, центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг не ниже «АА-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+	<td><InputText name="sum" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="1" readonly="true" value="0" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>Условные (возможные) обязательства по приобретению либо продаже ценных бумаг, выпущенных Правительством Республики Казахстан, Национальным Банком Республики Казахстан или ценных бумаг, выпущенных центральными правительствами и центральными банками иностранных государств, имеющих суверенный рейтинг на уровне «АА-» и выше агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+	<td><InputText name="sum" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="2" readonly="true" value="0" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>Возможные (условные) обязательства по размещению организацией в будущем займов и вкладов, подлежащие отмене в любой момент по требованию организации</td>
+	<td><InputText name="sum" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="3" readonly="true" value="0" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>Гарантии и поручительства организации, выданные в пользу дочерних компаний организации при привлечении через них внешних займов и размещении долговых обязательств организации</td>
+	<td><InputText name="sum" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="4" readonly="true" value="0" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td colspan="6">II группа</td>
+
+</tr>
+<tr>
+	<td>5</td>
+	<td>Возможные (условные) обязательства по размещению организацией в будущем займов и вкладов со сроком погашения менее 1 года</td>
+	<td><InputText name="sum" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="5" readonly="true" value="20" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>6</td>
+	<td>Гарантии и поручительства организации, обязательства по которым полностью обеспечены: встречными гарантиями (поручительствами) центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг от «А-» до «АА-» и выше агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; ценными бумагами центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг от «А-» до «АА-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+	<td><InputText name="sum" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="6" readonly="true" value="20" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td  colspan="6">III группа</td>
+</tr>
+<tr>
+	<td>7</td>
+	<td>Возможные (условные) обязательства по размещению организацией в будущем займов и вкладов со сроком погашения более 1 года</td>
+	<td><InputText name="sum" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="7" readonly="true" value="50" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>8</td>
+	<td>Гарантии и поручительства организации, обязательства по которым полностью обеспечены: встречными гарантиями (поручительствами) центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг от «ВВВ-» до «А-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; гарантиями (поручительствами) банков, имеющих долговой рейтинг от «А-» до «АА-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; гарантиями (поручительствами) юридических лиц и страховыми полисами страховых (перестраховочных) организаций, имеющих долговой рейтинг на уровне «АА-» и выше агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; ценными бумагами центральных правительств и центральных банков иностранных государств, имеющих суверенный рейтинг от «ВВВ-» до «А-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; ценными бумагами банков, имеющих долговой рейтинг от «А-» до «АА-» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств; ценными бумагами юридических лиц, имеющих долговой рейтинг на уровне «АА-» и выше агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+	<td><InputText name="sum" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="8" readonly="true" value="50" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>9</td>
+	<td>Возможные (условные) обязательства по обратному выкупу у Акционерного общества «Казахстанская ипотечная компания» прав требований по ипотечным жилищным займам</td>
+	<td><InputText name="sum" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="9" readonly="true" value="50" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td  colspan="6">IV группа</td>
+</tr>
+<tr>
+	<td>10</td>
+	<td>Соглашение о продаже организации и с обязательством обратного выкупа организацией финансовых инструментов</td>
+	<td><InputText name="sum" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="10" readonly="true" value="100" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>11</td>
+	<td>Иные гарантии (поручительства) организации</td>
+	<td><InputText name="sum" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="11" readonly="true" value="100" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>12</td>
+	<td>Иные аккредитивы организации</td>
+	<td><InputText name="sum" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="12" readonly="true" value="100" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>13</td>
+	<td>Иные условные (возможные) обязательства организации</td>
+	<td><InputText name="sum" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="conv_ration" key="num" keyValue="13" readonly="true" value="100" mask="money0"/></td>
+	<td><InputText name="conv_credrisk" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td></td>
+	<td>(Итого УВО)</td>
+	<td><InputText name="sum" key="num" keyValue="ItogoUvo" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="sum_calc" key="num" keyValue="ItogoUvo" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br/><br/>
+<table class="textLayoutTable">
+<tr>
+	<td>Первый руководитель:</td>
+	<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Главный бухгалтер:</td>
+	<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Исполнитель:</td>
+	<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Дата:</td>
+	<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+table.dataTable td:nth-child(n+3) {
+text-align: right;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+var a = [], b = [], c = [], d = [];
+var sumA = 0, sumD = 0;
+
+for (var i = 1; i <= 13; i++) {
+a[i] = getInputValue("uvo_apk_array*sum:num:" + i);
+b[i] = getInputValue("uvo_apk_array*conv_ration:num:" + i);
+c[i] = getInputValue("uvo_apk_array*conv_credrisk:num:" + i);
+d[i] = a[i]*b[i]/100;
+if (d[i]) {
+   setInputValue("uvo_apk_array*sum_calc:num:" + i,d[i]);
+   sumD += d[i];
+} else{
+	setInputValue("uvo_apk_array*sum_calc:num:" + i, "0");
+}
+
+sumA += a[i];
+}
+setInputValue("uvo_apk_array*sum:num:ItogoUvo",sumA);
+setInputValue("uvo_apk_array*sum_calc:num:ItogoUvo",sumD);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#uvo_apk_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

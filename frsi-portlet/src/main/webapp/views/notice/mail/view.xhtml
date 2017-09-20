@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{noticeMailBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+        <style>
+            .bold {font-weight: bold; font-style: italic;}
+        </style>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+
+        <h:form id="mainForm">
+            <p:tabView id="tvMail">
+                <p:tab id="viewMail" title="Просмотр уведомлений">
+                    <h:panelGroup id ="actions">
+                        <p:toolbar id ="mbActions">
+                            <f:facet name="left">
+                                <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{noticeMailBean.refreshNoticeMail()}"
+                                                 disabled="#{!userBean.hasPermission('NOTICE:VIEW:REFRESH')}" update="@form:tvMail:pgdt, @form:tvMail:actions" icon="ui-icon-arrowrefresh-1-s" />
+                                <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                <p:commandButton value="Открыть" title="Открыть сообщение" actionListener="#{noticeMailBean.onDlgMessageShow()}"
+                                                 oncomplete="PF('wDlgMessage').show()"
+                                                 disabled="#{userBean.disabled(noticeMailBean.selectedMail == null || noticeMailBean.selectedMail.size() > 1 ,'NOTICE:VIEW:OPEN')}" update=":frmMessage"/>
+                                <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                <p:commandButton value="Удалить" title="Удалить уведомление" onclick="PF('wDlgConfirmDelete').show()" disabled="#{userBean.disabled(noticeMailBean.selectedMail == null ,'NOTICE:VIEW:DELETE')}" icon="ui-icon-trash" />
+                            </f:facet>
+                        </p:toolbar>
+                    </h:panelGroup>
+
+                    <h:panelGroup id ="pgdt">
+                        <p:dataTable id="mailTable" value="#{noticeMailBean.mailList}" var="mail" filterDelay="1000" rowKey="#{mail}"
+                                     selection="#{noticeMailBean.selectedMail}" scrollable="true" scrollHeight="600" rows="25"
+                                     resizableColumns="true" emptyMessage="#{res.noRecordsFound}"
+                                     paginator="true" paginatorPosition="bottom"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="10,25,50" rowStyleClass="#{noticeMailBean.getMailRowStyle(mail)}">
+                            <p:ajax event="toggleSelect" update="@form:tvMail:actions @this" listener="#{noticeMailBean.onSelectAllMail}" />
+                            <p:ajax event="rowSelect" update="@form:tvMail:actions" />
+                            <p:ajax event="rowUnselect" update="@form:tvMail:actions" />
+                            <p:ajax event="rowSelectCheckbox" update="@form:tvMail:actions"/>
+                            <p:ajax event="rowUnselectCheckbox" update="@form:tvMail:actions"/>
+                            <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                            <p:column headerText="Наименование уведомления" sortBy="#{mail.kindEventName}" style="width:10em;"><h:outputText value="#{mail.kindEventName}"/></p:column>
+                            <p:column headerText="Тема письма" sortBy="#{mail.subjectMsg}" style="width:12em;"><h:outputText value="#{mail.subjectMsg}"/></p:column>
+                            <p:column headerText="Отправитель" sortBy="#{mail.userNameFrom}" style="width:6em;"><h:outputText value="#{mail.userNameFrom}"/></p:column>
+                            <p:column headerText="Почта отправителя" sortBy="#{mail.emailFrom}" style="width:10em;"><h:outputText value="#{mail.emailFrom}"/></p:column>
+                            <!--<p:column headerText="Отправлено на почту" sortBy="#{mail.noticeStsName}" style="width:10em;"><h:outputText value="#{mail.noticeStsName}"/></p:column>-->
+                            <p:column headerText="Дата отправки" sortBy="#{mail.datlast}" style="width:7em;"><h:outputText value="#{mail.datlast}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /> </h:outputText></p:column>
+                            <p:column headerText="ID" sortBy="#{mail.id}" style="width:4em;"><h:outputText value="#{mail.id}"/></p:column>
+                        </p:dataTable>
+                    </h:panelGroup>
+                </p:tab>
+                <p:tab id="sendMail" title="Отправка уведомлений" rendered="#{noticeMailBean.sendTabVisible}">
+                    <h:panelGroup id ="pgDTActions">
+                        <p:toolbar id ="tbDTActions">
+                            <f:facet name="left">
+                                <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{noticeMailBean.refreshUserList}"
+                                                 disabled="#{!userBean.hasPermission('NOTICE:SEND:REFRESH')}" update="@form:tvMail:pgDTActions, @form:tvMail:userTable" icon="ui-icon-arrowrefresh-1-s"/>
+                                <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                <p:commandButton value="Написать сообщение" title="Написать новое сообщение"
+                                                 oncomplete="PF('wDlgNewMessage').show()"
+                                                 disabled="#{noticeMailBean.disableBtnWriteMsg()}" actionListener="#{noticeMailBean.onDlgNewMessageShow()}" update=":frmNewMessage"/>
+                            </f:facet>
+                        </p:toolbar>
+                    </h:panelGroup>
+                <p:fieldset id="grpFilters" legend="Фильтры" toggleable="true" toggleSpeed="250" style="margin-top: 0.5em">
+                    <p:ajax event="toggle" update=":messages"/>
+
+                    <h:outputText value="&#160;&#160;&#160;&#160;Роли:&#160;" rendered="#{noticeMailBean.filterRoleVisible}"/>
+                    <p:inputText value="#{noticeMailBean.filterRoleText}" readonly="true" style="width:15em" rendered="#{noticeMailBean.filterRoleVisible}"/>
+                    <p:commandButton value="..."  oncomplete="PF('wDlgFilterRole').show()" update=":frmFilterRole" rendered="#{noticeMailBean.filterRoleVisible}"/>
+
+                    <h:outputText value="&#160;&#160;&#160;&#160;Группы пользователей:&#160;" rendered="#{noticeMailBean.filterGroupVisible}"/>
+                    <p:inputText value="#{noticeMailBean.filterGroupText}" readonly="true" style="width:15em" rendered="#{noticeMailBean.filterGroupVisible}"/>
+                    <p:commandButton value="..." oncomplete="PF('wDlgFilterGroup').show()" update=":frmFilterGroup" rendered="#{noticeMailBean.filterGroupVisible}"/>
+
+                    <h:outputText value="&#160;&#160;&#160;&#160;Типы субъектов:&#160;" rendered="#{noticeMailBean.filterSubjectTypeVisible}"/>
+                    <p:inputText value="#{noticeMailBean.filterSubjectTypesText}" readonly="true" style="width:15em" rendered="#{noticeMailBean.filterSubjectTypeVisible}"/>
+                    <p:commandButton value="..." oncomplete="PF('wDlgFilterSubjectTypes').show()" update=":frmFilterSubjectTypes" rendered="#{noticeMailBean.filterSubjectTypeVisible}"/>
+
+                    <h:outputText value="&#160;&#160;&#160;&#160;Респонденты:&#160;" rendered="#{noticeMailBean.filterRespondentsVisible}"/>
+                    <p:inputText value="#{noticeMailBean.filterRespondentsText}" readonly="true" style="width:15em" rendered="#{noticeMailBean.filterRespondentsVisible}"/>
+                    <p:commandButton value="..." oncomplete="PF('wDlgFilterRespondents').show()" update=":frmFilterRespondents" rendered="#{noticeMailBean.filterRespondentsVisible}"/>
+                    &#160;&#160;&#160;&#160;
+                    <p:commandButton value="Поиск" title="Поиск по выбранным параметрам" actionListener="#{noticeMailBean.refreshUserList}"
+                                     disabled="#{!userBean.hasPermission('NOTICE:SEND:REFRESH')}" update="@form:tvMail:pgDTActions, @form:tvMail:userTable" icon="ui-icon-search"/>
+                    <p:commandButton value="Очистить" actionListener="#{noticeMailBean.clearFilters}" update="@form:tvMail:grpFilters,:frmFilterRole, :frmFilterGroup, :frmFilterSubjectTypes, :frmFilterRespondents" style="font-weight: normal" title="Очистить параметры поиска" icon="ui-icon-trash"/>&#160;
+                </p:fieldset>
+                    <p:dataTable id="userTable" value="#{noticeMailBean.userList}" var="user" scrollable="true" resizableColumns="true" selection="#{noticeMailBean.selectedUser}"
+                                 rowKey="#{user.id}" paginator="true" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="5,10,15,20,25,30" rows="15" emptyMessage="#{res.noRecordsFound}">
+                        <p:ajax event="toggleSelect" update="@form:tvMail:pgDTActions @this" listener="#{noticeMailBean.onSelectAllUsers}" />
+                        <p:ajax event="rowSelect" update="@form:tvMail:pgDTActions " />
+                        <p:ajax event="rowUnselect" update="@form:tvMail:pgDTActions" />
+                        <p:ajax event="rowSelectCheckbox" update="@form:tvMail:pgDTActions"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@form:tvMail:pgDTActions"/>
+                        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                        <p:column headerText="#{res.display_name}" sortBy="#{user.screenName}" style="width: 10em"><h:outputText value="#{user.screenName}"/></p:column>
+                        <p:column headerText="ФИО" sortBy="#{user.fio}" style="width: 10em"><h:outputText value="#{user.fio}"/></p:column>
+                        <!--<p:column headerText="#{res.last_name}" sortBy="#{user.lastName}" style="width: 10em"><h:outputText value="#{user.lastName}"/></p:column>
+                        <p:column headerText="#{res.first_name}" sortBy="#{user.firstName}" style="width: 10em"><h:outputText value="#{user.firstName}"/></p:column>-->
+                        <p:column headerText="#{res.email_address}" sortBy="#{user.emailAddress}" style="width: 10em"><h:outputText value="#{user.emailAddress}"/></p:column>
+                        <p:column headerText="#{res.organization}" styleClass="wrap" style="width: 10em" sortBy="#{user.respondentName}">
+                            <h:outputText value="#{user.respondentName}"/>
+                        </p:column>
+                        <p:column headerText="Тип субъекта" sortBy="#{user.subjectTypeName}" style="width: 10em" styleClass="wrap"><h:outputText value="#{user.subjectTypeName}" /></p:column>
+                        <p:column headerText="Группа" sortBy="#{user.groupName}" style="width: 15em" styleClass="wrap"><h:outputText value="#{user.groupName}" /></p:column>
+                        <p:column headerText="Роль" sortBy="#{user.roleName}" style="width: 10em" styleClass="wrap"><h:outputText value="#{user.roleName}" /></p:column>
+                        <p:column headerText="Блокирован" sortBy="#{user.blocked}" style="text-align:center; width: 5em" >
+                            <p:selectBooleanCheckbox value="#{user.blocked}" disabled="true"/>
+                        </p:column>
+                        <!--<p:column headerText="${res.idn}" sortBy="#{user.idn}" style="width:10em;text-align:center;"><h:outputText value="#{user.idn}"/></p:column>
+                        <p:column headerText="${res.appointment}" sortBy="#{user.postName}" style="width: 10em"><h:outputText value="#{user.postName}"/></p:column>
+                        <p:column headerText="Должен подписывать" sortBy="#{user.mustSign}" style="text-align:center; width: 10em;">
+                            <p:selectBooleanCheckbox value="#{user.mustSign}" disabled="true"/>
+                        </p:column>-->
+                    </p:dataTable>
+                </p:tab>
+            </p:tabView>
+        </h:form>
+
+        <p:dialog id="dlgMessage" widgetVar="wDlgMessage" header="Cообщение" modal="true" resizable="false" width="740" height="600">
+            <p:ajax event="close" update=":mainForm:tvMail:pgdt" listener="#{noticeMailBean.refreshNoticeMail}" />
+            <h:form id="frmMessage">
+                <h:outputLabel value="Тема:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputText value="#{noticeMailBean.subjectMsg}" style="width: 700px;" maxlength="250" />
+                <br/><br/>
+                <h:outputLabel value="Текст:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputTextarea value="#{noticeMailBean.message}" style="width: 700px; min-height: 450px" maxlength="2048"/>
+
+                <p:commandButton value="#{res.close}" type="button" onclick="PF('wDlgMessage').hide()" />
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgNewMessage" widgetVar="wDlgNewMessage" header="Новое сообщение" modal="true" resizable="false" width="740" height="600">
+            <h:form id="frmNewMessage">
+                <h:outputLabel value="Тема:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputText value="#{noticeMailBean.newSubjectMsg}" style="width: 700px;" maxlength="250" />
+                <br/><br/>
+                <h:outputLabel value="Текст:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputTextarea value="#{noticeMailBean.newMessage}" style="width: 700px; min-height: 450px" maxlength="2048"/>
+
+                <p:commandButton value="Отправить" actionListener="#{noticeMailBean.sendMessage()}" update=":messages"/>
+                &#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgNewMessage').hide()" />
+                &#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="Переменные" actionListener="#{noticeMailBean.onDlgVariableShow}" oncomplete="PF('wDlgVariable').show()" update=":frmVariable" style="margin-top: 5px" />
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgVariable" widgetVar="wDlgVariable" header="Выбор переменной" modal="true" resizable="false" width="740" height="300">
+            <h:form id="frmVariable">
+                <p:dataTable value="#{noticeMailBean.variableList}" var="variable"
+                             rowKey="#{variable.id}" sortBy="#{variable.getName()}" scrollable="true" scrollHeight="240"
+                             emptyMessage="#{res.noRecordsFound}" >
+                    <p:column headerText="Название" sortBy="#{variable.name}"><h:outputText value="#{variable.name}"/></p:column>
+                    <p:column headerText="Код" sortBy="#{variable.code}"><h:outputText value="#{variable.code}"/></p:column>
+                </p:dataTable>
+
+                <p:commandButton value="#{res.close}" type="button" onclick="PF('wDlgVariable').hide()" />
+            </h:form>
+        </p:dialog>
+
+        <p:confirmDialog id="dlgConfirmDelete" widgetVar="wDlgConfirmDelete" message="#{res.deleteItemConfirmMessage}" header="#{res.deletion}" severity="alert">
+            <h:form>
+                <p:commandButton value="#{res.delete}" actionListener="#{noticeMailBean.deleteMail}" oncomplete="PF('wDlgConfirmDelete').hide()" update=":mainForm:tvMail:actions,:mainForm:tvMail:pgdt"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDelete').hide()" />
+            </h:form>
+        </p:confirmDialog>
+
+        <p:dialog id="dlgFilterRole" widgetVar="wDlgFilterRole" header="Фильтр по ролям" modal="true" resizable="false" width="740" >
+            <h:form id="frmFilterRole">
+                <p:dataTable value="#{noticeMailBean.roleItems}" var="role"
+                             rowKey="#{role}" sortBy="#{role.name}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{noticeMailBean.filterRole}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{role.name}">
+                        <h:outputText value="#{role.name}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{noticeMailBean.onFilterRoleHide}" oncomplete="PF('wDlgFilterRole').hide()"
+                                 update=":mainForm:tvMail:grpFilters :frmFilterGroup"
+                                 style="margin-top: 5px" styleClass="filter-button"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRole').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterGroup" widgetVar="wDlgFilterGroup" header="Фильтр по группам пользователей" modal="true" resizable="false" width="740" >
+            <h:form id="frmFilterGroup">
+                <p:dataTable value="#{noticeMailBean.groupItems}" var="group"
+                             rowKey="#{group.id}" sortBy="#{group.name}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{noticeMailBean.filterGroup}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{group.name}">
+                        <h:outputText value="#{group.name}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{noticeMailBean.onFilterGroupHide}" oncomplete="PF('wDlgFilterGroup').hide()"
+                                 update=":mainForm:tvMail:grpFilters" style="margin-top: 5px" styleClass="filter-button"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterGroup').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterSubjectTypes" widgetVar="wDlgFilterSubjectTypes" header="Фильтр по типам субъекта" modal="true" resizable="false" width="740" >
+            <h:form id="frmFilterSubjectTypes">
+                <p:dataTable value="#{noticeMailBean.subjectTypeItems}" var="subjectType"
+                             rowKey="#{subjectType}" sortBy="#{subjectType.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{noticeMailBean.filterSubjectTypes}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{subjectType.nameRu}">
+                        <h:outputText value="#{subjectType.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{noticeMailBean.onFilterSubjectTypesHide}" oncomplete="PF('wDlgFilterSubjectTypes').hide()"
+                                 update=":mainForm:tvMail:grpFilters" style="margin-top: 5px" styleClass="filter-button"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterSubjectTypes').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterRespondents" widgetVar="wDlgFilterRespondents" header="Фильтр по респондентам" modal="true" resizable="false" width="740" >
+            <h:form id="frmFilterRespondents">
+                <p:dataTable value="#{noticeMailBean.respondents}" var="respondent"
+                             rowKey="#{respondent.recId}" sortBy="#{respondent.personShortName}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{noticeMailBean.filterRespondents}">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{respondent.personShortName}">
+                        <h:outputText value="#{respondent.personShortName}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{noticeMailBean.onFilterRespondentsHide}" oncomplete="PF('wDlgFilterRespondents').hide()"
+                                 update=":mainForm:tvMail:grpFilters" style="margin-top: 5px" styleClass="filter-button"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRespondents').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+
+        <p:growl id="messages" showDetail="true" />
+    </h:body>
+</f:view>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="fs_vkts_mfo"
+languageCode="ru" title="Отчет о расшифровке корреспондентских и текущих счетов, вкладов, размещенных в банках (МФО)"
+shortName="Отчет о расш. кор. и тек. сч., вкл., разм. в банках(МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_vkts_mfo_array":"n"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 2<br/>
+		к постановлению Правления<br/>
+		Национального Банка Республики Казахстан<br/>
+		от  " ___"_________ 2016 года №____<br/>
+		Форма <br/>
+	</span>
+
+	<h3 style="text-align: center;">Отчет о расшифровке корреспондентских и текущих счетов, вкладов, размещенных в банках</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th>№ п/п</th>
+					<th style="min-width: 42em;">Наименование</th>
+					<th style="width: 20em;">Страна резидентства</th>
+					<th style="width: 12em;">Сумма</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="1">
+					<td>1</td>
+					<td style="font-weight: bolder;"><Plus/>Корреспондентские счета </td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="2">
+					<td>2</td>
+					<td style="font-weight: bolder;"><Plus/>Текущие счета </td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="3">
+					<td style="font-weight: bolder;">3</td>
+					<td><Plus/>Вклады до востребования</td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="4">
+					<td>4</td>
+					<td style="font-weight: bolder;"><Plus/>Срочные вклады</td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr id="5">
+					<td>5</td>
+					<td style="font-weight: bolder;"><Plus/>Условные вклады</td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr class="groupHeader">
+					<td></td>
+					<td>Всего</td>
+					<td></td>
+					<td><InputText name="v4" key="n" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<DynamicRow>
+					<td><StaticText value="$DynamicRowIdText"/></td>
+					<td>
+						<Minus/>
+						<ReceiverInput name="bank" key="n" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" ref="ref_bank" refCode="rec_id" refCaption="name_ru" style="min-width: 35em; text-align: left;"/>
+						<Pick ref="bank" receiver="bank" key="n" keyValue="$DynamicRowId"/>
+					</td>
+					<td><InputSelect name="v3" key="n" keyValue="$DynamicRowId" required="true" ref="ref_country" refCode="rec_id" refCaption="name_ru"/></td>
+					<td><InputText name="v4" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+				</DynamicRow>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td colspan="2">Первый руководитель или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="ceo_date" valueType="date" valueFunc="CeoSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Главный бухгалтер или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="chief_accountant_date" valueType="date" valueFunc="ChiefSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Исполнитель</td>
+		</tr>
+		<tr>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="drafted_by_date" valueType="date" valueFunc="FirstSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">(фамилия, имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Телефон:<InputText name="drafted_by_tel" required="true" style="width: 15em;"/></td>
+		</tr>
+	</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+	text-align: center;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var groupId, v, sum;
+
+	sum = 0;
+	for (var i = 1; i < 6; i++) {
+		groupId = "fs_vkts_mfo_array*v4:n:" + i;
+		v = sumInputValuesByGroup(groupId);
+		setInputValue(groupId, v);
+		sum += v;
+	}
+	setInputValue("fs_vkts_mfo_array*v4:n:6", sum);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_vkts_mfo_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+
+</Form>

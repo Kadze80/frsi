@@ -1,0 +1,6 @@
+
+192.168.20.31	unity.nationalbank.kz
+10.8.1.62		frsi.back.local
+10.8.1.138	    frsi.oracle.local
+
+192.168.70.7    Workstations (room 518)

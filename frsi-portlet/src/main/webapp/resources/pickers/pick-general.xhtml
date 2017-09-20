@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <p:dialog header="Dialog" widgetVar="wPickerDlg" modal="true" width="600">
+            <h:form id="pickerForm">
+                <p:remoteCommand name="rcShowPicker" actionListener="#{generalPickerBean.onShow}"
+                                 update="pickerRecords pickerFilterValue" oncomplete="onPickerLoaded();"/>
+                <p:remoteCommand name="rcPassPickerValue" actionListener="#{generalPickerBean.passValue}"
+                                 update="pickerSelectedValue"
+                                 oncomplete="onReceivePickerValue();"/>
+                <!--oncomplete="PF('wPickerDlg').hide();"/>-->
+                <div id="picker-filter">
+                    <h:inputText id="pickerFilterValue" value="#{generalPickerBean.filterValue}"/>
+                    <p:commandButton actionListener="#{generalPickerBean.filter}" value="Поиск"
+                                     update="pickerRecords"/>
+                </div>
+                <h:panelGroup id="pickerRecords">
+                    <div id="picker-data">
+                        <table id="pickerTable" class="data-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-column"></th>
+                                <ui:repeat var="column" value="#{generalPickerBean.columns}">
+                                    <th class="#{column.hidden?'hidden-column':''}"><h:outputText
+                                            value="#{column.title}"/>
+                                    </th>
+                                </ui:repeat>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ui:repeat var="legalPersonItem" value="#{generalPickerBean.records}" varStatus="status">
+                                <tr onclick="onSelectRow.call(this);">
+                                    <td class="hidden-column"><h:outputText value="#{legalPersonItem.recId}"/></td>
+                                    <ui:repeat var="column" value="#{generalPickerBean.columns}">
+                                        <td class="#{column.hidden?'hidden-column':''} #{column.key?'key-column':''}">
+                                            <h:outputText value="#{generalPickerBean.format(column, legalPersonItem)}"/></td>
+                                    </ui:repeat>
+                                </tr>
+                            </ui:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="picker-pager">
+                        <p:commandButton value="&lt;" actionListener="#{generalPickerBean.prevPage}"
+                                         update="pickerRecords"/>
+                        <h:outputText value="#{generalPickerBean.from}-#{generalPickerBean.to}"/>
+                        <p:commandButton value="&gt;" actionListener="#{generalPickerBean.nextPage}"
+                                         update="pickerRecords"/>
+                    </div>
+                </h:panelGroup>
+                <div id="picker-footer">
+                    <p:commandButton type="button" onclick="passPickerValue()" value="Выбрать"/>
+                    <p:commandButton type="button" onclick="passPickerValue(true)" value="Пустое значение"/>
+                    <h:inputHidden value="#{generalPickerBean.selectedValue}" id="pickerSelectedValue"/>
+                </div>
+            </h:form>
+        </p:dialog>
+
+        <h:outputScript library="pickers" name="GeneralPicker_v04.js"/>
+    </composite:implementation>
+</ui:component>

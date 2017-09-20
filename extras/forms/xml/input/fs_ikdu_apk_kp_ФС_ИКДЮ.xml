@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="fs_ikdu_apk_kp"
+languageCode="ru" title="Отчет о структуре инвестиций в капитал юридических лиц (АПК,КП)"
+shortName="Отч о струк-е инвест в кап юр лиц (АПК,КП)"
+beginDate="2014-01-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_ikdu_apk_kp_array":"num"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">			
+Приложение 7<br/>
+к постановлению Правления<br/>
+Национального Банка<br/>
+Республики Казахстан<br/>
+	от 24 сентября 2014 года № 178
+</span>
+
+<h3 style="text-align: center;">
+Отчет о структуре инвестиций в капитал юридических лиц
+</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th rowspan="2">№ п/п</th>
+	<th rowspan="2">Наименование юридического лица</th>
+	<th rowspan="2">Покупная стоимость (в тысячах тенге)</th>
+	<th colspan="3">Балансовая стоимость (в тысячах тенге)</th>
+	<th rowspan="2">Количество, штук</th>
+	<th rowspan="2">Доля участия в уставном капитале эмитента (в процентах)</th>
+	<th rowspan="2">Дата приобретения</th>
+	<th rowspan="2">Примечание</th>					
+</tr>
+<tr fixed="nf">
+	<th>Всего</th>
+	<th>Начисленное вознаграждение</th>
+	<th>Размер провизии, сформированный в соответствии с международными стандартами финансовой отчетности</th>	
+</tr>
+<tr>
+	<th>1</th>
+	<th style="min-width: 25em;">2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8</th>
+	<th>9</th>
+	<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr id="1">
+	<td>1</td>
+	<td><Plus/>Простые акции</td>
+	<td><InputText name="cost" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_vsego" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_rew" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_prov" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="count" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr id="2">
+	<td>2</td>
+	<td><Plus/>Привилегированные акции</td>
+	<td><InputText name="cost" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_vsego" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_rew" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_prov" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="count" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr id="3">
+	<td>3</td>
+	<td><Plus/>Вклады и паи</td>
+	<td><InputText name="cost" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_vsego" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_rew" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_prov" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="count" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr class="groupHeader">
+	<td>4</td>
+	<td>Всего</td>
+	<td><InputText name="cost" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_vsego" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_rew" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="balval_prov" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="count" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<DynamicRow>
+	<td><StaticText value="$DynamicRowIdText"/></td>
+	<td><Minus/>
+		<ReceiverInput name="name_jurper" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" ref="ref_legal_person" refCode="rec_id" refCaption="name_ru" style="width: 18em; text-align: left;"/>
+		<Pick ref="legalperson" receiver="name_jurper" key="num" keyValue="$DynamicRowId"/>
+	</td>
+	<td><InputText name="cost" key="num" keyValue="$DynamicRowId"  mask="money0"/></td>
+	<td><InputText name="balval_vsego" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="balval_rew" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="balval_prov" key="num" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="IsPositiveNumber()"/></td>
+	<td><InputText name="count" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="share" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputDate name="date_acq" key="num" keyValue="$DynamicRowId" required="true" valueType="date"/></td>
+	<td><InputText name="note" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 35em; text-align: left;"/></td>
+</DynamicRow>		
+</tbody>
+</table>
+</div>
+<br/>
+
+<table class="textLayoutTable">
+<tr>
+	<td>Первый руководитель:</td>
+	<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Главный бухгалтер:</td>
+	<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Исполнитель:</td>
+	<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Дата:</td>
+	<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: center;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+// Столбец 3
+groupId = "fs_ikdu_apk_kp_array*cost:num:1";
+var v3_1 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v3_1);
+
+groupId = "fs_ikdu_apk_kp_array*cost:num:2";
+var v3_2 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v3_2);
+
+groupId = "fs_ikdu_apk_kp_array*cost:num:3";
+var v3_3 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v3_3);
+
+setInputValue("fs_ikdu_apk_kp_array*cost:num:4", v3_1+v3_2+v3_3);
+
+// Столбец 4
+groupId = "fs_ikdu_apk_kp_array*balval_vsego:num:1";
+var v4_1 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v4_1);
+
+groupId = "fs_ikdu_apk_kp_array*balval_vsego:num:2";
+var v4_2 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v4_2);
+
+groupId = "fs_ikdu_apk_kp_array*balval_vsego:num:3";
+var v4_3 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v4_3);
+
+setInputValue("fs_ikdu_apk_kp_array*balval_vsego:num:4", v4_1+v4_2+v4_3);
+
+// Столбец 5
+groupId = "fs_ikdu_apk_kp_array*balval_rew:num:1";
+var v5_1 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v5_1);
+
+groupId = "fs_ikdu_apk_kp_array*balval_rew:num:2";
+var v5_2 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v5_2);
+
+groupId = "fs_ikdu_apk_kp_array*balval_rew:num:3";
+var v5_3 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v5_3);
+
+setInputValue("fs_ikdu_apk_kp_array*balval_rew:num:4", v5_1+v5_2+v5_3);
+
+// Столбец 6
+groupId = "fs_ikdu_apk_kp_array*balval_prov:num:1";
+var v6_1 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v6_1);
+
+groupId = "fs_ikdu_apk_kp_array*balval_prov:num:2";
+var v6_2 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v6_2);
+
+groupId = "fs_ikdu_apk_kp_array*balval_prov:num:3";
+var v6_3 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v6_3);
+
+setInputValue("fs_ikdu_apk_kp_array*balval_prov:num:4", v6_1+v6_2+v6_3);
+
+// Столбец 7
+groupId = "fs_ikdu_apk_kp_array*count:num:1";
+var v7_1 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v7_1);
+
+groupId = "fs_ikdu_apk_kp_array*count:num:2";
+var v7_2 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v7_2);
+
+groupId = "fs_ikdu_apk_kp_array*count:num:3";
+var v7_3 = sumInputValuesByGroup(groupId);	
+setInputValue(groupId, v7_3);
+
+setInputValue("fs_ikdu_apk_kp_array*count:num:4", v7_1+v7_2+v7_3);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_ikdu_apk_kp_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

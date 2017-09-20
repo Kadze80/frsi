@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="f1_apk_oo_kp_cdcb_out"
+	languageCode="ru" title="Сводный бухгалтерский баланс (АПК,КП,ОТ,ЦД)"
+    shortName="Свод. бух. баланс (АПК,КП,ОТ,ЦД)"
+	beginDate="2016-05-01" endDate="2016-07-01"
+	typeCode="CONSOLIDATED"
+	tag='{ "keyFields" : {"f1_apk_oo_kp_cdcb_out_array":"code"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">Сводный бухгалтерский баланс организаций, осуществляющих отдельные виды банковских операций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+	<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th>Наименование статьи</th>
+			<th>Код строки</th>
+			<th>На конец отчетного периода</th>
+			<th>На конец предыдущего года</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+		</tr>
+</thead>
+<tbody>
+		<tr class="groupHeader">
+			<td>Активы</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Денежные средства и эквиваленты денежных средств</td>
+			<td>1</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;наличные деньги в кассе</td>
+			<td>1.1</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="1.1" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="1.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;деньги на счетах в банках и организациях, осуществляющих отдельные виды банковских операций</td>
+			<td>1.2</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="1.2" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="1.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Ценные бумаги, оцениваемые по справедливой стоимости, изменения которых отражаются в составе прибыли или убытка</td>
+			<td>2</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="2" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Ценные бумаги, имеющиеся в наличии для продажи (за вычетом резервов на обесценение)</td>
+			<td>3</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="3" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="3" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Ценные бумаги, удерживаемые до погашения (за вычетом резервов на обесценение)</td>
+			<td>4</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="4" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="4" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Производные финансовые инструменты</td>
+			<td>5</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="5" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="5" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Дебиторская задолженность</td>
+			<td>6</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="6" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="6" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Комиссионные вознаграждения</td>
+			<td>7</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="7" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="7" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Операция «обратное РЕПО»</td>
+			<td>8</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="8" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="8" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Вклады размещенные (за вычетом резервов на обесценение)</td>
+			<td>9</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="9" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="9" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Финансовая аренда предоставленная (за вычетом резервов на обесценение)</td>
+			<td>10</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="10" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="10" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Займы (микрокредиты) предоставленные (за вычетом резервов на обесценение)</td>
+			<td>11</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="11" readonly="true" mask="money0" /></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="11"  readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Инвестиционное имущество</td>
+			<td>12</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="12" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="12" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Инвестиции в капитал других юридических лиц и субординированный долг</td>
+			<td>13</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="13" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="13" readonly="true" mask="money0"/></td>
+		</tr>		
+		<tr>
+			<td>Запасы</td>
+			<td>14</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="14" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="14" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Долгосрочные активы (выбывающие группы), предназначенные для продажи</td>
+			<td>15</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="15" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="15" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Нематериальные активы (за вычетом амортизации и убытков от обесценения)</td>
+			<td>16</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="16" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="16" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Основные средства (за вычетом амортизации и убытков от обесценения)</td>
+			<td>17</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="17" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="17" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Текущее налоговое требование</td>
+			<td>18</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="18" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="18" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Отложенное налоговое требование</td>
+			<td>19 </td>
+			<td><InputText name="endpr_sum" key="code" keyValue="19" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="19" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прочие активы</td>
+			<td>20</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="20" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="20" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Итого активы</td>
+			<td>21</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="21" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="21" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td><br/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Обязательства</td>
+			<td></td>			
+			<td></td>		
+			<td></td>		
+		</tr>
+		<tr>
+			<td>Вклады привлеченные</td>
+			<td>22</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="22" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="22" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Производные финансовые инструменты</td>
+			<td>23</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="23" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="23" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Выпущенные долговые ценные бумаги</td>
+			<td>24</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="24" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="24" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Операция «РЕПО»</td>
+			<td>25</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="25" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="25" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Займы полученные</td>
+			<td>26</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="26" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="26" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Кредиторская задолженность</td>
+			<td>27</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="27" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="27" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Резервы</td>
+			<td>28</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="28" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="28" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Начисленные расходы по расчетам с акционерами по акциям</td>
+			<td>29</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="29" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="29" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Субординированный долг</td>
+			<td>30</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="30" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="30" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Текущее налоговое обязательство</td>
+			<td>31</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="31" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="31" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Отложенное налоговое обязательство</td>
+			<td>32</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="32" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="32" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прочие обязательства</td>
+			<td>33</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="33" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="33" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Итого обязательства</td>
+			<td>34</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="34" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="34" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td><br/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Собственный капитал</td>
+			<td></td>			
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Уставный капитал</td>
+			<td>35</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="35" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="35" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>			
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;простые акции</td>
+			<td>35.1</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="35.1" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="35.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;привилегированные акции</td>
+			<td>35.2</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="35.2" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="35.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Премии (дополнительный оплаченный капитал)</td>
+			<td>36</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="36" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="36" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Изъятый капитал</td>
+			<td>37</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="37" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="37" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Резервный капитал</td>
+			<td>38</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="38" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="38" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прочие резервы</td>
+			<td>39</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="39" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="39" readonly="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>Нераспределенная прибыль (непокрытый убыток)</td>
+			<td>40</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="40" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="40" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;предыдущих лет</td>
+			<td>40.1</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="40.1" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="40.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;отчетного периода</td>
+			<td>40.2</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="40.2" readonly="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="40.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class ="groupHeader">
+			<td>Итого капитал</td>
+			<td>41</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="41" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="41" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td><br/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Итого капитал и обязательства (стр. 34+стр.41)</td>
+			<td>42</td>
+			<td><InputText name="endpr_sum" key="code" keyValue="42" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="endprevpr_sum" key="code" keyValue="42" readonly="true" auto="true" mask="money0"/></td>
+		</tr>	
+</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: center;
+	}
+	table.dataTable td:nth-child(n+3) {
+		text-align: center;
+	}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#f1_apk_oo_kp_cdcb_out_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="prud_out"
+languageCode="ru" title="Сводный отчет о выполнении пруденциальных нормативов (ИО)"
+shortName="Свод отч о вып пруденц норм(ИО)"
+beginDate="2014-01-01" endDate=""
+typeCode="CONSOLIDATED"
+tag='{ "keyFields" : {"prud_out_array":"num"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+<h3 style="text-align: center;">Сводный отчет о выполнении пруденциальных нормативов ипотечных органзаций Республики Казахстан</h3>
+<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+	<tr>
+		<th>№</th>
+		<th>Наименование</th>
+		<th>Сумма</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>1</td>
+		<td>Уставной капитал, за минусом собственных выкупленных акции</td>
+		<td><InputText name="sum" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>1-1</td>
+		<td>Оплаченный уставный капитал, в части простых акций, за минусом собственных выкупленных простых акций</td>
+		<td><InputText name="sum" key="num" keyValue="1-1" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>1-2</td>
+		<td>Оплаченный уставный капитал, в части привилегированных акций, за минусом собственных выкупленных привилегированных акций</td>
+		<td><InputText name="sum" key="num" keyValue="1-2" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>Дополнительный капитал</td>
+		<td><InputText name="sum" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Нераспределенный чистый доход прошлых лет (убытки прошлых лет)</td>
+		<td><InputText name="sum" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>Фонды, резервы, сформированные за счет дохода прошлых лет</td>
+		<td><InputText name="sum" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>Нераспределенная чистая прибыль (убыток) текущего года </td>
+		<td><InputText name="sum" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>Переоценка основных средств и ценных бумаг</td>
+		<td><InputText name="sum" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>Общие резервы (провизии), включаемые в расчет собственного капитала</td>
+		<td><InputText name="sum" key="num" keyValue="7" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>7-1</td>
+		<td>Общие резервы (провизии), не включаемые в расчет собственного капитала</td>
+		<td><InputText name="sum" key="num" keyValue="7-1" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>Субординированный долг организации за минусом выкупленного собственного долга организации в соответствии с пунктом 4 Инструкции</td>
+		<td><InputText name="sum" key="num" keyValue="8" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>Нематериальные активы</td>
+		<td><InputText name="sum" key="num" keyValue="9" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>10</td>
+		<td>Инвестиции в акции эмитента, включая акции, предназначенные для торговли и имеющиеся в наличии для продажи, и доли участия в уставном капитале юридического лица, а также субординированный долг юридического лица</td>
+		<td><InputText name="sum" key="num" keyValue="10" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>Собственный капитал организации</td>
+		<td><InputText name="sum" key="num" keyValue="11" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>11-1</td>
+		<td>Капитал первого уровня организации</td>
+		<td><InputText name="sum" key="num" keyValue="11-1" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>11-2</td>
+		<td>Капитал второго уровня организации</td>
+		<td><InputText name="sum" key="num" keyValue="11-2" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>Активы, взвешенные по степени кредитного риска</td>
+		<td><InputText name="sum" key="num" keyValue="12" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>Условные и возможные обязательства, взвешенные по степени кредитного риска</td>
+		<td><InputText name="sum" key="num" keyValue="13" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>13-1</td>
+		<td>Активы, за вычетом резервов, сформированных в соответствии с международными стандартами финансовой отчетности</td>
+		<td><InputText name="sum" key="num" keyValue="13-1" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>14</td>
+		<td>Коэффициент достаточности собственного капитала k1</td>
+		<td><InputText name="sum" key="num" keyValue="14" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr >
+		<td>14-1</td>
+		<td>Коэффициент достаточности собственного капитала k1-2</td>
+		<td><InputText name="sum" key="num" keyValue="14-1" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr >
+		<td>14-2</td>
+		<td>Коэффициент достаточности собственного капитала k1-3</td>
+		<td><InputText name="sum" key="num" keyValue="14-2" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>14-3</td>
+		<td>Операционный риск</td>
+		<td><InputText name="sum" key="num" keyValue="14-3" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>Совокупная задолженность одного заемщика или группы взаимосвязанных заемщиков по любому виду обязательств перед организацией согласно главе 3 Инструкции</td>
+		<td><InputText name="sum" key="num" keyValue="15" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>16</td>
+		<td>Коэффициент максимального размера риска на одного заемщика (группы заемщиков), связанного с организацией особыми отношениями - к2</td>
+		<td><InputText name="sum" key="num" keyValue="16" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>Ссудный портфель организации</td>
+		<td><InputText name="sum" key="num" keyValue="17" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>18</td>
+		<td>Коэффициент максимального размера ссудного портфеля, не превышающий размер собственного капитала более чем в восемь раз</td>
+		<td><InputText name="sum" key="num" keyValue="18" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>Сумма активов с оставшимся сроком погашения не более 3-х месяцев, включая высоколиквидные активы</td>
+		<td><InputText name="sum" key="num" keyValue="19" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>Сумма обязательств с оставшимся сроком погашения не более 3-х месяцев, включая обязательства до востребования</td>
+		<td><InputText name="sum" key="num" keyValue="20" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>21</td>
+		<td>Коэффициент краткосрочной ликвидности к3</td>
+		<td><InputText name="sum" key="num" keyValue="21" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>22</td>
+		<td>Краткосрочные обязательства перед нерезидентами</td>
+		<td><InputText name="sum" key="num" keyValue="22" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>23</td>
+		<td>Коэффициент максимального лимита краткосрочных обязательств перед нерезидентами</td>
+		<td><InputText name="sum" key="num" keyValue="23" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>Обязательства перед нерезидентами, включаемые в расчет коэффициента k5</td>
+		<td><InputText name="sum" key="num" keyValue="24" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>25</td>
+		<td>Коэффициент капитализации организации к обязательствам перед нерезидентами Республики Казахстан (k5)</td>
+		<td><InputText name="sum" key="num" keyValue="25" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+	<tr>
+		<td>26</td>
+		<td>Обязательства перед нерезидентами и долговые ценные бумаги, включаемые в расчет коэффициента k6</td>
+		<td><InputText name="sum" key="num" keyValue="26" readonly="true" mask="money0"/></td>
+	</tr>
+	<tr >
+		<td>27</td>
+		<td>Коэффициент капитализации организации к обязательствам перед нерезидентами Республики Казахстан (k6)</td>
+		<td><InputText name="sum" key="num" keyValue="27" readonly="true" auto="true" mask="money3"/></td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+	text-align: center;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+table.dataTable td:nth-child(3) {
+	text-align: center;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#prud_out_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

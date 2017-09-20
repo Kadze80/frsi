@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="currency_kp"
+	languageCode="ru" title="Отчет о валютных позициях по каждой иностранной валюте и валютной нетто-позиции (КП)"
+    shortName="Отч о вал поз по каждой иностр вал-е и вал-ой нетто-позици (КП)"
+	beginDate="2014-01-01" endDate="2017-04-01"
+	typeCode="INPUT"
+	tag='{ "keyFields" : {"currency_kp_array":"num"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 2<br/>
+		к постановлению Правления Агентства Республики Казахстан<br/>
+		по регулированию и надзору финансового рынка и финансовых<br/>
+		организаций от 12 июля 2004 года № 200 «Об установлении<br/>
+		пруденциальных нормативов для Национального оператора почты,<br/>
+		а также форм и сроков представления отчетов об их выполнении»
+	</span>
+
+<h3 style="text-align: center;">Отчет о валютных позициях по каждой иностранной валюте и валютной нетто-позиции</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+	<tr>
+		<th>№ п/п</th>
+		<th>Вид иностранной валюты</th>
+		<th>Длинная позиция</th>
+		<th>Короткая позиция </th>
+		<th>Нетто позиция</th>
+	</tr>
+</thead>	
+<tbody>
+	<tr id="group">
+		<th style="text-align: left;"><Plus/></th>
+		<th>1</th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+	</tr>
+	<tr class="groupHeader">
+		<td></td>
+		<td>Итого</td>
+		<td><InputText name="long_pos" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+		<td><InputText name="short_pos" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+		<td><InputText name="netto_pos" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	</tr>
+	<DynamicRow>
+		<td>&#160;&#160;&#160;&#160;&#160;&#160;<Minus/><StaticText value="$DynamicRowIdText"/></td>
+		<td><InputSelect name="currency_code" key="num" keyValue="$DynamicRowId" required="true" ref="ref_currency" refCode="rec_id" refCaption="name_ru" style="width: 24em;"/></td>
+		<td><InputText name="long_pos" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+		<td><InputText name="short_pos" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+		<td><InputText name="netto_pos" key="num" keyValue="$DynamicRowId" readonly="true" auto="true" mask="money0"/></td>
+	</DynamicRow>
+</tbody>
+</table>
+</div>
+<br/><br/><br/>
+<table class="dataTable">
+	<tr>
+		<td colspan="4">Собственный капитал</td>
+		<td style="width: 10em;"><InputText name="equity_basis" key="" keyValue="" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td colspan="4">Максимальный размер открытой валютной позиции по видам валют</td>
+		<td><InputText name="max_open_pos" key="" keyValue="" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td colspan="4">
+			Открытая валютная позиция по иностранным валютам стран, имеющих суверенный рейтинг не ниже «А» агентства «Standard &amp; Poors»
+			или рейтинг аналогичного уровня одного из других рейтинговых агентств («Moody's Investors Service» или «Fitch»)
+		</td>
+		<td><InputText name="a_pos" key="" keyValue="" readonly="true" auto="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td colspan="4">Открытая валютная позиция по другим иностранным валютам</td>
+		<td><InputText name="b_pos" key="" keyValue="" readonly="true" auto="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td colspan="4">Максимальный размер нетто-позиции</td>
+		<td><InputText name="max_netto_pos" key="" keyValue="" readonly="true" auto="true" mask="money0"/></td>
+	</tr>
+
+</table>
+<br/><br/>
+<table class="textLayoutTable">
+	<tr>
+		<td>Первый руководитель(на период его отсутствия - лицо, его замещающее):</td>
+		<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Главный бухгалтер:</td>
+		<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Исполнитель:</td>
+		<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Дата:</td>
+		<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+	</tr>
+</table>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+		width: 8em;
+	}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var totalLongPos = sumInputValuesByGroup("currency_kp_array*long_pos:num:group");
+	setInputValue("currency_kp_array*long_pos:num:Itogo", round0(totalLongPos));
+
+	var totalShortPos = sumInputValuesByGroup("currency_kp_array*short_pos:num:group");
+	setInputValue("currency_kp_array*short_pos:num:Itogo", round0(totalShortPos));
+
+	var inputs = getTableInputs("currency_kp_array");
+	var codePrefix = "currency_kp_array*currency_code:num:";
+	var nettoPrefix = "currency_kp_array*netto_pos:num:";
+	var aPos = 0, bPos = 0;
+	for (var i = 0; i < inputs.length; i++)
+		if (compareStrings(inputs[i].id.substring(0, nettoPrefix.length), nettoPrefix)) {
+			var keyValue = inputs[i].id.substring(nettoPrefix.length);
+			doHorizontalCalculations(keyValue);
+
+			var inputCode = document.getElementById(codePrefix + keyValue);
+			if (inputCode) {
+				var code = inputCode.value;
+				var nettoPos = getInputValue(nettoPrefix + keyValue);
+				if (hasRateA(code))
+					aPos += nettoPos;
+				else
+					bPos += nettoPos;
+			}
+		}
+	setInputValue("currency_kp*a_pos::", round0(aPos));
+	setInputValue("currency_kp*b_pos::", round0(bPos));
+
+	var equityBasis = getInputValue("currency_kp*equity_basis::");
+	setInputValue("currency_kp*max_netto_pos::", round0(equityBasis*0.3));
+}
+function doHorizontalCalculations(keyValue) {
+	var idA = "currency_kp_array*long_pos:num:" + keyValue;
+	var idB = "currency_kp_array*short_pos:num:" + keyValue;
+	var idC = "currency_kp_array*netto_pos:num:" + keyValue;
+
+	var vA = getInputValue(idA);
+	var vB = getInputValue(idB);
+	var vC = vA-vB;
+
+	setInputValue(idC, round0(vC));
+}
+]]>
+</script>
+	<script2>
+		<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#currency_kp_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+<DynamicFunction name="hasRateA"/>
+]]>
+	</script2>
+</Form>

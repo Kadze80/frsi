@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="fs_repo_apk_kp"
+	languageCode="ru" title="Отчет об операциях «РЕПО», «обратное РЕПО» (АПК,КП)"
+    shortName="Отч об опер «РЕПО», «обратное РЕПО» (АПК,КП)"
+	beginDate="2014-01-01" endDate=""
+	tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_repo_apk_kp_array":"num"} }'
+	typeCode="INPUT"
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+	Приложение 8<br/>
+	к постановлению Правления<br/>
+	Национального Банка<br/>
+	Республики Казахстан<br/>
+		от 24 сентября 2014 года № 178
+	</span>
+
+	<h3 style="text-align: center;">Отчет об операциях «РЕПО», «обратное РЕПО»</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th rowspan="2">№ п/п</th>
+	<th rowspan="2">Содержание операции</th>
+	<th rowspan="2">Вид ценной бумаги</th>
+	<th rowspan="2">Национальный идентификационный номер, международный идентификационный номер</th>
+	<th rowspan="2">Наименование контрагента</th>
+	<th rowspan="2">Дата заключения сделки РЕПО</th>
+	<th rowspan="2">Номер подтверждающего документа</th>
+	<th colspan="3">Дата</th>
+	<th rowspan="2">Срок операции РЕПО</th>
+	<th rowspan="2">Ставка вознаграждения (в процентах)</th>
+	<th rowspan="2">Количество ценных бумаг в РЕПО, штук</th>
+	<th colspan="2">Сумма РЕПО</th>
+	<th rowspan="2">Начисленное вознаграждение</th>
+	<th rowspan="2">Дисконтированная стоимость будущих денежных потоков</th>
+	<th rowspan="2">Размер резервов (провизии), сформированных в соответствии с международными стандартами финансовой отчетности</th>
+	<th rowspan="2">Примечание</th>
+</tr>
+<tr fixed="nf">
+	<th>открытия РЕПО</th>
+	<th>закрытия РЕПО</th>
+	<th>сделка пролонгирована до</th>
+	<th>в тысячах тенге</th>
+	<th>в иностранной валюте  (эквивалент в тысячах тенге)</th>
+</tr>
+<tr>
+	<th>1</th>
+	<th style="min-width: 30em;">2</th>
+	<th style="min-width: 20em;">3</th>
+	<th style="min-width: 25em;">4</th>
+	<th style="min-width: 35em;">5</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8</th>
+	<th>9</th>
+	<th>10</th>
+	<th>11</th>
+	<th>12</th>
+	<th>13</th>
+	<th>14</th>
+	<th>15</th>
+	<th>16</th>
+	<th>17</th>
+	<th>18</th>
+	<th>19</th>
+</tr>
+</thead>
+<tbody>
+<tr class="groupHeader">
+	<td>1</td>
+	<td>Операции «РЕПО»</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="1" readonly="true" auto="true"  mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr>
+	<td id="1.1">1.1</td>
+	<td>Организованный рынок</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="1.1.1">
+	<td>1.1.1</td>
+	<td><Plus/>«Прямой» способ</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="1.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="1.1.2">
+	<td>1.1.2</td>
+	<td><Plus/>«Автоматический» способ</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="1.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="1.2">
+	<td>1.2</td>
+	<td><Plus/>Неорганизованный рынок </td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr class="groupHeader">
+	<td>2</td>
+	<td>Операции «обратное РЕПО»</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr>
+	<td>2.1</td>
+	<td>Организованный рынок</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="2.1.1">
+	<td>2.1.1</td>
+	<td><Plus/>«Прямой» способ</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="2.1.1" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="2.1.2">
+	<td>2.1.2</td>
+	<td><Plus/>«Автоматический» способ</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="2.1.2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<tr id="2.2">
+	<td>2.2</td>
+	<td><Plus/>Неорганизованный рынок </td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><InputText name="countcb_repo" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thoustenge" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="sumrepo_thouscurr" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="reward" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="dcf" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+	<td></td>
+</tr>
+<DynamicRow>
+	<td><StaticText value="$DynamicRowIdText"/></td>
+	<td>
+		<Minus/>
+		<ReceiverInput name="name_emitter" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" ref="ref_issuers" refCode="rec_id" refCaption="name_ru" style="width: 20em; text-align: left;"/>
+	</td>
+	<td><ReceiverInput name="vid_cb" key="num" keyValue="$DynamicRowId" required="true" readonly="true" ref="ref_security_variety" refCode="rec_id" refCaption="name_ru" style="width: 20em; text-align: left;"/></td>
+	<td><ReceiverInput name="nin_iin" key="num" keyValue="$DynamicRowId" required="true" readonly="true" ref="ref_securities" refCode="rec_id" refCaption="nin" style="width: 20em; text-align: left;"/>
+		<Pick ref="securityinfo" receiver="nin_iin" key="num" keyValue="$DynamicRowId"/>
+	</td>
+	<td>
+		<InputText name="name_contr" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" style="width: 30em; text-align: left;"/>
+		<Pick ref="person" receiver="name_contr" key="num" keyValue="$DynamicRowId"/>
+	</td>
+	<td><InputDate name="datesattl_repo" key="num" keyValue="$DynamicRowId" required="true" valueType="date"/></td>
+	<td><InputText name="num_doc" key="num" keyValue="$DynamicRowId" required="true" multiLine="true" style="width: 15em; text-align: left;"/></td>
+	<td><InputDate name="date_openrepo" key="num" keyValue="$DynamicRowId" required="true" valueType="date"/></td>
+	<td><InputDate name="date_closerepo" key="num" keyValue="$DynamicRowId" required="true" valueType="date"/></td>
+	<td><InputDate name="date_prolong" key="num" valueType="date" keyValue="$DynamicRowId"/></td>
+	<td>
+		<InputText name="deadlineoper_repo" key="num" keyValue="$DynamicRowId" required="true" mask="money0"/>
+	</td>
+	<td>
+		<InputText name="fee_rate" key="num" keyValue="$DynamicRowId" required="true" mask="money2"/>
+	</td>
+	<td>
+		<InputText name="countcb_repo" key="num" keyValue="$DynamicRowId" required="true" mask="money0"/>
+	</td>
+	<td>
+		<InputText name="sumrepo_thoustenge" key="num" keyValue="$DynamicRowId" required="true" mask="money0"/>
+	</td>
+	<td>
+		<InputText name="sumrepo_thouscurr" key="num" keyValue="$DynamicRowId" required="true" mask="money0"/>
+	</td>
+	<td>
+		<InputText name="reward" key="num" keyValue="$DynamicRowId" required="true" mask="money0"/>
+	</td>
+	<td><InputText name="dcf" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="prov_intstand" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="note" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 30em; text-align: left;"/></td>
+</DynamicRow>
+</tbody>
+</table>
+</div>
+<br/>
+<table class="textLayoutTable">
+<tr>
+	<td>Первый руководитель:</td>
+	<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Главный бухгалтер:</td>
+	<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Исполнитель:</td>
+	<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Дата:</td>
+	<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+    // Столбец 13
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:1.1.1";
+	var v13_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_1_1_1);
+
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:1.1.2";
+	var v13_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*countcb_repo:num:1.1", v13_1_1_1+v13_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:1.2";
+	var v13_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*countcb_repo:num:1", v13_1_1_1+v13_1_1_2+v13_1_2);
+
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:2.1.1";
+	var v13_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:2.1.2";
+	var v13_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*countcb_repo:num:2.1", v13_2_1_1+v13_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*countcb_repo:num:2.2";
+	var v13_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v13_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*countcb_repo:num:2", v13_2_1_1+v13_2_1_2+v13_2_2);
+
+	// Столбец 14
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:1.1.1";
+	var v14_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_1_1_1);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:1.1.2";
+	var v14_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thoustenge:num:1.1", v14_1_1_1+v14_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:1.2";
+	var v14_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thoustenge:num:1", v14_1_1_1+v14_1_1_2+v14_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:2.1.1";
+	var v14_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:2.1.2";
+	var v14_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thoustenge:num:2.1", v14_2_1_1+v14_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thoustenge:num:2.2";
+	var v14_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v14_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thoustenge:num:2", v14_2_1_1+v14_2_1_2+v14_2_2);
+
+	// Столбец 15
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:1.1.1";
+	var v15_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_1_1_1);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:1.1.2";
+	var v15_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thouscurr:num:1.1", v15_1_1_1+v15_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:1.2";
+	var v15_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thouscurr:num:1", v15_1_1_1+v15_1_1_2+v15_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:2.1.1";
+	var v15_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:2.1.2";
+	var v15_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thouscurr:num:2.1", v15_2_1_1+v15_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*sumrepo_thouscurr:num:2.2";
+	var v15_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v15_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*sumrepo_thouscurr:num:2", v15_2_1_1+v15_2_1_2+v15_2_2);
+
+	// Столбец 16
+	groupId = "fs_repo_apk_kp_array*reward:num:1.1.1";
+	var v16_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_1_1_1);
+
+
+	groupId = "fs_repo_apk_kp_array*reward:num:1.1.2";
+	var v16_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*reward:num:1.1", v16_1_1_1+v16_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*reward:num:1.2";
+	var v16_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*reward:num:1", v16_1_1_1+v16_1_1_2+v16_1_2);
+
+	groupId = "fs_repo_apk_kp_array*reward:num:2.1.1";
+	var v16_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*reward:num:2.1.2";
+	var v16_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*reward:num:2.1", v16_2_1_1+v16_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*reward:num:2.2";
+	var v16_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v16_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*reward:num:2", v16_2_1_1+v16_2_1_2+v16_2_2);
+
+	// Столбец 17
+	groupId = "fs_repo_apk_kp_array*dcf:num:1.1.1";
+	var v17_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_1_1_1);
+
+	groupId = "fs_repo_apk_kp_array*dcf:num:1.1.2";
+	var v17_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*dcf:num:1.1", v17_1_1_1+v17_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*dcf:num:1.2";
+	var v17_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*dcf:num:1", v17_1_1_1+v17_1_1_2+v17_1_2);
+
+
+	groupId = "fs_repo_apk_kp_array*dcf:num:2.1.1";
+	var v17_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*dcf:num:2.1.2";
+	var v17_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*dcf:num:2.1", v17_2_1_1+v17_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*dcf:num:2.2";
+	var v17_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v17_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*dcf:num:2", v17_2_1_1+v17_2_1_2+v17_2_2);
+
+	// Столбец 18
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:1.1.1";
+	var v18_1_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_1_1_1);
+
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:1.1.2";
+	var v18_1_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_1_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*prov_intstand:num:1.1", v18_1_1_1+v18_1_1_2);
+
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:1.2";
+	var v18_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*prov_intstand:num:1", v18_1_1_1+v18_1_1_2+v18_1_2);
+
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:2.1.1";
+	var v18_2_1_1 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_2_1_1);
+
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:2.1.2";
+	var v18_2_1_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_2_1_2);
+
+	setInputValue("fs_repo_apk_kp_array*prov_intstand:num:2.1", v18_2_1_1+v18_2_1_2);
+
+	groupId = "fs_repo_apk_kp_array*prov_intstand:num:2.2";
+	var v18_2_2 = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v18_2_2);
+
+	setInputValue("fs_repo_apk_kp_array*prov_intstand:num:2", v18_2_1_1+v18_2_1_2+v18_2_2);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_repo_apk_kp_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

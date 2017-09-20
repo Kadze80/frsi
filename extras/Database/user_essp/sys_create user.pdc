@@ -1,0 +1,9 @@
+-- Create the user 
+create user essp
+  identified by sync;
+-- Grant/Revoke role privileges 
+grant connect to ESSP;
+grant resource to ESSP;
+-- Grant/Revoke system privileges 
+grant create database link to ESSP;
+grant debug connect session to ESSP;

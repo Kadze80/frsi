@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report form="fs_repo">
+	<data>
+		<item key="fs_repo_array*name_emitter:num:$D.1.1.1.1" value='Colgate-Palmolive Company'/>
+		<item key="fs_repo_array*vid_cb:num:$D.1.1.1.1" value="2"/>
+		<item key="fs_repo_array*nin_iin:num:$D.1.1.1.1" value="US1941621039"/>
+		<item key="fs_repo_array*name_contr:num:$D.1.1.1.1" value='АО "White Fish of Kazakhstan"'/>
+		<item key="fs_repo_array*datesattl_repo:num:$D.1.1.1.1" value="01.06.2015"/>
+		<item key="fs_repo_array*num_doc:num:$D.1.1.1.1" value="123-456"/>
+		<item key="fs_repo_array*date_openrepo:num:$D.1.1.1.1" value="01.07.2015"/>
+		<item key="fs_repo_array*date_closerepo:num:$D.1.1.1.1" value="01.08.2015"/>
+		<item key="fs_repo_array*date_prolong:num:$D.1.1.1.1" value="01.09.2015"/>
+
+		<item key="fs_repo_array*name_emitter:num:$D.1.1.1.2" value='Company 2'/>
+		<item key="fs_repo_array*vid_cb:num:$D.1.1.1.2" value="2000"/>
+		<item key="fs_repo_array*nin_iin:num:$D.1.1.1.2" value="AB1234567890"/>
+		<item key="fs_repo_array*name_contr:num:$D.1.1.1.2" value='Company 22'/>
+		<item key="fs_repo_array*datesattl_repo:num:$D.1.1.1.2" value="02.06.2015"/>
+		<item key="fs_repo_array*num_doc:num:$D.1.1.1.2" value="789-123"/>
+		<item key="fs_repo_array*date_openrepo:num:$D.1.1.1.2" value="02.07.2015"/>
+		<item key="fs_repo_array*date_closerepo:num:$D.1.1.1.2" value="02.08.2015"/>
+		<item key="fs_repo_array*date_prolong:num:$D.1.1.1.2" value="02.09.2015"/>
+
+		<item key="fs_repo*ceo::" value="Chief Executive Officer"/>
+		<item key="fs_repo*chief_accountant::" value="Chief Accountant"/>
+		<item key="fs_repo*drafted_by::" value="Drafted By"/>
+		<item key="fs_repo*signature_date::" value="23.11.2015"/>
+	</data>
+</report>

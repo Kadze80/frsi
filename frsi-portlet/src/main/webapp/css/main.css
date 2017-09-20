@@ -1,0 +1,9 @@
+/* Version 0.3 */
+.filter-button {
+    width: 70px;
+}
+
+.ui-datatable tbody td.wrap {
+    white-space: normal;
+    width: auto;
+}

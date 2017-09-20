@@ -1,0 +1,64 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:12525/UnionExcel/UnionExcel.asmx" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://localhost:12525/UnionExcel/UnionExcel.asmx">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:12525/UnionExcel/UnionExcel.asmx">
+      <s:element name="union">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dirPath" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="unionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unionResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="unionSoapIn">
+    <wsdl:part name="parameters" element="tns:union"/>
+  </wsdl:message>
+  <wsdl:message name="unionSoapOut">
+    <wsdl:part name="parameters" element="tns:unionResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="UnionExcelServiceSoap">
+    <wsdl:operation name="union">
+      <wsdl:input message="tns:unionSoapIn"/>
+      <wsdl:output message="tns:unionSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UnionExcelServiceSoap" type="tns:UnionExcelServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="union">
+      <soap:operation soapAction="http://localhost:12525/UnionExcel/UnionExcel.asmx/union" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UnionExcelServiceSoap12" type="tns:UnionExcelServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="union">
+      <soap12:operation soapAction="http://localhost:12525/UnionExcel/UnionExcel.asmx/union" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UnionExcelService">
+    <wsdl:port name="UnionExcelServiceSoap" binding="tns:UnionExcelServiceSoap">
+      <soap:address location="http://localhost:12525/unionexcel/UnionExcel.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="UnionExcelServiceSoap12" binding="tns:UnionExcelServiceSoap12">
+      <soap12:address location="http://localhost:12525/unionexcel/UnionExcel.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

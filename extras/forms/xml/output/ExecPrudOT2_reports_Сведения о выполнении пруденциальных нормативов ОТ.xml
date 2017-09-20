@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="ExecPrudOT2_reports"
+        languageCode="ru" title="Сведения о выполнении пруденциальных нормативов организатором торгов (сокр.) (ОТ)"
+        shortName="Свед о вып пруденц норм-ов орг торгов (сокр.) (ОТ)"
+        beginDate="2014-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"ExecPrudOT2_reports_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Сведения о выполнении пруденциальных нормативов организатором торгов</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <br/>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+    <tr>
+        <th rowspan="2">№ п/п</th>
+        <th rowspan="2">Наименование организатора торгов</th>
+        <th>Уставный капитал (в тысячах тенге)</th>
+        <th>Выполнение нормативов</th>
+    </tr>
+    <tr>
+        <th>МРУК>=140 000 МРП</th>
+        <th>да/нет</th>
+    </tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="mpuk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+        </DynamicRow>
+</tbody>
+    </table>
+</div>
+<br/> 
+<br/> 
+<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em" readonly="true"/>
+
+<style>
+    <![CDATA[
+table.dataTable td:nth-child(1) {
+    text-align: left;
+}
+table.dataTable td:nth-child(2) {
+    text-align: center;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrudOT2_reports_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

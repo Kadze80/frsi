@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="kl_6"
+languageCode="ru" title="Отчет об остатках на внебалансовых счетах условных и возможных требований и обязательств (6 класс) (ИО)"
+shortName="Отч об ост на внебал счетах усл и возм треб и обяз(6 класс)(ИО)"
+beginDate="2014-01-01" endDate=""
+typeCode="INPUT"
+tag='{ "keyFields" : {"kl_6_array":"num_acc"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+Приложение 3<br/>
+к постановлению Правления<br/>
+Национального Банка<br/>
+Республики Казахстан<br/>
+от 8 мая 2015 года № 74
+</span>
+
+<h3 style="text-align: center;">
+	Таблица 1. Отчет об остатках на внебалансовых счетах условных и возможных требований и обязательств
+</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+
+<div style="width:45%; float:left; padding:1em 0em 0em 0em;">
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+</div>
+
+<div style="width:45%; float:right; padding:1em 0em 0em 0em;">
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+</div>
+
+
+<div id="div_1" style="width:45%; float:left;">
+<table name="array" class="dataTable">
+<thead>
+	<tr>
+		<th>Номера  счетов</th>
+		<th>Наименования счетов</th>
+		<th>Сумма</th>
+	</tr>
+	<tr>
+		<td colspan="3">VI класс - УСЛОВНЫЕ И ВОЗМОЖНЫЕ ТРЕБОВАНИЯ</td>
+	</tr>
+</thead>
+<tbody>
+	<tr class="groupHeader">
+		<td>6000</td>
+		<td>Счета по аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6000" readonly="true" auto="true" mask="money0"/></td>
+	</tr>
+	<tr>
+		<td>6005</td>
+		<td>Возможные требования по выпущенным непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6005" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6010</td>
+		<td>Возможные требования по подтвержденным непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6010" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6020</td>
+		<td>Возможные требования по выпущенным покрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6020" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6025</td>
+		<td>Возможные требования по подтвержденным покрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6025" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6030</td>
+		<td>Возможные требования банка-бенефициара по непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6030" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6040</td>
+		<td>Возможные требования рамбурсирующего банка к банку-эмитенту </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6040" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6050</td>
+		<td>Счета по гарантиям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6050" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6055</td>
+		<td>Возможные требования по выданным или подтвержденным гарантиям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6055" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6075</td>
+		<td>Возможные требования по принятым гарантиям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6075" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6080</td>
+		<td>Требования к должнику по форфейтинговым операциям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6080." readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6080</td>
+		<td>Требования к должнику по форфейтинговым операциям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6080" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6100</td>
+		<td>Счета по размещению вкладов и займов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6100" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6105</td>
+		<td>Будущие требования по размещаемым вкладам </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6105" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6125</td>
+		<td>Условные требования по безотзывным займам, предоставляемым в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6125" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6126</td>
+		<td>Условные требования по отзывным займам, предоставляемым в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6126" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6130</td>
+		<td>Счета по неподвижным вкладам клиентов</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6130." readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6130</td>
+		<td>Неподвижные вклады клиентов</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6130" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6150</td>
+		<td>Счета по получению вкладов и займов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6150" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6155</td>
+		<td>Условные требования по получению вкладов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6155" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6175</td>
+		<td>Условные требования по получению займов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6175" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6177</td>
+		<td>Условные требования по предоставленным займам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6177" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6180</td>
+		<td>Возможные требования по векселям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6180." readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6180</td>
+		<td>Возможные требования по векселям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6180" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6200</td>
+		<td>Счета по приобретению ценных бумаг и по иным производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6200" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6205</td>
+		<td>Условные требования по покупке ценных бумаг</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6205" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6210</td>
+		<td>Условные требования по операциям фьючерс</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6210" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6225</td>
+		<td>Условные требования по приобретенным опционным операциям - «колл/пут»</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6225" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6230</td>
+		<td>Приобретенное соглашение о будущем вознаграждении - контрсчет</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6230" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6240</td>
+		<td>Процентный своп</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6240" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6300</td>
+		<td>Счета по продаже ценных бумаг и по иным производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6300" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6305</td>
+		<td>Условные требования по продаже ценных бумаг</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6305" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6325</td>
+		<td>Условные требования по проданным опционным операциям - «колл(пут)» - контрсчет</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6325" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6330</td>
+		<td>Реализованное соглашение о будущем вознаграждении</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6330" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6350</td>
+		<td>Условные требования по прочим производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6350" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6400</td>
+		<td>Счета по купле-продаже валютных ценностей</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6400" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6405</td>
+		<td>Условные требования по купле-продаже иностранной валюты</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6405" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6415</td>
+		<td>Условные требования по купле-продаже аффинированных драгоценных металлов</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6415" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6998</td>
+		<td>Позиция по сделкам с аффинированными драгоценными металлами </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6998" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6999</td>
+		<td>Позиция по сделкам с иностранной валютой</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6999" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td></td>
+		<td>Итого Условные и возможные требования </td>
+		<td><InputText name="sum" key="num_acc" keyValue="ItogoReq" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<div id="div_2" style="width:45%; float:right;">
+<table name="array" class="dataTable">
+<thead>
+	<tr>
+		<th>Номера счетов</th>
+		<th>Наименования счетов</th>
+		<th>Сумма</th>
+	</tr>
+	<tr>
+		<td colspan="3">VI класс - УСЛОВНЫЕ И ВОЗМОЖНЫЕ ОБЯЗАТЕЛЬСТВА</td>
+	</tr>
+</thead>
+<tbody>
+	<tr class="groupHeader">
+		<td>6500</td>
+		<td>Счета по аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6500" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6505</td>
+		<td>Возможные обязательства по выпущенным непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6505" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6510</td>
+		<td>Возможные обязательства по подтвержденным непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6510" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6520</td>
+		<td>Возможные обязательства по выпущенным покрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6520" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6525</td>
+		<td>Возможные обязательства по подтвержденным покрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6525" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6530</td>
+		<td>Возможные обязательства банка-бенефициара по непокрытым аккредитивам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6530" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6540</td>
+		<td>Возможные обязательства по рамбурсированию</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6540" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6550</td>
+		<td>Счета по гарантиям </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6550" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6555</td>
+		<td>Возможные обязательства по выданным или подтвержденным гарантиям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6555" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6575</td>
+		<td>Возможное уменьшение требований по принятым гарантиям</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6575" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6580</td>
+		<td>Обязательства по форфейтинговым операциям </td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6580." readonly="true" auto="true" mask="money0"/>
+		</td>
+	</tr>
+	<tr>
+		<td>6580</td>
+		<td>Обязательства по форфейтинговым операциям </td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6580" mask="money0"/>
+		</td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6600</td>
+		<td>Счета по размещению вкладов и займов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6600" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6605</td>
+		<td>Условные обязательства по размещению вкладов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6605" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6625</td>
+		<td>Условные обязательства по безотзывным займам, предоставляемым в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6625" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6626</td>
+		<td>Условные обязательства по отзывным займам, предоставляемым в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6626" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6630</td>
+		<td>Счета по неподвижным вкладам клиентов</td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6630." readonly="true" auto="true" mask="money0"/>
+		</td>
+	</tr>
+	<tr>
+		<td>6630</td>
+		<td>Счета по неподвижным вкладам клиентов</td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6630" mask="money0"/>
+		</td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6650</td>
+		<td>Счета по получению вкладов и займов в будущем</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6650" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6655</td>
+		<td>Будущие обязательства по получаемым вкладам </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6655" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6675</td>
+		<td>Будущие обязательства по получаемым займам </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6675" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6677</td>
+		<td>Условные обязательства по предоставленным займам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6677" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6680</td>
+		<td>Возможные обязательства по векселям</td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6680." readonly="true" auto="true" mask="money0"/>
+		</td>
+	</tr>
+	<tr>
+		<td>6680</td>
+		<td>Возможные обязательства по векселям</td>
+		<td>
+			<InputText name="sum" key="num_acc" keyValue="6680" mask="money0"/>
+		</td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6700</td>
+		<td>Счета по приобретению ценных бумаг и по иным производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6700" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6705</td>
+		<td>Условные обязательства по покупке ценных бумаг</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6705" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6710</td>
+		<td>Условные обязательства по операциям фьючерс</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6710" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6725</td>
+		<td>Условные обязательства по приобретенным опционным операциям - «колл(пут)» - контрсчет</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6725" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6730</td>
+		<td>Приобретенное соглашение о будущем вознаграждении </td>
+		<td><InputText name="sum" key="num_acc" keyValue="6730" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6740</td>
+		<td>Процентный своп</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6740" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6800</td>
+		<td>Счета по продаже ценных бумаг и по иным производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6800" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6805</td>
+		<td>Условные обязательства по продаже ценных бумаг</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6805" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6825</td>
+		<td>Условные обязательства по проданным опционным операциям - «колл(пут)»</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6825" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6830</td>
+		<td>Реализованное соглашение о будущем вознаграждении - контрсчет</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6830" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6850</td>
+		<td>Условные обязательства по прочим производным финансовым инструментам</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6850" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td>6900</td>
+		<td>Счета по купле-продаже валютных ценностей</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6900" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6905</td>
+		<td>Условные обязательства по купле-продаже иностранной валюты</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6905" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6915</td>
+		<td>Условные обязательства по купле-продаже аффинированных драгоценных металлов</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6915" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6996</td>
+		<td>Позиция по сделкам с прочими активами</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6996" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6997</td>
+		<td>Позиция по сделкам с ценными бумагами</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6997" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6998</td>
+		<td>Позиция по сделкам с аффинированными драгоценными металлами</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6998_" mask="money0" /></td>
+	</tr>
+	<tr>
+		<td>6999</td>
+		<td>Позиция по сделкам с иностранной валютой</td>
+		<td><InputText name="sum" key="num_acc" keyValue="6999_" mask="money0" /></td>
+	</tr>
+	<tr class="groupHeader">
+		<td></td>
+		<td>Итого Условные и возможные обязательства </td>
+		<td><InputText name="sum" key="num_acc" keyValue="ItogoCondLiab" readonly="true" auto="true" mask="money0" /></td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<br/>
+<br/>
+<br/>
+<table class="textLayoutTable">
+<tr>
+	<td>Первый руководитель:</td>
+	<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Главный бухгалтер:</td>
+	<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Начальник ответственного подразделения:</td>
+	<td><InputText name="crd" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Исполнитель:</td>
+	<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Дата:</td>
+	<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+table.dataTable td:nth-child(n+3) {
+	text-align: right;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var inputs = [];
+	inputs = getTableInputs("kl_6_array");
+
+	var v6000 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6005", "kl_6_array*sum:num_acc:6040");
+	setInputValue("kl_6_array*sum:num_acc:6000",v6000);
+
+	var v6050 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6055", "kl_6_array*sum:num_acc:6075");
+	setInputValue("kl_6_array*sum:num_acc:6050",v6050);
+
+	var v6080 = getInputValue("kl_6_array*sum:num_acc:6080");
+	setInputValue("kl_6_array*sum:num_acc:6080.",v6080);
+
+	var v6100 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6105", "kl_6_array*sum:num_acc:6126");
+	setInputValue("kl_6_array*sum:num_acc:6100",v6100);
+
+	var v6130 = getInputValue("kl_6_array*sum:num_acc:6130");
+	setInputValue("kl_6_array*sum:num_acc:6130.",v6130);
+
+	var v6150 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6155", "kl_6_array*sum:num_acc:6177");
+	setInputValue("kl_6_array*sum:num_acc:6150",v6150);
+
+	var v6180 = getInputValue("kl_6_array*sum:num_acc:6180");
+	setInputValue("kl_6_array*sum:num_acc:6180.",v6180);
+
+	var v6200 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6205", "kl_6_array*sum:num_acc:6240");
+	setInputValue("kl_6_array*sum:num_acc:6200",v6200);
+
+	var v6300 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6305", "kl_6_array*sum:num_acc:6350");
+	setInputValue("kl_6_array*sum:num_acc:6300",v6300);
+
+	var v6405 = getInputValue("kl_6_array*sum:num_acc:6405");
+	var v6415 = getInputValue("kl_6_array*sum:num_acc:6415");
+	var v6998 = getInputValue("kl_6_array*sum:num_acc:6998");
+	var v6999 = getInputValue("kl_6_array*sum:num_acc:6999");
+	var v6400 = v6405+v6415+v6998+v6999;
+	setInputValue("kl_6_array*sum:num_acc:6400",v6400);
+
+	var vItogo = v6000+v6050+v6080+v6100+v6130+v6150+v6180+v6200+v6300+v6400;
+	setInputValue("kl_6_array*sum:num_acc:ItogoReq",vItogo);
+
+
+	var v6500 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6505", "kl_6_array*sum:num_acc:6540");
+	setInputValue("kl_6_array*sum:num_acc:6500",v6500);
+
+	var v6550 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6555", "kl_6_array*sum:num_acc:6575");
+	setInputValue("kl_6_array*sum:num_acc:6550",v6550);
+
+	var v6600 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6605", "kl_6_array*sum:num_acc:6626");
+	setInputValue("kl_6_array*sum:num_acc:6600",v6600);
+
+	var v6650 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6655", "kl_6_array*sum:num_acc:6677");
+	setInputValue("kl_6_array*sum:num_acc:6650",v6650);
+
+	var v6700 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6705", "kl_6_array*sum:num_acc:6740");
+	setInputValue("kl_6_array*sum:num_acc:6700",v6700);
+
+	var v6800 = sumInputValuesByKeyValueRange(inputs, "kl_6_array*sum:num_acc:6805", "kl_6_array*sum:num_acc:6850");
+	setInputValue("kl_6_array*sum:num_acc:6800",v6800);
+
+	//****************************
+
+	var v6905 = getInputValue("kl_6_array*sum:num_acc:6905");
+	var v6915 = getInputValue("kl_6_array*sum:num_acc:6915");
+	var v6996 = getInputValue("kl_6_array*sum:num_acc:6996");
+	var v6997 = getInputValue("kl_6_array*sum:num_acc:6997");
+	var v6998_ = getInputValue("kl_6_array*sum:num_acc:6998_");
+	var v6999_ = getInputValue("kl_6_array*sum:num_acc:6999_");
+	var v6900 = v6905+v6915+v6996+v6997+v6998_+v6999_;
+	setInputValue("kl_6_array*sum:num_acc:6900",v6900);
+
+	var v6580 = getInputValue("kl_6_array*sum:num_acc:6580");
+	setInputValue("kl_6_array*sum:num_acc:6580.",v6580);
+
+	var v6630 = getInputValue("kl_6_array*sum:num_acc:6630");
+	setInputValue("kl_6_array*sum:num_acc:6630.",v6630);
+
+	var v6680 = getInputValue("kl_6_array*sum:num_acc:6680");
+	setInputValue("kl_6_array*sum:num_acc:6680.",v6680);
+
+	var v7000 = v6500+v6550+v6580+v6600+v6630+v6650+v6680+v6700+v6800+v6900;
+	setInputValue("kl_6_array*sum:num_acc:ItogoCondLiab",v7000);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#div_1").children("#kl_6_array").tableHeadFixer({unFix:!fix, head:true});     
+    $("#div_2").children("#kl_6_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

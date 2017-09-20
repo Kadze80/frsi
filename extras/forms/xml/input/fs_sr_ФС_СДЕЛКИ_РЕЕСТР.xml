@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+		name="fs_sr"
+		languageCode="ru" title="Отчет о сделках с лицами, связанными с ОООВБО, особыми отношениями (ИО)"
+		shortName="Отч о сдел с лиц,связ с орг,ОООВБО,особ отн(ИО)"
+		beginDate="2014-01-01" endDate=""
+		typeCode="INPUT"
+		tag='{ "keyFields" : {"fs_sr_1_array":"num", "fs_sr_2_array":"num"} }'
+		xmlVersion="1"
+		style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 11<br/>к постановлению Правления<br/>Национального Банка<br/>Республики Казахстан<br/>от 24 сентября 2014 года № 178
+	</span>
+
+	<h3 style="text-align: center;">
+		Отчет о сделках с лицами, связанными с организацией, осуществляющей отдельные виды банковских операций,
+		особыми отношениями, заключенных в течение отчетного месяца, а также действующих на отчетную дату
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: left;">Таблица 1. Сделки с лицами, связанными с организацией, осуществляющей отдельные виды банковских операций, особыми отношениями, заключенные
+		течение отчетного месяц, а также действующие на <InputDate name="d1" valueType="date" required="true"/> года</span>
+<div>
+	<table name="1_array" class="dataTable" valueCheckFunc="contains([fs_sr_1_array*name,fs_sr_1_array*bin_iin],[fs_sr_2_array*name,fs_sr_2_array*bin],'в таблице 2'):w">
+<thead>
+		<tr>
+			<th rowspan="2">№</th>
+			<th rowspan="2">Наименование<br/>(фамилия, имя, отчество)<br/>лица</th>
+			<th rowspan="2">Бизнес - идентификационный номер (для юридического лица), индивидуальный идентификационный номер (для физического лица, в том числе для индивидуального предпринимателя) </th>
+			<th rowspan="2">Страна резидентства</th>
+			<th rowspan="2">Признак, в соответствии с которым лицо отнесено к лицу, связанному особыми отношениями с организацией, осуществляющей отдельные виды банковских операций</th>
+			<th rowspan="2">Вид операции</th>
+			<th rowspan="2">Цель сделки</th>
+			<th rowspan="2">№ договора</th>
+			<th rowspan="2">Дата заключения (дата начала выполнения условий) договора</th>
+			<th rowspan="2">Дата окончания действия (дата окончания выполнения условий) договора</th>
+			<th rowspan="2">Реквизиты решения совета директоров организации, осуществляющей отдельные виды банковских операций, либо общего собрания акционеров (в случае отсутствия совета директоров)</th>
+			<th rowspan="2">Сумма сделки по договору (в тысячах тенге)</th>
+			<th rowspan="2">Вид валюты</th>
+			<th rowspan="2">Вид обеспечения</th>
+			<th colspan="2">Стоимость обеспечения (в тысячах тенге)</th>
+			<th colspan="3"> Вознаграждение (в процентах годовых)</th>
+			<th colspan="2">Начисленные доходы/расходы</th>
+			<th colspan="2">Текущий остаток на отчетную дату</th>
+			<th rowspan="2">Сумма созданных провизий в соответствии с требованиями международных стандартов финансовой отчетности</th>
+			<th rowspan="2">Примечание</th>
+		</tr>
+		<tr fixed="nf">
+			<th>Всего</th>
+			<th>из них стоимость обеспечения, включаемая при расчете резервов (провизий)</th>
+			<th>лицом, связанным с организацией, осуществляющей отдельные виды банковских операций, особыми отношениями в пользу организации, осуществляющей отдельные виды банковских операций</th>
+			<th>организацией, осуществляющей отдельные виды банковских операций, в пользу лица, связанного с организацией, осуществляющей отдельные виды банковских операций, особыми отношениями</th>
+			<th>в соответствии с внутренними документами организации, осуществляющей отдельные виды банковских операций</th>
+			<th>Сумма (в тысячах тенге)</th>
+			<th>Балансовый счет</th>
+			<th>Сумма (в тысячах тенге) </th>
+			<th>Балансовый счет</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th style="min-width: 24em;">2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>19</th>
+			<th>20</th>
+			<th>21</th>
+			<th>22</th>
+			<th>23</th>
+			<th>24</th>
+			<th>25</th>
+		</tr>
+</thead>
+<tbody>
+		<tr id="group" class="groupHeader">
+			<td><Plus/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Всего</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><InputText name="sum_dog" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td></td>
+			<td></td>
+			<td><InputText name="cost_prov_vsego" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cost_prov_reserve" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><InputText name="income_sum" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td></td>
+			<td><InputText name="currbal_sum" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td></td>
+			<td><InputText name="sum_provision" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td></td>
+		</tr>
+		<DynamicRow>
+			<td><Minus/><StaticText value="$DynamicRowIdText"/></td>
+			<td>
+				<InputText name="name" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" style="width: 20em; text-align: left;"/>
+				<Pick ref="person" receiver="name" key="num" keyValue="$DynamicRowId"/>
+			</td>
+			<td><InputText name="bin_iin" key="num" keyValue="$DynamicRowId" required="true" readonly="true" valueCheckFunc="validateIDN()" style="width: 10em; text-align: center;"/></td>
+			<td><InputSelect name="country" key="num" keyValue="$DynamicRowId" required="true" ref="ref_country" refCode="rec_id" refCaption="name_ru" style="width: 15em;"/></td>
+			<td><InputSelect name="is_ooovbo_m" key="num" keyValue="$DynamicRowId" required="true" ref="ref_conn_org" refCode="rec_id" refCaption="code" multiValue="true" style="width: 15em;"/></td>
+			<td><InputSelect name="vid_oper" key="num" keyValue="$DynamicRowId" required="true" viewModel="ref_vid_oper_vm" ref="ref_vid_oper" refCode="rec_id" refCaption="name_ru" style="width: 20em;"/></td>
+			<td><InputText name="purp_trans" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 10em; text-align: left;"/></td>
+			<td><InputText name="num_dog" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 8em; text-align: left;"/></td>
+			<td><InputDate name="begdate_dog" key="num" keyValue="$DynamicRowId" valueType="date" style="width: 8em; text-align: center;"/></td>
+			<td><InputDate name="enddate_dog" key="num" keyValue="$DynamicRowId" valueType="date" style="width: 8em; text-align: center;"/></td>
+			<td><InputText name="decision_sovdir" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 15em; text-align: left;"/></td>
+			<td><InputText name="sum_dog" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputSelect name="vid_cur" key="num" keyValue="$DynamicRowId" required="true" ref="ref_currency" refCode="rec_id" refCaption="name_ru" style="width: 14em;"/></td>
+			<td><InputSelect name="vid_prov_m" key="num" keyValue="$DynamicRowId" required="true" ref="ref_type_provide" refCode="rec_id" refCaption="code" multiValue="true" style="width: 15em;"/></td>
+			<td><InputText name="cost_prov_vsego" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputText name="cost_prov_reserve" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputText name="rew_pers_ooovbo" key="num" keyValue="$DynamicRowId" mask="money2"/></td>
+			<td><InputText name="rew_org_ooovbo" key="num" keyValue="$DynamicRowId" mask="money2"/></td>
+			<td><InputText name="rew_ooovbo" key="num" keyValue="$DynamicRowId" mask="money2"/></td>
+			<td><InputText name="income_sum" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputText name="income_balacc" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 15em; text-align: left;"/></td>
+			<td><InputText name="currbal_sum" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputText name="currbal_balacc" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 15em; text-align: left;"/></td>
+			<td><InputText name="sum_provision" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+			<td><InputText name="note" key="num" keyValue="$DynamicRowId" multiLine="true" style="width: 25em; text-align: left;"/></td>
+		</DynamicRow>
+</tbody>
+	</table>
+</div>
+	<br/>
+	<span style="display: block; text-align: left;">
+		Общая сумма сделок организации, осуществляющей отдельные виды банковских операций, с лицами, связанными особыми отношениями с ней,
+		суммы которых по каждому виду операций организации, осуществляющей отдельные виды банковских операций, с лицом, связанным особыми отношениями с ней,
+		не превышает 0,01 процент в совокупности от размера собственного капитала организации, осуществляющей отдельные виды банковских операций,
+		рассчитываемого в соответствии с постановлением Правления Агентства Республики Казахстан по регулированию и надзору финансового рынка
+		и финансовых организаций от 12 июля 2004 года №200 «Об установлении пруденциальных нормативов для Национального оператора почты,
+		а также форм и сроков представления отчетов об их выполнении» (зарегистрированным в Реестре государственной регистрации нормативных правовых актов под № 2988),
+		постановлением Правления Агентства Республики Казахстан по регулированию и надзору финансового рынка и финансовых организаций
+		от 25 февраля 2006 года №48 «Об утверждении Инструкции о нормативных значениях, методике расчетов пруденциальных нормативов для ипотечных организаций,
+		дочерних организаций национального управляющего холдинга в сфере агропромышленного комплекса, а также форм и сроков представления отчетности об их выполнении»
+		(зарегистрированным в Реестре государственной регистрации нормативных правовых актов под №4158)
+	</span>
+	<span style="display: block; text-align: left;">
+		по состоянию на &#160;<InputDate name="total_bargain_date" valueType="date" required="true"/>&#160;года, составляет &#160;<InputText name="total_bargain_value" mask="money0" style="text-align: right;"/>&#160;тысяч тенге.
+	</span>
+	<br/>
+	<span style="display: block; text-align: left;">
+		Общая сумма займов клиентов организации, осуществляющей отдельные виды банковских операций, застрахованных у страховой (перестраховочной) организации,
+		являющейся лицом, связанным особыми отношениями с организацией, осуществляющей отдельные виды банковских операций,
+	</span>
+	<span style="display: block; text-align: left;">
+		по состоянию на &#160;<InputDate name="total_loan_date" valueType="date" required="true"/> года, составляет &#160;<InputText name="total_loan_value" mask="money0" style="text-align: right;"/>&#160;тысяч тенге.
+	</span>
+	<br/>
+	<span style="display: block; text-align: left;">
+		Организация, осуществляющая отдельные виды банковских операций, подтверждает, что в отчетном периоде льготные условия лицам,
+		связанным особыми отношениями с организацией, осуществляющей отдельные виды банковских операций, не предоставлялись и других сделок с лицами,
+		связанными особыми отношениями с организацией, осуществляющей отдельные виды банковских операций, кроме указанных в Таблице 1,
+		организацией, осуществляющей отдельные виды банковских операций, не осуществлялись.
+	</span>
+	<br/>
+
+	<span style="display: block; text-align: left;">
+		Таблица 2. Реестр лиц, связанных с организацией, осуществляющей отдельные виды банковских операций, особыми отношениями
+	</span>
+	<Button id="btnCopy"/>
+<div>
+	<table name="2_array" class="dataTable" style="width: 50%;">
+<thead>
+		<tr>
+			<th>№</th>
+			<th>Бизнес - идентификационный номер (для юридического лица), индивидуальный идентификационный номер (для физического лица, в том числе для индивидуального предпринимателя) </th>
+			<th>Наименование (фамилия, имя, отчество) лица</th>
+			<th>Признак, в соответствии с которым лицо отнесено к лицу, связанному особыми отношениями с организацией, осуществляющей отдельные виды банковских операций</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th style="min-width: 15em;">2</th>
+			<th>3</th>
+			<th>4</th>
+		</tr>
+</thead>
+<tbody>
+		<tr id="group" class="groupHeader">
+			<td><Plus/></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<DynamicRow>
+			<td><Minus/><StaticText value="$DynamicRowIdText"/></td>
+			<td>
+				<InputText name="bin" key="num" keyValue="$DynamicRowId" required="true" readonly="true" valueCheckFunc="validateIDN()" unique="true" uniqueArea="column" style="width: 12em; text-align: center;"/>
+				<Pick ref="person" receiver="bin" key="num" keyValue="$DynamicRowId"/>
+			</td>
+			<td><InputText name="name" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" style="width: 20em; text-align: left;"/></td>
+			<td><InputSelect name="ispers_ooovbo" key="num" keyValue="$DynamicRowId" required="true" ref="ref_conn_org" refCode="rec_id" refCaption="code" multiValue="true" style="width: 15em;"/></td>
+		</DynamicRow>
+</tbody>
+	</table>
+</div>
+
+	<br/><br/><br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель:</td>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер:</td>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Исполнитель:</td>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Дата:</td>
+			<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+		</tr>
+	</table>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+		min-width: 5em;
+	}
+]]>
+</style>
+<script type="text/frsp">
+	{
+		inputSelectViewModels:[
+			{
+				name:"ref_vid_oper_vm",
+				columns:[
+					{name:"rec_id", key:true, hidden:true},
+					{name:"code", title:"Код"},
+					{name:"name_ru", title:"Наименование"}
+				],
+				sortFields:[{name:"code"}, {name:"name_ru"}]
+			}
+		]
+	}
+</script>
+<script>
+<![CDATA[
+	function updateCalculatedFields() {
+		var cn = [];
+		cn[12] = "sum_dog";
+		cn[15] = "cost_prov_vsego";
+		cn[16] = "cost_prov_reserve";
+		// cn[17] = "rew_pers_ooovbo";
+		// cn[18] = "rew_org_ooovbo";
+		// cn[19] = "rew_ooovbo";
+		cn[20] = "income_sum";
+		cn[22] = "currbal_sum";
+		cn[24] = "sum_provision";
+
+		for (var col = 12; col <= 24; col++)
+			if (cn[col] && cn[col].length) {
+				var groupId = "fs_sr_1_array*" + cn[col] + ":num:group";
+				var total = sumInputValuesByGroup(groupId);
+				setInputValue("fs_sr_1_array*" + cn[col] + ":num:Itogo", total);
+			}
+	}
+
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_sr_1_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+    	$("#fs_sr_2_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+
+			$(document).ready(function () {
+
+				$("#btnCopy").on("click", function () {
+					var tds = $(".fs_sr_checkbox");
+					if (tds.length == 0) {
+						$(this).attr("value", "Копировать");
+						$("#fs_sr_2_array").find("thead tr").prepend($("<th class='fs_sr_checkbox'></th>"));
+						$("#fs_sr_2_array").find("tbody tr").prepend($("<td class='fs_sr_checkbox'><input type='checkbox' /></td>"));
+
+						$("#fs_sr_2_array")
+								.find(".fs_sr_checkbox")
+								.has("input:checkbox")
+								.first()
+								.find("input")
+								.on("click", function (cb) {
+									var checked = $(this).get(0).checked;
+									$("#fs_sr_2_array")
+											.find(".fs_sr_checkbox")
+											.has("input:checkbox")
+											.find("input")
+											.attr("checked", checked);
+								});
+					} else {
+						var checked = $("td.fs_sr_checkbox input:checked").parents("tr").filter("[id^=fs_sr_2_array\\:\\\$D\\.group\\.]");
+						var toolButton1 = $("#fs_sr_1_array\\:group").find("input.toolButton");
+						checked.sort(function (tr1, tr2) {
+							var i1 = parseInt(tr1.id.substring(tr1.id.lastIndexOf(".") + 1));
+							var i2 = parseInt(tr2.id.substring(tr2.id.lastIndexOf(".") + 1));
+							if (i1 < i2) {
+								return -1;
+							} else {
+								return 1;
+							}
+						});
+						checked.each(function () {
+							toolButton1.click();
+							var tr = $(this);
+							var lastAddedRow = $("[id^=fs_sr_1_array\\:\\\$D\\.group\\.]:last");
+
+							var bin1 = lastAddedRow.find("[id^=fs_sr_1_array\\*bin_iin\\:num\\:\\\$D\\.group\\.]");
+							var bin2 = tr.find("#fs_sr_2_array\\*bin\\:num\\:\\\$D\\.group\\." + tr.get(0).id.substring(tr.get(0).id.lastIndexOf(".") + 1));
+							bin1.val(bin2.val());
+
+							var name1 = lastAddedRow.find("[id^=fs_sr_1_array\\*name\\:num\\:\\\$D\\.group\\.]");
+							var name2 = tr.find("#fs_sr_2_array\\*name\\:num\\:\\\$D\\.group\\." + tr.get(0).id.substring(tr.get(0).id.lastIndexOf(".") + 1));
+							name1.val(name2.val());
+
+
+							var ovboHidden1 = lastAddedRow.find("[id^=fs_sr_1_array\\*is_ooovbo_m\\:num\\:\\\$D\\.group\\.]");
+							var ovboHidden2 = tr.find("#fs_sr_2_array\\*ispers_ooovbo\\:num\\:\\\$D\\.group\\." + tr.get(0).id.substring(tr.get(0).id.lastIndexOf(".") + 1));
+							ovboHidden1.val(ovboHidden2.val());
+
+							var ovboTextarea1 = lastAddedRow.find("[id^=textarea\\:fs_sr_1_array\\*is_ooovbo_m\\:num\\:\\\$D\\.group\\.]");
+							var ovboTextarea2 = tr.find("#textarea\\:fs_sr_2_array\\*ispers_ooovbo\\:num\\:\\\$D\\.group\\." + tr.get(0).id.substring(tr.get(0).id.lastIndexOf(".") + 1));
+							ovboTextarea1.val(ovboTextarea2.val());
+						});
+
+						$(this).attr("value", "Выделить");
+						tds.remove();
+					}
+				});
+
+				$("#btnCopy").attr("value", "Выделить");
+
+				var toolButton2 = $("#fs_sr_2_array\\:group").find("input.toolButton");
+				toolButton2.on("click", function () {
+					if ($(".fs_sr_checkbox").length > 0) {
+						var lastAddedRow = $("[id^=fs_sr_2_array\\:\\\$D\\.group\\.]:last");
+						lastAddedRow.prepend($("<td class='fs_sr_checkbox'><input type='checkbox' /></td>"));
+					}
+				});
+
+			});
+
+]]>
+</script2>
+</Form>

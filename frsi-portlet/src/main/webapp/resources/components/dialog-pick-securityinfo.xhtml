@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:dialog id="dialogPickSecurityInfo" widgetVar="wDialogPickSecurityInfo" header="Поиск ценной бумаги" width="640" height="320" modal="true">
+            <h:form id="form">
+                <p:messages />
+                <h:outputText value="НИН: "/>
+                <p:inputText value="#{pickSecurityInfoBean.nin}" style="width: 12em;" required="true" requiredMessage="Необходимо ввести НИН!"/>&#160;
+                <p:commandButton value="#{res.search}" actionListener="#{pickSecurityInfoBean.search}" update="@form"/>
+                <br/><br/>
+                <h:outputText value="НИН: "/><h:outputText value="#{pickSecurityInfoBean.security.nin}"/><br/><br/>
+                <h:outputText value="Вид ЦБ: "/><h:outputText value="#{pickSecurityInfoBean.security.varietyName}"/><br/>
+                <h:outputText value="Тип ЦБ: "/><h:outputText value="#{pickSecurityInfoBean.security.typeName}"/><br/>
+                <h:outputText value="Номинал: "/><h:outputText value="#{pickSecurityInfoBean.security.nominalValue}"/><br/>
+                <h:outputText value="Валюта номинала: "/><h:outputText value="#{pickSecurityInfoBean.security.currencyName}"/><br/><br/>
+
+                <h:outputText value="Эмитент: "/><h:outputText value="#{pickSecurityInfoBean.security.issuerName}"/><br/>
+                <h:outputText value="Признак эмитента: "/><h:outputText value="#{pickSecurityInfoBean.security.signName}"/><br/>
+                <h:outputText value="Государственный: "/><h:selectBooleanCheckbox value="#{pickSecurityInfoBean.security.isState}" readonly="true"/><br/>
+                <h:outputText value="Резидент: "/><h:selectBooleanCheckbox value="#{pickSecurityInfoBean.security.isResident}" readonly="true"/><br/>
+                <br/>
+                <p:commandButton value="Выбрать" oncomplete="passSecurityInfo()" update="#{cc.attrs.update}"/>
+
+                <h:inputHidden id="receiverInfo"/>
+                <h:inputHidden id="pickedValue" value="#{pickSecurityInfoBean.pickedValue}"/>
+            </h:form>
+        </p:dialog>
+        <h:outputScript library="components" name="dialog-pick-securityinfo_0_3.js"/>
+    </composite:implementation>
+</ui:component>

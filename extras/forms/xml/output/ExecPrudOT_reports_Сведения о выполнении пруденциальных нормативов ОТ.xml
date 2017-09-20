@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="ExecPrudOT_reports"
+        languageCode="ru" title="Сведения о выполнении пруденциальных нормативов организатором торгов (ОТ)"
+        shortName="Свед о вып пруденц норм-ов орг торгов(ОТ)"
+        beginDate="2014-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"ExecPrudOT_reports_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Сведения о выполнении пруденциальных нормативов организатором торгов</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <br/>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+    <tr>
+        <th rowspan="2">№ п/п</th>
+        <th rowspan="2">Наименование организатора торгов</th>
+        <th>Уставный капитал (в тысячах тенге)</th>
+        <th>Собственный капитал (в тысячах тенге)</th>
+        <th>Коэффициент достаточности собственного капитала</th>
+        <th>Коэффициент текущей ликвидности</th>
+        <th>Выполнение нормативов</th>
+    </tr>
+    <tr>
+        <th>МРУК>=140 000 МРП</th>
+        <th>МРСК>=140 000 МРП</th>
+        <th>К1>=0,5</th>
+        <th>К2>=0,015</th>
+        <th>да/нет</th>
+    </tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="mpuk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="mpsk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td>
+                <InputText name="k1" key="num" keyValue="$DynamicRowId" readonly="true" mask="money4"/>
+            </td>
+            <td>
+                <InputText name="k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money4"/>
+            </td>
+            <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+        </DynamicRow>
+</tbody>
+    </table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+    <![CDATA[
+table.dataTable td:nth-child(1) {
+    text-align: left;
+}
+table.dataTable td:nth-child(2) {
+    text-align: center;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrudOT_reports_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

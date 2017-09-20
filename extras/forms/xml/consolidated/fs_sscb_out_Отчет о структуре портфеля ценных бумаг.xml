@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="fs_sscb_out"
+	languageCode="ru" title="Сводный отчет о структуре портфеля ценных бумаг (ИО)"
+    shortName="Свод отч о струк портф ЦБ (ИО)"
+	beginDate="2014-01-01" endDate=""
+	tag='{ "sortFields" : [{"name":"fs_sscb_out_array*name_emitter"}], "keyFields" : {"fs_sscb_out_array":"num"} }'
+	typeCode="CONSOLIDATED"
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">Сводный отчет о структуре портфеля ценных бумаг ипотечных организаций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+<div>
+	<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th rowspan="3">№ п/п</th>
+			<th rowspan="3">Наименование эмитента  </th>
+			<th colspan="3">Количество ценных бумаг (штук)</th>
+			<th rowspan="3">Номинальная стоимость/покупная стоимость ценной бумаги (в тысячах тенге)</th>
+			<th colspan="5">Ценные бумаги, имеющиеся в наличии для продажи</th>
+			<th colspan="4">Ценные бумаги, учитываемые по справедливой стоимости через прибыль или убыток</th>
+			<th colspan="5">Ценные бумаги, удерживаемые до погашения</th>
+			<th rowspan="2" colspan="2">Балансовая стоимость (нетто) по обремененным ценным бумагам, в тысячах тенге</th>
+		</tr>
+		<tr fixed="nf">
+			<th rowspan="2">Всего</th>
+			<th colspan="2">в том числе обремененные ценные бумаги</th>
+			<th colspan="5">Балансовая стоимость (нетто), в тысячах тенге</th>
+			<th colspan="4">Балансовая стоимость (нетто), в тысячах тенге</th>					
+			<th colspan="4">Балансовая стоимость (нетто), в тысячах тенге</th>
+			<th rowspan="2">Дисконтированная стоимость будущих денежных потоков</th>				
+		</tr>
+		<tr fixed="nf">					
+			<th>обремененные ценные бумаги, всего</th>
+			<th>в том числе ценные бумаги, переданные в РЕПО </th>
+			<th>Стоимость приобретения</th>
+			<th>Дисконт,премия</th>
+			<th>Начисленное вознаграждение</th>
+			<th>Положительная /отрицательная корректировка</th>
+			<th>Размер резервов (провизий) </th>
+			<th>Стоимость приобретения</th>
+			<th>Дисконт, премия</th>
+			<th>Начисленное вознаграждение</th>
+			<th>Положительная /отрицательная корректировка</th>										
+			<th>Стоимость приобретения</th>
+			<th>Дисконт, премия</th>
+			<th>Начисленное вознаграждение</th>
+			<th>Размер резервов (провизий)</th>
+			<th>Всего</th>
+			<th>в том числе ценные бумаги, обремененные договорами РЕПО</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>19</th>
+			<th>20</th>
+			<th>21</th>
+			<th>22</th>
+		</tr>
+</thead>
+<tbody>
+		<tr class="groupHeader">
+			<td>1</td>
+			<td>Государственные ценные бумаги Республики Казахстан, в том числе:</td>
+			<td><InputText name="kolcb_vsego" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="kolcb_burden" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="kolcb_send_repo" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="1" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr id="1.1">
+			<td>1.1</td>
+			<td>ноты Национального Банка Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="1.1" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="1.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="1.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.2">
+			<td>1.2</td>
+			<td>ценные бумаги местных исполнительных органов</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="1.2" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="1.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="1.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.3">
+			<td>1.3</td>
+			<td>ценные бумаги Министерства финансов Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="1.3" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="1.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="1.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="1.4">
+			<td>1.4</td>
+			<td></td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="1.4" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="1.4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="1.4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr class="groupHeader">
+			<td>2</td>
+			<td>Негосударственные эмиссионные ценные бумаги организаций Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="2" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr id="2.1">
+			<td>2.1</td>
+			<td>Банки второго уровня</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="2.1" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="2.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="2.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="2.2">
+			<td>2.2</td>
+			<td> Юридические лица, за исключением банков второго уровня</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="2.2" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="2.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="2.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="2.3">
+			<td>2.3</td>
+			<td>Облигации Акционерного общества «Банк Развития Казахстана»</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="2.3" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="2.3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="2.3" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="3" class="groupHeader">
+			<td>3</td>
+			<td>Ценные бумаги иностранных государств</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="3" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4</td>
+			<td>Негосударственные ценные бумаги эмитентов-нерезидентов Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="4" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="4" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+		<tr id="4.1">
+			<td>4.1</td>
+			<td>Финансовые организации эмитентов-нерезидентов Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="4.1" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="4.1" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="4.1" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="4.2">
+			<td>4.2</td>
+			<td>Нефинансовые организации эмитентов-нерезидентов Республики Казахстан</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="4.2" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="4.2" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="4.2" readonly="true" auto="true"
+						   mask="money0"/>
+			</td>
+		</tr>
+		<tr id="5" class="groupHeader">
+			<td>5</td>
+			<td> Ценные бумаги международных финансовых организаций</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="5" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr id="6" class="groupHeader">
+			<td>6</td>
+			<td>Исламские ценные бумаги</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="6" readonly="true" auto="true" mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого портфель ценных бумаг</td>
+			<td>
+				<InputText name="kolcb_vsego" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_burden" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="kolcb_send_repo" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="Itogo" readonly="true" auto="true"
+						   mask="money5"/>
+			</td>
+			<td><InputText name="cb_avalsale_costasq" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_discaward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_reward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_posnegkorr" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_avalsale_prov" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_costasq" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_discaward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_reward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_fairval_posnegkorr" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_costasq" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_discaward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_reward" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_prov" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="cb_hold_dcf" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_vsego" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="balval_burden_repo" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<DynamicRow>
+			<td><StaticText value="$DynamicRowIdText"/></td>
+			<td><ReceiverInput name="name_emitter" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_issuers" refCode="rec_id" refCaption="name_ru" style="width: 25em; text-align: left;"/></td>
+			<td><InputText name="kolcb_vsego" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="kolcb_burden" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td><InputText name="kolcb_send_repo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+			<td>
+				<InputText name="nominal_value_cb" key="num" keyValue="$DynamicRowId" readonly="true" mask="money5"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_costasq" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_discaward" key="num" keyValue="$DynamicRowId" readonly="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_reward" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_posnegkorr" key="num" keyValue="$DynamicRowId" readonly="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_avalsale_prov" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_costasq" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_discaward" key="num" keyValue="$DynamicRowId" readonly="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_reward" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_fairval_posnegkorr" key="num" keyValue="$DynamicRowId" readonly="true"
+						   mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_costasq" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_discaward" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_reward" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_prov" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="cb_hold_dcf" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_vsego" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+			<td>
+				<InputText name="balval_burden_repo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/>
+			</td>
+		</DynamicRow>
+</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: center;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#fs_sscb_out_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+}
+]]>
+</script2>
+</Form>

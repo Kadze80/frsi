@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{templateBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <style>
+            .ui-datatable tbody td.wrap {
+                white-space: normal;
+                width: auto;
+            }
+        </style>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <p:growl id="messages" showDetail="true" />
+        <h:form id="mainForm">
+            <table>
+                <tr>
+                    <td>
+                        <h:panelGroup id="pgL" >
+                            <p:toolbar id="tbL" >
+                                <f:facet name="left">
+                                    <p:commandButton value="Обновить" title="#{res.updateList}" icon="ui-icon-arrowrefresh-1-s"
+                                                     actionListener="#{templateBean.refreshList()}" update="pgdtL"
+                                                     disabled="#{!userBean.hasPermission('TEMPLATE:VIEW')}" />
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <h:selectOneMenu value="#{templateBean.typeTemplate}" style="width: 250px">
+                                        <f:selectItem itemLabel="Все" itemValue="#{0}"/>
+                                        <f:selectItem itemLabel="Справочники" itemValue="#{1}"/>
+                                        <f:selectItem itemLabel="Другие" itemValue="#{2}"/>
+                                    </h:selectOneMenu>
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <p:commandButton value="Изменить шаблон" oncomplete="PF('wUploadDialogXlsOut').show()" disabled="#{userBean.disabled(templateBean.selectedTemplate==null, 'TEMPLATE:EDIT')}" />
+                                    <p:commandButton value="Выгрузить" ajax="false" disabled="#{userBean.disabled(templateBean.selectedTemplate==null || !templateBean.selectedTemplate.haveTemplate, 'TEMPLATE:EDIT')}" >
+                                        <p:fileDownload value="#{templateBean.onDownloadXlsOut()}"/>
+                                    </p:commandButton>
+                                </f:facet>
+                            </p:toolbar>
+                        </h:panelGroup>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:panelGroup id ="pgdtL" >
+                            <p:dataTable  value="#{templateBean.templateList}" var="templateItem" scrollable="true" resizableColumns="true" selection="#{templateBean.selectedTemplate}"
+                                         rowKey="#{templateItem}" selectionMode="single" paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="5,10,15,20,25,30" rows="15" emptyMessage="#{res.noRecordsFound}">
+                                <p:ajax event="rowSelect" update="@form:pgL " />
+                                <p:ajax event="rowUnselect" update="@form:pgL" />
+                                <p:column headerText="#{res.name}" sortBy="#{templateItem.name}" styleClass="wrap" style="width: 35em"><h:outputText value="#{templateItem.name}"/></p:column>
+                                <p:column headerText="Код" sortBy="#{templateItem.code}" style="width: 15em"><h:outputText value="#{templateItem.code}" /></p:column>
+                                <p:column headerText="Код шаблона" sortBy="#{templateItem.codeTemplate}" style="width: 15em"><h:outputText value="#{templateItem.codeTemplate}"/></p:column>
+                                <p:column headerText="Есть шаблон" sortBy="#{templateItem.haveTemplate}" style="width:7em; text-align: center" ><p:selectBooleanCheckbox value="#{templateItem.haveTemplate}" disabled="true" /></p:column>
+                                <p:column headerText="Дата начала" sortBy="#{templateItem.beginDate}" style="width: 15em"><h:outputText value="#{templateItem.beginDate}"/></p:column>
+                                <p:column headerText="Дата окончания" sortBy="#{templateItem.endDate}" style="width: 15em"><h:outputText value="#{templateItem.endDate}"/></p:column>
+                            </p:dataTable>
+                        </h:panelGroup>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+
+            </table>
+        </h:form>
+
+        <p:dialog header="#{res.downloadDialog}" widgetVar="wUploadDialogXlsOut" modal="true" onHide="" >
+            <h:outputText value="Выберите файл и нажмите кнопку Загрузить"/><br/><br/>
+            <h:form>
+                <p:fileUpload fileUploadListener="#{templateBean.onUploadXlsOut}" mode="advanced" dragDropSupport="false"
+                              sizeLimit="5242880" allowTypes="/(\.|\/)(xlsx|xlsm|pdf)$/" update=":messages,:mainForm" oncomplete="PF('wUploadDialogXlsOut').hide()"
+                              label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+                              invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"/>
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</f:view>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+	encoding="UTF8"
+	locale="#{facesContext.externalContext.requestLocale}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:components="http://java.sun.com/jsf/composite/components">
+
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{auditBean.preRender}"/>
+	</f:metadata>
+
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+	</h:head>
+
+	<h:body onload="PF('statusDialog').hide()">
+		<p:dialog widgetVar="statusDialog"/>
+		<components:ajax-status/>
+		<components:dialog-error id="ccDialogError"/>
+		<p:growl id="messages" showDetail="true" />
+
+        <h:form id="mainForm">
+            <h:panelGroup id ="actions" >
+                <p:toolbar id ="mbActions" >
+                    <f:facet name="left">
+                        <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{auditBean.refreshAuditEvents()}"
+										 disabled="#{!userBean.hasPermission('AUDIT:REFRESH')}" update="@form:pgdt" icon="ui-icon-arrowrefresh-1-s" />
+						<p:selectBooleanButton title="Нажмите, чтобы показать или скрыть детализацию" offLabel="Показать" onLabel="Скрыть" value="#{auditBean.showDetails}">
+							<p:ajax update="@form:mainLayout"/>
+						</p:selectBooleanButton>
+
+                        <span class="ui-separator">
+                            <span class="ui-icon ui-icon-grip-dotted-vertical" />
+                        </span>
+
+                        <!--<p:menuButton value="Действия">
+							<p:menuitem value="Переместить в архив по фильтру" onclick="PF('wDlgConfirmMoveArchive').show()"  title="Переместить данные по фильтру в архив"/>
+                        </p:menuButton>-->
+                    </f:facet>
+                </p:toolbar>
+            </h:panelGroup>
+
+			<p:fieldset id="grpFilters" legend="Фильтры" toggleable="true" toggleSpeed="250" style="margin-top: 0.5em">
+				<p:ajax event="toggle" listener="#{auditBean.onFiltersToggle}" update=":messages"/>
+				<p:panel>
+					<h:outputText value="Период: с&#160;"/>
+					<p:calendar value="#{auditBean.filterEventDateBegin}" pattern="dd.MM.yyyy HH:mm:ss" styleClass="customCalendar"
+								navigator="true" locale="ru" mask="true">
+						<p:ajax event="dateSelect" listener="#{auditBean.onDateSelect}" update="@form:grpFilters"/>
+					</p:calendar>
+					<h:outputText value="&#160;по&#160;"/>
+					<p:calendar value="#{auditBean.filterEventDateEnd}" pattern="dd.MM.yyyy HH:mm:ss" styleClass="customCalendar"
+								navigator="true" locale="ru" mask="true">
+						<p:ajax event="dateSelect" listener="#{auditBean.onDateSelect}" update="@form:grpFilters"/>
+					</p:calendar>
+					&#160;&#160;&#160;&#160;
+					<h:outputText value="&#160;&#160;&#160;&#160;Организации:&#160;"/>
+					<p:inputText value="#{auditBean.filterRespondentsText}" readonly="true" style="width:15em"/>
+					<p:commandButton value="..." actionListener="#{auditBean.onFilterRespondentsShow}" oncomplete="PF('wDlgFilterRespondents').show()" update=":frmFilterRespondents"/>
+					<h:outputText value="&#160;&#160;&#160;&#160;Наименование аудируемого события:&#160;"/>
+					<p:inputText value="#{auditBean.filterEventNamesText}" readonly="true" style="width:15em"/>
+					<p:commandButton value="..." actionListener="#{auditBean.onFilterEventNameShow}" oncomplete="PF('wDlgFilterEventNames').show()" update=":frmFilterEventNames"/>
+					<h:outputText value="&#160;&#160;&#160;&#160;Вид аудируемого события:&#160;"/>
+					<p:inputText value="#{auditBean.filterEventKindsText}" readonly="true" style="width:15em"/>
+					<p:commandButton value="..." actionListener="#{auditBean.onFilterEventKindShow}" oncomplete="PF('wDlgFilterEventKinds').show()" update=":frmFilterEventKinds"/>
+				</p:panel>
+				<p:panel>
+					<h:outputText value="Код объекта:&#160;"/>
+					<p:inputText value="#{auditBean.filterCodeObject}" style="width:20em"/>
+					&#160;&#160;&#160;&#160;
+					<h:outputText value="Наименование объекта:&#160;"/>
+					<p:inputText value="#{auditBean.filterNameObject}" style="width:20em"/>
+					&#160;&#160;&#160;&#160;
+					<h:outputText value="Код пользователя:&#160;"/>
+					<p:inputText value="#{auditBean.filterUserCode}" style="width:10em"/>
+					&#160;&#160;&#160;&#160;
+					<!--<h:outputText value="Показать архивные данные:&#160;"/>
+					<p:selectBooleanCheckbox value="#{auditBean.isArchive}" style="vertical-align:-0.25em;"/>
+					&#160;&#160;&#160;&#160;-->
+					<p:commandButton value="Поиск" actionListener="#{auditBean.refreshAuditEvents}" disabled="#{!userBean.hasPermission('AUDIT:REFRESH')}" update="@form" title="Поиск по выбранным параметрам" icon="ui-icon-search"/>&#160;
+					<p:commandButton value="Очистить" actionListener="#{auditBean.clearFilters}" update="@form:grpFilters" style="font-weight: normal" title="Очистить параметры поиска" icon="ui-icon-trash"/>&#160;
+				</p:panel>
+			</p:fieldset>
+
+			<p:layout id="mainLayout" style="min-width: 700px; max-width: 100%; min-height: 700px">
+				<p:layoutUnit position="center" style="width: 1400px">
+					<h:panelGroup id="pgdt">
+						<p:treeTable id="auditTree" value="#{auditBean.auditTree}" var="auditEvent" selectionMode="single" selection="#{auditBean.selectedAuditTree}" resizableColumns="true">
+							<p:ajax event="select" update="@form:actions, @form:pgSingleDt" listener="#{auditBean.refreshSelectItem}"/>
+							<p:ajax event="unselect" update="@form:actions, @form:pgSingleDt" listener="#{auditBean.refreshSelectItem}"/>
+							<p:ajax event="expand" />
+							<p:column headerText="Дата и время события" style="width:15em;text-align:center;"><h:outputText value="#{auditEvent.dateEvent}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+							<p:column headerText="Наименование объекта" style="width:70em;"><h:outputText value="#{auditEvent.nameObject}"/></p:column>
+							<p:column headerText="Вид аудируемого события" style="width:30em;"><h:outputText value="#{auditEvent.kindEvent}"/></p:column>
+							<p:column headerText="Код объекта" style="width:18em;"><h:outputText value="#{auditEvent.codeObject}"/></p:column>
+							<p:column headerText="Наименование аудируемого события" style="width:20em;"><h:outputText value="#{auditEvent.nameEvent}"/></p:column>
+							<p:column headerText="Отчетная дата/Дата начала" style="width:30em;text-align:center;"><h:outputText value="#{auditEvent.dateIn}"><f:convertDateTime pattern="dd.MM.yyyy"/></h:outputText></p:column>
+							<p:column headerText="Id отчета/RecId справочника/Id записи" style="width:30em;"><h:outputText value="#{auditEvent.recId}"/></p:column>
+							<p:column headerText="Организация" style="width:50em;"><h:outputText value="#{auditEvent.respondentName}"/></p:column>
+							<p:column headerText="Пользователь" style="width:20em;"><h:outputText value="#{auditEvent.userName}"/></p:column>
+							<p:column headerText="Местоположение" style="width:10em;"><h:outputText value="#{auditEvent.userLocation}"/></p:column>
+						</p:treeTable>
+					</h:panelGroup>
+				</p:layoutUnit>
+
+				<p:layoutUnit position="east" style="width: 600px" rendered="#{auditBean.showDetails}">
+					<h:panelGrid id="pgSingleDt" columns="2" cellpadding="5" border="1" >
+						<h:outputText value="Дата и время события:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.dateEvent}" style="font-size: 15px; margin: 5px;"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText>
+
+						<h:outputText value="Наименование аудируемого события:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.nameEvent}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Вид аудируемого события:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.kindEvent}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Код объекта:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.codeObject}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Наименование объекта:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.nameObject}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Отчетная дата/Дата начала:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.dateIn}" style="font-size: 15px; margin: 5px;"><f:convertDateTime pattern="dd.MM.yyyy"/></h:outputText>
+
+						<h:outputText value="Id отчета/RecId справочника:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.recId}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Организация:" style="font-size: 15px; margin: 5px; " />
+						<h:outputText value="#{auditBean.selectedAudit.respondentName}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Пользователь:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.userName}" style="font-size: 15px; margin: 5px;"/>
+
+						<h:outputText value="Местоположение:" style="font-size: 15px; margin: 5px;" />
+						<h:outputText value="#{auditBean.selectedAudit.userLocation}" style="font-size: 15px; margin: 5px;"/>
+					</h:panelGrid>
+				</p:layoutUnit>
+
+			</p:layout>
+
+				<!--<table>
+					<tr>
+						<td style="width: 70%; border-color: black">
+							<h:panelGroup id="pgdt">
+								<p:treeTable id="auditTree" value="#{auditBean.auditTree}" scrollable="true" scrollHeight="501" var="auditEvent" selectionMode="single" selection="#{auditBean.selectedAuditTree}" resizableColumns="true"
+								scrollWidth="1200">
+									<p:ajax event="select" update="@form:actions, @form:pgSingleDt" listener="#{auditBean.refreshSelectItem}"/>
+									<p:ajax event="unselect" update="@form:actions, @form:pgSingleDt" listener="#{auditBean.refreshSelectItem}"/>
+									<p:ajax event="expand" />
+									<p:column headerText="Дата и время события" style="width:15em;text-align:center;"><h:outputText value="#{auditEvent.dateEvent}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+									<p:column headerText="Наименование объекта" style="width:70em;"><h:outputText value="#{auditEvent.nameObject}"/></p:column>
+									<p:column headerText="Вид аудируемого события" style="width:30em;"><h:outputText value="#{auditEvent.kindEvent}"/></p:column>
+									<p:column headerText="Код объекта" style="width:18em;"><h:outputText value="#{auditEvent.codeObject}"/></p:column>
+									<p:column headerText="Наименование аудируемого события" style="width:20em;"><h:outputText value="#{auditEvent.nameEvent}"/></p:column>
+									<p:column headerText="Отчетная дата/Дата начала" style="width:30em;text-align:center;"><h:outputText value="#{auditEvent.dateIn}"><f:convertDateTime pattern="dd.MM.yyyy"/></h:outputText></p:column>
+									<p:column headerText="Id отчета/RecId справочника/Id записи" style="width:30em;"><h:outputText value="#{auditEvent.recId}"/></p:column>
+									<p:column headerText="Организация" style="width:50em;"><h:outputText value="#{auditEvent.respondentName}"/></p:column>
+									<p:column headerText="Пользователь" style="width:20em;"><h:outputText value="#{auditEvent.userName}"/></p:column>
+									<p:column headerText="Местоположение" style="width:10em;"><h:outputText value="#{auditEvent.userLocation}"/></p:column>
+								</p:treeTable>
+							</h:panelGroup>
+						</td>
+						<td style="width: 30%; vertical-align: top; padding: 1em; border-color: black; background-color: #BBBBBB;" >
+							<h:panelGrid id="pgSingleDt" columns="2" cellpadding="5" border="1" >
+									<h:outputText value="Дата и время события:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.dateEvent}" style="font-size: 15px; margin: 5px;"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText>
+
+									<h:outputText value="Наименование аудируемого события:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.nameEvent}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Вид аудируемого события:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.kindEvent}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Код объекта:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.codeObject}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Наименование объекта:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.nameObject}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Отчетная дата/Дата начала:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.dateIn}" style="font-size: 15px; margin: 5px;"><f:convertDateTime pattern="dd.MM.yyyy"/></h:outputText>
+
+									<h:outputText value="Id отчета/RecId справочника:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.recId}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Организация:" style="font-size: 15px; margin: 5px; " />
+									<h:outputText value="#{auditBean.selectedAudit.respondentName}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Пользователь:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.userName}" style="font-size: 15px; margin: 5px;"/>
+
+									<h:outputText value="Местоположение:" style="font-size: 15px; margin: 5px;" />
+									<h:outputText value="#{auditBean.selectedAudit.userLocation}" style="font-size: 15px; margin: 5px;"/>
+								</h:panelGrid>
+						</td>
+					</tr>
+				</table>-->
+        </h:form>
+
+		<p:dialog id="dlgFilterRespondents" widgetVar="wDlgFilterRespondents" header="Фильтр по организациям" modal="true" resizable="false" width="740">
+			<h:form id="frmFilterRespondents">
+				<p:dataTable value="#{auditBean.respondents}" var="respondent"
+							 rowKey="#{respondent.recId}" sortBy="#{respondent.getName(sessionBean.languageCode)}" scrollable="true" scrollHeight="440"
+							 emptyMessage="#{res.noRecordsFound}" selection="#{auditBean.filterRespondents}" rowSelectMode="add">
+					<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+					<p:column headerText="Название" sortBy="#{respondent.getName(sessionBean.languageCode)}">
+						<h:outputText value="#{respondent.getName(sessionBean.languageCode)}"/>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Ok" actionListener="#{auditBean.onFilterRespondentsHide}" oncomplete="PF('wDlgFilterRespondents').hide()" update=":mainForm:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+				<p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRespondents').hide()" styleClass="filter-button"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="dlgFilterEventNames" widgetVar="wDlgFilterEventNames" header="Фильтр по наименованию аудируемого события" modal="true" resizable="false" width="740">
+			<h:form id="frmFilterEventNames">
+				<p:dataTable value="#{auditBean.eventNames}" var="eventName"
+							 rowKey="#{eventName.id}" sortBy="#{eventName.getName()}" scrollable="true" scrollHeight="440"
+							 emptyMessage="#{res.noRecordsFound}" selection="#{auditBean.filterEventNames}" rowSelectMode="add">
+					<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+					<p:column headerText="Название" sortBy="#{eventName.getName()}">
+						<h:outputText value="#{eventName.getName()}"/>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Ok" actionListener="#{auditBean.onFilterEventNamesHide}" oncomplete="PF('wDlgFilterEventNames').hide()" update=":mainForm:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+				<p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterEventNames').hide()" styleClass="filter-button"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="dlgFilterEventKinds" widgetVar="wDlgFilterEventKinds" header="Фильтр по видам аудируемого события" modal="true" resizable="false" width="740">
+			<h:form id="frmFilterEventKinds">
+				<p:dataTable value="#{auditBean.eventKinds}" var="eventKind"
+							 rowKey="#{eventKind.id}" sortBy="#{eventKind.getName()}" scrollable="true" scrollHeight="440"
+							 emptyMessage="#{res.noRecordsFound}" selection="#{auditBean.filterEventKinds}" rowSelectMode="add">
+					<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+					<p:column headerText="Название" sortBy="#{eventKind.getName()}">
+						<h:outputText value="#{eventKind.getName()}"/>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Ok" actionListener="#{auditBean.onFilterEventKindsHide}" oncomplete="PF('wDlgFilterEventKinds').hide()" update=":mainForm:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+				<p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterEventKinds').hide()" styleClass="filter-button"/>
+			</h:form>
+		</p:dialog>
+
+		<p:confirmDialog id="dlgConfirmMoveArchive" widgetVar="wDlgConfirmMoveArchive" message="Вы уверены, что хотите переместить данные в архив?" header="В архив" >
+			<h:form>
+				<p:commandButton value="Переместить" actionListener="#{auditBean.moveToArchive(true)}" oncomplete="PF('wDlgConfirmMoveArchive').hide()" update=":messages,:mainForm"/>
+				<p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDelete').hide()"/>
+			</h:form>
+		</p:confirmDialog>
+
+    </h:body>
+</f:view>

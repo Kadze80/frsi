@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/report_preview.css?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+
+        <script type="text/javascript" src="/frsi-portlet/js/deployJava.js"/>
+        <script type="text/javascript" src="/frsi-portlet/js/sign.js??v=0.1"/>
+        <style>
+            .operationFail .operationResult { color: red; }
+            .operationSuccess .operationResult { color: green; }
+        </style>
+        <script>
+            //<![CDATA[
+            function signInValuesAndSetOutValuesTest(liferayNamespace) {
+                var hashInputs = document.querySelectorAll('input[id^=' + liferayNamespace + '][id$=reportHash]');
+                var signInputs = document.querySelectorAll('input[id^=' + liferayNamespace + '][id$=reportSign]');
+                for (var i = 0; i < hashInputs.length; i++) {
+                    var inId = hashInputs[i].id;
+                    var outId = signInputs[i].id;
+                    signInValueAndSetOutValueTest(inId, outId);
+                }
+            }
+            function signInValueAndSetOutValueTest(inId, outId) {
+                var inValue = document.getElementById(inId).value;
+                var outValue = "TEST_SIGNATURE";
+                document.getElementById(outId).value = outValue;
+            }
+
+            function overlayGalleriaWarrantPreview(){
+                var div = document.getElementById("dlgGalleriaWarrantPreview");
+                if(div.style.visibility == "visible"){
+                    div.style.visibility = "hidden";
+                } else {
+                    div.style.visibility = "visible";
+                }
+            }
+            //]]>
+        </script>
+    </h:head>
+
+    <!-- Добавлен параметр для вьюшки reportId для корректной работы из нескольких вкладок.
+	Также необходимо добавлять при необходимости в каждую кнопку дополнительный параметр reportId !!!!!-->
+
+    <f:metadata>
+        <f:viewParam name="reportId" value="#{reportBean.reportId}"/>
+    </f:metadata>
+
+    <h:body>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="mainForm" prependId="false">
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+            <h3>Подписывание отчёта</h3>
+            <h:outputText value="Форма: #{reportsBean.selectedReportListItem.formName}"/><br/>
+            <h:outputText value="Отчетная дата: #{reportsBean.selectedReportListItem.reportDate}"/><br/><br/>
+            <input type="button" value="Загрузить профайлы" onclick="loadProfiles('profilesSelect');"/>&#160;&#160;&#160;&#160;
+
+            <h:outputText value="Выберите профайл: "/>
+            <select id="profilesSelect" name="profiles"></select>&#160;&#160;
+
+            <h:outputText value="Введите пароль от профайла: "/>
+            <input type="password" id="profilePassword" value=""/><br/><br/>
+
+            <input type="button" value="Получить сертификаты из профайла" id="getCertificatesButton"
+                   onclick="loadCertificates('profilesSelect', 'profilePassword', 'certificatesSelect');"/>&#160;&#160;&#160;&#160;
+            <select id="certificatesSelect" name="certificates"></select><br/><br/>
+
+            <c:if test="#{reportsBean.isTestUser()}">
+                <p:commandButton id="signReportsButtonTest" value="Подписать" actionListener="#{reportsBean.onSign(null)}" update="reportsHashes"
+                                 oncomplete="signInValuesAndSetOutValuesTest('#{applicationBean.liferayFacesResponseNamespace}');document.getElementById('#{applicationBean.liferayFacesResponseNamespace}:hiddenButton').click()"/>
+            </c:if>
+            <c:if test="#{!reportsBean.isTestUser()}">
+                <p:commandButton id="signReportsButton" value="Подписать" actionListener="#{reportsBean.onSign(null)}"
+                                 oncomplete="signInValuesAndSetOutValues('#{applicationBean.liferayFacesResponseNamespace}');document.getElementById('#{applicationBean.liferayFacesResponseNamespace}:hiddenButton').click()"/>
+            </c:if>
+            <p:commandButton value="Подписать по доверенности"  actionListener="#{reportsBean.refreshUserWarrants}" update=":frmUserWarrants" oncomplete="PF('wDlgUserWarrants').show();"/>
+            <p:commandButton value="#{res.back}" action="/views/reports/view?faces-redirect=true" icon="ui-icon-arrowreturn-1-w"/>
+            <p:commandButton id="hiddenButton" value="hiddenButton" action="#{reportsBean.updateSignatures()}" style="display:none;" update=":frmSignResults"/>
+
+            <h:panelGroup id="reportsHashes">
+                <ui:repeat var="reportItem" value="#{reportsBean.reportsForSign}" varStatus="status">
+                    <h:inputHidden id="reportHash" value="#{reportItem.hash}"/>
+                    <h:inputHidden id="reportSign" value="#{reportItem.signature}"/>
+                </ui:repeat>
+            </h:panelGroup>
+
+        </h:form>
+
+        <h:form id="frmSignResults">
+            <p:dialog id="dlgSignResults" widgetVar="wDlgSignResults" header="Результаты подписи" modal="true"
+                      width="824">
+                <p:dataTable id="tblSubmitResults"
+                             value="#{reportsBean.signMessages}" var="signResult"
+                             rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                             emptyMessage="#{res.noRecordsFound}"
+                             rowStyleClass="#{reportsBean.getOperationRowStyleClass(signResult.resultType)}">
+                    <p:column headerText="Отчет" style="width:15em;" styleClass="wrap">
+                        <h:outputText value="#{signResult.formName}"/>
+                    </p:column>
+                    <p:column headerText="Дата отчета" style="width:7em;text-align:center;">
+                        <h:outputText value="#{signResult.reportDate}">
+                            <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                        <h:outputText value="#{signResult.resultType.getName(sessionBean.languageCode)}"/>
+                    </p:column>
+                    <p:column headerText="Причина" style="width: 15em" styleClass="wrap">
+                        <h:outputText value="#{signResult.message}"/>
+                    </p:column>
+                </p:dataTable>
+                <h:panelGroup>
+                    <span style="font-weight: bold">
+                        Выполнено: <h:outputText value="#{reportsBean.getSuccessOperationCount(reportsBean.signMessages)}"/>&#160;
+                        Не выполнено: <h:outputText value="#{reportsBean.getFailOperationCount(reportsBean.signMessages)}"/>
+                        </span>
+                    <p:commandButton value="Закрыть" onstart="PF('wDlgSignResults').hide();" action="/views/reports/view?faces-redirect=true"  style="float: right"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmUserWarrants">
+            <p:dialog id="dlgUserWarrants" widgetVar="wDlgUserWarrants" header="Доверенности" modal="true"
+                      width="700">
+                <p:dataTable id="tblUserWarrants"
+                             value="#{reportsBean.userWarrants}" var="warrant"
+                             rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                             selectionMode="single" selection="#{reportsBean.selectedUserWarrant}" rowKey="#{warrant}"
+                             emptyMessage="#{res.noRecordsFound}">
+                    <p:ajax event="rowSelect" update="@form:buttons"/>
+                    <p:column headerText="Код">
+                        <h:outputText value="#{warrant.code}" sortBy="#{warrant.code}"/>
+                        <p:commandButton icon="ui-icon-document" rendered="#{warrant.haveFile}"
+                                         actionListener="#{reportBean.prepareWarrantGalleria(reportsBean.selectedReportListItem.id, warrant.id)}"
+                                         title="Просмотр прикрепленной доверенности"
+                                         oncomplete="if(!args.hasErrors) overlayGalleriaWarrantPreview();" update=":frmGalleriaWarrantPreview, :frmWarrantFooter">
+                        </p:commandButton>
+                    </p:column>
+                    <p:column headerText="Доверитель" style="width:15em;"><h:outputText value="#{warrant.principalName}" sortBy="#{warrant.principalName}"/></p:column>
+                    <p:column headerText="Дата начала"><h:outputText value="#{warrant.beginDate}" sortBy="#{warrant.beginDate}">
+                        <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+                    </h:outputText></p:column>
+                    <p:column headerText="Дата окончания"><h:outputText value="#{warrant.endDate}" sortBy="#{warrant.endDate}">
+                        <f:convertDateTime type="date" pattern="dd.MM.yyyy" />
+                    </h:outputText></p:column>
+                </p:dataTable>
+                <h:panelGroup id="buttons" layout="block" style="padding-top: 5px;">
+                    <c:if test="#{reportsBean.isTestUser()}">
+                        <p:commandButton id="signAsReportsButtonTest" value="Подписать" actionListener="#{reportsBean.onSign(reportsBean.selectedUserWarrant)}" disabled="#{reportsBean.selectedUserWarrant==null || !reportsBean.selectedUserWarrant.haveFile}"
+                                         update=":mainForm:reportsHashes"
+                                         oncomplete="signInValuesAndSetOutValuesTest('#{applicationBean.liferayFacesResponseNamespace}');document.getElementById('#{applicationBean.liferayFacesResponseNamespace}:hiddenButton').click();PF('wDlgUserWarrants').hide();"/>&#160;&#160;
+                    </c:if>
+                    <c:if test="#{!reportsBean.isTestUser()}">
+                        <p:commandButton id="signAsReportsButton" value="Подписать" actionListener="#{reportsBean.onSign(reportsBean.selectedUserWarrant)}" disabled="#{reportsBean.selectedUserWarrant==null || !reportsBean.selectedUserWarrant.haveFile}"
+                                         oncomplete="signInValuesAndSetOutValues('#{applicationBean.liferayFacesResponseNamespace}');document.getElementById('#{applicationBean.liferayFacesResponseNamespace}:hiddenButton').click();PF('wDlgUserWarrants').hide();"/>&#160;&#160;
+                    </c:if>
+                    <p:commandButton value="#{res.cancel}" onclick="PF('wDlgUserWarrants').hide()" type="button"/>&#160;&#160;&#160;
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <div id="dlgGalleriaWarrantPreview" class="customDialog ui-widget">
+            <div class="customDialogContent">
+                <div class="customDialogBody">
+                    <h:form id="frmGalleriaWarrantPreview" style="width: 100%; height: 100%;">
+                        <object data="#{reportBean.curImageWarrant.path}" type="application/pdf" style="height: 100%; width: 100%;">
+                            Возникла ошибка при отображении записки
+                        </object>
+                    </h:form>
+                </div>
+                <div class="customDialogFooter">
+                    <h:form id="frmWarrantFooter">
+                        <p style="position: absolute; left:0.5%; top: 40%;font-size: 11pt;">#{reportBean.curImageWarrant.title}</p>
+                        <div style="position: absolute; left: 44%; top:10%">
+                            <p:commandButton title="Первая" actionListener="#{reportBean.getCurObject('FIRST',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-seek-prev" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == 0}"/>
+                            <p:commandButton title="Предыдущая" actionListener="#{reportBean.getCurObject('PREV',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-carat-1-w" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == 0}"/>
+                        </div>
+                        <div style="position: absolute; left: 49%; top: 15%;">
+                            <p style="font-size: 11pt; font-weight: bold;">(#{reportBean.curImageWarrant.index+1}/#{reportBean.imageWarrantList.size()})</p>
+                        </div>
+                        <div style="position: absolute; left: 52%; top: 10%;">
+                            <p:commandButton title="Следующая" actionListener="#{reportBean.getCurObject('NEXT',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-carat-1-e" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == reportBean.imageWarrantList.size() - 1}" />
+                            <p:commandButton title="Последняя" actionListener="#{reportBean.getCurObject('LAST',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-seek-next" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == reportBean.imageWarrantList.size() - 1}" />
+                        </div>
+                        <button type="button" style="float: right" onclick="overlayGalleriaWarrantPreview();">Закрыть</button>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+
+</f:view>

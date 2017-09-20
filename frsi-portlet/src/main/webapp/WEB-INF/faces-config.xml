@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config version="2.1"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+
+	<lifecycle>
+		<phase-listener>com.liferay.faces.util.lifecycle.DebugPhaseListener</phase-listener>
+	</lifecycle>
+
+    <application>
+
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>kk</supported-locale>
+            <supported-locale>ru</supported-locale>
+        </locale-config>
+
+        <resource-bundle>
+            <base-name>util.UTF8ResourceBundle</base-name>
+            <var>res</var>
+        </resource-bundle>
+
+    </application>
+
+    <factory>
+        <exception-handler-factory>
+            util.CustomExceptionHandlerFactory
+        </exception-handler-factory>
+    </factory>
+
+</faces-config>

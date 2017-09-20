@@ -1,0 +1,38 @@
+How to remove company's logotype
+================================
+
+Go to > Control Panel
+
+Select a site from the dropdown menu
+
+> Site Pages > Public Pages (or Private Pages)
+
+> Logo > Choose File
+
+Select the transparent_pixel.png
+
+> Look and Feel
+
+Insert the content of the custom.css into the CSS text box
+
+Click Save button
+
+
+Как убрать логотип компании
+===========================
+
+Перейти к > Панель управления
+
+Выберите сайт из выпадающего списка
+
+> Страницы сайта > Публичные страницы (или Частные страницы)
+
+> Логотип > Выберите файл
+
+Выберите transparent_pixel.png
+
+> Внешний вид
+
+Вставьте содержимое custom.css в текстовое поле CSS
+
+Нажмите кнопку Сохранить

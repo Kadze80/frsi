@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.1.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_1_0.dtd">
+
+<liferay-portlet-app>
+
+	<portlet>
+		<portlet-name>frsi-admin</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-tools</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>frsi-adm</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+    <portlet>
+        <portlet-name>frsi-su-refunload</portlet-name>
+        <icon>/icon.png</icon>
+        <!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+        <instanceable>false</instanceable>
+        <ajaxable>true</ajaxable>
+        <header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-ref-protocol</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-template</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+    <portlet>
+		<portlet-name>frsi-su-formtemplate</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-formdata</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-info</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-download</portlet-name>
+		<icon>/icon.png</icon>
+        <!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+        <portlet-name>frsi-upload</portlet-name>
+        <icon>/icon.png</icon>
+        <!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+        <instanceable>false</instanceable>
+        <ajaxable>true</ajaxable>
+        <header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-reports</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+    <portlet>
+        <portlet-name>frsi-su-ref</portlet-name>
+        <icon>/icon.png</icon>
+        <!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+        <instanceable>false</instanceable>
+        <ajaxable>true</ajaxable>
+        <header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-outputdata</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-audit</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-query</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.3</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-settings</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.0</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-user-settings</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.0</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-mail</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.0</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-settings</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.0</header-portlet-css>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-garter</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters> -->
+		<instanceable>false</instanceable>
+		<ajaxable>true</ajaxable>
+		<header-portlet-css>/css/main.css?v=0.0</header-portlet-css>
+	</portlet>
+
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+
+</liferay-portlet-app>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="fs_ikul_mfo"
+languageCode="ru" title="Отчет о структуре инвестиций в капитал юридических лиц (МФО)"
+shortName="Отч о струк-е инвест в кап юр лиц (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_ikul_mfo_array":"n"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 3<br/>
+		к постановлению Правления<br/>
+		Национального Банка Республики Казахстан<br/>
+		от «___» ________ 2016 года № ___<br/>
+		Форма<br/>
+	</span>
+
+	<h3 style="text-align: center;">
+		Отчет о структуре инвестиций в капитал юридических лиц
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th>№ п/п</th>
+					<th style="min-width: 42em;">Наименование юридического лица</th>
+					<th>Балансовая стоимость (в тысячах тенге)</th>
+					<th>Количество (в штуках)</th>
+					<th>Доля участия в уставном капитале эмитента</th>
+					<th>Дата приобретения</th>
+					<th>Примечание</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th style="min-width: 25em;">2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="1">
+					<td>1</td>
+					<td style="font-weight: bolder;"><Plus/>Простые акции </td>
+					<td><InputText name="v3" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="2">
+					<td>2</td>
+					<td style="font-weight: bolder;"><Plus/>Привилегированные акции</td>
+					<td><InputText name="v3" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr id="3">
+					<td>3</td>
+					<td style="font-weight: bolder;"><Plus/>Вклады и паи </td>
+					<td><InputText name="v3" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="groupHeader">
+					<td>4</td>
+					<td>Всего </td>
+					<td><InputText name="v3" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<DynamicRow>
+					<td><StaticText value="$DynamicRowIdText"/></td>
+					<td><Minus/>
+						<ReceiverInput name="name_jurper" key="n" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" ref="ref_legal_person" refCode="rec_id" refCaption="name_ru" style="width: 35em; text-align: left;"/>
+						<Pick ref="legalperson" receiver="name_jurper" key="n" keyValue="$DynamicRowId"/>
+					</td>
+					<td><InputText name="v3" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="$DynamicRowId" mask="money0"/></td>
+					<td><InputText name="v5" key="n" keyValue="$DynamicRowId" mask="money4"/></td>
+					<td><InputDate name="v6" key="n" keyValue="$DynamicRowId" required="true" valueType="date"/></td>
+					<td><InputText name="v7" key="n" keyValue="$DynamicRowId" multiLine="true" style="width: 35em; text-align: left;"/></td>
+				</DynamicRow>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td colspan="2">Первый руководитель или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="ceo_date" valueType="date" valueFunc="CeoSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Главный бухгалтер или лицо, уполномоченное на подписание отчета </td>
+		</tr>
+		<tr>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="chief_accountant_date" valueType="date" valueFunc="ChiefSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">фамилия,  имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Исполнитель</td>
+		</tr>
+		<tr>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+			<td><InputDate name="drafted_by_date" valueType="date" valueFunc="FirstSignDate" readonly="true" style="width: 15em;"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center;">(фамилия, имя, отчество (если оно указано в документе, удостоверяющем личность)</td>
+			<td style="text-align: center;">дата</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Телефон:<InputText name="drafted_by_tel" required="true" style="width: 15em;"/></td>
+		</tr>
+	</table>
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: center;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var groupId, v, sum;
+
+	for (var i = 3; i < 5; i++) {
+		sum = 0;
+		for (var j = 1; j < 4; j++) {
+			groupId = "fs_ikul_mfo_array*v" + i + ":n:" + j;
+			v = sumInputValuesByGroup(groupId);
+			setInputValue(groupId, v);
+			sum += v;
+		}
+		setInputValue("fs_ikul_mfo_array*v" + i + ":n:4", sum);
+	}
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_ikul_mfo_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

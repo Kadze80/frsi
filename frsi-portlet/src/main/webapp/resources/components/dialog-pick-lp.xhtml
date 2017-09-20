@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:composite="http://java.sun.com/jsf/composite"
+    xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:dialog id="dialogPickLegalPerson" widgetVar="wDialogPickLegalPerson" header="Выбор юридического лица"  width="800" height="640" modal="true">
+            <h:form id="form">
+                <h:outputText value="БИН: "/>
+                <p:inputText value="#{pickLpBean.lpBinFilter}" style="width: 8em;"/>&#160;&#160;
+                <h:outputText value="Наименование: "/>
+                <p:inputText value="#{pickLpBean.lpNameFilter}" style="width: 12em;"/>&#160;&#160;
+                <p:commandButton value="#{res.search}" actionListener="#{pickLpBean.searchLegalPersons}" update="@form"/>&#160;
+                <p:commandButton value="#{res.clear}" actionListener="#{pickLpBean.clearLpFilters}" style="font-weight: normal;" update="@form"/>
+                <br/><br/>
+                <p:dataTable id="tableLps" var="lp" value="#{pickLpBean.legalPersons}" scrollable="true" scrollHeight="501"
+                    selection="#{pickLpBean.selectedLegalPerson}" rowKey="#{lp.id}" selectionMode="single" sortBy="#{lp.nameRu}" emptyMessage="#{res.noRecordsFound}">
+                    <p:ajax event="rowSelect" update="@form"/>
+                    <p:ajax event="rowUnselect" update="@form"/>
+                    <p:column headerText="БИН" sortBy="#{lp.idn}" style="width: 8em;">
+                        <h:outputText value="#{lp.idn}"/>
+                    </p:column>
+                    <p:column headerText="Наименование" sortBy="#{lp.nameRu}">
+                        <h:outputText value="#{lp.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton value="#{res.pick}" onclick="updatePickedValue()" actionListener="#{cc.attrs.pickAction}" oncomplete="passLegalPerson()" disabled="#{pickLpBean.pickButtonDisabled}" update="#{cc.attrs.update}"/>
+                <p:remoteCommand name="updatePickedValue" update=":#{fn:substringAfter(cc.clientId,':')}:hidden:pickedValue" />
+            </h:form>
+            <h:form id="hidden">
+                <h:inputHidden id="receiverInfo"/>
+                <h:inputHidden id="pickedValue" value="#{pickLpBean.pickedValue}"/>
+            </h:form>
+        </p:dialog>
+        <h:outputScript library="components" name="dialog-pick-lp.js"/>
+    </composite:implementation>
+</ui:component>

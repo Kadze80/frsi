@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <div class="picker-wrapper ui-widget" id="picker-person">
+            <div class="picker-inner-wrapper">
+                <div class="picker">
+                    <div class="picker-body">
+                        <div class="tabs">
+                            <ul>
+                                <li><span>Юридические лица</span></li>
+                                <li><span>Физические лица</span></li>
+                                <li><span>Нерезиденты РК</span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-container" id="legalPersonTab">
+                            <div class="picker-filter">
+                                <label for="filter_legal_person_bin">БИН:</label>
+                                <input id="filter_legal_person_bin" type="text"/>
+                                <label for="filter_legal_person_name">Наименование:</label>
+                                <input id="filter_legal_person_name" type="text"/>
+                            </div>
+                            <div class="picker-data">
+                                <table class="picker-table" id="legalPersonTable">
+                                    <thead>
+                                    <tr>
+                                        <th class="hidden-column">REC_ID</th>
+                                        <th>БИН</th>
+                                        <th>Наименование</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-container hidden-tab" id="naturalPersonTab">
+                            <p>
+                                Сведения о физических лицах заносятся вручную.<br/>
+                                Пожалуйста, введите данные и нажмите &#171;Выбрать&#187;
+                            </p>
+
+                            <div style="display: table">
+                                <label for="natural_person_idn" style="display: table-row">ИИН:</label>
+
+                                <div style="display: table-row">
+                                    <input id="natural_person_idn" type="text" style="display: table-cell"/>
+                                    <div style="display: table-cell; padding-left: 3px">
+                                        <input type="checkbox" id="natural_person_minor"/>
+                                        <label for="natural_person_minor">
+                                            Несовершеннолетний без ИИН</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="natural_person_name">Фамилия Имя Отчество:</label><br/>
+                            <input type="text" id="natural_person_name" style="width: 400px"/>
+                        </div>
+                        <div class="tab-container hidden-tab" id="nonResidentTab">
+                            <p>
+                                Сведения о нерезидентах РК заносятся вручную.<br/>
+                                Пожалуйста, введите данные и нажмите &#171;Выбрать&#187;
+                            </p>
+
+                            <div style="display: table">
+                                <label for="non_resident_idn" style="display: table-row">БИН/ИИН:</label>
+
+                                <div style="display: table-row">
+                                    <input id="non_resident_idn" type="text" style="display: table-cell"/>
+                                    <div style="display: table-cell; padding-left: 3px">
+                                        <input type="checkbox" id="non_resident_no_idn"/>
+                                        <label for="non_resident_no_idn">
+                                            Нерезидент РК без БИН/ИИН</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                <label for="non_resident_name">Наименование/Ф.И.О.:</label><br/>
+                                <input type="text" id="non_resident_name" style="width: 400px"/>
+                            </p>
+
+                            <p>
+                                <label for="non_resident_country">Страна резидентства:</label><br/>
+                                <select id="non_resident_country" style="width: 300px">
+                                    <option>- Выберите страну -</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="picker-footer">
+                        <button disabled="disabled" class="select-button">Выбрать</button>
+                        <button class="cancel-button">Отмена</button>
+                        <button class="empty-button">Пустое значение</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h:outputScript library="components" name="Picker_v1.js"/>
+        <h:outputScript library="components" name="Table.js"/>
+        <h:outputScript library="components" name="PersonPicker_v03.js"/>
+    </composite:implementation>
+</ui:component>

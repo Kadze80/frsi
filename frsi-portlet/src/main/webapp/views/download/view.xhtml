@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{downloadBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="formMain">
+            <h:panelGroup id ="pgtb" >
+                <p:toolbar id ="mbActions" >
+                    <f:facet name="left">
+                        <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{downloadBean.refreshForms}" update="@form:pgdt" icon="ui-icon-arrowrefresh-1-s" />
+
+                        <span class="ui-separator">
+                            <span class="ui-icon ui-icon-grip-dotted-vertical" />
+                        </span>
+                        <p:commandButton value="Выгрузить в Excel" title="Выгрузить выбранный шаблон в Excel" disabled="#{userBean.disabled(downloadBean.selectedForms.size() == 0, 'RESP:DOWNLOAD:EXCEL')}" ajax="false" icon="ui-icon-arrowthickstop-1-s" >
+                            <p:fileDownload value="#{downloadBean.downloadFormXls()}"/>
+                        </p:commandButton>
+                        <p:commandButton value="Выгрузить идентификаторы в Excel" title="Выгрузить идентификаторы выбранного шаблона в Excel" disabled="#{userBean.disabled(downloadBean.selectedForms.size() == 0, 'RESP:DOWNLOAD:EXCEL_ID')}" ajax="false" icon="ui-icon-arrowthickstop-1-s" >
+                            <p:fileDownload value="#{downloadBean.downloadFormIdXls()}"/>
+                        </p:commandButton>
+                    </f:facet>
+                </p:toolbar>
+            </h:panelGroup>
+            <p:panel>
+                <p:outputLabel value="#{res.reportDate}:&#160;"/>
+                <p:calendar value="#{downloadBean.reportDate}" pattern="dd.MM.yyyy"
+                            navigator="true" locale="ru" mask="true">
+                    <p:ajax event="dateSelect" listener="#{downloadBean.refreshForms}" update="@form"/>
+                </p:calendar>&#160;&#160;&#160;&#160;
+                <h:outputText value="Организация:&#160;" rendered="#{reportsBean.haveWarrant}"/>
+                <h:selectOneMenu value="#{downloadBean.selectedRespId}" style="width: 500px" rendered="#{reportsBean.haveWarrant}">
+                    <p:ajax event="valueChange" update="@form" listener="#{downloadBean.refreshForms}" />
+                    <f:selectItems value="#{downloadBean.respList}" var="respList" itemLabel="#{respList.nameRu}" itemValue="#{respList.id}" />
+                </h:selectOneMenu>
+            </p:panel>
+
+            <h:panelGroup id="pgdt">
+                <p:dataTable id="tableTemplates" value="#{downloadBean.forms}" var="form" rowKey="#{form.id}"
+                    selection="#{downloadBean.selectedForms}" resizableColumns="true"
+                    paginator="true"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" paginatorPosition="bottom" rows="25" sortBy="#{form.formHistory.name}" emptyMessage="#{res.noRecordsFound}">
+                    <p:ajax event="rowSelect" update="@form:mbActions"/>
+                    <p:ajax event="rowUnselect" update="@form:mbActions"/>
+                    <p:ajax event="toggleSelect" update="@form:mbActions,@this" listener="#{downloadBean.onSelectAll}" />
+                    <p:ajax event="rowSelectCheckbox" update="@form:mbActions"/>
+                    <p:ajax event="rowUnselectCheckbox" update="@form:mbActions"/>
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Код формы" sortBy="#{form.code}" style="width:5em"><h:outputText value="#{form.code}"/></p:column>
+                    <p:column headerText="Наименование формы" sortBy="#{form.formHistory.name}" style="width:50em"><h:outputText value="#{form.formHistory.name}"/></p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+
+
+        <p:growl id="messages" showDetail="true" />
+    </h:body>
+</f:view>

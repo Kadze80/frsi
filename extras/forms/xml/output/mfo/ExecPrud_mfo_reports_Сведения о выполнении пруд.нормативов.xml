@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="ExecPrud_mfo_reports"
+languageCode="ru"
+title="Сведения о выполнении пруденциальных нормативов МФО РК (МФО)"
+shortName="Пруд.норм (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "sortFields" : [{"name":"ExecPrud_mfo_reports_array*v11", "desc":"true"}], "keyFields" : {"ExecPrud_mfo_reports_array":"num"} }'
+typeCode="OUTPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+    <span style="display: block; text-align: right;">
+
+    </span>
+
+    <h3 style="text-align: center;">
+        Сведения о выполнении пруденциальных нормативов микрофинансовыми организациями Республики Казахстан
+    </h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+
+    <span style="display: block; text-align: right;">(тыс. тенге)</span>
+    <div>
+        <table name="array" class="dataTable">
+            <thead>
+                <tr>
+                    <th rowspan="3">№ п/п</th>
+                    <th rowspan="3">Наименование микрофинансовых организаций</th>
+                    <th rowspan="2">Оплаченный уставный капитал (мин.размер 30 млн. тенге)</th>
+                    <th rowspan="2">Нераспределенная чистая прибыль (убыток) прошлых лет</th>
+                    <th rowspan="2">Фонды, резервы, сформированные за счет чистого дохода прошлых лет</th>
+                    <th rowspan="2">Нераспределенная чистая прибыль (убыток) отчетного периода</th>
+                    <th rowspan="2">Переоценка основных средств</th>
+                    <th rowspan="2">Нематериальные активы</th>
+                    <th rowspan="2">Инвестиции в капитал других юридических лиц</th>
+                    <th rowspan="2">Расчетный собственный капитал (мин. размер 30 млн. тенге)</th>
+                    <th rowspan="2">Активы</th>
+                    <th>Коэффициент достаточности собственного капитала</th>
+                    <th colspan="2">Коэффициент максимального размера риска на одного заемщика</th>
+                    <th colspan="2">Коэффициент максимального лимита совокупных обязательств</th>
+                    <th rowspan="2">Совокупный размер микрокредитов</th>
+                    <th rowspan="3">Выполнение пруденциальных нормативов, да/нет</th>
+                </tr>
+                <tr fixed="nf">
+                    <th>k1=СK/A</th>
+                    <th>Совокупная задолженность одного заемщика, за исключением обеспечения</th>
+                    <th>к2=З/CК</th>
+                    <th>Совокупные обязательства, за исключением обязательств перед нерезидентами Республики Казахстан, являющимися международными финансовыми организациями</th>
+                    <th>к3 = О/СК</th>
+                </tr>
+                <tr fixed="nf">
+                    <th>УК&gt;=30000</th>
+                    <th>НПп</th>
+                    <th>Ф</th>
+                    <th>НПо</th>
+                    <th>П</th>
+                    <th>НА</th>
+                    <th>ИК</th>
+                    <th>СК&gt;=30000</th>
+                    <th>A</th>
+                    <th>k1&gt;=0,1</th>
+                    <th>З</th>
+                    <th>к2&lt;=0,25</th>
+                    <th>О</th>
+                    <th>к3 &lt;= 10</th>
+                    <th>РМ</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>13</th>
+                    <th>14</th>
+                    <th>15</th>
+                    <th>16</th>
+                    <th>17</th>
+                    <th>18</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="group" class="groupHeader">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <DynamicRow>
+                    <td><StaticText value="$DynamicRowIdText"/></td>
+                    <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" readonly="true" style="width: 40em; text-align: left;"/></td>
+                    <td><InputText name="v3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v4" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v5" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v6" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v7" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v8" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v9" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v10" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v11" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v12" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="v13" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v14" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="v15" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v16" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="v17" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+                </DynamicRow>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+    table.dataTable td:nth-child(2) {
+    text-align: left;
+    }
+    table.dataTable td:nth-child(n+3) {
+    text-align: right;
+    }
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrud_mfo_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+}
+]]>
+</script2>
+</Form>

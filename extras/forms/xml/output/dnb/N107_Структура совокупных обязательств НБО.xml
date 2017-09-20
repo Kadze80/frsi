@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="N107"
+        languageCode="ru" title="Структура совокупных обязательств НБО (ОООВБО)"
+        shortName="Стр-ра совокуп. обяз. НБО (ОООВБО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"N107_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Структура совокупных обязательств небанковских организаций</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <div>
+        <table name="array" class="dataTable">
+            <thead>
+                <tr>
+                    <th rowspan="3">№ п/п</th>
+                    <th rowspan="3">Наименование показателя</th>
+                    <th colspan="2"><StaticText value="$ReportDate(.f(Y))"/></th>
+                    <th colspan="2"><StaticText value="$ReportDate(.f(Q))"/></th>
+                    <th rowspan="2">Прирост, в %</th>
+                </tr>
+                <tr>
+                    <th>тыс.тенге</th>
+                    <th>в % к итогу</th>
+                    <th>тыс.тенге</th>
+                    <th>в % к итогу</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Вклады привлеченные</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Полученные займы</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Выпущенные долговые ценные бумаги</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Кредиторская задолженность</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Прочие обязательства</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">6</td>
+                    <td style="font-weight: bold;">Всего обязательств</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="6" readonly="true" auto="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v4" key="num" keyValue="6" readonly="true" auto="true" mask="money3"/>
+                    </td>
+                    <td>
+                        <InputText name="v5" key="num" keyValue="6" readonly="true" auto="true" mask="money3"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+            table.dataTable td:nth-child(1) {
+                text-align: left;
+                width:20px
+            }
+            table.dataTable td:nth-child(2) {
+                text-align: left;
+            }
+        ]]>
+    </style>
+    <script>
+        <![CDATA[
+            function updateCalculatedFields() {
+            }
+        ]]>
+    </script>
+    <script2>
+        <![CDATA[
+            function fixTable(fix){
+                $("#N107_array").tableHeadFixer({unFix:!fix, head:true});
+            }
+        ]]>
+    </script2>
+</Form>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <div id="confirm-dialog-wrapper" class="confirm-dialog-wrapper ui-widget">
+            <div class="confirm-dialog-content">
+                <div class="confirm-dialog-body">
+                    <p>Действительно хотите удалить?</p>
+                </div>
+                <div class="confirm-dialog-footer">
+                    <button id="confirm-button-yes">Да</button>
+                    <button id="confirm-button-no">Нет</button>
+                </div>
+            </div>
+        </div>
+
+        <h:outputScript library="components" name="ConfirmDialog.js"/>
+        <h:outputStylesheet library="components" name="dialog-confirm-delete.css"/>
+    </composite:implementation>
+</ui:component>

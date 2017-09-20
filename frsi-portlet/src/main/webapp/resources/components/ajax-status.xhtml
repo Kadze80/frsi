@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" oncomplete="Liferay.Session.extend()"/>
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <table style="border-collapse: collapse; border-style: none; margin: 0; padding: 0;">
+                <tr>
+                    <td style="padding: 0 1em 0 0; vertical-align: middle;"><p:graphicImage name="ajax-loader.gif" library="images"/></td>
+                    <td style="padding: 0; vertical-align: middle;"><h:outputText value="Подождите, идёт обработка запроса..."/></td>
+                </tr>
+            </table>
+        </p:dialog>
+    </composite:implementation>
+</ui:component>

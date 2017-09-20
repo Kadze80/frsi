@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="f2_apk_oo_cdcb_out"
+	languageCode="ru" title="Сводный отчет о прибылях и убытках ОООБО"
+    shortName="Свод. отч. о приб. и убыт. ОООБО"
+	beginDate="2014-01-01" endDate=""
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">Сводный отчет о прибылях и убытках организаций, осуществляющих отдельные виды банковских операций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+
+	<table name="array" class="dataTable">
+		<tr>
+			<th>Наименование статьи</th>
+			<th>Код строки</th>
+			<th>За отчетный период</th>
+			<th>За период с начала текущего года (с нарастающим итогом)</th>
+			<th>За аналогичный   период предыдущего года</th>
+			<th>За аналогичный период с начала предыдущего года (с нарастающим итогом)</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Доходы, связанные с получением вознаграждения:</td>
+			<td>1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по корреспондентским и текущим счетам</td>
+			<td>1.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по размещенным вкладам</td>
+			<td>1.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по предоставленным займам (микрокредитам)</td>
+			<td>1.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по предоставленной финансовой аренде</td>
+			<td>1.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по приобретенным ценным бумагам</td>
+			<td>1.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.5" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по операциям «обратное РЕПО»</td>
+			<td>1.6</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.6" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.6" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.6" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.6" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;прочие доходы, связанные с получением вознаграждения</td>
+			<td>1.7</td>
+			<td><InputText name="pr_sum" key="code" keyValue="1.7" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="1.7" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="1.7" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="1.7" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Комиссионные вознаграждения</td>
+			<td>2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от пенсионных активов</td>
+			<td>2.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от инвестиционного дохода (убытка) по пенсионным активам</td>
+			<td>2.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от оказания консалтинговых услуг</td>
+			<td>2.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от услуг представителя держателей облигаций</td>
+			<td>2.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от услуг андеррайтера</td>
+			<td>2.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.5" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от управления активами</td>
+			<td>2.6</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.6" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.6" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.6" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.6" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от оказания брокерских услуг</td>
+			<td>2.7</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.7" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.7" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.7" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.7" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от оказания услуг маркет-мейкера</td>
+			<td>2.8</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.8" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.8" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.8" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.8" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;от оказания прочих услуг </td>
+			<td>2.9</td>
+			<td><InputText name="pr_sum" key="code" keyValue="2.9" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="2.9" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="2.9" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="2.9" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Доходы от осуществления банковской и иной деятельности, не связанные с получением вознаграждения</td>
+			<td>3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы от осуществления переводных операций</td>
+			<td>3.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы от осуществления клиринговых операций</td>
+			<td>3.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы от осуществления кассовых операций</td>
+			<td>3.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы от осуществления сейфовых операций</td>
+			<td>3.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы от инкассации</td>
+			<td>3.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.5" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;прочие доходы от банковской и иной деятельности, не связанные с получением вознаграждения</td>
+			<td>3.6</td>
+			<td><InputText name="pr_sum" key="code" keyValue="3.6" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="3.6" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="3.6" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="3.6" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Доходы (расходы) по финансовым активам (нетто)</td>
+			<td>4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы (расходы) от купли/продажи финансовых активов (нетто)</td>
+			<td>4.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="4.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="4.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="4.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="4.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;доходы (расходы) от изменения стоимости финансовых активов, оцениваемых по справедливой стоимости, изменения которой отражаются в составе прибыли или убытка (нетто)</td>
+			<td>4.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="4.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="4.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="4.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="4.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;Доходы (расходы) от переоценки иностранной валюты (нетто)</td>
+			<td>5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="5" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Доходы в виде дивидендов по акциям</td>
+			<td>6</td>
+			<td><InputText name="pr_sum" key="code" keyValue="6" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="6" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="6" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="6" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>По ценным бумагам, оцениваемым по справедливой стоимости</td>
+			<td>6.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="6.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="6.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="6.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="6.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>По ценным бумагам, имеющимся в наличии для продажи</td>
+			<td>6.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="6.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="6.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="6.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="6.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Доходы, связанные с участием в ассоциированных организациях</td>
+			<td>7</td>
+			<td><InputText name="pr_sum" key="code" keyValue="7" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="7" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="7" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="7" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Доходы от реализации (выбытия) активов</td>
+			<td>8</td>
+			<td><InputText name="pr_sum" key="code" keyValue="8" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="8" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="8" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="8" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прочие доходы</td>
+			<td>9</td>
+			<td><InputText name="pr_sum" key="code" keyValue="9" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="9" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="9" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="9" mask="money0"/></td>
+		</tr>
+		<tr class ="groupHeader">
+			<td>Итого доходов (сумма строк с 1 по 9)</td>
+			<td>10</td>
+			<td><InputText name="pr_sum" key="code" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Расходы, связанные с выплатой вознаграждения</td>
+			<td>11</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>в том числе:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по привлеченным вкладам</td>
+			<td>11.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по полученным займам</td>
+			<td>11.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по полученной финансовой аренде</td>
+			<td>11.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по выпущенным ценным бумагам</td>
+			<td>11.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;по операциям «РЕПО»</td>
+			<td>11.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.5" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;прочие расходы, связанные с выплатой вознаграждения</td>
+			<td>11.6</td>
+			<td><InputText name="pr_sum" key="code" keyValue="11.6" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="11.6" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="11.6" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="11.6" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Комиссионные расходы</td>
+			<td>12</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;вознаграждение управляющему агенту</td>
+			<td>12.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;вознаграждение за кастодиальное обслуживание</td>
+			<td>12.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;вознаграждение фондовой бирже</td>
+			<td>12.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;вознаграждение за услуги регистратора</td>
+			<td>12.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;вознаграждение за прочие услуги</td>
+			<td>12.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="12.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="12.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="12.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="12.5" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Расходы, по банковской и иной деятельности, не связанные с выплатой вознаграждения</td>
+			<td>13</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы от осуществления переводных операций</td>
+			<td>13.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы от осуществления клиринговых операций</td>
+			<td>13.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы от осуществления кассовых операций</td>
+			<td>13.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы от осуществления сейфовых операций</td>
+			<td>13.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы от осуществления инкассации</td>
+			<td>13.5</td>
+			<td><InputText name="pr_sum" key="code" keyValue="13.5" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="13.5" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="13.5" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="13.5" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Операционные расходы</td>
+			<td>14</td>
+			<td><InputText name="pr_sum" key="code" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы на оплату труда и командировочные</td>
+			<td>14.1</td>
+			<td><InputText name="pr_sum" key="code" keyValue="14.1" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="14.1" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="14.1" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="14.1" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;амортизационные отчисления</td>
+			<td>14.2</td>
+			<td><InputText name="pr_sum" key="code" keyValue="14.2" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="14.2" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="14.2" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="14.2" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы на материалы</td>
+			<td>14.3</td>
+			<td><InputText name="pr_sum" key="code" keyValue="14.3" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="14.3" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="14.3" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="14.3" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;расходы по уплате налогов и других обязательных платежей в бюджет, за исключением корпоративного подоходного налога </td>
+			<td>14.4</td>
+			<td><InputText name="pr_sum" key="code" keyValue="14.4" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="14.4" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="14.4" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="14.4" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Расходы от реализации или безвозмездной передачи активов</td>
+			<td>15</td>
+			<td><InputText name="pr_sum" key="code" keyValue="15" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="15" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="15" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="15" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прочие расходы</td>
+			<td>16</td>
+			<td><InputText name="pr_sum" key="code" keyValue="16" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="16" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="16" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="16" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Итого расходов (сумма строк с 11 по 16)</td>
+			<td>17</td>
+			<td><InputText name="pr_sum" key="code" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прибыль (убыток) до отчисления в резервы (провизии) (стр.10 - стр.17)</td>
+			<td>18</td>
+			<td><InputText name="pr_sum" key="code" keyValue="18" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="18" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="18" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="18" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Резервы (восстановление резервов) на возможные потери по операциям </td>
+			<td>19</td>
+			<td><InputText name="pr_sum" key="code" keyValue="19" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="19" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="19" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="19" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>Чистая прибыль (убыток) до уплаты корпоративного подоходного налога  (стр. 18 - стр. 19)</td>
+			<td>20</td>
+			<td><InputText name="pr_sum" key="code" keyValue="20" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="20" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="20" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="20" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Корпоративный подоходный налог</td>
+			<td>21</td>
+			<td><InputText name="pr_sum" key="code" keyValue="21" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="21" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="21" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="21" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Чистая прибыль (убыток) после уплаты  корпоративного подоходного налога (стр.20 - стр.21)</td>
+			<td>22</td>
+			<td><InputText name="pr_sum" key="code" keyValue="22" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="22" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="22" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="22" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Прибыль (убыток) от прекращенной деятельности</td>
+			<td>23</td>
+			<td><InputText name="pr_sum" key="code" keyValue="23" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="23" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="23" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="23" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>Доля меньшинства</td>
+			<td>24</td>
+			<td><InputText name="pr_sum" key="code" keyValue="24" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="24" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="24" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="24" mask="money0"/></td>
+		</tr>
+		<tr class = "groupHeader">
+			<td>Итого чистая прибыль (убыток) за период (стр.22+/- стр.23-стр.24)</td>
+			<td>25</td>
+			<td><InputText name="pr_sum" key="code" keyValue="25" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="pr_begthis_year_sum" key="code" keyValue="25" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_prev_year_sum" key="code" keyValue="25" readonly="true" auto="true" mask="money0"/></td>
+			<td><InputText name="simpr_begprev_year_sum" key="code" keyValue="25" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+	</table>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(n+2) {
+		text-align: center;
+	}
+]]>
+</style>
+</Form>

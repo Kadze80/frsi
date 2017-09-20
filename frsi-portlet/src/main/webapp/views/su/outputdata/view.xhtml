@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{outputDataBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/report_preview.css?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+        <style>
+            .customCalendar input {
+                text-align: center!important;
+                width: 6em;
+            }
+            .customLabel label {
+                margin: 0 0 0 0.5em;
+            }
+            .customRowRed .customColStatus {
+                color: red;
+            }
+            .customRowGreen .customColStatus {
+                color: green;
+            }
+            .customRowBlue .customColStatus {
+                color: blue;
+            }
+            .customRowYellow .customColStatus {
+                color: orange;
+            }
+            .customRowTeal .customColStatus {
+                color: #008080;
+            }
+
+            .controlFail .customColControlResult { color: red; }
+            .controlSuccess .customColControlResult { color: green; }
+
+            .operationFail .operationResult { color: red; }
+            .operationSuccess .operationResult { color: green; }
+
+            .ui-datatable tbody td.wrap {
+                white-space: normal;
+                width: auto;
+            }
+
+            .ui-datatable tbody tr img.icon{ opacity: 0.5; }
+            .ui-datatable tr.ui-state-highlight img.icon { opacity: 1; }
+        </style>
+
+        <script>
+            function overlayPrintPreview(){
+                var div = document.getElementById("dlgPrintPreview");
+                if(div.style.visibility == "visible"){
+                    div.style.visibility = "hidden";
+                } else {
+                    div.style.visibility = "visible";
+                }
+            }
+
+            function onAutoRefreshChange(el) {
+                if (el.checked) {
+                    PF('wPoll').start();
+                } else {
+                    PF('wPoll').stop();
+                }
+            }
+        </script>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <p:growl id="messages" showDetail="true" />
+
+        <h:form id="frmMain">
+            <p:growl id="msg"/>
+            <p:menubar id="grpActions">
+                <p:menuitem value="Обновить" title="#{res.updateList}" action="#{outputDataBean.refreshReportList}" update="@form:tblMain @form:grpActions" icon="ui-icon-arrowrefresh-1-s"/>
+                <p:menuitem value="#{res.generate}" title="#{res.generate}" icon="ui-icon-document" actionListener="#{newOutputDataBean.onOpenCreateDialog()}"
+                            oncomplete="PF('wDlgNewReport').show()"
+                            update=":frmNewReport"/>
+                <p:menuitem value="#{res.open}" action="#{outputDataBean.open(outputDataBean.selectedReportListItem, outputDataBean.selectedReportListItem.id)}" disabled="#{userBean.disabledOutputForm(outputDataBean.selectedReportListItem==null, outputDataBean.selectedReportListItem.formCode, 'F:SHOW')}" title="Открыть выбранный отчёт" icon="ui-icon-document"/>
+                <p:menuitem value="#{res.approve}" disabled="#{!outputDataBean.approveButtonEnabled()}"
+                            oncomplete="PF('wDlgConfirmApprove').show()"
+                            update=":frmConfirmApprove"/>
+                <p:menuitem value="#{res.disapprove}" disabled="#{!outputDataBean.disapproveButtonEnabled()}"
+                            oncomplete="PF('wDlgConfirmDisapprove').show()"
+                            update=":frmConfirmDisapprove"/>
+                <p:submenu label="Просмотр">
+                    <p:menuitem value="Статусы" actionListener="#{outputDataBean.refreshStatuses}" oncomplete="PF('wDlgStatuses').show()" update=":frmStatuses" disabled="#{userBean.disabled(outputDataBean.selectedReportListItem==null, 'SU:OUT:HISTORY')}" title="История статусов" icon="ui-icon-script"/>
+                    <p:menuitem value="Свойства" update=":frmReportProps" oncomplete="PF('wDlgReportProps').show()" disabled="#{userBean.disabled(outputDataBean.selectedReportListItem==null,'SU:OUT:PROPS')}" title="Свойства выбранного отчёта" icon="ui-icon-tag"/>
+                    <p:separator/>
+                    <p:menuitem value="Респонденты" title="Источники отчета" icon="ui-icon-document"
+                                disabled="#{userBean.disabled(outputDataBean.selectedReportListItem==null, 'SU:OUT:INPUT_REPORTS')}"
+                                actionListener="#{outputDataBean.refreshInputReportList(outputDataBean.selectedReportListItem.id)}" oncomplete="PF('wDlgInputReports').show()"
+                                update=":frmInputReports"/>
+                </p:submenu>
+                <p:submenu label="Действия">
+                    <p:menuitem value="Добавить подпись" title="Добавление подписи" icon="ui-icon-plusthick" disabled="#{userBean.disabled(outputDataBean.selectedReports.size() == 0, 'SU:OUT:SIGN:EDIT')}" actionListener="#{outputDataBean.getList(null)}"  oncomplete="PF('wDlgAddSign').show()" update=":frmAddSign" />
+                    <p:menuitem value="Убрать подпись" title="Удаление подписи" icon="ui-icon-minus" disabled="#{userBean.disabled(outputDataBean.selectedReports.size() == 0, 'SU:OUT:SIGN:EDIT')}" oncomplete="PF('wDlgConfirmDeleteSign').show()" update=":frmConfirmDeleteSign"  />
+                    <p:separator/>
+                    <p:menuitem value="Выгрузить в Excel" ajax="false" disabled="#{userBean.disabled(outputDataBean.selectedReports.size() == 0, 'SU:OUT:DOWNLOAD_EXCEL')}" title="Выгрузить в Excel" icon="ui-icon-arrowthickstop-1-s">
+                        <p:fileDownload value="#{outputDataBean.download()}"/>
+                    </p:menuitem>
+                    <p:menuitem value="Выгрузить в один Excel" ajax="false" disabled="#{!reportsBean.isBtnEnabled('SU:OUT:DOWNLOAD_EXCEL', outputDataBean.selectedReports) || outputDataBean.selectedReports.size() == 1}" title="Выгрузить в один файл формата Excel" update="grpActions">
+                        <p:fileDownload value="#{reportsBean.downloadUnionFile(outputDataBean.selectedReports, 'SU:OUT:DOWNLOAD_EXCEL', false)}"/>
+                    </p:menuitem>
+                    <p:menuitem value="Печать" actionListener="#{outputDataBean.preparePdfFile(outputDataBean.selectedReportListItem,outputDataBean.selectedReportListItem.id)}" disabled="#{userBean.disabled(outputDataBean.selectedReportListItem==null, 'SU:OUT:PRINT')}" oncomplete="if(!args.hasErrors) overlayPrintPreview();" update=":frmPrintPreview" icon="ui-icon-print"/>
+                    <p:separator/>
+                    <p:menuitem value="Контроль формы" actionListener="#{outputDataBean.performControlAll()}" update=":frmAllControlResults tblMain" oncomplete="PF('wAllDlgControlResults').show()" disabled="#{!outputDataBean.controlButtonEnabled()}" widgetVar="wBtnPerformControl1" title="#{res.performControl}" icon="ui-icon-gear"/>
+                    <p:separator/>
+                    <p:menuitem value="Примечание" disabled="#{outputDataBean.isEditReportNoteDisable(outputDataBean.selectedReports,null)}"
+                                actionListener="#{outputDataBean.getReportNoteFromBD(outputDataBean.selectedReports.size() == 1 ? outputDataBean.selectedReports.get(0).id : null)}"
+                                oncomplete="PF('wDlgReportNote').show()" update=":frmReportNote" title="Просмотр/редактирование примечания" icon="ui-icon-comment"/>
+                    <p:separator/>
+                    <p:menuitem value="Удалить" oncomplete="PF('wDlgConfirmDelete').show()" disabled="#{outputDataBean.isDeleteDisable()}" update=":frmConfirmDelete" title="Удалить выбранный отчёт" icon="ui-icon-trash"/>
+                </p:submenu>
+                <f:facet name="options">
+                    <h:outputText value="Автообновление: "/>
+                    <p:inputSwitch widgetVar="wPollSwitch" value="#{outputDataBean.pollEnabled}" onchange="onAutoRefreshChange(this)" onLabel="Вкл" offLabel="Выкл" style="vertical-align: middle">
+                        <p:ajax listener="#{outputDataBean.onPollSwitch}" update="@form:poll, @form:msg"/>
+                    </p:inputSwitch>
+                </f:facet>
+            </p:menubar>
+            <p:fieldset id="grpFilters" legend="Фильтры" toggleable="true" toggleSpeed="250" style="margin-top: 0.5em">
+                <p:ajax event="toggle" listener="#{outputDataBean.onFiltersToggle}" update=":messages"/>
+                <h:outputText value="Отчётная дата: с&#160;"/>
+                <p:calendar value="#{outputDataBean.filterReportDateBegin}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                            navigator="true" locale="ru" mask="true">
+                    <p:ajax event="dateSelect" listener="#{outputDataBean.onDateSelect}" update="@form:grpFilters"/>
+                </p:calendar>
+                <h:outputText value="&#160;по&#160;"/>
+                <p:calendar value="#{outputDataBean.filterReportDateEnd}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                            navigator="true" locale="ru" mask="true">
+                    <p:ajax event="dateSelect" listener="#{outputDataBean.onDateSelect}" update="@form:grpFilters"/>
+                </p:calendar>
+                &#160;
+                <h:outputText value="Типы субъектов:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterSubjectTypesText}" readonly="true" style="width:5em"/>
+                <p:commandButton value="..." actionListener="#{outputDataBean.onFilterSubjectTypesShow}" oncomplete="PF('wDlgFilterSubjectTypes').show()" update=":frmFilterSubjectTypes"/>
+                &#160;
+                <h:outputText value="ТФ:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterDepsText}" readonly="true" style="width:8em"/>
+                <p:commandButton value="..." oncomplete="PF('wDlgFilterDepsV').show()" update=":frmFilterDepsV"/>
+                &#160;
+                <h:outputText value="Респонденты:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterRespondentsText}" readonly="true" style="width:8em"/>
+                <p:commandButton value="..." actionListener="#{outputDataBean.onFilterRespondentsShow}" oncomplete="PF('wDlgFilterRespondents').show()" update=":frmFilterRespondents"/>
+                &#160;
+                <h:outputText value="НПА:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterNPAText}" readonly="true" style="width:8em"/>
+                <p:commandButton value="..." actionListener="#{outputDataBean.onFilterNPAShow}" oncomplete="PF('wDlgFilterNPA').show()" update=":frmFilterNPA"/>
+                &#160;
+                <h:outputText value="Отчеты:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterFormsText}" readonly="true" style="width:8em"/>
+                <p:commandButton value="..." oncomplete="PF('wDlgFilterForms').show()" update=":frmFilterForms"/>
+                &#160;
+                <h:outputText value="Статусы:&#160;"/>
+                <p:inputText value="#{outputDataBean.filterStatusesText}" readonly="true" style="width:8em"/>
+                <p:commandButton value="..." actionListener="#{outputDataBean.onFilterStatusesShow}" oncomplete="PF('wDlgFilterStatuses').show()" update=":frmFilterStatuses"/>
+                &#160;
+                <p:commandButton value="Поиск" actionListener="#{outputDataBean.refreshReportList}" update="@form:tblMain @form:grpActions" title="Поиск по выбранным параметрам" icon="ui-icon-search"/>
+                <p:commandButton value="Очистить" actionListener="#{outputDataBean.clearFilters}" update="@form:grpFilters,:frmFilterSubjectTypes :frmFilterForms :frmFilterStatuses" style="font-weight: normal" title="Очистить параметры поиска" icon="ui-icon-trash"/>&#160;
+            </p:fieldset>
+            <p:poll id="poll" widgetVar="wPoll" interval="#{sessionBean.getPageReloadDuration()}" listener="#{outputDataBean.refreshReportList()}" update="@form:tblMain @form:grpActions" global="true" stop="#{outputDataBean.pollDisabled}" autoStart="#{!outputDataBean.pollDisabled}"/>
+            <p:dataTable id="tblMain" widgetVar="wTblMain" lazy="true" value="#{outputDataBean.ldmReportListItem}" filteredValue="#{outputDataBean.filteredReportList}" var="item"
+                         selection="#{outputDataBean.selectedReports}" sortBy="#{item.saveDate}" rowStyleClass="#{outputDataBean.getRowStyleClass(item)}"
+                         rows="25" resizableColumns="true" paginator="true" paginatorPosition="bottom"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}"
+                         rowsPerPageTemplate="10,25,50" emptyMessage="#{res.noRecordsFound}"
+                         resizeMode="expand" reflow="true" draggableColumns="true">
+                <p:ajax event="toggleSelect" update=":frmMain:grpActions,@this" listener="#{outputDataBean.onSelectAll}" />
+                <p:ajax event="rowSelect" update=":frmMain:grpActions"/>
+                <p:ajax event="rowUnselect" update=":frmMain:grpActions"/>
+                <p:ajax event="rowSelectCheckbox" update=":frmMain:grpActions"/>
+                <p:ajax event="rowUnselectCheckbox" update=":frmMain:grpActions"/>
+                <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                <p:column headerText="#{res.reportDate}" sortBy="#{item.reportDate}" style="width:7em;text-align:center;">
+                    <h:outputText value="#{item.reportDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy" /></h:outputText>
+                </p:column>
+                <p:column headerText="#{res.code}" sortBy="#{item.formCode}" style="width:7em;"><h:outputText value="#{item.formCode}"/></p:column>
+                <p:column headerText="#{res.name}" sortBy="#{item.formName}" style="width:30em;" styleClass="wrap">
+                    <h:outputText value="#{item.formName}&#160;&#160;"/>
+                    <h:graphicImage url="/resources/icons16/note.png" rendered="#{item.haveNote}" styleClass="icon" />
+                </p:column>
+                <p:column headerText="Тип отчета" sortBy="#{item.formTypeName}" style="width: 15em;text-align: left"><h:outputText value="#{item.formTypeName}"/></p:column>
+                <p:column headerText="Статус" sortBy="#{item.statusName}" style="width:7em;text-align:left;" styleClass="customColStatus">
+                    <h:outputText value="#{item.statusName}"/>
+                </p:column>
+                <p:column sortBy="#{item.controlResultName}" style="width:7em;" styleClass="customColControlResult">
+                    <f:facet name="header">
+                        <h:outputText value="Результат контроля" escape="false" style="white-space:pre-line;"/>
+                    </f:facet>
+                    <h:outputText value="#{item.controlResultName}"/>
+                </p:column>
+                <p:column sortBy="#{item.nameNPA}" style="width:12em;" >
+                    <f:facet name="header">
+                        <h:outputText value="НПА" escape="false" style="white-space:pre-line;"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nameNPA}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <p:dialog id="dlgFilterSubjectTypes" widgetVar="wDlgFilterSubjectTypes" header="Фильтр по типам субъекта" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterSubjectTypes">
+                <p:dataTable value="#{outputDataBean.subjectTypeItems}" var="subjectType"
+                             rowKey="#{subjectType}" sortBy="#{subjectType.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{outputDataBean.filterSubjectTypes}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{subjectType.nameRu}">
+                        <h:outputText value="#{subjectType.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterSubjectTypesHide}" oncomplete="PF('wDlgFilterSubjectTypes').hide()" update=":frmMain:grpFilters :dlgFilterForms" styleClass="filter-button" style="margin-top: 5px;"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterSubjectTypes').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterDepsV" widgetVar="wDlgFilterDepsV" header="Фильтр по ТФ" modal="true" resizable="false" width="800">
+            <h:form id="frmFilterDepsV">
+                <p:dataTable value="#{outputDataBean.deps}" var="dep"
+                             rowKey="#{dep.code}" sortBy="#{dep.id}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{outputDataBean.filterDeps}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{dep.nameRu}"><h:outputText value="#{dep.nameRu}"/></p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterDepsHide}" oncomplete="PF('wDlgFilterDepsV').hide()" update=":frmMain:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterDepsV').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterRespondents" widgetVar="wDlgFilterRespondents" header="Фильтр по респондентам" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterRespondents">
+                <p:dataTable value="#{outputDataBean.respondentsIn}" var="respondent"
+                             rowKey="#{respondent.recId}" sortBy="#{respondent.personShortName}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{outputDataBean.filterRespondents}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{respondent.personShortName}">
+                        <h:outputText value="#{respondent.personShortName}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterRespondentsHide}" oncomplete="PF('wDlgFilterRespondents').hide()" update=":frmMain:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterRespondents').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterForms" widgetVar="wDlgFilterForms" header="Фильтр по отчетам" modal="true" resizable="false" width="800">
+            <h:form id="frmFilterForms">
+                <p:dataTable value="#{outputDataBean.forms}" var="form"
+                             rowKey="#{form.code}" sortBy="#{form.formHistory.name}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{outputDataBean.filterForms}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="${res.code}" sortBy="#{form.code}" style="width:10em;text-align: left"><h:outputText value="#{form.code}"/></p:column>
+                    <p:column headerText="Название" sortBy="#{form.formHistory.name}" styleClass="wrap">
+                        <h:outputText value="#{form.formHistory.name}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterFormsHide}" oncomplete="PF('wDlgFilterForms').hide()" update=":frmMain:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterForms').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterNPA" widgetVar="wDlgFilterNPA" header="Фильтр по НПА" modal="true" resizable="false" width="800">
+            <h:form id="frmFilterNPA">
+                <p:dataTable value="#{outputDataBean.npaList}" var="npa"
+                             rowKey="#{npa.code}" sortBy="#{npa.nameRu}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{outputDataBean.filterNPA}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{npa.nameRu}">
+                        <h:outputText value="#{npa.nameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterNPAHide}" oncomplete="PF('wDlgFilterNPA').hide()" update=":frmMain:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterNPA').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterStatuses" widgetVar="wDlgFilterStatuses" header="Фильтр по статусам" modal="true" resizable="false" width="300" height="270">
+            <h:form id="frmFilterStatuses">
+                <p:selectManyCheckbox value="#{outputDataBean.filterStatuses}" layout="pageDirection" styleClass="customLabel">
+                    <f:selectItems value="#{outputDataBean.allFilterStatuses}" />
+                </p:selectManyCheckbox><br/>
+                <table style="position: absolute; bottom: 0;">
+                    <tr>
+                        <td>
+                    <h:panelGroup>
+                        <p:commandButton value="Все" actionListener="#{outputDataBean.resetFilterStatuses}" update="@form" style="font-weight: normal" styleClass="filter-button"/>&#160;
+                        <p:commandButton value="Очистить" actionListener="#{outputDataBean.emptyFilterStatuses}" update="@form" style="font-weight: normal" styleClass="filter-button"/>
+                    </h:panelGroup>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 3px 0">
+                    <h:panelGroup>
+                        <p:commandButton value="Ok" actionListener="#{outputDataBean.onFilterStatusesHide}" oncomplete="PF('wDlgFilterStatuses').hide()" update=":frmMain:grpFilters" styleClass="filter-button"/>&#160;
+                        <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterStatuses').hide()" styleClass="filter-button"/>
+                    </h:panelGroup>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgInputReports" widgetVar="wDlgInputReports" header="Респонденты" modal="true" resizable="false" width="1024">
+            <h:form id="frmInputReports">
+                <p:tabView id="tvInputReports">
+                    <p:tab title="Респонденты" id="tabRespondents">
+                        <p:dataTable id="tblResp" value="#{outputDataBean.respondents}" var="respondent" rowIndexVar="index"
+                                     sortBy="#{respondent.personShortName}" scrollHeight="400" scrollable="true"
+                                     rows="99999" resizableColumns="true" emptyMessage="#{res.noRecordsFound}">
+                            <p:column headerText="№" style="width:2em;text-align: left">
+                                <h:outputText value="#{index + 1}"/></p:column>
+                            <p:column headerText="Респонденты" sortBy="#{respondent.personShortName}"
+                                      style="width:30em;text-align: left" styleClass="wrap"><h:outputText
+                                    value="#{respondent.personShortName}"/></p:column>
+                            <p:column headerText="Наименование типа субъекта" sortBy="#{respondent.refSubjectTypeName}"
+                                      style="width:30em;text-align: left" styleClass="wrap"><h:outputText
+                                    value="#{respondent.refSubjectTypeName}"/></p:column>
+                            <p:column headerText="ТФ" sortBy="#{respondent.refDepartmentName}"
+                                      style="width:30em;text-align: left" styleClass="wrap"><h:outputText
+                                    value="#{respondent.refDepartmentName}"/></p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Отчеты" id="tabReports">
+                        <p:dataTable id="tblInputReports" value="#{outputDataBean.inputReports}" var="report"
+                                     sortBy="#{report.respondentNameRu}" scrollHeight="400" scrollable="true"
+                                     rows="99999" resizableColumns="true" emptyMessage="#{res.noRecordsFound}">
+                            <!--<f:facet name="header">
+                                Входные отчеты
+                                <p:commandButton id="toggler" type="button" value="Колонки" style="float:right" icon="ui-icon-calculator" />
+                                <p:columnToggler datasource="tblInputReports" trigger="toggler" />
+                            </f:facet>-->
+                            <p:column headerText="#{res.reportDate}" sortBy="#{report.reportDate}"
+                                      style="width:10em;text-align:center;">
+                                <h:outputText value="#{report.reportDate}"><f:convertDateTime type="date"
+                                                                                              pattern="dd.MM.yyyy"/></h:outputText>
+                            </p:column>
+                            <p:column headerText="Респонденты" sortBy="#{report.respondentShortNameRu}"
+                                      style="width:30em;text-align: left" styleClass="wrap"><h:outputText
+                                    value="#{report.respondentShortNameRu}"/></p:column>
+                            <!--<p:column headerText="Наименование типа субъекта" sortBy="#{report.subjectTypeNameRu}"
+                                      style="width:30em;text-align: left" styleClass="wrap"><h:outputText
+                                    value="#{report.subjectTypeNameRu}"/></p:column>-->
+                            <p:column headerText="Код отчета" sortBy="#{report.formCode}"
+                                      style="width:10em;text-align: left"><h:outputText
+                                    value="#{report.formCode}"/></p:column>
+                            <p:column headerText="Наименование отчета" sortBy="#{report.formName}" style="width:30em;"
+                                      styleClass="wrap"><h:outputText value="#{report.formName}"/></p:column>
+                        </p:dataTable>
+                    </p:tab>
+                </p:tabView>
+                <br/>
+                <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgInputReports').hide()" />
+                <br/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgNewReport" widgetVar="wDlgNewReport" header="Генерация отчета" modal="true" width="1160" focus=":frmNewReport:btnGenerate">
+            <h:form id="frmNewReport">
+                <p:tabView id="tvNewReport" activeIndex="#{newOutputDataBean.activeTabIndex}">
+                    <p:ajax event="tabChange" listener="#{newOutputDataBean.onTabChange}" update="@form:panelGroup"/>
+                    <p:tab title="Входные" id="tabInputReports">
+                        <h:outputText value="#{res.reportDate}: "/>
+                        <p:calendar value="#{newOutputDataBean.reportDate}" pattern="dd.MM.yyyy"
+                                    navigator="true" locale="ru" mask="true">
+                            <p:ajax event="dateSelect" listener="#{newOutputDataBean.refreshData}" update="tblSubjectTypes tblRespondents tblForms @form:panelGroup" />
+                        </p:calendar>&#160;&#160;&#160;&#160;&#160;
+                        <h:outputText value="ТФ:&#160;"/>
+                        <p:inputText value="#{newOutputDataBean.filterDepsText}" readonly="true" style="width:30em" id="depText"/>
+                        <p:commandButton value="..." oncomplete="PF('wDlgFilterDeps').show()" update=":frmFilterDeps"/>
+                        <table>
+                            <tr>
+                                <td rowspan="2" style="vertical-align: top">
+                                    <p:dataTable id="tblSubjectTypes" value="#{newOutputDataBean.subjectTypes}" var="subjectType"
+                                                 rowKey="#{subjectType}"
+                                                 sortBy="#{subjectType.getName(sessionBean.languageCode)}" scrollable="true"
+                                                 scrollHeight="450"
+                                                 emptyMessage="#{res.noRecordsFound}" selectionMode="single"
+                                                 selection="#{newOutputDataBean.selectedSubjectType}" style="width: 200px">
+                                        <f:facet name="header">Типы субъектов</f:facet>
+                                        <p:ajax event="rowSelect" listener="#{newOutputDataBean.updateRespondents}" update="@form:tvNewReport:tblRespondents"/>
+                                        <p:column style="width:16px;text-align:center">
+                                            <p:selectBooleanCheckbox
+                                                value="#{newOutputDataBean.subjectTypeCheckBoxes[subjectType.recId]}">
+                                            <p:ajax listener="#{newOutputDataBean.onSubjectTypeChange(subjectType)}" update="@form:tvNewReport:tblForms, @form:panelGroup, @form:tvNewReport:panelGroupPeriods1"/>
+                                            </p:selectBooleanCheckbox>
+                                        </p:column>
+                                        <p:column headerText="Название" sortBy="#{subjectType.getName(sessionBean.languageCode)}">
+                                            <h:outputText value="#{subjectType.getName(sessionBean.languageCode)}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </td>
+                                <td>
+                                    <p:dataTable id="tblRespondents" value="#{newOutputDataBean.respondents}" var="respondent"
+                                                 rowKey="#{respondent}" sortBy="#{respondent.personShortName}" scrollable="true"
+                                                 scrollHeight="200"
+                                                 emptyMessage="#{res.noRecordsFound}"
+                                                 selection="#{newOutputDataBean.selectedRespondents}" rowSelectMode="add">
+                                        <f:facet name="header">#{res.organizations}</f:facet>
+                                        <p:ajax event="rowSelect" listener="#{newOutputDataBean.onRespondentRowSelect}" global="false"/>
+                                        <p:ajax event="rowUnselect" listener="#{newOutputDataBean.onRespondentRowUnselect}" global="false"/>
+                                        <p:ajax event="rowSelectCheckbox" listener="#{newOutputDataBean.onRespondentRowSelect}" />
+                                        <p:ajax event="rowUnselectCheckbox" listener="#{newOutputDataBean.onRespondentRowUnselect}" />
+                                        <p:ajax event="toggleSelect" listener="#{newOutputDataBean.onRespondentToggleSelect}" />
+                                        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                                        <p:column headerText="Название" sortBy="#{respondent.personShortName}">
+                                            <h:outputText value="#{respondent.personShortName}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:dataTable id="tblForms" value="#{newOutputDataBean.forms}" var="form" rowKey="#{form.code}"
+                                                 sortBy="#{form.formHistory.name}" scrollable="true" scrollHeight="200"
+                                                 emptyMessage="#{res.noRecordsFound}"
+                                                 selectionMode="single" selection="#{newOutputDataBean.selectedForm}">
+                                        <f:facet name="header">#{res.forms}</f:facet>
+                                        <p:ajax event="rowSelect" update=":frmNewReport:panelGroup @form:tvNewReport:panelGroupPeriods1"  listener="#{newOutputDataBean.onSelectForm}"/>
+                                        <p:column style="width:2em;text-align: left"><h:outputText value="#{form.formHistory.periodCode}"/></p:column>
+                                        <p:column headerText="${res.code}" style="width:10em;text-align: left"><h:outputText value="#{form.code}"/></p:column>
+                                        <p:column headerText="Название" sortBy="#{form.formHistory.name}">
+                                            <h:outputText value="#{form.formHistory.name}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </td>
+                            </tr>
+                        </table>
+                        <h:panelGroup layout="block" style="padding-top: 5px" id="panelGroupPeriods1">
+                            <h:outputText value="Дата с: "/>
+                            <p:calendar value="#{newOutputDataBean.fromReportDate}" pattern="dd.MM.yyyy" disabled="#{newOutputDataBean.periodsDisabled}"
+                                        navigator="true" locale="ru" mask="true"/>&#160;&#160;
+                            <h:outputText value="Дата по: "/>
+                            <p:calendar value="#{newOutputDataBean.toReportDate}" pattern="dd.MM.yyyy" disabled="#{newOutputDataBean.periodsDisabled}"
+                                        navigator="true" locale="ru" mask="true"/>
+                        </h:panelGroup>
+                    </p:tab>
+                    <p:tab id="tabReportNote" title="Примечания">
+                        <h:panelGroup id="pgReportNote">
+                            <p:scrollPanel style="width: 100%;max-height: 190px" mode="native">
+                                <p:inputTextarea value="#{outputDataBean.reportNote}" style="width: 99%;" maxlength="2000"/>
+                            </p:scrollPanel>
+                        </h:panelGroup>
+                        <p:commandButton value="#{res.clear}" actionListener="#{outputDataBean.setReportNote(null)}" update="pgReportNote"/>
+                    </p:tab>
+                </p:tabView>
+                <h:panelGroup layout="block" style="padding-top: 5px;" id="panelGroup">
+                    <p:commandButton id="btnGenerate" update=":frmRequiredReports" value="#{res.generate}" actionListener="#{newOutputDataBean.generateReport(false)}" action="#{newOutputDataBean.generateReportAction}" oncomplete="if (!args.hasErrors){PF('wDlgNewReport').hide();}" disabled="#{newOutputDataBean.isGenerateButtonDisabled()}"/>&#160;&#160;
+                    <p:commandButton id="btnGenerateDraft" update=":frmRequiredReports" value="Сформировать черновик" actionListener="#{newOutputDataBean.generateReport(true)}" action="#{newOutputDataBean.generateReportAction}" oncomplete="if (!args.hasErrors){PF('wDlgNewReport').hide();}" disabled="#{newOutputDataBean.isGenerateDraftButtonDisabled()}"/>&#160;&#160;
+                    <p:commandButton id="btnCloseDialog" value="#{res.cancel}" onclick="PF('wDlgNewReport').hide()" type="button"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgFilterDeps" widgetVar="wDlgFilterDeps" header="Фильтр по ТФ" modal="true" resizable="false" width="800">
+            <h:form id="frmFilterDeps">
+                <p:dataTable value="#{newOutputDataBean.deps}" var="dep"
+                             rowKey="#{dep.code}" sortBy="#{dep.id}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{newOutputDataBean.filterDeps}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{dep.nameRu}"><h:outputText value="#{dep.nameRu}"/></p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{newOutputDataBean.onFilterDepsHide}" oncomplete="PF('wDlgFilterDeps').hide()"
+                                 update=":frmNewReport:tvNewReport:tblRespondents, :frmNewReport:tvNewReport:depText"
+                                 style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterDeps').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgRequiredReports" widgetVar="wDlgRequiredReports" header="Отсутсвующие отчеты" modal="true" width="1000" height="380">
+            <h:form id="frmRequiredReports">
+                <p:dataTable id="tblRequiredReports" widgetVar="wTblRequiredReports" value="#{newOutputDataBean.requiredReports}" var="item"
+                             rows="2147483647" scrollable="true" scrollHeight="301" resizableColumns="true" sortBy="${item.respondentNameRu}"
+                             emptyMessage="#{res.noRecordsFound}" style="width:99%">
+                    <p:column headerText="#{res.reportDate}" sortBy="#{item.reportDate}" style="width:7em;text-align:center;">
+                        <h:outputText value="#{item.reportDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy" /></h:outputText>
+                    </p:column>
+                    <p:column headerText="#{res.code}" sortBy="#{item.formCode}" style="width:7em;"><h:outputText value="#{item.formCode}"/></p:column>
+                    <p:column sortBy="#{item.respondentNameRu}" style="width:17em;" styleClass="wrap">
+                        <f:facet name="header">
+                            <h:outputText value="Наименование респондента" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                        <h:outputText value="#{item.respondentNameRu}"/>
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton value="Убрать из фильтра" actionListener="#{newOutputDataBean.unselectRespondents()}" update=":frmNewReport:tvNewReport:tblRespondents" oncomplete="PF('wDlgRequiredReports').hide();"/>
+                <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgRequiredReports').hide()" />
+                <br/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgReportExists" widgetVar="wDlgReportExists" header="Внимание!" modal="true" width="600" height="90">
+            <h:form>
+                <p>
+                <h:outputText value="Уже имеется отчет по выбранным Вами дате и отчетной форме."/><br/>
+                </p>
+                <p:commandButton value="#{res.open}" onclick="PF('wDlgReportExists').hide()"
+                                 actionListener="#{newOutputDataBean.prepareExistingReport}" action="/views/su/outputdata/form?faces-redirect=true"/>&#160;&#160;&#160;
+                <p:commandButton value="Переформировать" actionListener="#{newOutputDataBean.regenerateReport()}" action="#{newOutputDataBean.regenerateReportAction}"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton type="button" value="#{res.cancel}" onclick="PF('wDlgReportExists').hide()"/>
+            </h:form>
+        </p:dialog>
+
+        <h:form id="frmConfirmDelete">
+            <p:confirmDialog id="dlgConfirmDelete" widgetVar="wDlgConfirmDelete"
+                             header="#{res.deletion}" severity="alert">
+                <f:facet name="message">
+                    <h:outputFormat value="#{res.deleteReportConfirmMessage}">
+                        <f:param value="#{outputDataBean.selectedReports.size()}"/>
+                    </h:outputFormat>
+                </f:facet>
+                <p:commandButton value="#{res.delete}" actionListener="#{outputDataBean.deleteReport}"
+                                 oncomplete="PF('wDlgConfirmDelete').hide()" update=":messages,:frmMain:grpActions,:frmMain:tblMain,:frmDeleteResults"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDelete').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+
+        <p:dialog id="dlgStatuses" widgetVar="wDlgStatuses" header="История статусов" modal="true" width="1000" height="580">
+            <h:form id="frmStatuses">
+                <p:dataTable id="tblStatuses" widgetVar="wTblStatuses" lazy="true" value="#{outputDataBean.ldmReportStatus}" filteredValue="#{outputDataBean.filteredStatuses}" var="status"
+                             rows="2147483647" scrollable="true" scrollHeight="501" resizableColumns="true"
+                             sortBy="#{status.statusDate}" emptyMessage="#{res.noRecordsFound}" style="width:99%">
+                    <p:column headerText="Статус" filterBy="#{status.statusName}" filterStyle="display:none" style="width:12em;"><h:outputText value="#{status.getStatusName('ru')}"/></p:column>
+                    <p:column headerText="Дата изменения" style="width:10em; text-align:center;"><h:outputText value="#{status.statusDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+                    <p:column headerText="#{res.comment}" styleClass="wrap"><h:outputText value="#{status.message}"/></p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgStatuses').hide()" />
+                <br/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgReportProps" widgetVar="wDlgReportProps" header="Свойства отчёта" modal="true" width="600" height="250">
+            <h:form id="frmReportProps">
+                <h:outputText value="Наименование:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.formName}"/><br/><br/>
+                <h:outputText value="Отчетная дата:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.reportDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy"/></h:outputText><br/>
+                <h:outputText value="Код:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.formCode}"/><br/>
+                <h:outputText value="Дата последнего изменения:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.saveDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText><br/>
+                <h:outputText value="Статус:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.statusName}"/><br/>
+                <h:outputText value="Дата последнего изменения статуса:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+                <h:outputText value="#{outputDataBean.selectedReportListItem.statusDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText><br/>
+                <br/>
+                <p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgReportProps').hide()" />
+                <br/>
+            </h:form>
+        </p:dialog>
+
+        <h:form id="frmAllControlResults">
+            <p:dialog id="dlgAllControlResults" widgetVar="wAllDlgControlResults" header="Результаты контролей" modal="true" width="1024">
+                <p:dataTable id="tblAllControlResults" widgetVar="wAllTblControlResults" value="#{outputDataBean.controlResults}"  var="controlResult"
+                             rows="2147483647" scrollable="true" scrollHeight="520" resizableColumns="true" emptyMessage="#{res.noRecordsFound}"
+                             rowStyleClass="#{outputDataBean.getControlRowStyleClass(controlResult.resultType)}">
+                    <p:column headerText="Тип контроля" style="width: 15em" styleClass="wrap"><h:outputText value="#{controlResult.crosscheckTypeNameRu}"/></p:column>
+                    <p:column headerText="#{res.expression}" styleClass="wrap"><h:outputText value="#{controlResult.descriptionRu}"/></p:column>
+                    <p:column headerText="#{res.resultPerformControl}" style="width: 10em" styleClass="customColControlResult"><h:outputText value="#{reportsBean.getControlResultTypeName(controlResult.resultType)}"/></p:column>
+                    <p:column style="width:7em;text-align:center;" headerText="#{res.reportDate}">
+                        <h:outputText value="#{controlResult.reportDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy" /></h:outputText>
+                    </p:column>
+                </p:dataTable>
+                <h:panelGroup style="float: right">
+                    <p:commandButton value="Печать" icon="ui-icon-print" actionListener="#{outputDataBean.prepareControlResultsAllPdfFile()}" oncomplete="if(!args.hasErrors) overlayPrintPreview();" update=":frmPrintPreview"/>
+                    <p:commandButton value="Выгрузить в Excel" icon="ui-icon-arrowthickstop-1-s" ajax="false">
+                        <p:fileDownload value="#{outputDataBean.downloadControlResultsAll()}"/>
+                    </p:commandButton>
+                    <p:commandButton type="button" value="Закрыть" onclick="PF('wAllDlgControlResults').hide()"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmConfirmApprove">
+            <p:confirmDialog id="dlgConfirmApprove" widgetVar="wDlgConfirmApprove"
+                             message="Выбранных отчетов #{outputDataBean.selectedReports.size()}, Вы уверены, что хотите утвердить выбранные отчеты?"
+                             header="#{res.approval}" severity="alert">
+                    <p:commandButton value="#{res.approve}" actionListener="#{outputDataBean.approveReports(true)}"
+                                     oncomplete="PF('wDlgConfirmApprove').hide()" update=":frmMain:tblMain :frmMain:grpActions :frmApproveResults"/>
+                    <p:commandButton type="button" value="#{res.cancel}" onclick="PF('wDlgConfirmApprove').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <h:form id="frmConfirmDisapprove">
+            <p:confirmDialog id="dlgConfirmDisapprove" widgetVar="wDlgConfirmDisapprove"
+                             message="Выбранных отчетов #{outputDataBean.selectedReports.size()}, Вы уверены, что хотите разутвердить выбранные отчеты?"
+                             header="#{res.disapproval}" severity="alert">
+                    <p:commandButton value="#{res.disapprove}" actionListener="#{outputDataBean.approveReports(false)}"
+                                     oncomplete="PF('wDlgConfirmDisapprove').hide()" update=":frmMain:tblMain :frmMain:grpActions :frmDisApproveResults"/>
+                    <p:commandButton type="button" value="#{res.cancel}" onclick="PF('wDlgConfirmDisapprove').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <div id="dlgPrintPreview" class="customDialog ui-widget">
+            <div class="customDialogContent">
+                <div class="customDialogBody">
+                    <h:form id="frmPrintPreview" style="width: 100%; height: 100%">
+                        <object data="#{outputDataBean.pdfFilePath}" type="application/pdf"
+                                style="width: 100%; height: 100%"
+                                id="pdfDocument">
+                            Возникла ошибка при печати
+                        </object>
+                    </h:form>
+                </div>
+                <div class="customDialogFooter">
+                    <button class="customDialogCloseButton" onclick="overlayPrintPreview();">Закрыть</button>
+                </div>
+            </div>
+        </div>
+
+        <h:form id="frmApproveResults">
+            <p:dialog id="dlgApproveResults" widgetVar="wDlgApproveResults" header="Результаты утверждении" modal="true"
+                      width="824">
+                <p:dataTable id="tblApproveResults"
+                             value="#{outputDataBean.approveResultMessages}" var="approveResult"
+                             rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                             emptyMessage="#{res.noRecordsFound}"  rowStyleClass="#{outputDataBean.getOperationRowStyleClass(approveResult.resultType)}">
+                    <p:column headerText="Отчет" style="width:20em;" styleClass="wrap"><h:outputText
+                            value="#{approveResult.formName}"/></p:column>
+                    <p:column headerText="Дата отчета" style="width:7em;text-align:center;"><h:outputText
+                            value="#{approveResult.reportDate}"/></p:column>
+                    <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                        <h:outputText value="#{approveResult.resultType.getName(sessionBean.languageCode)}"/>
+                    </p:column>
+                    <p:column headerText="Причина" style="width: 10em" styleClass="wrap"><h:outputText
+                            value="#{approveResult.message}"/></p:column>
+                </p:dataTable>
+                <h:panelGroup>
+                    <span style="font-weight: bold">
+                    Выполнено: <h:outputText value="#{outputDataBean.getSuccessOperationCount(outputDataBean.approveResultMessages)}"/>&#160;
+                    Не выполнено: <h:outputText value="#{outputDataBean.getFailOperationCount(outputDataBean.approveResultMessages)}"/>
+                    </span>
+                    <p:commandButton type="button" value="Закрыть" onclick="PF('wDlgApproveResults').hide();" style="float: right"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmDisApproveResults">
+            <p:dialog id="dlgDisApproveResults" widgetVar="wDlgDisApproveResults" header="Результаты разутверждении" modal="true"
+                      width="824">
+                <p:dataTable id="tblDisApproveResults"
+                             value="#{outputDataBean.approveResultMessages}" var="approveResult"
+                             rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                             emptyMessage="#{res.noRecordsFound}" rowStyleClass="#{outputDataBean.getOperationRowStyleClass(approveResult.resultType)}">
+                    <p:column headerText="Отчет" style="width:20em;" styleClass="wrap"><h:outputText
+                            value="#{approveResult.formName}"/></p:column>
+                    <p:column headerText="Дата отчета" style="width:7em;text-align:center;"><h:outputText
+                            value="#{approveResult.reportDate}"/></p:column>
+                    <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                        <h:outputText value="#{approveResult.resultType.getName(sessionBean.languageCode)}"/>
+                    </p:column>
+                    <p:column headerText="Причина" style="width: 10em" styleClass="wrap"><h:outputText
+                            value="#{approveResult.message}"/></p:column>
+                </p:dataTable>
+                <h:panelGroup>
+                    <span style="font-weight: bold">
+                    Выполнено: <h:outputText value="#{outputDataBean.getSuccessOperationCount(outputDataBean.approveResultMessages)}"/>&#160;
+                    Не выполнено: <h:outputText value="#{outputDataBean.getFailOperationCount(outputDataBean.approveResultMessages)}"/>
+                    </span>
+                    <p:commandButton type="button" value="Закрыть" onclick="PF('wDlgDisApproveResults').hide();" style="float: right"/>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmDeleteResults">
+            <p:dialog id="dlgDeleteResults" widgetVar="wDlgDeleteResults" header="Результаты удаления" modal="true"
+                      width="824">
+                <h:panelGroup rendered="#{outputDataBean.deleteMessages.size() > 0}">
+                    <p:dataTable id="tblDeleteResults"
+                                 value="#{outputDataBean.deleteMessages}" var="approveResult"
+                                 rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                                 emptyMessage="#{res.noRecordsFound}" rowStyleClass="#{outputDataBean.getOperationRowStyleClass(approveResult.resultType)}">
+                        <p:column headerText="Отчет" style="width:20em;" styleClass="wrap"><h:outputText
+                                value="#{approveResult.formName}"/></p:column>
+                        <p:column headerText="Дата отчета" style="width:7em;text-align:center;"><h:outputText
+                                value="#{approveResult.reportDate}"/></p:column>
+                        <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                            <h:outputText value="#{approveResult.resultType.getName(sessionBean.languageCode)}"/>
+                        </p:column>
+                        <p:column headerText="Причина" style="width: 10em" styleClass="wrap"><h:outputText
+                                value="#{approveResult.message}"/></p:column>
+                    </p:dataTable>
+                    <h:panelGroup>
+                        <span style="font-weight: bold">
+                        Выполнено: <h:outputText value="#{outputDataBean.getSuccessOperationCount(outputDataBean.deleteMessages)}"/>&#160;
+                        Не выполнено: <h:outputText value="#{outputDataBean.getFailOperationCount(outputDataBean.deleteMessages)}"/>
+                        </span>
+                        <p:commandButton type="button" value="Закрыть" onclick="PF('wDlgDeleteResults').hide();" style="float: right"/>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="frmEditNoteResults">
+            <p:dialog id="dlgEditNoteResults" widgetVar="wDlgEditNoteResults" header="Результаты редактирования примечаний" modal="true"
+                      width="824">
+                <h:panelGroup rendered="#{outputDataBean.noteMessages.size() > 0}">
+                    <p:dataTable id="tblNoteResults"
+                                 value="#{outputDataBean.noteMessages}" var="approveResult"
+                                 rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                                 emptyMessage="#{res.noRecordsFound}" rowStyleClass="#{outputDataBean.getOperationRowStyleClass(approveResult.resultType)}">
+                        <p:column headerText="Отчет" style="width:20em;" styleClass="wrap"><h:outputText
+                                value="#{approveResult.formName}"/></p:column>
+                        <p:column headerText="Дата отчета" style="width:7em;text-align:center;"><h:outputText
+                                value="#{approveResult.reportDate}"/></p:column>
+                        <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                            <h:outputText value="#{approveResult.resultType.getName(sessionBean.languageCode)}"/>
+                        </p:column>
+                        <p:column headerText="Причина" style="width: 10em" styleClass="wrap"><h:outputText
+                                value="#{approveResult.message}"/></p:column>
+                    </p:dataTable>
+                    <h:panelGroup>
+                        <span style="font-weight: bold">
+                        Выполнено: <h:outputText value="#{outputDataBean.getSuccessOperationCount(outputDataBean.noteMessages)}"/>&#160;
+                        Не выполнено: <h:outputText value="#{outputDataBean.getFailOperationCount(outputDataBean.noteMessages)}"/>
+                        </span>
+                        <p:commandButton type="button" value="Закрыть" onclick="PF('wDlgEditNoteResults').hide();" style="float: right"/>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+        <p:dialog id="dlgReportNote" widgetVar="wDlgReportNote" header="Окно для просмотра/редактирования примечания" modal="true" resizable="false" width="800" >
+            <h:form id="frmReportNote">
+                <p:scrollPanel style="width: 770px;max-height: 190px" mode="native">
+                    <p:inputTextarea value="#{outputDataBean.reportNote}" style="width: 760px;" maxlength="2000"/>
+                </p:scrollPanel>
+                <p:panel style="width: 766px" rendered="#{outputDataBean.selectedReports.size() > 1}">
+                    <p:selectBooleanCheckbox id="rn_append" value="#{outputDataBean.append}" >
+                        <p:ajax  listener="#{outputDataBean.onAppendCheckBoxChange}" update="rn_new_line"/>
+                    </p:selectBooleanCheckbox>
+                    <h:outputLabel for="rn_append" value="- добавить в конец" style="font-weight:bold; margin-right: 10px;"  />
+
+                    <p:selectBooleanCheckbox id="rn_new_line" value="#{outputDataBean.newLine}" disabled="#{outputDataBean.disableNewLine}" />
+                    <h:outputLabel for="rn_new_line" value="- с новой строки" style="font-weight:bold; margin-right: 10px;" />
+                </p:panel>
+                <p:commandButton value="#{res.save}" actionListener="#{outputDataBean.editReportNote(outputDataBean.selectedReports, null)}" action="#{outputDataBean.refreshReportList}" oncomplete="PF('wDlgReportNote').hide()"
+                                 update=":frmMain:tblMain :frmMain:grpActions :frmEditNoteResults" />
+                &#160;
+                <p:commandButton value="#{res.clear}" actionListener="#{outputDataBean.setReportNote(null)}" update="frmReportNote"/>
+                &#160;
+                <p:commandButton value="#{res.cancel}" oncomplete="PF('wDlgReportNote').hide()"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgAddSign" widgetVar="wDlgAddSign" header="Окно выбора реквизитов для подписи" modal="true" resizable="false" height="250" width="450" >
+            <h:form id="frmAddSign">
+                <br/>
+                <p:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="5">
+                    <h:outputLabel for="manager" value="Руководитель:" style="font-weight: bold; margin-right: 10px"/>
+                    <p:selectOneMenu id="manager" value="#{outputDataBean.managerId}" style="width: 250px">
+                        <p:ajax event="valueChange" update="post" listener="#{outputDataBean.onManagerListChange}"/>
+                        <f:selectItem itemLabel=" " itemValue="#{0}"/>
+                        <f:selectItems value="#{outputDataBean.managersList}" var="refManagersList" itemLabel="#{refManagersList.fioRu}" itemValue="#{refManagersList.id}"/>
+                    </p:selectOneMenu>
+
+                    <h:outputLabel for="post" value="Должность:" style="font-weight: bold; margin-right: 10px"/>
+                    <p:inputText id="post" value="#{outputDataBean.postName}" disabled="true" style="width: 250px"/>
+
+                </p:panelGrid>
+                <p:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="5">
+                    <h:outputLabel for="executor" value="Исполнитель:" style="font-weight: bold; margin-right: 10px"/>
+                    <p:selectOneMenu id="executor" value="#{outputDataBean.executorId}"  style="width: 250px">
+                        <p:ajax event="valueChange" update="executorPhone" listener="#{outputDataBean.onExecutorListChange}"/>
+                        <f:selectItem itemLabel=" " itemValue="#{0}"/>
+                        <f:selectItems value="#{outputDataBean.executorList}" var="executorList" itemLabel="#{executorList.fioRu}" itemValue="#{executorList.id}" />
+                    </p:selectOneMenu>
+
+                    <h:outputLabel for="executorPhone" value="Телефон:" style="font-weight: bold; margin-right: 10px"/>
+                    <p:inputText id="executorPhone" value="#{outputDataBean.executorPhone}" disabled="true" style="width: 250px"/>
+                </p:panelGrid>
+                <br/>
+                <p:commandButton value="#{res.ok}" actionListener="#{outputDataBean.insertSign(outputDataBean.selectedReports,null)}" oncomplete="PF('wDlgAddSign').hide()"
+                                 update=":frmMain:tblMain :frmMain:grpActions :frmEditSignResults" />
+                &#160;&#160;
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgAddSign').hide()" />
+            </h:form>
+        </p:dialog>
+
+        <h:form id="frmConfirmDeleteSign">
+            <p:confirmDialog id="dlgConfirmDeleteSign" widgetVar="wDlgConfirmDeleteSign"
+                             header="#{res.deletion}" severity="alert">
+                <f:facet name="message">
+                    <h:outputFormat value="#{res.deleteReportSignConfirmMessage}">
+                        <f:param value="#{outputDataBean.selectedReports.size()}"/>
+                    </h:outputFormat>
+                </f:facet>
+                <p:commandButton value="#{res.delete}" actionListener="#{outputDataBean.deleteSign(outputDataBean.selectedReports, null)}"
+                                 oncomplete="PF('wDlgConfirmDeleteSign').hide()" update=":messages,:frmMain:grpActions,:frmMain:tblMain,:frmEditSignResults"/>
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDeleteSign').hide()"/>
+            </p:confirmDialog>
+        </h:form>
+
+        <h:form id="frmEditSignResults">
+            <p:dialog id="dlgEditSignResults" widgetVar="wDlgEditSignResults" header="Результаты редактирования подписей" modal="true"
+                      width="824">
+                <h:panelGroup rendered="#{outputDataBean.signMessages.size() > 0}">
+                    <p:dataTable id="tblSignResults"
+                                 value="#{outputDataBean.signMessages}" var="approveResult"
+                                 rows="2147483647" scrollable="true" scrollHeight="320" resizableColumns="true"
+                                 emptyMessage="#{res.noRecordsFound}" rowStyleClass="#{outputDataBean.getOperationRowStyleClass(approveResult.resultType)}">
+                        <p:column headerText="Отчет" style="width:20em;" styleClass="wrap"><h:outputText
+                                value="#{approveResult.formName}"/></p:column>
+                        <p:column headerText="Дата отчета" style="width:7em;text-align:center;"><h:outputText
+                                value="#{approveResult.reportDate}"/></p:column>
+                        <p:column headerText="Результат" style="width: 10em" styleClass="operationResult">
+                            <h:outputText value="#{approveResult.resultType.getName(sessionBean.languageCode)}"/>
+                        </p:column>
+                        <p:column headerText="Причина" style="width: 10em" styleClass="wrap"><h:outputText
+                                value="#{approveResult.message}"/></p:column>
+                    </p:dataTable>
+                    <h:panelGroup>
+                        <span style="font-weight: bold">
+                        Выполнено: <h:outputText value="#{outputDataBean.getSuccessOperationCount(outputDataBean.signMessages)}"/>&#160;
+                        Не выполнено: <h:outputText value="#{outputDataBean.getFailOperationCount(outputDataBean.signMessages)}"/>
+                        </span>
+                        <p:commandButton type="button" value="Закрыть" onclick="PF('wDlgEditSignResults').hide();" style="float: right"/>
+                    </h:panelGroup>
+                </h:panelGroup>
+            </p:dialog>
+        </h:form>
+
+    </h:body>
+
+</f:view>

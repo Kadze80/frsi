@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+	name="WrongForm2"
+	language="ru" title="Тестовая форма"
+	beginDate="2014-08-01T00:00:00" endDate="2014-12-31T23:59:59"
+	tag="Служебная метка"
+	style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 1<br/>к постановлению Правления<br/>Национального Банка<br/>Республики Казахстан
+	</span>
+
+	<h3 style="text-align: center;">Тестовая форма</h3>
+
+	<span style="display: block; text-align: center;">Полное наименование респондента<br/>
+		по состоянию на &#xA0;<InputText name="$ReportDate" value="дата" class="genericInput" style="text-align: center; width: 8em;"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+
+	<table class="dataTable">
+		<tr>
+			<th>Наименование показателя</th>
+			<th>Код показателя</th>
+			<th>Значение показателя</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		<tr class="groupHeader">
+			<td>Группа показателей</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Наименование показателя</td>
+			<td>1</td>
+			<td><InputText name="Row1Col3"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;Наименование показателя</td>
+			<td>1.1</td>
+			<td><InputText name="Row1.1Col3"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;Наименование показателя</td>
+			<td>1.2</td>
+			<td><InputText name="Row1-2Col3"/></td>
+		</tr>
+
+		<tr class="groupHeader">
+			<td>Итого</td>
+			<td>10</td>
+			<td><InputText name="Row10_Col3"/></td>
+		</tr>
+	</table>
+
+	<br/>
+	Статья «Доля меньшинства» заполняется при составлении консолидированной финансовой отчетности.<br/>
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель:</td>
+			<td><InputText name="ceo" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер:</td>
+			<td><InputText name="chief_accountant" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Исполнитель:</td>
+			<td><InputText name="drafted_by" style="width: 20em;"/></td>
+		</tr>
+		<tr>
+			<td>Дата:</td>
+			<td><InputDate name="signature_date" style="width: 20em;"/></td>
+		</tr>
+	</table>
+
+	<style>
+		table.dataTable td:nth-child(1) {
+		text-align: left;
+		}
+		table.dataTable td:nth-child(2) {
+		text-align: center;
+		}
+	</style>
+
+</Form>

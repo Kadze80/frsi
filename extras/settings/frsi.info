@@ -1,0 +1,20 @@
+Front-end server
+----------------
+192.168.20.31
+Remote desktop: Portadm/Portal_2020
+GlassFish Admin Console:4848: admin/
+Liferay: admin/P@ssw0rd
+
+Back-end server
+---------------
+10.8.1.62
+Remote desktop: bsb/Portal_2015
+PostgreSQL: postgres/postgres
+GlassFish: admin/
+
+Oracle Database
+---------------
+10.8.1.138
+Service ID: FRSI
+login: frsi
+password: Qwerty_123

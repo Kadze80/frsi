@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report form="fs_rv">
+	<data>
+		<item key="fs_rv_array*bank:num:$D.1.1" value='филиал АО "Kaspi Bank" в г. Кызылорда'/>
+		<item key="fs_rv_array*country:num:$D.1.1" value="1347"/>
+		<item key="fs_rv_array*sum:num:$D.1.1" value="1000"/>
+		<item key="fs_rv_array*prov_sum:num:$D.1.1" value="100"/>
+
+		<item key="fs_rv_array*bank:num:$D.1.2" value='Bank 2'/>
+		<item key="fs_rv_array*country:num:$D.1.2" value="1000000"/>
+		<item key="fs_rv_array*sum:num:$D.1.2" value="2000"/>
+		<item key="fs_rv_array*prov_sum:num:$D.1.2" value="200"/>
+
+		<item key="fs_rv*ceo::" value="Chief Executive Officer"/>
+		<item key="fs_rv*chief_accountant::" value="Chief Accountant"/>
+		<item key="fs_rv*drafted_by::" value="Drafted By"/>
+		<item key="fs_rv*signature_date::" value="23.11.2015"/>
+	</data>
+</report>

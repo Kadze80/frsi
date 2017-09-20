@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+    name="FinCondIO_reports"
+    languageCode="ru" title="Сведения о финансовом состоянии ипотечных организаций Республики Казахстан (ИО)"
+    shortName="Свед о фин сост ипот орг РК(ИО)"
+    beginDate="2014-01-01" endDate=""
+    tag='{ "sortFields" : [{"name":"FinCondIO_reports_array*ass_vsego", "desc":"true"}], "keyFields" : {"FinCondIO_reports_array":"num"} }'
+    typeCode="OUTPUT"
+    xmlVersion="1"
+    style="" styleClass="">
+
+    <h3 style="text-align: center;">Сведения о финансовом состоянии ипотечных организаций Республики Казахстан</h3>
+    <span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+    <span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+        <tr>
+            <th rowspan="2">№ п/п</th>
+            <th rowspan="2">Наименование организации</th>
+            <th rowspan="2">Уставный капитал</th>
+            <th rowspan="2">Собственный капитал по балансу</th>
+            <th colspan="5">Обязательства</th>
+            <th colspan="11">Активы</th>
+            <th rowspan="2">Нераспределенная чистая прибыль (непокрытый убыток)</th>
+        </tr>
+        <tr fixed="nf">
+            <th>Всего</th>
+            <th>Займы</th>
+            <th>в т.ч. просроченная задолженность по займам</th>
+            <th>Вклады</th>
+            <th>Прочие</th>
+            <th>Всего</th>
+            <th>Деньги</th>
+            <th>Текущие счета</th>
+            <th>Ценные бумаги</th>
+            <th>Вклады</th>
+            <th>Займы банкам и организациям, осуществляющим отдельные виды банковских операций</th>
+            <th>Займы юридическим и физическим клиентам</th>
+            <th>в т.ч. просроченная задолженность по займам</th>
+            <th>Резервы (провизии) по займам и финансовому лизингу, предоставленным клиентам</th>
+            <th>Основные средства и нематериальные активы</th>
+            <th>Прочие</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>19</th>
+            <th>20</th>
+            <th>21</th>
+        </tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="auth_cap" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="cap" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_vsego" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_zaim" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_pastduebal" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_dep" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="laib_other" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_vsego" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_money" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_operacc" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_cb" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_dep" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_zaimbank" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_client" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_pastduebal" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_prov" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_os" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_other" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="surplus_earn" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+        </DynamicRow>
+        <tr class="groupHeader">
+            <td></td>
+            <td>Итого:</td>
+            <td><InputText name="auth_cap" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="cap" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_vsego" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_zaim" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_pastduebal" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_dep" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="laib_other" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_vsego" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_money" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_operacc" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_cb" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_dep" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_zaimbank" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_client" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_pastduebal" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_prov" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_os" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_other" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+            <td><InputText name="surplus_earn" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+        </tr>
+</tbody>
+    </table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+    table.dataTable td:nth-child(1) {
+	    text-align: left;
+    }
+    table.dataTable td:nth-child(2) {
+	    text-align: center;
+    }
+    table.dataTable tr.groupHeader td:nth-child(2) {
+        text-align: left;
+    }
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#FinCondIO_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});     
+}
+]]>
+</script2>
+</Form>

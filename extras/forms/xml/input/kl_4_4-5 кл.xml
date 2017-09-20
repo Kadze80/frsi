@@ -1,0 +1,2264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="kl_4"
+languageCode="ru" title="Отчет об остатках на балансовых счетах доходов и расходов (4-5 класс) (ИО)"
+shortName="Отч об ост на бал счетах доход и расход(4-5 класс)(ИО)"
+beginDate="2014-01-01" endDate=""
+typeCode="INPUT"
+xmlVersion="1"
+tag='{ "keyFields" : {"kl_4_array":"num_acc"} }'
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+Приложение 2<br/>
+к постановлению Правления<br/>
+Национального Банка<br/>
+Республики Казахстан<br/>
+от 8 мая 2015 года № 74
+</span>
+
+<h3 style="text-align: center;">
+	Таблица 2. Отчет об остатках на балансовых счетах доходов и расходов
+</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+
+<div style="width:50%; float:left; padding:1em 0em 0em 0em;">
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+</div>
+
+<div style="width:40%; float:right; padding:1em 0em 0em 0em;">
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+</div>
+
+
+<div id="div_1" style="width:50%; float:left;">
+<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th>Номера  счетов</th>
+			<th>Наименования счетов</th>
+			<th>Сумма</th>
+		</tr>
+		<tr>
+			<td colspan="3">IV класс -  ДОХОДЫ</td>
+		</tr>
+</thead>
+<tbody>
+		<tr class="groupHeader">
+			<td>4050</td>
+			<td>Доходы, связанные с получением вознаграждения по корреспондентским счетам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4050" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4051</td>
+			<td>Доходы, связанные с получением вознаграждения по корреспондентскому счету в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4051" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4052</td>
+			<td>Доходы, связанные с получением вознаграждения по корреспондентским счетам в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4052" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4100</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам, размещенным в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4100" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4101</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам, размещенным в Национальном Банке Республики Казахстан (на одну ночь)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4101" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4102</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам до востребования, размещенным в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4102" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4103</td>
+			<td>Доходы, связанные с получением вознаграждения по срочным вкладам, размещенным в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4103" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4104</td>
+			<td>Доходы, связанные с получением вознаграждения по обязательным резервам в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4104" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4105</td>
+			<td>Доходы по амортизации дисконта по вкладам, размещенным в Национальном Банке Республики Казахстан</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4105" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4200</td>
+			<td>Доходы, связанные с получением вознаграждения по ценным бумагам, учитываемым по справедливой стоимости через прибыль или убыток</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4200" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4201</td>
+			<td>Доходы, связанные с получением вознаграждения по ценным бумагам, учитываемым по справедливой стоимости через прибыль или убыток</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4201" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4202</td>
+			<td>Доходы по амортизации дисконта по приобретенным ценным бумагам, учитываемым по справедливой стоимости через прибыль или убыток</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4202" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4250</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4250" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4251</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам, размещенным в других банках (на одну ночь)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4251" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4252</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладам до востребования, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4252" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4253</td>
+			<td>Доходы, связанные с получением вознаграждения по краткосрочным вкладам, размещенным в других банках (до одного месяца)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4253" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4254</td>
+			<td>Доходы, связанные с получением вознаграждения по краткосрочным вкладам, размещенным в других банках (до одного года)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4254" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4255</td>
+			<td>Доходы, связанные с получением вознаграждения по долгосрочным вкладам, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4255" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4256</td>
+			<td>Доходы, связанные с получением вознаграждения по условным вкладам, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4256" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4257</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности других банков по вкладам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4257" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4260</td>
+			<td>Доходы, связанные с получением вознаграждения по аффинированным драгоценным металлам, размещенным на металлических счетах</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4260" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4261</td>
+			<td>Доходы в виде положительной корректировки стоимости срочного вклада, размещенного в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4261" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4262</td>
+			<td>Доходы в виде положительной корректировки стоимости условного вклада, размещенного в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4262" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4263</td>
+			<td>Доходы в виде отрицательной корректировки стоимости срочного вклада, привлеченного от других банков</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4263" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4264</td>
+			<td>Доходы в виде отрицательной корректировки стоимости условного вклада, привлеченного от других банков</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4264" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4265</td>
+			<td>Доходы, связанные с получением вознаграждения по вкладу, являющемуся обеспечением обязательств банка, ипотечной организации и акционерного общества «Банк Развития Казахстана»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4265" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4266</td>
+			<td>Доходы по амортизации дисконта по вкладам, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4266" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4270</td>
+			<td>Доходы по амортизации премии по вкладам, привлеченным от Национального Банка Республики Казахстан, иностранных центральных банков и других банков</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4270" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4300</td>
+			<td>Доходы, связанные с получением вознаграждения по займам, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4300" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4301</td>
+			<td>Доходы, связанные с получением вознаграждения по займам овердрафт, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4301" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4302</td>
+			<td>Доходы, связанные с получением вознаграждения по краткосрочным займам, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4302" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4303</td>
+			<td>Доходы, связанные с получением вознаграждения по займам овернайт, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4303" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4304</td>
+			<td>Доходы, связанные с получением вознаграждения по долгосрочным займам, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4304" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4305</td>
+			<td>Доходы, связанные с получением вознаграждения по финансовому лизингу, предоставленному другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4305" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4306</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности других банков по займам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4306" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4309</td>
+			<td>Комиссионное вознаграждение по займам, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4309" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4310</td>
+			<td>Доходы в виде положительной корректировки стоимости займа, предоставленного другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4310" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4311</td>
+			<td>Доходы в виде отрицательной корректировки стоимости займа, полученного от других банков</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4311" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4312</td>
+			<td>Доходы по амортизации дисконта по займам, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4312" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4320</td>
+			<td>Доходы, связанные с получением вознаграждения по займам и финансовому лизингу, предоставленным организациям, осуществляющим отдельные виды банковских операций или полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4320" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4321</td>
+			<td>Доходы, связанные с получением вознаграждения по займам овердрафт, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4321" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4322</td>
+			<td>Доходы, связанные с получением вознаграждения по краткосрочным займам, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4322" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4323</td>
+			<td>Доходы, связанные с получением вознаграждения по долгосрочным займам, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4323" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4324</td>
+			<td>Доходы в виде положительной корректировки стоимости займа, предоставленного организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4324" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4325</td>
+			<td>Доходы в виде отрицательной корректировки стоимости займа, полученного от организаций, осуществляющих отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4325" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4326</td>
+			<td>Доходы, связанные с получением вознаграждения по финансовому лизингу, предоставленному организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4326" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4327</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности по займам, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4327" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4328</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности по финансовому лизингу, предоставленному организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4328" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4330</td>
+			<td>Доходы по амортизации дисконта по займам, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4330" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4331</td>
+			<td>Доходы по амортизации премии по полученным займам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4331" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4350</td>
+			<td>Доходы по расчетам с филиалами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4350" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4351</td>
+			<td>Доходы по расчетам с головным офисом</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4351" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4352</td>
+			<td>Доходы по расчетам с местными филиалами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4352" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4353</td>
+			<td>Доходы по расчетам с зарубежными филиалами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4353" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4400</td>
+			<td>Доходы, связанные с получением вознаграждения по требованиям банка к клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4400" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4401</td>
+			<td>Доходы, связанные с получением вознаграждения по займам овердрафт, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4401" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4403</td>
+			<td>Доходы, связанные с получением вознаграждения по кредитным карточкам клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4403" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4405</td>
+			<td>Доходы, связанные с получением вознаграждения по учтенным векселям клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4405" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4407</td>
+			<td>Доходы, связанные с получением вознаграждения по факторингу клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4407" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4411</td>
+			<td>Доходы, связанные с получением вознаграждения по краткосрочным займам, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4411" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4417</td>
+			<td>Доходы, связанные с получением вознаграждения по долгосрочным займам, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4417" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4420</td>
+			<td>Доходы, связанные с получением вознаграждения по финансовому лизингу, предоставленному клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4420" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4422</td>
+			<td>Доходы, связанные с получением вознаграждения по форфейтингу клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4422" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4424</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности клиентов по займам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4424" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4426</td>
+			<td>Доходы, связанные с получением вознаграждения по операциям финансирования торговой деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4426" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4427</td>
+			<td>Доходы, связанные с получением вознаграждения по просроченной задолженности по операциям финансирования торговой деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4427" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4428</td>
+			<td>Доходы, связанные с получением вознаграждения по прочим займам, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4428" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4429</td>
+			<td>Комиссионное вознаграждение по займам, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4429" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4430</td>
+			<td>Доходы в виде положительной корректировки стоимости займа, предоставленного клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4430" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4431</td>
+			<td>Доходы в виде отрицательной корректировки стоимости займа, полученного от Правительства Республики Казахстан, местных исполнительных органов Республики Казахстан и международных финансовых организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4431" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4432</td>
+			<td>Доходы в виде отрицательной корректировки стоимости срочного вклада, привлеченного от клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4432" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4433</td>
+			<td>Доходы в виде отрицательной корректировки стоимости условного вклада, привлеченного от клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4433" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4434</td>
+			<td>Доходы по амортизации дисконта по займам, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4434" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4440</td>
+			<td>Доходы по амортизации премии по вкладам, привлеченным от клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4440" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4445</td>
+			<td>Доходы, связанные с получением вознаграждения по финансовым активам, переданным в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4445" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4450</td>
+			<td>Доходы, связанные с получением вознаграждения по ценным бумагам, имеющимся в наличии для продажи</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4450" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4452</td>
+			<td>Доходы, связанные с получением вознаграждения по ценным бумагам, имеющимся в наличии для продажи</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4452" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4453</td>
+			<td>Доходы по амортизации дисконта по приобретенным ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4453" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4454</td>
+			<td>Доходы по амортизации премии по выпущенным в обращение ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4454" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4455</td>
+			<td>Доходы по амортизации премии по выпущенным в обращение субординированным облигациям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4455" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4465</td>
+			<td>Доходы, связанные с получением вознаграждения по операциям «обратное РЕПО» с ценными бумагами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4465." readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4465</td>
+			<td>Доходы, связанные с получением вознаграждения по операциям «обратное РЕПО» с ценными бумагами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4465" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4470</td>
+			<td>Доходы, связанные с получением вознаграждения по инвестициям в капитал и субординированный долг</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4470" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4471</td>
+			<td>Дивиденды, полученные по акциям дочерних организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4471" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4472</td>
+			<td>Дивиденды, полученные по акциям ассоциированных организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4472" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4475</td>
+			<td>Доходы, связанные с получением вознаграждения по инвестициям в субординированный долг</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4475" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4476</td>
+			<td>Доходы, связанные с получением вознаграждения по прочим инвестициям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4476" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4477</td>
+			<td>Доходы исламского банка, связанные с получением вознаграждения по инвестиционной деятельности на условиях аренды</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4477" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4480</td>
+			<td>Доходы, связанные с получением вознаграждения по ценным бумагам, удерживаемым до погашения</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4480" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4481</td>
+			<td>Доходы, связанные с получением вознаграждения по приобретенным ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4481" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4482</td>
+			<td>Доходы по амортизации дисконта по приобретенным ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4482" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4490</td>
+			<td>Доходы, связанные с получением вознаграждения по прочим долговым инструментам в категории «займы и дебиторская задолженность»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4490" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4491</td>
+			<td>Доходы, связанные с получением вознаграждения по прочим долговым инструментам в категории «займы и дебиторская задолженность»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4491" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4492</td>
+			<td>Доходы по амортизации дисконта по прочим долговым инструментам в категории «займы и дебиторская задолженность»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4492" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4500</td>
+			<td>Доходы по дилинговым операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4500" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4510</td>
+			<td>Доходы по купле-продаже ценных бумаг</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4510" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4530</td>
+			<td>Доходы по купле-продаже иностранной валюты</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4530" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4540</td>
+			<td>Доходы по купле-продаже драгоценных металлов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4540" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4560</td>
+			<td>Нереализованный доход от переоценки форвардных операций по ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4560" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4570</td>
+			<td>Нереализованный доход от переоценки форвардных операций по иностранной валюте</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4570" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4580</td>
+			<td>Нереализованный доход от переоценки форвардных операций по аффинированным драгоценным металлам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4580" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4590</td>
+			<td>Нереализованный доход от переоценки финансовых фьючерсов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4590" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4591</td>
+			<td>Нереализованный доход от переоценки опционных операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4591" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4593</td>
+			<td>Нереализованный доход от переоценки операций своп</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4593" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4594</td>
+			<td>Нереализованный доход от переоценки операций с прочими производными финансовыми инструментами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4594" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4600</td>
+			<td>Комиссионные доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4600" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4601</td>
+			<td>Комиссионные доходы за услуги по переводным операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4601" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4602</td>
+			<td>Комиссионные доходы за агентские услуги</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4602" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4603</td>
+			<td>Комиссионные доходы за услуги по купле-продаже ценных бумаг</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4603" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4604</td>
+			<td>Комиссионные доходы за услуги по купле-продаже иностранной валюты</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4604" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4605</td>
+			<td>Комиссионные доходы за услуги по доверительным операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4605" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4606</td>
+			<td>Комиссионные доходы за услуги по операциям с гарантиями</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4606" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4607</td>
+			<td>Комиссионные доходы за услуги по приему вкладов, открытию и ведению банковских счетов клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4607" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4608</td>
+			<td>Прочие комиссионные доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4608" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4609</td>
+			<td>Комиссионные доходы по профессиональной деятельности на рынке ценных бумаг</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4609" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4610</td>
+			<td>Комиссионные доходы, полученные за акцепт платежных документов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4610" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4611</td>
+			<td>Комиссионные доходы за услуги по кассовым операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4611" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4612</td>
+			<td>Комиссионные доходы по документарным расчетам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4612" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4613</td>
+			<td>Комиссионные доходы за услуги по форфейтинговым операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4613" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4614</td>
+			<td>Комиссионные доходы за услуги по факторинговым операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4614" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4615</td>
+			<td>Комиссионные доходы за услуги по инкассации</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4615" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4616</td>
+			<td>Комиссионные доходы за услуги по купле-продаже аффинированных драгоценных металлов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4616" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4617</td>
+			<td>Комиссионные доходы за услуги по сейфовым операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4617" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4618</td>
+			<td>Доходы за услуги по операциям с инвестиционными депозитами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4618" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4700</td>
+			<td>Доходы от переоценки</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4700" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4703</td>
+			<td>Нереализованный доход от переоценки иностранной валюты</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4703" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4704</td>
+			<td>Нереализованный доход от переоценки аффинированных драгоценных металлов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4704" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4705</td>
+			<td>Доход от переоценки займов в тенге с фиксацией валютного эквивалента займов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4705" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4707</td>
+			<td>Доход от переоценки вкладов в тенге с фиксацией валютного эквивалента вкладов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4707" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4709</td>
+			<td>Нереализованный доход от изменения стоимости ценных бумаг, учитываемых по справедливой стоимости через прибыль или убыток</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4709" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4710</td>
+			<td>Нереализованный доход от прочей переоценки</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4710" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4711</td>
+			<td>Доходы от восстановления убытка от обесценения основных средств</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4711" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4712</td>
+			<td>Доходы от восстановления убытка от обесценения нематериальных активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4712" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4713</td>
+			<td>Доходы от восстановления убытка от обесценения инвестиций, вложенных в уставный капитал других юридических лиц</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4713" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4730</td>
+			<td>Реализованные доходы от переоценки</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4730" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4731</td>
+			<td>Реализованные доходы от переоценки иностранной валюты</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4731" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4732</td>
+			<td>Реализованные доходы от переоценки аффинированных драгоценных металлов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4732" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4733</td>
+			<td>Реализованные доходы от изменения стоимости ценных бумаг, учитываемых по справедливой стоимости через прибыль или убыток и имеющихся в наличии для продажи</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4733" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4734</td>
+			<td>Реализованные доходы от прочей переоценки</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4734" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4850</td>
+			<td>Доходы от продажи</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4850" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4851</td>
+			<td>Доходы от продажи акций дочерних и ассоциированных организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4851" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4852</td>
+			<td>Доходы от реализации основных средств и нематериальных активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4852" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4853</td>
+			<td>Доходы от реализации товарно-материальных запасов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4853" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4856</td>
+			<td>Доходы от реализации прочих инвестиций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4856" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4870</td>
+			<td>Доходы, связанные с изменением доли участия в уставном капитале юридических лиц</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4870" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4871</td>
+			<td>Доходы, связанные с изменением доли участия в уставном капитале дочерних организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4871" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4872</td>
+			<td>Доходы, связанные с изменением доли участия в уставном капитале ассоциированных организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4872" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4880</td>
+			<td>Доходы исламского банка от финансирования производственной и торговой деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4880" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4890</td>
+			<td>Доходы по операциям с производными финансовыми инструментами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4890" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4891</td>
+			<td>Доходы по операциям фьючерс</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4891" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4892</td>
+			<td>Доходы по операциям форвард</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4892" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4893</td>
+			<td>Доходы по опционным операциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4893" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4895</td>
+			<td>Доходы по операциям своп</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4895" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4896</td>
+			<td>Доходы по операциям с прочими производными финансовыми инструментами</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4896" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4897</td>
+			<td>Доходы, связанные с получением вознаграждения по производным финансовым инструментам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4897" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4900</td>
+			<td>Неустойка (штраф, пеня)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4900." readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4900</td>
+			<td>Неустойка (штраф, пеня)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4900" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4920</td>
+			<td>Прочие доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4920" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4921</td>
+			<td>Прочие доходы от банковской деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4921" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4922</td>
+			<td>Прочие доходы от неосновной деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4922" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4923</td>
+			<td>Доходы, связанные с получением дивидендов по акциям</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4923" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4950</td>
+			<td>Доходы от восстановления резервов (провизий)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4950" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4951</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по вкладам, размещенным в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4951" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4952</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по займам и финансовому лизингу, предоставленным другим банкам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4952" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4953</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по дебиторской задолженности, связанной с банковской деятельностью</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4953" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4954</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4954" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4955</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по займам и финансовому лизингу, предоставленным клиентам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4955" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4956</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по займам и финансовому лизингу, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4956" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4957</td>
+			<td>Доходы от восстановления резервов (провизий), созданных на покрытие убытков от прочей банковской деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4957" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4958</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по условным обязательствам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4958" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4959</td>
+			<td>Доходы от восстановления резервов (провизий), созданных по дебиторской задолженности, не связанной с основной деятельностью</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4959" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>4999</td>
+			<td>Доход до налогов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4999." readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+		<tr>
+			<td>4999</td>
+			<td>Доход до налогов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="4999" mask="money0" /></td>
+		</tr>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого Доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="ItogoIncome" readonly="true" auto="true" mask="money0" /></td>
+		</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="div_2" style="width:40%; float:right;">
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>Номера счетов</th>
+	<th>Наименования счетов</th>
+	<th>Сумма</th>
+</tr>
+<tr>
+	<td colspan="3">V класс - РАСХОДЫ</td>
+</tr>
+</thead>
+<tbody>
+<tr class="groupHeader">
+	<td>5020</td>
+	<td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5020" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5021</td>
+	<td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5021" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5022</td>
+	<td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам иностранных центральных банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5022" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5023</td>
+	<td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5023" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5024</td>
+	<td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам организации, осуществляющей отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5024" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5026</td>
+	<td>Расходы, связанные с выплатой вознаграждения по металлическим счетам других банков в аффинированном драгоценном металле</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5026" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5030</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от Правительства Республики Казахстан, местных исполнительных органов Республики Казахстан и национального управляющего холдинга</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5030" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5034</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным займам, полученным от Правительства и местных исполнительных органов Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5034" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5036</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным займам, полученным от Правительства и местных исполнительных органов Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5036" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5037</td>
+	<td>Расходы в виде положительной корректировки стоимости займа, полученного от Правительства Республики Казахстан и местных исполнительных органов Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5037" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5038</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по займам, полученным от Правительства и местных исполнительных органов Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5038" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5040</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от международных финансовых организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5040" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5044</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным займам, полученным от международных финансовых организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5044" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5046</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным займам, полученным от международных финансовых организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5046" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5047</td>
+	<td>Расходы в виде положительной корректировки стоимости займа, полученного от международных финансовых организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5047" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5048</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по займам, полученным от международных финансовых организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5048" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5050</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5050" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5051</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5051" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5052</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от иностранных центральных банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5052" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5053</td>
+	<td>Расходы, связанные с выплатой вознаграждения по финансовому лизингу, полученному от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5053" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5054</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным займам, полученным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5054" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5055</td>
+	<td>Расходы в виде положительной корректировки стоимости займа, полученного от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5055" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5056</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным займам, полученным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5056" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5057</td>
+	<td>Расходы в виде отрицательной корректировки стоимости займа, предоставленного другим банкам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5057" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5058</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по займам, полученным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5058" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5059</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по займам, полученным от Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5059" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5060</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам, полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5060" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5063</td>
+	<td>Расходы, связанные с выплатой вознаграждения по финансовому лизингу, полученному от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5063" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5064</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным займам, полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5064" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5065</td>
+	<td>Расходы в виде положительной корректировки стоимости займа, полученного от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5065" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5066</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным займам, полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5066" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5067</td>
+	<td>Расходы в виде отрицательной корректировки стоимости займа, предоставленного организациям, осуществляющим отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5067" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5068</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по займам, полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5068" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5069</td>
+	<td>Расходы по амортизации дисконта по полученным займам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5069" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5070</td>
+	<td>Расходы по амортизации премии по займам, предоставленным другим банкам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5070" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5071</td>
+	<td>Расходы по амортизации премии по займам, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5071" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5090</td>
+	<td>Другие расходы, связанные с выплатой вознаграждения</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5090" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5091</td>
+	<td>Другие расходы, связанные с выплатой вознаграждения по операциям с другими банками</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5091" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5095</td>
+	<td>Комиссионное вознаграждение по займам, полученным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5095" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5110</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам овернайт</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5110" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5111</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам овернайт Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5111" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5112</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам овернайт иностранных центральных банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5112" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5113</td>
+	<td>Расходы, связанные с выплатой вознаграждения по займам овернайт других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5113" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5120</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладам других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5120" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5121</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладам до востребования Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5121" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5122</td>
+	<td>Расходы, связанные с выплатой вознаграждения по срочным вкладам Национального Банка Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5122" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5123</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладам до востребования иностранных центральных банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5123" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5124</td>
+	<td>Расходы, связанные с выплатой вознаграждения по срочным вкладам иностранных центральных банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5124" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5125</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладам до востребования других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5125" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5126</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным вкладам других банков (до одного месяца)</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5126" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5127</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным вкладам других банков (до одного года)</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5127" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5128</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным вкладам других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5128" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5129</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по вкладам, привлеченным от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5129" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5130</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладу, являющемуся обеспечением обязательств других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5130" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5133</td>
+	<td>Расходы, связанные с выплатой вознаграждения по условным вкладам других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5133" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5134</td>
+	<td>Расходы в виде отрицательной корректировки стоимости срочного вклада, размещенного в других банках</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5134" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5135</td>
+	<td>Расходы в виде отрицательной корректировки стоимости условного вклада, размещенного в других банках</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5135" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5136</td>
+	<td>Расходы в виде положительной корректировки стоимости срочного вклада, привлеченного от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5136" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5137</td>
+	<td>Расходы в виде положительной корректировки стоимости условного вклада, привлеченного от других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5137" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5138</td>
+	<td>Расходы по амортизации дисконта по вкладам, привлеченным от Национального Банка Республики Казахстан, иностранных центральных банков и других банков</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5138" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5140</td>
+	<td>Расходы по амортизации премии по вкладам, размещенным в Национальном Банке Республики Казахстан</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5140" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5141</td>
+	<td>Расходы по амортизации премии по вкладам, размещенным в других банках</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5141" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5150</td>
+	<td>Расходы по расчетам с филиалами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5150" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5151</td>
+	<td>Расходы по расчетам с головным офисом</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5151" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5152</td>
+	<td>Расходы по расчетам с местными филиалами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5152" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5153</td>
+	<td>Расходы по расчетам с зарубежными филиалами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5153" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5200</td>
+	<td>Расходы, связанные с выплатой вознаграждения по требованиям клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5200" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5201</td>
+	<td>Расходы, связанные с выплатой вознаграждения по деньгам государственного бюджета</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5201" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5203</td>
+	<td>Расходы, связанные с выплатой вознаграждения по текущим счетам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5203" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5204</td>
+	<td>Расходы, связанные с выплатой вознаграждения по финансовым активам, принятым в доверительное управление</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5204" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5211</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладам до востребования клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5211" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5212</td>
+	<td>Расходы, связанные с выплатой вознаграждения по металлическим счетам клиентов в аффинированных драгоценных металлах</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5212" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5215</td>
+	<td>Расходы, связанные с выплатой вознаграждения по краткосрочным вкладам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5215" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5216</td>
+	<td>Расходы, связанные с выплатой вознаграждения по срочным вкладам клиентов в аффинированных драгоценных металлах</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5216" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5217</td>
+	<td>Расходы, связанные с выплатой вознаграждения по долгосрочным вкладам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5217" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5219</td>
+	<td>Расходы, связанные с выплатой вознаграждения по условным вкладам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5219" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5221</td>
+	<td>Расходы, связанные с выплатой вознаграждения по карт-счетам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5221" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5222</td>
+	<td>Расходы, связанные с выплатой вознаграждения по счетам дочерних организаций специального назначения</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5222" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5223</td>
+	<td>Расходы, связанные с выплатой вознаграждения по вкладу, являющемуся обеспечением обязательств клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5223" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5224</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по вкладам до востребования клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5224" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5225</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по прочим операциям с клиентами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5225" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5226</td>
+	<td>Расходы, связанные с выплатой вознаграждения по просроченной задолженности по срочным вкладам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5226" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5227</td>
+	<td>Расходы, связанные с выплатой вознаграждения по полученному финансовому лизингу</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5227" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5228</td>
+	<td>Расходы, связанные с выплатой вознаграждения по указаниям, неисполненным в срок</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5228" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5229</td>
+	<td>Расходы, связанные с выплатой вознаграждения на сумму денег, принятых в качестве обеспечения (заклад, задаток) обязательств клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5229" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5230</td>
+	<td>Комиссионное вознаграждение по принятым вкладам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5230" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5232</td>
+	<td>Расходы в виде отрицательной корректировки стоимости займа, предоставленного клиентам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5232" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5233</td>
+	<td>Расходы в виде положительной корректировки стоимости срочного вклада, привлеченного от клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5233" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5234</td>
+	<td>Расходы в виде положительной корректировки стоимости условного вклада, привлеченного от клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5234" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5235</td>
+	<td>Расходы по амортизации премии по учтенным векселям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5235" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5236</td>
+	<td>Расходы по амортизации дисконта по вкладам, привлеченным от клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5236" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5240</td>
+	<td>Расходы по амортизации премии по займам, предоставленным клиентам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5240" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5250</td>
+	<td>Расходы, связанные с выплатой вознаграждения по операциям «РЕПО» с ценными бумагами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5250." readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5250</td>
+	<td>Расходы, связанные с выплатой вознаграждения по операциям «РЕПО» с ценными бумагами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5250" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5300</td>
+	<td>Расходы, связанные с выплатой вознаграждения по ценным бумагам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5300" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5301</td>
+	<td>Расходы, связанные с выплатой вознаграждения по выпущенным в обращение облигациям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5301" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5303</td>
+	<td>Расходы, связанные с выплатой вознаграждения по выпущенным в обращение прочим ценным бумагам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5303" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5305</td>
+	<td>Расходы по амортизации премии по приобретенным ценным бумагам, учитываемым по справедливой стоимости через прибыль или убыток</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5305" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5306</td>
+	<td>Расходы по амортизации премии по приобретенным ценным бумагам, имеющимся в наличии для продажи</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5306" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5307</td>
+	<td>Расходы по амортизации дисконта по выпущенным в обращение ценным бумагам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5307" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5308</td>
+	<td>Расходы по амортизации премии по приобретенным ценным бумагам, удерживаемым до погашения</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5308" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5309</td>
+	<td>Расходы по амортизации премии по прочим долговым инструментам в категории «займы и дебиторская задолженность»</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5309" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5400</td>
+	<td>Расходы, связанные с выплатой вознаграждения по субординированному долгу</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5400" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5401</td>
+	<td>Расходы, связанные с выплатой вознаграждения по субординированному долгу со сроком погашения менее пяти лет</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5401" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5402</td>
+	<td>Расходы, связанные с выплатой вознаграждения по субординированному долгу со сроком погашения более пяти лет</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5402" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5404</td>
+	<td>Расходы по амортизации дисконта по выпущенным в обращение субординированным облигациям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5404" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5406</td>
+	<td>Расходы, связанные с выплатой вознаграждения по субординированным облигациям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5406" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5407</td>
+	<td>Расходы, связанные с выплатой вознаграждения по бессрочным финансовым инструментам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5407" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5450</td>
+	<td>Ассигнования на обеспечение</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5450" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5451</td>
+	<td>Ассигнования на резервы (провизии) по вкладам, размещенным в других банках</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5451" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5452</td>
+	<td>Ассигнования на резервы (провизии) по займам и финансовому лизингу, предоставленным другим банкам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5452" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5453</td>
+	<td>Ассигнования на резервы (провизии) по дебиторской задолженности, связанной с банковской деятельностью</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5453" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5455</td>
+	<td>Ассигнования на резервы (провизии) по займам и финансовому лизингу, предоставленным клиентам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5455" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5457</td>
+	<td>Ассигнования на резервы (провизии) на покрытие убытков от прочей банковской деятельности</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5457" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5459</td>
+	<td>Ассигнования на резервы (провизии) по дебиторской задолженности, не связанной с основной деятельностью</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5459" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5464</td>
+	<td>Ассигнования на резервы (провизии) по ценным бумагам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5464" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5465</td>
+	<td>Ассигнования на резервы (провизии) по условным обязательствам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5465" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5466</td>
+	<td>Ассигнования на резервы (провизии) по займам и финансовому лизингу, предоставленным организациям, осуществляющим отдельные виды банковских операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5466" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5468</td>
+	<td>Ассигнования по созданию оценочных обязательств</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5468" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5500</td>
+	<td>Расходы по дилинговым операциям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5500" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5510</td>
+	<td>Расходы по купле-продаже ценных бумаг</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5510" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5530</td>
+	<td>Расходы по купле-продаже иностранной валюты</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5530" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5540</td>
+	<td>Расходы по купле-продаже драгоценных металлов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5540" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5560</td>
+	<td>Нереализованный расход от переоценки форвардных операций по ценным бумагам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5560" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5570</td>
+	<td>Нереализованный расход от переоценки форвардных операций по иностранной валюте</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5570" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5580</td>
+	<td>Нереализованный расход от переоценки форвардных операций по аффинированным драгоценным металлам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5580" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5590</td>
+	<td>Нереализованный расход от переоценки финансовых фьючерсов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5590" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5591</td>
+	<td>Нереализованный расход от переоценки опционных операций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5591" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5593</td>
+	<td>Нереализованный расход от переоценки операций своп</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5593" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5594</td>
+	<td>Нереализованный расход от переоценки операций с прочими производными финансовыми инструментами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5594" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5600</td>
+	<td>Комиссионные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5600" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5601</td>
+	<td>Комиссионные расходы по полученным услугам по переводным операциям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5601" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5602</td>
+	<td>Комиссионные расходы по полученным агентским услугам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5602" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5603</td>
+	<td>Комиссионные расходы по полученным услугам по купле-продаже ценных бумаг</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5603" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5604</td>
+	<td>Комиссионные расходы по полученным услугам по купле-продаже иностранной валюты</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5604" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5605</td>
+	<td>Комиссионные расходы по полученным услугам по доверительным операциям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5605" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5606</td>
+	<td>Комиссионные расходы по полученным услугам по гарантиям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5606" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5607</td>
+	<td>Комиссионные расходы по полученным услугам по карт-счетам клиентов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5607" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5608</td>
+	<td>Прочие комиссионные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5608" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5609</td>
+	<td>Комиссионные расходы по профессиональной деятельности на рынке ценных бумаг</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5609" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5700</td>
+	<td>Расходы от переоценки</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5700" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5703</td>
+	<td>Нереализованный расход от переоценки иностранной валюты</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5703" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5704</td>
+	<td>Нереализованный расход от переоценки аффинированных драгоценных металлов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5704" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5705</td>
+	<td>Расход от переоценки займов в тенге с фиксацией валютного эквивалента займов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5705" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5708</td>
+	<td>Расход от переоценки вкладов в тенге с фиксацией валютного эквивалента вкладов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5708" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5709</td>
+	<td>Нереализованный расход от изменения стоимости ценных бумаг, учитываемых по справедливой стоимости через прибыль или убыток</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5709" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5710</td>
+	<td>Нереализованный расход от прочей переоценки</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5710" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5711</td>
+	<td>Расходы от обесценения основных средств</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5711" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5712</td>
+	<td>Расходы от обесценения нематериальных активов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5712" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5713</td>
+	<td>Расходы от обесценения инвестиций, вложенных в уставный капитал других юридических лиц</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5713" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5714</td>
+	<td>Расходы от обесценения гудвилла</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5714" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5720</td>
+	<td>Расходы по оплате труда и обязательным отчислениям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5720" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5721</td>
+	<td>Расходы по оплате труда</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5721" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5722</td>
+	<td>Социальные отчисления</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5722" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5729</td>
+	<td>Прочие выплаты</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5729" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5730</td>
+	<td>Реализованные расходы от переоценки</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5730" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5731</td>
+	<td>Реализованные расходы от переоценки иностранной валюты</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5731" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5732</td>
+	<td>Реализованные расходы от переоценки аффинированных драгоценных металлов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5732" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5733</td>
+	<td>Реализованные расходы от изменения стоимости ценных бумаг, учитываемых по справедливой стоимости через прибыль или убыток и имеющихся в наличии для продажи</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5733" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5734</td>
+	<td>Реализованные расходы от прочей переоценки</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5734" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5740</td>
+	<td>Общехозяйственные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5740" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5741</td>
+	<td>Транспортные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5741" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5742</td>
+	<td>Административные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5742" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5743</td>
+	<td>Расходы на инкассацию</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5743" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5744</td>
+	<td>Расходы на ремонт</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5744" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5745</td>
+	<td>Расходы на рекламу</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5745" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5746</td>
+	<td>Расходы на охрану и сигнализацию</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5746" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5747</td>
+	<td>Представительские расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5747" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5748</td>
+	<td>Прочие общехозяйственные расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5748" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5749</td>
+	<td>Расходы на служебные командировки</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5749" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5750</td>
+	<td>Расходы по аудиту и консультационным услугам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5750" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5752</td>
+	<td>Расходы по страхованию</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5752" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5753</td>
+	<td>Расходы по услугам связи</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5753" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5754</td>
+	<td>Расходы в виде взносов в акционерное общество «Казахстанский фонд гарантирования депозитов»</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5754" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5760</td>
+	<td>Налоги и другие обязательные платежи в бюджет, кроме корпоративного подоходного налога</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5760" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5761</td>
+	<td>Налог на добавленную стоимость</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5761" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5763</td>
+	<td>Социальный налог</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5763" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5764</td>
+	<td>Земельный налог</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5764" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5765</td>
+	<td>Налог на имущество юридических лиц</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5765" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5766</td>
+	<td>Налог на транспортные средства</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5766" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5767</td>
+	<td>Сбор с аукционов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5767" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5768</td>
+	<td>Прочие налоги и обязательные платежи в бюджет</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5768" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5780</td>
+	<td>Амортизационные отчисления</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5780" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5781</td>
+	<td>Амортизационные отчисления по зданиям и сооружениям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5781" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5782</td>
+	<td>Амортизационные отчисления по компьютерному оборудованию</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5782" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5783</td>
+	<td>Амортизационные отчисления по прочим основным средствам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5783" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5784</td>
+	<td>Амортизационные отчисления по основным средствам, полученным по финансовому лизингу</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5784" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5785</td>
+	<td>Амортизационные отчисления по основным средствам, предназначенным для сдачи в аренду</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5785" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5786</td>
+	<td>Амортизационные отчисления по капитальным затратам по арендованным зданиям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5786" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5787</td>
+	<td>Амортизационные отчисления по транспортным средствам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5787" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5788</td>
+	<td>Амортизационные отчисления по нематериальным активам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5788" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5850</td>
+	<td>Расходы от продажи</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5850" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5851</td>
+	<td>Расходы от продажи акций дочерних и ассоциированных организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5851" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5852</td>
+	<td>Расходы от реализации основных средств и нематериальных активов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5852" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5853</td>
+	<td>Расходы от безвозмездной передачи основных средств и нематериальных активов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5853" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5854</td>
+	<td>Расходы от реализации товарно-материальных запасов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5854" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5856</td>
+	<td>Расходы от реализации прочих инвестиций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5856" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5870</td>
+	<td>Расходы, связанные с изменением доли участия в уставном капитале юридических лиц</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5870" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5871</td>
+	<td>Расходы, связанные с изменением доли участия в уставном капитале дочерних организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5871" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5872</td>
+	<td>Расходы, связанные с изменением доли участия в уставном капитале ассоциированных организаций</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5872" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5890</td>
+	<td>Расходы по операциям с производными финансовыми инструментами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5890" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5891</td>
+	<td>Расходы по операциям фьючерс</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5891" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5892</td>
+	<td>Расходы по операциям форвард</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5892" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5893</td>
+	<td>Расходы по опционным операциям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5893" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5895</td>
+	<td>Расходы по операциям своп</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5895" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5896</td>
+	<td>Расходы по операциям с прочими производными финансовыми инструментами</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5896" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5897</td>
+	<td>Расходы, связанные с выплатой вознаграждения по производным финансовым инструментам</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5897" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5900</td>
+	<td>Неустойка (штраф, пеня)</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5900." readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5900</td>
+	<td>Неустойка (штраф, пеня)</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5900" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5920</td>
+	<td>Прочие расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5920" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5921</td>
+	<td>Прочие расходы от банковской деятельности</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5921" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5922</td>
+	<td>Прочие расходы от неосновной деятельности</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5922" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5923</td>
+	<td>Расходы по аренде</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5923" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5924</td>
+	<td>Расходы от акцептов</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5924" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5925</td>
+	<td>Расходы по полученным банком гарантиям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5925" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5926</td>
+	<td>Расходы по привилегированным акциям</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5926" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td>5999</td>
+	<td>Корпоративный подоходный налог</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5999." readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td>5999</td>
+	<td>Корпоративный подоходный налог</td>
+	<td><InputText name="sum" key="num_acc" keyValue="5999" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td></td>
+	<td>Итого Расходы</td>
+	<td><InputText name="sum" key="num_acc" keyValue="ItogoBurden" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br/>
+<br/>
+<br/>
+<table class="textLayoutTable">
+<tr>
+<td>Первый руководитель:</td>
+<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Главный бухгалтер:</td>
+<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Начальник ответственного подразделения:</td>
+<td><InputText name="crd" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Исполнитель:</td>
+<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Дата:</td>
+<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+table.dataTable td:nth-child(n+3) {
+text-align: right;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+var inputs = [];
+inputs = getTableInputs("kl_4_array");
+
+var v4050 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4051", "kl_4_array*sum:num_acc:4052");
+setInputValue("kl_4_array*sum:num_acc:4050",v4050);
+
+var v4100 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4101", "kl_4_array*sum:num_acc:4105");
+setInputValue("kl_4_array*sum:num_acc:4100",v4100);
+
+var v4200 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4201", "kl_4_array*sum:num_acc:4202");
+setInputValue("kl_4_array*sum:num_acc:4200",v4200);
+
+var v4250 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4251", "kl_4_array*sum:num_acc:4270");
+setInputValue("kl_4_array*sum:num_acc:4250",v4250);
+
+var v4300 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4301", "kl_4_array*sum:num_acc:4312");
+setInputValue("kl_4_array*sum:num_acc:4300",v4300);
+
+
+var v4320 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4321", "kl_4_array*sum:num_acc:4331");
+setInputValue("kl_4_array*sum:num_acc:4320",v4320);
+
+var v4350 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4351", "kl_4_array*sum:num_acc:4353");
+setInputValue("kl_4_array*sum:num_acc:4350",v4350);
+
+var v4400 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4401", "kl_4_array*sum:num_acc:4445");
+setInputValue("kl_4_array*sum:num_acc:4400",v4400);
+
+var v4450 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4452", "kl_4_array*sum:num_acc:4455");
+setInputValue("kl_4_array*sum:num_acc:4450",v4450);
+
+var v4470 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4471", "kl_4_array*sum:num_acc:4477");
+setInputValue("kl_4_array*sum:num_acc:4470",v4470);
+
+var v4480 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4481", "kl_4_array*sum:num_acc:4482");
+setInputValue("kl_4_array*sum:num_acc:4480",v4480);
+
+var v4490 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4491", "kl_4_array*sum:num_acc:4492");
+setInputValue("kl_4_array*sum:num_acc:4490",v4490);
+
+var v4500 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4510", "kl_4_array*sum:num_acc:4594");
+setInputValue("kl_4_array*sum:num_acc:4500",v4500);
+
+var v4600 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4601", "kl_4_array*sum:num_acc:4618");
+setInputValue("kl_4_array*sum:num_acc:4600",v4600);
+
+var v4700 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4703", "kl_4_array*sum:num_acc:4713");
+setInputValue("kl_4_array*sum:num_acc:4700",v4700);
+
+var v4730 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4731", "kl_4_array*sum:num_acc:4734");
+setInputValue("kl_4_array*sum:num_acc:4730",v4730);
+
+var v4850 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4851", "kl_4_array*sum:num_acc:4856");
+setInputValue("kl_4_array*sum:num_acc:4850",v4850);
+
+var v4870 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4871", "kl_4_array*sum:num_acc:4880");
+setInputValue("kl_4_array*sum:num_acc:4870",v4870);
+
+var v4890 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4891", "kl_4_array*sum:num_acc:4897");
+setInputValue("kl_4_array*sum:num_acc:4890",v4890);
+
+var v4920 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4921", "kl_4_array*sum:num_acc:4923");
+setInputValue("kl_4_array*sum:num_acc:4920",v4920);
+
+var v4950 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:4951", "kl_4_array*sum:num_acc:4959");
+setInputValue("kl_4_array*sum:num_acc:4950",v4950);
+
+var v4465 = getInputValue("kl_4_array*sum:num_acc:4465");
+setInputValue("kl_4_array*sum:num_acc:4465.",v4465);
+
+var v4900 = getInputValue("kl_4_array*sum:num_acc:4900");
+setInputValue("kl_4_array*sum:num_acc:4900.",v4900);
+
+var v4999 = getInputValue("kl_4_array*sum:num_acc:4999");
+setInputValue("kl_4_array*sum:num_acc:4999.",v4999);
+
+
+
+var ItogoDohod = v4050 + v4100 + v4200 + v4250 + v4300 + v4320 + v4350 + v4400 + v4450 +  v4465 + v4470 +
+				v4480 + v4490+v4500+v4600+v4700+v4730+v4850+v4870+v4890+v4900+v4920+v4950+v4999;
+setInputValue("kl_4_array*sum:num_acc:ItogoIncome",ItogoDohod);
+
+
+var v5020 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5021", "kl_4_array*sum:num_acc:5026");
+setInputValue("kl_4_array*sum:num_acc:5020",v5020);
+
+var v5030 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5034", "kl_4_array*sum:num_acc:5038");
+setInputValue("kl_4_array*sum:num_acc:5030",v5030);
+
+var v5040 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5044", "kl_4_array*sum:num_acc:5048");
+setInputValue("kl_4_array*sum:num_acc:5040",v5040);
+
+var v5050 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5051", "kl_4_array*sum:num_acc:5059");
+setInputValue("kl_4_array*sum:num_acc:5050",v5050);
+
+var v5060 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5063", "kl_4_array*sum:num_acc:5071");
+setInputValue("kl_4_array*sum:num_acc:5060",v5060);
+
+var v5090 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5091", "kl_4_array*sum:num_acc:5095");
+setInputValue("kl_4_array*sum:num_acc:5090",v5090);
+
+var v5110 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5111", "kl_4_array*sum:num_acc:5113");
+setInputValue("kl_4_array*sum:num_acc:5110",v5110);
+
+var v5120 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5121", "kl_4_array*sum:num_acc:5141");
+setInputValue("kl_4_array*sum:num_acc:5120",v5120);
+
+var v5150 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5151", "kl_4_array*sum:num_acc:5153");
+setInputValue("kl_4_array*sum:num_acc:5150",v5150);
+
+var v5200 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5201", "kl_4_array*sum:num_acc:5240");
+setInputValue("kl_4_array*sum:num_acc:5200",v5200);
+
+var v5300 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5301", "kl_4_array*sum:num_acc:5309");
+setInputValue("kl_4_array*sum:num_acc:5300",v5300);
+
+var v5400 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5401", "kl_4_array*sum:num_acc:5407");
+setInputValue("kl_4_array*sum:num_acc:5400",v5400);
+
+var v5450 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5451", "kl_4_array*sum:num_acc:5468");
+setInputValue("kl_4_array*sum:num_acc:5450",v5450);
+
+var v5500 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5510", "kl_4_array*sum:num_acc:5594");
+setInputValue("kl_4_array*sum:num_acc:5500",v5500);
+
+var v5600 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5601", "kl_4_array*sum:num_acc:5609");
+setInputValue("kl_4_array*sum:num_acc:5600",v5600);
+
+var v5700 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5703", "kl_4_array*sum:num_acc:5714");
+setInputValue("kl_4_array*sum:num_acc:5700",v5700);
+
+var v5720 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5721", "kl_4_array*sum:num_acc:5729");
+setInputValue("kl_4_array*sum:num_acc:5720",v5720);
+
+var v5730 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5731", "kl_4_array*sum:num_acc:5734");
+setInputValue("kl_4_array*sum:num_acc:5730",v5730);
+
+var v5740 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5741", "kl_4_array*sum:num_acc:5754");
+setInputValue("kl_4_array*sum:num_acc:5740",v5740);
+
+var v5760 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5761", "kl_4_array*sum:num_acc:5768");
+setInputValue("kl_4_array*sum:num_acc:5760",v5760);
+
+var v5780 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5781", "kl_4_array*sum:num_acc:5788");
+setInputValue("kl_4_array*sum:num_acc:5780",v5780);
+
+var v5850 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5851", "kl_4_array*sum:num_acc:5856");
+setInputValue("kl_4_array*sum:num_acc:5850",v5850);
+
+var v5870 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5871", "kl_4_array*sum:num_acc:5872");
+setInputValue("kl_4_array*sum:num_acc:5870",v5870);
+
+var v5890 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5891", "kl_4_array*sum:num_acc:5897");
+setInputValue("kl_4_array*sum:num_acc:5890",v5890);
+
+var v5920 = sumInputValuesByKeyValueRange(inputs, "kl_4_array*sum:num_acc:5921", "kl_4_array*sum:num_acc:5926");
+setInputValue("kl_4_array*sum:num_acc:5920",v5920);
+
+//***********************************************
+
+var v5999 = getInputValue("kl_4_array*sum:num_acc:5999");
+setInputValue("kl_4_array*sum:num_acc:5999.",v5999);
+
+var v5250 = getInputValue("kl_4_array*sum:num_acc:5250");
+setInputValue("kl_4_array*sum:num_acc:5250.",v5250);
+
+var v5900 = getInputValue("kl_4_array*sum:num_acc:5900");
+setInputValue("kl_4_array*sum:num_acc:5900.",v5900);
+var v6000 = v5020 +v5030 + v5040 + v5050 + v5060 + v5090 + v5110 +v5120+v5150+
+			v5200+v5250+v5300+v5400+v5450+v5500+v5600+v5700+v5720+v5730+v5740+v5760+
+			v5780+v5850+v5870+v5890+v5900+v5920+v5999;
+setInputValue("kl_4_array*sum:num_acc:ItogoBurden",v6000);
+
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#div_1").children("#kl_4_array").tableHeadFixer({unFix:!fix, head:true});     
+    $("#div_2").children("#kl_4_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

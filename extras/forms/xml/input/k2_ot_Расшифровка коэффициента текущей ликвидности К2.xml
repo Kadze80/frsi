@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="k2_ot"
+languageCode="ru" title="Расшифровка коэффициента текущей ликвидности К2 (ОТ)"
+shortName="Расш коэф тек ликв К2(ОТ)"
+beginDate="2014-01-01" endDate=""
+typeCode="INPUT"
+tag='{ "keyFields" : {"k2_ot_array":"num"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+Приложение 4 <br/>
+к Правилам расчета пруденциальных <br/>
+нормативов для организатора торгов
+</span>
+
+<h3 style="text-align: center;">
+Расшифровка коэффициента текущей ликвидности К2
+</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>№</th>
+	<th>Дата</th>
+	<th>Высоколиквидные активы</th>
+	<th>Сумма обязательств организатора торгов перед участниками торгов по деньгам участников торгов, которые находятся на корреспондентских счетах организатора торгов</th>
+	<th>Сумма нетто-требований участников торгов к организатору торгов, по которой организатор торгов несет ответственность собственными средствами</th>
+	<th>Сумма максимального ущерба членам организатора торгов по всем категориям членства, которая подлежит возмещению организатором торгов в результате наступления технического сбоя</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="1" value="1" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="1" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="2" value="2" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="2"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="2"  mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="2"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="3" value="3" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="3"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="3" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="3"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="4" value="4" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="4"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="4" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="4"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="5" value="5" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="5" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="5"  mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="5" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="6" value="6" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="6" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="6" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="6" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="7" value="7" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="7" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="7" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="7" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="8" value="8" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="8"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="8"  mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="8"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="9" value="9" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="9" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="10" value="10" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="10" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="11" value="11" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="11" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="12" value="12" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="12" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="13" value="13" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="13" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="14" value="14" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="14" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="14"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="14" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="14" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="15" value="15" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="15" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="15" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="15" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="15" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="16" value="16" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="16" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="16" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="16" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="16" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="17" value="17" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="17" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="17" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="17" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="17" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="18" value="18" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="18" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="18" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="18" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="18" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="19" value="19" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="19" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="19" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="19" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="19" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="20" value="20" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="20" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="20" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="20" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="20" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="21" value="21" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="21" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="21" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="21" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="21" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="22" value="22" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="22" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="22" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="22" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="22" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="23" value="23" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="23" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="23" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="23" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="23" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="24" value="24" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="24" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="24" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="24" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="24" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="25" value="25" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="25" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="25" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="25" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="25" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="26" value="26" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="26" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="26" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="26" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="26" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="27" value="27" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="27" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="27" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="27" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="27"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="28" value="28" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="28" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="28" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="28" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="28"  mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="29" value="29" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="29" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="29" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="29" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="29" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="30" value="30" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="30" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="30"  mask="money0"/></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="30" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="30" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td><InputText name="date" key="num" keyValue="31" value="31" readonly="true" mask="money0" style="text-align: center;"/></td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="31" mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="31" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="31" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="31" mask="money0" /></td>
+</tr>
+<tr class="groupHeader">
+	<td></td>
+	<td>Итого:</td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0" /></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td>Итого среднемесячная величина</td>
+	<td><InputText name="highlyliquid_assets" key="num" keyValue="ItogoAvgAmount"  mask="money0"/></td>
+	<td><InputText name="sum_oblig" key="num" keyValue="ItogoAvgAmount" mask="money0" /></td>
+	<td><InputText name="sum_netreq" key="num" keyValue="ItogoAvgAmount" mask="money0" /></td>
+	<td><InputText name="sum_maxdam" key="num" keyValue="ItogoAvgAmount" mask="money0" /></td>
+</tr>
+<tr>
+	<td></td>
+	<td>Количество рабочих дней</td>
+	<td colspan="4"><InputText name="highlyliquid_assets" key="num" keyValue="CountWorkDay"  style="width:80em;" mask="money0"/></td>
+</tr>
+<tr>
+	<td></td>
+	<td>Коэффициент текущей ликвидности</td>
+	<td colspan="4"><InputText name="highlyliquid_assets" key="num" keyValue="CurrentRation"  style="width:80em;"  mask="money4"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br/>
+
+<table class="textLayoutTable">
+<tr>
+	<td>Первый руководитель:</td>
+	<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Главный бухгалтер:</td>
+	<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Исполнитель:</td>
+	<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+	<td>Дата:</td>
+	<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+<style>
+table.dataTable td:nth-child(1) {
+	text-align: center;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+var res1=0;
+var res2=0;
+var res3=0;
+var res4=0;
+for (var i=1; i<=31; i++) {
+	var A = getInputValue("k2_ot_array*highlyliquid_assets:num:"+i);
+	var B = getInputValue("k2_ot_array*sum_oblig:num:"+i);
+	var C = getInputValue("k2_ot_array*sum_netreq:num:"+i);
+	var D = getInputValue("k2_ot_array*sum_maxdam:num:"+i);
+	res1 += A;
+	res2 += B;
+	res3 += C;
+	res4 += D;
+}
+setInputValue("k2_ot_array*highlyliquid_assets:num:Itogo", res1);
+setInputValue("k2_ot_array*sum_oblig:num:Itogo", res2);
+setInputValue("k2_ot_array*sum_netreq:num:Itogo", res3);
+setInputValue("k2_ot_array*sum_maxdam:num:Itogo", res4);
+
+}
+]]>		
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#k2_ot_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

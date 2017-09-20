@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="fs_rv_apk_kp"
+languageCode="ru" title="Отчет о расшифровке вкладов, корреспондентских и текущих счетов, размещенных в БВУ (АПК,КП)"
+shortName="Отч о расшиф вклад, корр и тек счетов,разм в БВУ(АПК,КП)"
+beginDate="2014-01-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_rv_apk_kp_array":"num"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+	Приложение 2<br/>
+	к постановлению Правления<br/>
+	Национального Банка<br/>
+	Республики Казахстан<br/>
+	от 24 сентября 2014 года № 178
+</span>
+
+<h3 style="text-align: center;">Отчет о расшифровке вкладов, корреспондентских и текущих счетов, размещенных  в банках второго уровня</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>№ п/п</th>
+	<th>Наименование банка, в котором размещен вклад и (или) открыт корреспондентский и (или) текущий счет</th>
+	<th style="width: 20em;">Страна резидентства </th>
+	<th style="width: 12em;">Сумма</th>
+	<th style="width: 12em;">Размер резервов (провизий), сформированных в соответствии с международными стандартами финансовой отчетности</th>
+</tr>
+<tr>
+	<th>1</th>
+	<th>2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr id="1" class="groupHeader">
+	<td>1</td>
+	<td><Plus/>Корреспондентские счета</td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="2" class="groupHeader">
+	<td>2</td>
+	<td><Plus/>Текущие счета </td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="3" class="groupHeader">
+	<td>3</td>
+	<td><Plus/>Вклады до востребования</td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="4" class="groupHeader">
+	<td>4</td>
+	<td><Plus/>Срочные вклады</td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="5" class="groupHeader">
+	<td>5</td>
+	<td><Plus/>Условные вклады</td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td>6</td>
+	<td>Всего</td>
+	<td></td>
+	<td><InputText name="sum" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<DynamicRow>
+	<td><StaticText value="$DynamicRowIdText"/></td>
+	<td>
+		<Minus/>
+		<ReceiverInput name="bank" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" ref="ref_bank" refCode="rec_id" refCaption="name_ru" style="min-width: 35em; text-align: left;"/>
+		<Pick ref="bank" receiver="bank" key="num" keyValue="$DynamicRowId"/>
+	</td>
+	<td><InputSelect name="country" key="num" keyValue="$DynamicRowId" required="true" ref="ref_country" refCode="rec_id" refCaption="name_ru"/></td>
+	<td><InputText name="sum" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="prov_sum" key="num" keyValue="$DynamicRowId" mask="money0" valueCheckFunc="IsPositiveNumber()"/></td>
+</DynamicRow>
+</tbody>
+</table>
+</div>
+<br/>
+
+<br/>
+<table class="textLayoutTable">
+	<tr>
+		<td>Первый руководитель:</td>
+		<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Главный бухгалтер:</td>
+		<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Исполнитель:</td>
+		<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Дата:</td>
+		<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+	</tr>
+</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+	text-align: center;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+var groupId, v = [], sum;
+
+// Column 4
+
+sum = 0;
+for (var i = 1; i < 6; i++) {
+	groupId = "fs_rv_apk_kp_array*sum:num:" + i;
+	v[i] = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v[i]);
+	sum += v[i];
+}
+setInputValue("fs_rv_apk_kp_array*sum:num:Itogo", sum);
+
+// Column 5
+
+sum = 0;
+for (var i = 1; i < 6; i++) {
+	groupId = "fs_rv_apk_kp_array*prov_sum:num:" + i;
+	v[i] = sumInputValuesByGroup(groupId);
+	setInputValue(groupId, v[i]);
+	sum += v[i];
+}
+setInputValue("fs_rv_apk_kp_array*prov_sum:num:Itogo", sum);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_rv_apk_kp_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+
+</Form>

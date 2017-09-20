@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+
+        <p:dialog header="Физические/Юридические лица" widgetVar="wUnionPickerDlg" modal="true" width="900">
+            <h:form id="unionPickerForm">
+                <p:remoteCommand name="rcShowUnionPicker" actionListener="#{unionPickerBean.onShow}"
+                                 update="unionPickerRecords unionPickerFilterName unionPickerFilterIdn unionPickerFilterType" oncomplete="onUnionPickerLoaded();"/>
+                <p:remoteCommand name="rcPassUnionPickerValue" actionListener="#{unionPickerBean.passValue}"
+                                 update="unionPickerSelectedValue"
+                                 oncomplete="onReceiveUnionPickerValue();"/>
+                <!--oncomplete="PF('wPickerDlg').hide();"/>-->
+                <div id="union-picker-filter">
+                    <p:fieldset legend="Фильтры">
+                        Наименование;
+                        <h:inputText id="unionPickerFilterName" value="#{unionPickerBean.filterName}"
+                                     style="width: 150px"/>
+                        ИИН:
+                        <h:inputText id="unionPickerFilterIdn" value="#{unionPickerBean.filterIdn}"
+                                     style="width: 150px"/>
+                        Тип лица:
+                        <h:selectOneMenu id="unionPickerFilterType" value="#{unionPickerBean.filterType}">
+                            <f:selectItem itemLabel="Все" itemValue="#{0}"/>
+                            <f:selectItem itemLabel="Юр. лица" itemValue="#{1}"/>
+                            <f:selectItem itemLabel="Физ. лица" itemValue="#{2}"/>
+                        </h:selectOneMenu>
+                        &#160;
+                        Искать в налоговой:
+                        <p:selectBooleanCheckbox id="unionPickerFilterTax" value="#{unionPickerBean.searchInTax}" />
+                        &#160;
+                        <p:commandButton actionListener="#{unionPickerBean.filter}" value="Поиск"
+                                         update="unionPickerRecords"/>
+                    </p:fieldset>
+                </div>
+                <h:panelGroup id="unionPickerRecords">
+                    <div id="union-picker-data">
+                        <table id="unionPickerTable" class="data-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-column"/>
+                                <ui:repeat var="column" value="#{unionPickerBean.columns}">
+                                    <th class="#{column.hidden?'hidden-column':''}"><h:outputText
+                                            value="#{column.title}"/>
+                                    </th>
+                                </ui:repeat>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ui:repeat var="legalPersonItem" value="#{unionPickerBean.records}" varStatus="status">
+                                <tr onclick="onSelectUnionPickerRow.call(this);">
+                                    <td class="hidden-column"><h:outputText value="#{legalPersonItem.recId}"/></td>
+                                    <ui:repeat var="column" value="#{unionPickerBean.columns}">
+                                        <td class="#{column.hidden?'hidden-column':''} #{column.key?'key-column':''}">
+                                            <h:outputText value="#{unionPickerBean.format(column, legalPersonItem)}"/></td>
+                                    </ui:repeat>
+                                </tr>
+                            </ui:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="union-picker-pager">
+                        <p:commandButton value="&lt;" actionListener="#{unionPickerBean.prevPage}"
+                                         update="unionPickerRecords"/>
+                        <h:outputText value="#{unionPickerBean.from}-#{unionPickerBean.to}"/>
+                        <p:commandButton value="&gt;" actionListener="#{unionPickerBean.nextPage}"
+                                         update="unionPickerRecords"/>
+                    </div>
+                </h:panelGroup>
+                <div id="union-picker-footer">
+                    <p:commandButton type="button" onclick="passUnionPickerValue()" value="Выбрать"/>
+                    <p:commandButton type="button" onclick="passUnionPickerValue(true)" value="Пустое значение"/>
+                    <h:inputHidden value="#{unionPickerBean.selectedValue}" id="unionPickerSelectedValue"/>
+                </div>
+            </h:form>
+        </p:dialog>
+
+        <h:outputScript library="pickers" name="UnionPicker_v18.js"/>
+    </composite:implementation>
+</ui:component>

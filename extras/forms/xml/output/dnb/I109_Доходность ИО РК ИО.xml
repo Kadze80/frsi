@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="I109"
+        languageCode="ru" title="Таблица 6 - Доходность ИО РК (ИО)"
+        shortName="Таблица 6 - Доходность ИО РК (ИО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"I109_1_array":"num", "I109_2_array":"num"}, "periodType":"m" }'
+        xmlVersion="1"
+        periodCount="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Таблица 6 - Доходность ипотечных организаций РК</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <div>
+        <table name="1_array" class="dataTable">
+            <thead>
+                <tr>
+                    <th>№<br/> п/п</th>
+                    <th>Наименование показателя</th>
+                    <th><StaticText value="$ReportDate(.m(-12))"/></th>
+                    <th><StaticText value="$ReportDate"/></th>
+                    <th>Прирост, в %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Доходы, связанные с получением вознаграждения</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="1" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="1" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Расходы, связанные с выплатой вознаграждения</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="2" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="2" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Доходы, не связанные с получением вознаграждения</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="3" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="3" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Расходы, не связанные с выплатой вознаграждения</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="4" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="4" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Резервы (восстановление резервов) на возможные потери по операциям</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="5" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="5" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Корпоративный подоходный налог</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="6" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="6" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="6" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Чистый доход (убыток)</td>
+                    <td>
+                        <InputText name="v1" key="num" keyValue="7" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v2" key="num" keyValue="7" readonly="true" mask="money0"/>
+                    </td>
+                    <td>
+                        <InputText name="v3" key="num" keyValue="7" readonly="true" mask="money3"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <span style="display: block; text-align: left;">
+        Для графика 4 - Прибыль (убыток) ипотечных организаций
+    </span>
+    <div>
+        <table name="2_array" class="dataTable">
+            <thead>
+                <tr>
+                    <th>№, п/п</th>
+                    <th>Наименование показателя</th>
+                    <DynamicCell header="true"><StaticText value="@DynamicCellDate"/></DynamicCell>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Чистый прибыль (убыток)</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="num" keyValue="1" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: left;
+width:20px
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+.dynCell {
+    width:50px;
+}
+]]>
+    </style>
+    <script>
+        <![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+    </script>
+    <script2>
+        <![CDATA[
+function fixTable(fix){ 
+
+}
+]]>
+    </script2>
+</Form>

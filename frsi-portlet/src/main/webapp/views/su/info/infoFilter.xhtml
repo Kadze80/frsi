@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+	encoding="UTF8"
+	locale="#{facesContext.externalContext.requestLocale}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:components="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{suInfoBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <p:growl id="messages" showDetail="true" />
+        <h:form id="mainForm">
+            <h:outputText value="#{res.reportDate}: "/>
+            <p:calendar value="#{suInfoBean.reportDate}" pattern="dd.MM.yyyy"
+                        navigator="true" locale="ru" mask="true">
+                <p:ajax event="dateSelect" listener="#{suInfoBean.refreshData}" update="tblSubjectTypes tblRespondents tblForms @form:btnReports @form:btnSummaryReports @form:btnMatrix" />
+            </p:calendar>&#160;&#160;
+            <table>
+                <tr>
+                    <td rowspan="2" style="vertical-align: top">
+                        <p:dataTable id="tblSubjectTypes" value="#{suInfoBean.subjectTypes}" var="subjectType"
+                                     rowKey="#{subjectType}"
+                                     sortBy="#{subjectType.getName(sessionBean.languageCode)}" scrollable="true"
+                                     scrollHeight="450"
+                                     emptyMessage="#{res.noRecordsFound}" selectionMode="single"
+                                     selection="#{suInfoBean.selectedSubjectType}" style="width: 500px">
+                            <f:facet name="header">Типы субъектов</f:facet>
+                            <p:ajax event="rowSelect" listener="#{suInfoBean.updateRespondents}" update="@form:tblRespondents"/>
+                            <p:column style="width:16px;text-align:center">
+                                <p:selectBooleanCheckbox
+                                        value="#{suInfoBean.subjectTypeCheckBoxes[subjectType.recId]}">
+                                    <p:ajax listener="#{suInfoBean.onSubjectTypeChange(subjectType)}" update="@form:tblForms, @form:btnReports @form:btnSummaryReports @form:btnMatrix"/>
+                                </p:selectBooleanCheckbox>
+                            </p:column>
+                            <p:column headerText="Название" sortBy="#{subjectType.getName(sessionBean.languageCode)}">
+                                <h:outputText value="#{subjectType.getName(sessionBean.languageCode)}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </td>
+                    <td>
+                        <p:dataTable id="tblRespondents" value="#{suInfoBean.respondents}" var="respondent"
+                                     rowKey="#{respondent}" sortBy="#{respondent.personShortName}" scrollable="true"
+                                     scrollHeight="200"
+                                     emptyMessage="#{res.noRecordsFound}"
+                                     selection="#{suInfoBean.selectedRespondents}" rowSelectMode="add">
+                            <f:facet name="header">#{res.organizations}</f:facet>
+                            <p:ajax event="rowSelect" listener="#{suInfoBean.onRespondentRowSelect}" global="false"/>
+                            <p:ajax event="rowUnselect" listener="#{suInfoBean.onRespondentRowUnselect}" global="false"/>
+                            <p:ajax event="rowSelectCheckbox" listener="#{suInfoBean.onRespondentRowSelect}" />
+                            <p:ajax event="rowUnselectCheckbox" listener="#{suInfoBean.onRespondentRowUnselect}" />
+                            <p:ajax event="toggleSelect" listener="#{suInfoBean.onRespondentToggleSelect}" />
+                            <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                            <p:column headerText="Название" sortBy="#{respondent.personShortName}">
+                                <h:outputText value="#{respondent.personShortName}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p:dataTable id="tblForms" value="#{suInfoBean.forms}" var="form" rowKey="#{form.code}"
+                                     sortBy="#{form.formHistory.name}" scrollable="true" scrollHeight="200"
+                                     emptyMessage="#{res.noRecordsFound}"
+                                     selection="#{suInfoBean.selectedForm}">
+                            <f:facet name="header">#{res.forms}</f:facet>
+                            <p:ajax event="toggleSelect" update="@form:btnReports @form:btnSummaryReports @form:btnMatrix, @this" listener="#{suInfoBean.onSelectFormAll}"/>
+                            <p:ajax event="rowSelect" update="@form:btnReports @form:btnSummaryReports @form:btnMatrix"/>
+                            <p:ajax event="rowUnselect" update="@form:btnReports @form:btnSummaryReports @form:btnMatrix"/>
+                            <p:ajax event="rowSelectCheckbox" update="@form:btnReports @form:btnSummaryReports @form:btnMatrix"/>
+                            <p:ajax event="rowUnselectCheckbox" update="@form:btnReports @form:btnSummaryReports @form:btnMatrix"/>
+                            <p:column selectionMode="multiple" style="width:10px;text-align:center"/>
+                            <p:column style="width:2em;text-align: left"><h:outputText value="#{form.formHistory.periodCode}"/></p:column>
+                            <p:column headerText="Название" sortBy="#{form.formHistory.name}">
+                                <h:outputText value="#{form.formHistory.name}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </td>
+                </tr>
+            </table>
+
+            <br/>
+
+            <p:panel id="btnPanel">
+                <h:outputText value="Статус форм: "/>
+                <h:selectOneMenu value="#{suInfoBean.stateSender}" style="width: 150px">
+                    <f:selectItem itemLabel="Все" itemValue=""/>
+                    <f:selectItem itemLabel="Отправленные" itemValue="true"/>
+                    <f:selectItem itemLabel="Не отправленные" itemValue="false"/>
+                </h:selectOneMenu>
+                <br/>
+                <br/>
+                <p:commandButton id="btnReports" value="Список отчетов в разрезе респондентов" disabled="#{!userBean.hasPermission('INFO:GENERATE') || suInfoBean.selectedForm.size() == 0 || suInfoBean.selectedForm == null}"
+                                 action="#{suInfoBean.getReports('BY_RESPONDENT',false)}" />
+                &#160;&#160;&#160;&#160;
+                <!--<p:commandButton id="btnForms" value="Список респондентов в разрезе отчетов" disabled="#{!userBean.hasPermission('INFO:GENERATE') || suInfoBean.selectedForm.size() == 0 || suInfoBean.selectedForm == null}"
+                                 actionListener="#{suInfoBean.getReports('BY_FORM_NAME',false)}" />
+                &#160;&#160;&#160;&#160;-->
+
+                <p:commandButton id="btnSummaryReports" value="Состояние отчетов респондентов" disabled="#{!userBean.hasPermission('INFO:GENERATE') || suInfoBean.selectedForm.size() == 0 || suInfoBean.selectedForm == null}"
+                                 action="#{suInfoBean.getReports('BY_RESPONDENT',true)}" />
+                <!--&#160;&#160;&#160;&#160;
+                <p:commandButton id="btnSummaryRespondents" value="Состояние отчетов касательно респондентов" disabled="#{!userBean.hasPermission('INFO:GENERATE') || suInfoBean.selectedForm.size() == 0 || suInfoBean.selectedForm == null}"
+                                 actionListener="#{suInfoBean.getReports('BY_FORM_NAME',true)}" />-->
+                &#160;&#160;&#160;&#160;
+                <p:commandButton id="btnMatrix" value="Справка в разрезе респондентов и отчетов" disabled="#{!userBean.hasPermission('INFO:GENERATE') || suInfoBean.selectedForm.size() == 0 || suInfoBean.selectedForm == null}"
+                                 action="#{suInfoBean.getReports('BY_RESPONDENT_FORMS',true)}" />
+
+            </p:panel>
+        </h:form>
+
+    </h:body>
+</f:view>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:components="http://java.sun.com/jsf/composite/components"
+        xmlns:custom="http://customtag.com/tags">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{settingsBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+
+        <!--<h:form id="mainForm">
+            <h:panelGroup id ="actions" >
+                <p:toolbar id ="mbActions" >
+                    <f:facet name="left">
+                        <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{noticeUserSetBean.refreshSettings()}"
+                                         disabled="#{!userBean.hasPermission('NOTICE:USER_SETTING:REFRESH')}" update="@form:pgdt, @form:actions" icon="ui-icon-arrowrefresh-1-s" />
+                        <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                        <p:commandButton value="Сохранить изменения" actionListener="#{noticeUserSetBean.saveSettings()}"
+                                         disabled="#{noticeUserSetBean.btnSaveDisable}" update="@form:pgdt, @form:actions, :messages" />
+                    </f:facet>
+                </p:toolbar>
+            </h:panelGroup>
+
+            <h:panelGroup id ="pgdt" >
+                <p:dataTable id="settingTable" value="#{noticeUserSetBean.settingsList}" var="setting" rowKey="#{setting}" emptyMessage="#{res.noRecordsFound}"
+                             selectionMode="single" sortBy="#{setting.name}" >
+                    <p:column headerText="Уведомлять" sortBy="#{setting.isNotice}" style="width:5em; text-align: center" >
+                        <p:selectBooleanCheckbox value="#{setting.isNotice}">
+                            <p:ajax listener="#{noticeUserSetBean.onChangeFlag()}" update="@form:actions"/>
+                        </p:selectBooleanCheckbox>
+                    </p:column>
+                    <p:column headerText="Наименование уведомления" sortBy="#{setting.name}" style="width: 20em"><h:outputText value="#{setting.name}"/></p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>-->
+
+        <h:form id="settingsForm">
+            <h:panelGrid columns="3" style="margin-bottom:10px; height: 120px" cellpadding="5">
+
+                <h:outputLabel for="showOverDueReports" value="Показать просроченные отчеты при первом входе в систему:"
+                               style="font-weight:bold; margin-right: 10px;"/>
+                <p:selectBooleanCheckbox id="showOverDueReports"
+                                         value="#{settingsBean.showOverdueReportsSettingValue}"/>
+                <p:messages for="showOverDueReports" autoUpdate="true"/>
+
+                <h:outputLabel for="noticeOverdueDateMail" value="Уведомлять на почту о наступлении срока предоставления:"
+                               style="font-weight:bold; margin-right: 10px;"/>
+                <p:selectBooleanCheckbox id="noticeOverdueDateMail" value="#{settingsBean.noticeMailOverdueDateSettingValue}" disabled="#{!settingsBean.enableNoticeOverDueDateSetting}">
+                    <p:ajax update="daysBeforeOverdueDate" listener="#{settingsBean.onChangeNoticeOverdueSettingMail}"/>
+                </p:selectBooleanCheckbox>
+                <p:messages for="noticeOverdueDateMail" autoUpdate="true"/>
+
+                <h:outputLabel for="noticeOverdueDateSys" value="Уведомлять в системе о наступлении срока предоставления:"
+                               style="font-weight:bold; margin-right: 10px;"/>
+                <p:selectBooleanCheckbox id="noticeOverdueDateSys" value="#{settingsBean.noticeSysOverdueDateSettingValue}" disabled="#{!settingsBean.enableNoticeOverDueDateSetting}">
+                    <p:ajax update="daysBeforeOverdueDate" listener="#{settingsBean.onChangeNoticeOverdueSettingSys}"/>
+                </p:selectBooleanCheckbox>
+                <p:messages for="noticeOverdueDateMail" autoUpdate="true"/>
+
+                <h:outputLabel for="daysBeforeOverdueDate" value="Количество дней до срока предоставления отчета:"
+                               style="font-weight:bold; margin-right: 10px;"/>
+                <p:inputText id="daysBeforeOverdueDate" value="#{settingsBean.daysBeforeOverdueDateSettingValue}"
+                             converterMessage="Введите только цифры"
+                             disabled="#{settingsBean.isDaysBeforeOverdueDateDisabled()}" required="true">
+                    <custom:daysBeforeValidator noticeMailOverdueDateSettingValue="#{settingsBean.noticeMailOverdueDateSettingValue}" for="daysBeforeOverdueDate"/>
+                </p:inputText>
+                <p:messages for="daysBeforeOverdueDate" autoUpdate="true"/>
+
+            </h:panelGrid>
+            <h:panelGroup>
+                <p:commandButton value="Сохранить" actionListener="#{settingsBean.save}" validateClient="true"
+                                 update="@this :messages"/>
+                <p:commandButton value="Отмена" actionListener="#{settingsBean.cancel}" update="@this"/>
+            </h:panelGroup>
+        </h:form>
+
+        <p:growl id="messages" showDetail="true"/>
+    </h:body>
+</f:view>

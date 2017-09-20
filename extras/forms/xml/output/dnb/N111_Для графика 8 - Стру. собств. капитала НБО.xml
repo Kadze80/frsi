@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="N111"
+        languageCode="ru" title="Для графика 8 - Структура собственного капитала НБО (ОООВБО)"
+        shortName="Для графика 8 - Стру. собств. кап. НБО (ОООВБО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"N111_a":"n"}, "periodType":"q" }'
+        xmlVersion="1"
+        periodCount="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Для графика 8 - Структура собственного капитала небанковских организаций</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <div>
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>№, п/п</th>
+                    <th>Наименование показателя</th>
+                    <DynamicCell header="true"><StaticText value="@DynamicCellDate"/></DynamicCell>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Уставный капитал</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="1" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Премии</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="2" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Резервный капитал</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="3" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Прочие резервы</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="4" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Нераспределенная чистая прибыль (непокрытый убыток) прошлых лет</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="5" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Нераспределенная чистая прибыль (непокрытый убыток) текущего года</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="6" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+            table.dataTable td:nth-child(1) {
+                text-align: left;
+                width:20px
+            }
+            table.dataTable td:nth-child(2) {
+                text-align: left;
+            }
+        ]]>
+    </style>
+    <script>
+        <![CDATA[
+            function updateCalculatedFields() {
+            }
+        ]]>
+    </script>
+    <script2>
+        <![CDATA[
+            function fixTable(fix){
+                $("#N111_a").tableHeadFixer({unFix:!fix, head:true});
+            }
+        ]]>
+    </script2>
+</Form>

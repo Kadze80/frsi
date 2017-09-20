@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="FinCondNBO_reports"
+	languageCode="ru" title="Сведения о финансовом состоянии ОООВБО (АПК,КП,ОТ,ЦД)"
+    shortName="Свед о фин сост ОООВБО РК (АПК,КП,ОТ,ЦД)"
+	beginDate="2016-05-01" endDate=""
+	tag='{ "sortFields" : [{"name":"FinCondNBO_reports_array*ass_itogo", "desc":"true"}], "keyFields" : {"FinCondNBO_reports_array":"num"} }'
+	typeCode="OUTPUT"
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">Сведения о финансовом состоянии организаций, осуществляющих отдельные виды банковских операций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+	<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th rowspan="3">№ п/п</th>
+			<th rowspan="3">Наименование организации</th>
+			<th colspan="8">Активы</th>
+			<th colspan="6">Обязательства</th>
+			<th colspan="2">Капитал</th>
+		</tr>
+		<tr fixed="nf">
+			<th rowspan="2">итого</th>
+			<th colspan="7">в том числе</th>
+			<th rowspan="2">итого</th>
+			<th colspan="5">в том числе</th>
+			<th rowspan="2">итого</th>
+			<th>в том числе</th>
+		</tr>
+		<tr fixed="nf">
+			<th>денежные средства и эквиваленты денежных средств</th>
+			<th>вклады размещенные (за вычетом резервов на обесценение)</th>
+			<th>ценные бумаги </th>
+			<th>займы предоставленные (за вычетом резервов на обесценение)</th>
+			<th>инвестиции в капитал других юридических лиц и субординированный долг</th>
+			<th>дебиторская задолженность </th>
+			<th>прочие активы</th>
+			<th>вклады привлеченные</th>
+			<th>займы полученные </th>
+			<th>выпущенные долговые ценные бумаги</th>
+			<th>кредиторская задолженность</th>
+			<th>прочие обязательства</th>
+			<th>нераспределенная прибыль (непокрытый убыток)</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+		</tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+			<td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="ass_itogo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_mon" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_dep" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_cb" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_zaim" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_invest" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_debtzadol" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ass_other" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_itogo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_dep" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_zaim" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_cb" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_credzadol" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="liab_other" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="cap_itogo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="cap_surplus_earn" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+        </DynamicRow>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого:</td>
+			<td><InputText name="ass_itogo" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_mon" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_dep" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_cb" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_zaim" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_invest" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_debtzadol" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="ass_other" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_itogo" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_dep" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_zaim" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_cb" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_credzadol" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="liab_other" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="cap_itogo" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+			<td><InputText name="cap_surplus_earn" key="num" keyValue="Itogo" auto="true" readonly="true" mask="money0"/></td>
+		</tr>
+</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(n+3) {
+		text-align: right;
+	}
+	table.dataTable tr.groupHeader td:nth-child(2) {
+        text-align: left;
+    }
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#FinCondNBO_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});     
+}
+]]>
+</script2>
+</Form>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="test_ref_bank_inputselect"
+languageCode="ru" title="Test RefBank"
+shortName="Test RefBank"
+beginDate="2014-01-01" endDate=""
+tag='{ "hasDynamicRows" : true }'
+typeCode="INPUT"
+style="" styleClass="">
+
+<h3 style="text-align: center;">Test RefBank</h3>
+
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>№ п/п</th>
+	<th>Наименование банка, в котором размещен вклад и (или) открыт корреспондентский и (или) текущий счет</th>
+</tr>
+<tr>
+	<th>1</th>
+	<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr id="1" class="groupHeader">
+	<td>1</td>
+	<td><Plus/>Group1</td>
+</tr>
+<DynamicRow>
+	<td><StaticText value="$DynamicRowIdText"/></td>
+	<td>
+		<Minus/>
+		<InputSelect name="bank" key="num" keyValue="$DynamicRowId" required="true" ref="ref_bank" refCode="rec_id" refCaption="name_ru"/>
+	</td>
+</DynamicRow>
+</tbody>
+</table>
+</div>
+<br/>
+
+<br/>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+	text-align: center;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_rv_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

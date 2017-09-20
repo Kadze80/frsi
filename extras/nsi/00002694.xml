@@ -1,0 +1,4621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope"><!--Конверт сообщения-->
+	<Header><!--Заголовок сообщения-->
+		<MessageInfo>
+			<To>NSI0PLBL</To>
+			<From>FNBDITXX</From>
+			<MessageID>FNBDITXX-NSI-00001066</MessageID>
+			<ReMessageID/>
+			<MessageType>NSI_NBRK_CURRENCY</MessageType>
+			<Priority>5</Priority>
+			<CreationTime>2014-11-06T09:52:21</CreationTime>
+		</MessageInfo>
+	</Header>
+	<Body><!--Тело сообщения-->
+	<CommonInfo>
+		<GuideKind>FULL</GuideKind>
+		<EntityCnt>185</EntityCnt>
+	</CommonInfo>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>1</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1064</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AZN</Code3A>
+			<Code3N>944</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Азербайджанский манат</NameRus>
+			<ShortNameRus>Азерб.манат</ShortNameRus>
+			<NameKaz>Әзербайжан манаты</NameKaz>
+			<ShortNameKaz>Әзербайжан манаты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AZE</Country>
+			<Country>GTM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>2</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1065</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ALL</Code3A>
+			<Code3N>008</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Лек</NameRus>
+			<ShortNameRus>Лек</ShortNameRus>
+			<NameKaz>Лек</NameKaz>
+			<ShortNameKaz>Лек</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ALB</Country>
+			<Country>ESP</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>3</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1074</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>DZD</Code3A>
+			<Code3N>012</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Алжирский динар</NameRus>
+			<ShortNameRus>Алжир.динар</ShortNameRus>
+			<NameKaz>Алжир динары</NameKaz>
+			<ShortNameKaz>Алжир динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>DZA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>4</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1075</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>USD</Code3A>
+			<Code3N>840</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар СШАіңғіңғіңғің</NameRus>
+			<ShortNameRus>Доллар США</ShortNameRus>
+			<NameKaz>АҚШ доллары</NameKaz>
+			<ShortNameKaz>АҚШ доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>VGB</Country>
+			<Country>VIR</Country>
+			<Country>TLS</Country>
+			<Country>HTI</Country>
+			<Country>GUM</Country>
+			<Country>MHL</Country>
+			<Country>FSM</Country>
+			<Country>PLW</Country>
+			<Country>PAN</Country>
+			<Country>PRI</Country>
+			<Country>SLV</Country>
+			<Country>MNP</Country>
+			<Country>USA</Country>
+			<Country>TCA</Country>
+			<Country>ECU</Country>
+			<Country>ASM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>5</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1081</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ARS</Code3A>
+			<Code3N>032</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Аргентинское песо</NameRus>
+			<ShortNameRus>Аргент.песо</ShortNameRus>
+			<NameKaz>Аргентина песосы</NameKaz>
+			<ShortNameKaz>Аргентина песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10031</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ARG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>6</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1082</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AOA</Code3A>
+			<Code3N>973</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кванза</NameRus>
+			<ShortNameRus>Кванза</ShortNameRus>
+			<NameKaz>Кванза</NameKaz>
+			<ShortNameKaz>Кванза</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AGO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>7</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1083</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AWG</Code3A>
+			<Code3N>533</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Арубский гульден</NameRus>
+			<ShortNameRus>Арубск. гульден</ShortNameRus>
+			<NameKaz>Аруб гульдені</NameKaz>
+			<ShortNameKaz>Аруб гульдені</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10043</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ABW</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>8</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1084</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AMD</Code3A>
+			<Code3N>051</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Армянский драм</NameRus>
+			<ShortNameRus>Армянск. драм</ShortNameRus>
+			<NameKaz>Армян драмы</NameKaz>
+			<ShortNameKaz>Армян драмы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10026</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ARM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>9</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1086</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BSD</Code3A>
+			<Code3N>044</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Багамский доллар</NameRus>
+			<ShortNameRus>Багамск. доллар</ShortNameRus>
+			<NameKaz>Багам доллары</NameKaz>
+			<ShortNameKaz>Багам доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10022</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BHS</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>10</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-09-30</OperDate>
+			<EntityID>1087</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XCD</Code3A>
+			<Code3N>951</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Восточнокарибский доллар</NameRus>
+			<ShortNameRus>Вост.карибск. доллар</ShortNameRus>
+			<NameKaz>Шығыскариб доллары</NameKaz>
+			<ShortNameKaz>Шығыскариб доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AIA</Country>
+			<Country>ATG</Country>
+			<Country>GRD</Country>
+			<Country>DMA</Country>
+			<Country>MSR</Country>
+			<Country>KNA</Country>
+			<Country>LCA</Country>
+			<Country>VCT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>11</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1088</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BDT</Code3A>
+			<Code3N>050</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Така</NameRus>
+			<ShortNameRus>Така</ShortNameRus>
+			<NameKaz>Така</NameKaz>
+			<ShortNameKaz>Така</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BGD</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>12</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1089</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BBD</Code3A>
+			<Code3N>052</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Барбадосский доллар</NameRus>
+			<ShortNameRus>Барбадосск.доллар</ShortNameRus>
+			<NameKaz>Барбадос доллары</NameKaz>
+			<ShortNameKaz>Барбадос доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10027</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BRB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>13</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1090</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BYR</Code3A>
+			<Code3N>974</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Белорусский рубль</NameRus>
+			<ShortNameRus>Белорусск .рубль</ShortNameRus>
+			<NameKaz>Белорусь рублі</NameKaz>
+			<ShortNameKaz>Белорусь рублі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10030</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BLR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>14</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1091</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BHD</Code3A>
+			<Code3N>048</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Бахрейнский динар</NameRus>
+			<ShortNameRus>Бахрейнск. динар</ShortNameRus>
+			<NameKaz>Бахрейн динары</NameKaz>
+			<ShortNameKaz>Бахрейн динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10023</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BHR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>15</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1092</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BZD</Code3A>
+			<Code3N>084</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Белиза</NameRus>
+			<ShortNameRus>Доллар Белиза</ShortNameRus>
+			<NameKaz>Белиза доллары</NameKaz>
+			<ShortNameKaz>Белиза доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10051</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BLZ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>16</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1094</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XOF</Code3A>
+			<Code3N>952</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк КФА ВСЕАО</NameRus>
+			<ShortNameRus>Франк КФА ВСЕАО</ShortNameRus>
+			<NameKaz>КФА ВСЕАО франкі</NameKaz>
+			<ShortNameKaz>КФА ВСЕАО франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BEN</Country>
+			<Country>BFA</Country>
+			<Country>GNB</Country>
+			<Country>CIV</Country>
+			<Country>MLI</Country>
+			<Country>NER</Country>
+			<Country>SEN</Country>
+			<Country>TGO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>17</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1095</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BMD</Code3A>
+			<Code3N>060</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Бермудский доллар</NameRus>
+			<ShortNameRus>Бурмудск.доллар</ShortNameRus>
+			<NameKaz>Бермуд доллары</NameKaz>
+			<ShortNameKaz>Бермуд доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10039</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BMU</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>18</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1097</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BGN</Code3A>
+			<Code3N>975</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Болгарский лев</NameRus>
+			<ShortNameRus>Болгарск. лев</ShortNameRus>
+			<NameKaz>Болгар леві</NameKaz>
+			<ShortNameKaz>Болгар леві</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BGR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>19</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1098</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BOB</Code3A>
+			<Code3N>068</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Боливиано</NameRus>
+			<ShortNameRus>Боливиано</ShortNameRus>
+			<NameKaz>Боливиано</NameKaz>
+			<ShortNameKaz>Боливиано</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10047</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BOL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>20</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1099</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BOV</Code3A>
+			<Code3N>984</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Мвдол</NameRus>
+			<ShortNameRus>Мвдол</ShortNameRus>
+			<NameKaz>Мвдол</NameKaz>
+			<ShortNameKaz>Мвдол</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BOL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>21</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1100</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BAM</Code3A>
+			<Code3N>977</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Конвертируемые марки</NameRus>
+			<ShortNameRus>Конвертируем. марки</ShortNameRus>
+			<NameKaz>Айырбасталатын маркалар</NameKaz>
+			<ShortNameKaz>Айырбасталатын маркалар</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10050</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BIH</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>22</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1101</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BWP</Code3A>
+			<Code3N>072</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Пула</NameRus>
+			<ShortNameRus>Пула</ShortNameRus>
+			<NameKaz>Пула</NameKaz>
+			<ShortNameKaz>Пула</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10020</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BWA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>23</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1102</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BRL</Code3A>
+			<Code3N>986</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Бразильский реал</NameRus>
+			<ShortNameRus>Бразильск. реал</ShortNameRus>
+			<NameKaz>Бразилия реалі</NameKaz>
+			<ShortNameKaz>Бразилия реалі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10023</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BRA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>24</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1103</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BND</Code3A>
+			<Code3N>096</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Брунейский доллар</NameRus>
+			<ShortNameRus>Брунейск.доллар</ShortNameRus>
+			<NameKaz>Бруней доллары</NameKaz>
+			<ShortNameKaz>Бруней доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BRN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>25</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1104</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NOK</Code3A>
+			<Code3N>578</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Норвежская крона</NameRus>
+			<ShortNameRus>Норвежск. крона</ShortNameRus>
+			<NameKaz>Норвегия кронасы</NameKaz>
+			<ShortNameKaz>Норвегия кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>NOR</Country>
+			<Country>SJM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>26</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1105</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>INR</Code3A>
+			<Code3N>356</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Индийская рупия</NameRus>
+			<ShortNameRus>Индийск. рупия</ShortNameRus>
+			<NameKaz>Индия рупиясы</NameKaz>
+			<ShortNameKaz>Индия рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BTN</Country>
+			<Country>IND</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>27</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1106</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BTN</Code3A>
+			<Code3N>064</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Нгултрум</NameRus>
+			<ShortNameRus>Нгултрум</ShortNameRus>
+			<NameKaz>Нгултрум</NameKaz>
+			<ShortNameKaz>Нгултрум</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BTN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>28</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1107</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>BIF</Code3A>
+			<Code3N>108</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк бурунди</NameRus>
+			<ShortNameRus>Франк бурунди</ShortNameRus>
+			<NameKaz>Бурунди франкі</NameKaz>
+			<ShortNameKaz>Бурунди франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>BDI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>29</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1108</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>VUV</Code3A>
+			<Code3N>548</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Вату</NameRus>
+			<ShortNameRus>Вату</ShortNameRus>
+			<NameKaz>Вату</NameKaz>
+			<ShortNameKaz>Вату</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>VUT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>30</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1109</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>HUF</Code3A>
+			<Code3N>348</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Форинт</NameRus>
+			<ShortNameRus>Форинт</ShortNameRus>
+			<NameKaz>Форинт</NameKaz>
+			<ShortNameKaz>Форинт</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10007</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HUN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>31</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1110</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>VEB</Code3A>
+			<Code3N>862</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Боливар</NameRus>
+			<ShortNameRus>Боливар</ShortNameRus>
+			<NameKaz>Боливар</NameKaz>
+			<ShortNameKaz>Боливар</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>VEN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>32</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1112</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>IDR</Code3A>
+			<Code3N>360</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Рупия</NameRus>
+			<ShortNameRus>Рупия</ShortNameRus>
+			<NameKaz>Рупия</NameKaz>
+			<ShortNameKaz>Рупия</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AIA</Country>
+			<Country>TLS</Country>
+			<Country>IDN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>33</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1113</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>VND</Code3A>
+			<Code3N>704</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Донг</NameRus>
+			<ShortNameRus>Донг</ShortNameRus>
+			<NameKaz>Донг</NameKaz>
+			<ShortNameKaz>Донг</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10048</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>VNM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>34</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1114</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XAF</Code3A>
+			<Code3N>950</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк КФА ВЕАС</NameRus>
+			<ShortNameRus>Франк КФА ВЕАС</ShortNameRus>
+			<NameKaz>КФА ВЕАС франкі</NameKaz>
+			<ShortNameKaz>КФА ВЕАС франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10048</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CMR</Country>
+			<Country>GAB</Country>
+			<Country>COG</Country>
+			<Country>CAF</Country>
+			<Country>TCD</Country>
+			<Country>GNQ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>35</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1115</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>HTG</Code3A>
+			<Code3N>332</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Гурд</NameRus>
+			<ShortNameRus>Гурд</ShortNameRus>
+			<NameKaz>Гурд</NameKaz>
+			<ShortNameKaz>Гурд</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HTI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>36</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1116</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GYD</Code3A>
+			<Code3N>328</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Гайанский доллар</NameRus>
+			<ShortNameRus>Гайанский доллар</ShortNameRus>
+			<NameKaz>Гайана доллары</NameKaz>
+			<ShortNameKaz>Гайана доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GUY</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>37</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1117</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GMD</Code3A>
+			<Code3N>270</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Даласи</NameRus>
+			<ShortNameRus>Даласи</ShortNameRus>
+			<NameKaz>Даласи</NameKaz>
+			<ShortNameKaz>Даласи</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GMB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>38</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1118</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GHC</Code3A>
+			<Code3N>288</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Седи</NameRus>
+			<ShortNameRus>Седи</ShortNameRus>
+			<NameKaz>Седи</NameKaz>
+			<ShortNameKaz>Седи</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GHA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>39</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1119</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GTQ</Code3A>
+			<Code3N>320</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кетцаль</NameRus>
+			<ShortNameRus>Кетцаль</ShortNameRus>
+			<NameKaz>Кетцаль</NameKaz>
+			<ShortNameKaz>Кетцаль</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10025</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GTM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>40</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1120</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GNF</Code3A>
+			<Code3N>324</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Гвинейский франк</NameRus>
+			<ShortNameRus>Гвинейский франк</ShortNameRus>
+			<NameKaz>Гвинея франкі</NameKaz>
+			<ShortNameKaz>Гвинея франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GIN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>41</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1121</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GWP</Code3A>
+			<Code3N>624</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Песо Гвинея-Бисау</NameRus>
+			<ShortNameRus>Песо Гвинея-Бисау</ShortNameRus>
+			<NameKaz>Гвинея-Бисау песосы</NameKaz>
+			<ShortNameKaz>Гвинея-Бисау песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GNB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>42</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1123</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GIP</Code3A>
+			<Code3N>292</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Гибралтарский фунт</NameRus>
+			<ShortNameRus>Гибралтарский фунт</ShortNameRus>
+			<NameKaz>Гибралтар фунты</NameKaz>
+			<ShortNameKaz>Гибралтар фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GIB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>43</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1124</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>HNL</Code3A>
+			<Code3N>340</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Лемпира</NameRus>
+			<ShortNameRus>Лемпира</ShortNameRus>
+			<NameKaz>Лемпира</NameKaz>
+			<ShortNameKaz>Лемпира</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10050</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HND</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>44</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1127</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>DKK</Code3A>
+			<Code3N>208</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Датская крона</NameRus>
+			<ShortNameRus>Датская крона</ShortNameRus>
+			<NameKaz>Дат кронасы</NameKaz>
+			<ShortNameKaz>Дат кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>GRL</Country>
+			<Country>DNK</Country>
+			<Country>FRO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>45</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1129</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GEL</Code3A>
+			<Code3N>981</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Лари</NameRus>
+			<ShortNameRus>Лари</ShortNameRus>
+			<NameKaz>Лари</NameKaz>
+			<ShortNameKaz>Лари</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10027</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>GEO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>46</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1130</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>DJF</Code3A>
+			<Code3N>262</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк Джибути</NameRus>
+			<ShortNameRus>Франк Джибути</ShortNameRus>
+			<NameKaz>Джибути франкі</NameKaz>
+			<ShortNameKaz>Джибути франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>DJI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>47</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1131</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>DOP</Code3A>
+			<Code3N>214</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доминиканское песо</NameRus>
+			<ShortNameRus>Доминиканск. песо</ShortNameRus>
+			<NameKaz>Доминикан песосы</NameKaz>
+			<ShortNameKaz>Доминикан песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>DOM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>48</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1134</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>EGP</Code3A>
+			<Code3N>818</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Египетский фунт</NameRus>
+			<ShortNameRus>Египетск. фунт</ShortNameRus>
+			<NameKaz>Египет фунты</NameKaz>
+			<ShortNameKaz>Египет фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10051</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>EGY</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>49</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1135</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ZRN</Code3A>
+			<Code3N>180</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новый заир</NameRus>
+			<ShortNameRus>Новый заир</ShortNameRus>
+			<NameKaz>Жаңа заир</NameKaz>
+			<ShortNameKaz>Жаңа заир</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>COD</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>50</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1136</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ZMK</Code3A>
+			<Code3N>894</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Квача</NameRus>
+			<ShortNameRus>Квача</ShortNameRus>
+			<NameKaz>Квача</NameKaz>
+			<ShortNameKaz>Квача</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ZMB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>51</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1137</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MAD</Code3A>
+			<Code3N>504</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Марокканский дирхам</NameRus>
+			<ShortNameRus>Марокканск. дирхам</ShortNameRus>
+			<NameKaz>Марокко дирхамы</NameKaz>
+			<ShortNameKaz>Марокко дирхамы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10045</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ESH</Country>
+			<Country>MAR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>52</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1138</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ZWD</Code3A>
+			<Code3N>716</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Зимбабве</NameRus>
+			<ShortNameRus>Доллар Зимбабве</ShortNameRus>
+			<NameKaz>Зимбабве доллары</NameKaz>
+			<ShortNameKaz>Зимбабве доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ZWE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>53</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1139</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ILS</Code3A>
+			<Code3N>376</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новый израильский шекель</NameRus>
+			<ShortNameRus>Нов.израильск.шекель</ShortNameRus>
+			<NameKaz>Жаңа израил шекелі</NameKaz>
+			<ShortNameKaz>Жаңа израил шекелі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10019</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ISR</Country>
+			<Country>PSE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>54</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1140</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>JOD</Code3A>
+			<Code3N>400</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Иорданский динар</NameRus>
+			<ShortNameRus>Иорданск. динар</ShortNameRus>
+			<NameKaz>Иордан динары</NameKaz>
+			<ShortNameKaz>Иордан динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10048</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>JOR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>55</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1142</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>IRR</Code3A>
+			<Code3N>364</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Иранский реал</NameRus>
+			<ShortNameRus>Иранск. реал</ShortNameRus>
+			<NameKaz>Иран реалы+D31</NameKaz>
+			<ShortNameKaz>Иран реалы+D31</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>IRN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>56</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1144</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ISK</Code3A>
+			<Code3N>352</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Исландская крона</NameRus>
+			<ShortNameRus>Исландская крона</ShortNameRus>
+			<NameKaz>Исланд кронасы</NameKaz>
+			<ShortNameKaz>Исланд кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>11</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>AUT</Country>
+			<Country>ISL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>57</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1146</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>YER</Code3A>
+			<Code3N>886</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Йеменский риал</NameRus>
+			<ShortNameRus>Йеменск. риал</ShortNameRus>
+			<NameKaz>Йемен риалы</NameKaz>
+			<ShortNameKaz>Йемен риалы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>YEM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>58</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1147</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CVE</Code3A>
+			<Code3N>132</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Эскудо Кабо-Верде</NameRus>
+			<ShortNameRus>Эскудо Кабо-Верде</ShortNameRus>
+			<NameKaz>Кабо-Верде эскудосы</NameKaz>
+			<ShortNameKaz>Кабо-Верде эскудосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CPV</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>59</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1149</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KHR</Code3A>
+			<Code3N>116</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Риель</NameRus>
+			<ShortNameRus>Риель</ShortNameRus>
+			<NameKaz>Риель</NameKaz>
+			<ShortNameKaz>Риель</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KHM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>60</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1150</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CAD</Code3A>
+			<Code3N>124</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Канадский доллар</NameRus>
+			<ShortNameRus>Канадск. доллар</ShortNameRus>
+			<NameKaz>Канада доллары</NameKaz>
+			<ShortNameKaz>Канада доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>CAN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>61</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1151</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>QAR</Code3A>
+			<Code3N>634</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Катарский риял</NameRus>
+			<ShortNameRus>Катарск. риял</ShortNameRus>
+			<NameKaz>Катар риялы</NameKaz>
+			<ShortNameKaz>Катар риялы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10017</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>QAT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>62</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1152</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KES</Code3A>
+			<Code3N>404</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кеннийский шиллинг</NameRus>
+			<ShortNameRus>Кеннийск. шиллинг</ShortNameRus>
+			<NameKaz>Кения шиллингі</NameKaz>
+			<ShortNameKaz>Кения шиллингі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KEN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>63</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1153</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CYP</Code3A>
+			<Code3N>196</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кипрский фунт</NameRus>
+			<ShortNameRus>Кипрский фунт</ShortNameRus>
+			<NameKaz>Кипр фунты</NameKaz>
+			<ShortNameKaz>Кипр фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CYP</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>64</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1154</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CNY</Code3A>
+			<Code3N>156</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Юань, Рэнминби</NameRus>
+			<ShortNameRus>Юань, Рэнминби</ShortNameRus>
+			<NameKaz>Юань, Рэнминби</NameKaz>
+			<ShortNameKaz>Юань, Рэнминби</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CHN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>65</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1155</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>COP</Code3A>
+			<Code3N>170</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Колумбийское песо</NameRus>
+			<ShortNameRus>Колумбийск. песо</ShortNameRus>
+			<NameKaz>Колумбия песосы</NameKaz>
+			<ShortNameKaz>Колумбия песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10044</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>COL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>66</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>1156</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KMF</Code3A>
+			<Code3N>174</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк Комор</NameRus>
+			<ShortNameRus>Франк Комор</ShortNameRus>
+			<NameKaz>Комор франкі</NameKaz>
+			<ShortNameKaz>Комор франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>COM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>67</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1157</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KPW</Code3A>
+			<Code3N>408</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Северо-корейская вона</NameRus>
+			<ShortNameRus>Северо-корейск. вона</ShortNameRus>
+			<NameKaz>Солтүстік Корея вонасы</NameKaz>
+			<ShortNameKaz>Солтүстік Корея вонасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PRK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>68</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1158</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KRW</Code3A>
+			<Code3N>410</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Вона</NameRus>
+			<ShortNameRus>Вона</ShortNameRus>
+			<NameKaz>Вона</NameKaz>
+			<ShortNameKaz>Вона</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KOR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>69</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1159</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CRC</Code3A>
+			<Code3N>188</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Косториканский колон</NameRus>
+			<ShortNameRus>Косториканск. колон</ShortNameRus>
+			<NameKaz>Косторика колоны</NameKaz>
+			<ShortNameKaz>Косторика колоны</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CRI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>70</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1160</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CUP</Code3A>
+			<Code3N>192</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кубинское песо</NameRus>
+			<ShortNameRus>Кубинск. песо</ShortNameRus>
+			<NameKaz>Куба песосы</NameKaz>
+			<ShortNameKaz>Куба песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CUB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>71</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1161</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KWD</Code3A>
+			<Code3N>414</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Кувейтский динар</NameRus>
+			<ShortNameRus>Кувейтск. динар</ShortNameRus>
+			<NameKaz>Кувейт динары</NameKaz>
+			<ShortNameKaz>Кувейт динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10017</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KWT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>72</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1162</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KGS</Code3A>
+			<Code3N>417</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сом</NameRus>
+			<ShortNameRus>Сом</ShortNameRus>
+			<NameKaz>Сом</NameKaz>
+			<ShortNameKaz>Сом</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KGZ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>73</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1163</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NZD</Code3A>
+			<Code3N>554</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новозеландский доллар</NameRus>
+			<ShortNameRus>Новозеландск. доллар</ShortNameRus>
+			<NameKaz>Жаңазеландия доллары</NameKaz>
+			<ShortNameKaz>Жаңазеландия доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>COK</Country>
+			<Country>NIU</Country>
+			<Country>NZL</Country>
+			<Country>PCN</Country>
+			<Country>TKL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>74</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1164</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LVL</Code3A>
+			<Code3N>428</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Латвийские латы</NameRus>
+			<ShortNameRus>Латвийские латы</ShortNameRus>
+			<NameKaz>Латвия латы</NameKaz>
+			<ShortNameKaz>Латвия латы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10043</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LVA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>75</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1165</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ZAR</Code3A>
+			<Code3N>710</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Рэнд</NameRus>
+			<ShortNameRus>Рэнд</ShortNameRus>
+			<NameKaz>Рэнд</NameKaz>
+			<ShortNameKaz>Рэнд</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10022</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LSO</Country>
+			<Country>NAM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>76</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1166</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LSL</Code3A>
+			<Code3N>426</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Лоти</NameRus>
+			<ShortNameRus>Лоти</ShortNameRus>
+			<NameKaz>Лоти</NameKaz>
+			<ShortNameKaz>Лоти</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LSO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>77</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1167</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LTL</Code3A>
+			<Code3N>440</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Литовские литы</NameRus>
+			<ShortNameRus>Литовск. литы</ShortNameRus>
+			<NameKaz>Литва литы</NameKaz>
+			<ShortNameKaz>Литва литы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10042</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LTU</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>78</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1168</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CHF</Code3A>
+			<Code3N>756</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Швейцарский франк</NameRus>
+			<ShortNameRus>Швейцарск. франк</ShortNameRus>
+			<NameKaz>Швейцария франкі</NameKaz>
+			<ShortNameKaz>Швейцария франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>LIE</Country>
+			<Country>CHE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>79</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1170</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MUR</Code3A>
+			<Code3N>480</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Маврикийская рупия</NameRus>
+			<ShortNameRus>Маврикийск. рупия</ShortNameRus>
+			<NameKaz>Маврикий рупиясы</NameKaz>
+			<ShortNameKaz>Маврикия рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10022</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MUS</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>80</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1171</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MRO</Code3A>
+			<Code3N>478</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Угия</NameRus>
+			<ShortNameRus>Угия</ShortNameRus>
+			<NameKaz>Угия</NameKaz>
+			<ShortNameKaz>Угия</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MRT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>81</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1173</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MOP</Code3A>
+			<Code3N>446</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Патака</NameRus>
+			<ShortNameRus>Патака</ShortNameRus>
+			<NameKaz>Патака</NameKaz>
+			<ShortNameKaz>Патака</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MAK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>82</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1174</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MKD</Code3A>
+			<Code3N>807</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Динар</NameRus>
+			<ShortNameRus>Динар</ShortNameRus>
+			<NameKaz>Динар</NameKaz>
+			<ShortNameKaz>Динар</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10008</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MKD</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>83</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1175</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MWK</Code3A>
+			<Code3N>454</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Квача</NameRus>
+			<ShortNameRus>Квача</ShortNameRus>
+			<NameKaz>Квача</NameKaz>
+			<ShortNameKaz>Квача</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MWI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>84</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1176</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MYR</Code3A>
+			<Code3N>458</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Малайзийский ринггит</NameRus>
+			<ShortNameRus>Малайзийск. ринггит</ShortNameRus>
+			<NameKaz>Малайзия ринггиті</NameKaz>
+			<ShortNameKaz>Малайзия ринггиті</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10041</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MYS</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>85</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1177</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MVR</Code3A>
+			<Code3N>462</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Руфия</NameRus>
+			<ShortNameRus>Руфия</ShortNameRus>
+			<NameKaz>Руфия</NameKaz>
+			<ShortNameKaz>Руфия</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MDV</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>86</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1178</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MTL</Code3A>
+			<Code3N>470</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Мальтийская лира</NameRus>
+			<ShortNameRus>Мальтийск. лира</ShortNameRus>
+			<NameKaz>Мальта лирасы</NameKaz>
+			<ShortNameKaz>Мальта лирасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>1</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MLT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>87</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1179</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MXN</Code3A>
+			<Code3N>484</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Мексиканское песо</NameRus>
+			<ShortNameRus>Мексиканск. песо</ShortNameRus>
+			<NameKaz>Мексика песосы</NameKaz>
+			<ShortNameKaz>Мексика песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10021</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>MEX</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>88</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1180</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MXV</Code3A>
+			<Code3N>979</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Мексик. денежн. ед-ца(UDI)</NameRus>
+			<ShortNameRus>Мекс. ден. ед(UDI)</ShortNameRus>
+			<NameKaz>Мексика ақша бірлігі(UDI)</NameKaz>
+			<ShortNameKaz>Мексика ақша бірлігі(UDI)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MEX</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>89</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>1181</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XDR</Code3A>
+			<Code3N>960</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>СДР</NameRus>
+			<ShortNameRus>СДР</ShortNameRus>
+			<NameKaz>СДР</NameKaz>
+			<ShortNameKaz>СДР</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>90</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2007-01-01</OperDate>
+			<EntityID>1182</EntityID>
+			<BeginDate>2007-01-01</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MZN</Code3A>
+			<Code3N>508</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Метикал</NameRus>
+			<ShortNameRus>Метикал</ShortNameRus>
+			<NameKaz>Метикал</NameKaz>
+			<ShortNameKaz>Метикал</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MOZ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>91</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1183</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MDL</Code3A>
+			<Code3N>498</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Молдавский лей</NameRus>
+			<ShortNameRus>Молдавск. лей</ShortNameRus>
+			<NameKaz>Молдова лейі</NameKaz>
+			<ShortNameKaz>Молдова лейі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10030</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MDA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>92</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1184</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MNT</Code3A>
+			<Code3N>496</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Тугрик</NameRus>
+			<ShortNameRus>Тугрик</ShortNameRus>
+			<NameKaz>Тугрик</NameKaz>
+			<ShortNameKaz>Тугрик</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MNG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>93</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1185</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MMK</Code3A>
+			<Code3N>104</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кьят</NameRus>
+			<ShortNameRus>Кьят</ShortNameRus>
+			<NameKaz>Кьят</NameKaz>
+			<ShortNameKaz>Кьят</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MMR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>94</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1186</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NAD</Code3A>
+			<Code3N>516</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Намибийский доллар</NameRus>
+			<ShortNameRus>Намибийск. доллар</ShortNameRus>
+			<NameKaz>Намибия доллары</NameKaz>
+			<ShortNameKaz>Намибия доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>11</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>NAM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>95</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1187</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AUD</Code3A>
+			<Code3N>036</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Австралийский доллар</NameRus>
+			<ShortNameRus>Австралийск. доллар</ShortNameRus>
+			<NameKaz>Австралия доллары</NameKaz>
+			<ShortNameKaz>Австралия доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>AUS</Country>
+			<Country>KIR</Country>
+			<Country>NRU</Country>
+			<Country>TUV</Country>
+			<Country>NFK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>96</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1188</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NPR</Code3A>
+			<Code3N>524</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Непальская рупия</NameRus>
+			<ShortNameRus>Непальск. рупия</ShortNameRus>
+			<NameKaz>Непаль рупиясы</NameKaz>
+			<ShortNameKaz>Непаль рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>NPL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>97</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1189</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NGN</Code3A>
+			<Code3N>566</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Найра</NameRus>
+			<ShortNameRus>Найра</ShortNameRus>
+			<NameKaz>Найра</NameKaz>
+			<ShortNameKaz>Найра</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10027</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>NGA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>98</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1191</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>NIO</Code3A>
+			<Code3N>558</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кордоба</NameRus>
+			<ShortNameRus>Кордоба</ShortNameRus>
+			<NameKaz>Кордоба</NameKaz>
+			<ShortNameKaz>Кордоба</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10030</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>NIC</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>99</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1192</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XPF</Code3A>
+			<Code3N>953</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк КФП</NameRus>
+			<ShortNameRus>Франк КФП</ShortNameRus>
+			<NameKaz>КФП франкі</NameKaz>
+			<ShortNameKaz>КФП франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>NCL</Country>
+			<Country>PYF</Country>
+			<Country>WLF</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>100</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1194</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>OMR</Code3A>
+			<Code3N>512</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Оманский риал</NameRus>
+			<ShortNameRus>Оманский риал</ShortNameRus>
+			<NameKaz>Оман риалы</NameKaz>
+			<ShortNameKaz>Оман риалы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10019</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AUT</Country>
+			<Country>OMN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>101</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1195</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PKR</Code3A>
+			<Code3N>586</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Пакистанская рупия</NameRus>
+			<ShortNameRus>Пакистанск. рупия</ShortNameRus>
+			<NameKaz>Пакистанс рупиясы</NameKaz>
+			<ShortNameKaz>Пакистанс рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>9</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PAK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>102</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1196</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PAB</Code3A>
+			<Code3N>590</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Бальбоа</NameRus>
+			<ShortNameRus>Бальбоа</ShortNameRus>
+			<NameKaz>Бальбоа</NameKaz>
+			<ShortNameKaz>Бальбоа</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10023</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PAN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>103</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1197</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PGK</Code3A>
+			<Code3N>598</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кина</NameRus>
+			<ShortNameRus>Кина</ShortNameRus>
+			<NameKaz>Кина</NameKaz>
+			<ShortNameKaz>Кина</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PNG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>104</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1198</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PYG</Code3A>
+			<Code3N>600</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Гуарани</NameRus>
+			<ShortNameRus>Гуарани</ShortNameRus>
+			<NameKaz>Гуарани</NameKaz>
+			<ShortNameKaz>Гуарани</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10026</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PRY</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>105</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1199</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PEN</Code3A>
+			<Code3N>604</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новый соль</NameRus>
+			<ShortNameRus>Новый соль</ShortNameRus>
+			<NameKaz>Жаңа соль</NameKaz>
+			<ShortNameKaz>Жаңа соль</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10006</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PER</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>106</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1200</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PLN</Code3A>
+			<Code3N>985</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Злотый</NameRus>
+			<ShortNameRus>Злотый</ShortNameRus>
+			<NameKaz>Злотый</NameKaz>
+			<ShortNameKaz>Злотый</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10020</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>POL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>107</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1203</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>RUB</Code3A>
+			<Code3N>643</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Российский рубль</NameRus>
+			<ShortNameRus>Российск. рубль</ShortNameRus>
+			<NameKaz>Ресей рублі</NameKaz>
+			<ShortNameKaz>Ресей рублі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10022</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>RUS</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>108</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1204</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>RWF</Code3A>
+			<Code3N>646</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Руандский франк</NameRus>
+			<ShortNameRus>Руандский франк</ShortNameRus>
+			<NameKaz>Руанд франкі</NameKaz>
+			<ShortNameKaz>Руанд франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>RWA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>109</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1205</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>RON</Code3A>
+			<Code3N>946</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новый румынский лей</NameRus>
+			<ShortNameRus>Новый рум. лей</ShortNameRus>
+			<NameKaz>Жаңа румын лейі</NameKaz>
+			<ShortNameKaz>Жаңа румын лейі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ROU</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>110</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1206</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>WST</Code3A>
+			<Code3N>882</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Тала</NameRus>
+			<ShortNameRus>Тала</ShortNameRus>
+			<NameKaz>Тала</NameKaz>
+			<ShortNameKaz>Тала</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>WSM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>111</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1207</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>STD</Code3A>
+			<Code3N>678</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Добра</NameRus>
+			<ShortNameRus>Добра</ShortNameRus>
+			<NameKaz>Добра</NameKaz>
+			<ShortNameKaz>Добра</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>STP</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>112</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1209</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SZL</Code3A>
+			<Code3N>748</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Лилангени</NameRus>
+			<ShortNameRus>Лилангени</ShortNameRus>
+			<NameKaz>Лилангени</NameKaz>
+			<ShortNameKaz>Лилангени</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SWZ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>113</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>1210</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SHP</Code3A>
+			<Code3N>654</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Фунт Святой Елены</NameRus>
+			<ShortNameRus>Фунт Св. Елены</ShortNameRus>
+			<NameKaz>Әулие Елена  фунты</NameKaz>
+			<ShortNameKaz>Әулие Елена  фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SHN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>114</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1211</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SCR</Code3A>
+			<Code3N>690</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сейшельская рупия</NameRus>
+			<ShortNameRus>Сейшельск. рупия</ShortNameRus>
+			<NameKaz>Сейшель рупиясы</NameKaz>
+			<ShortNameKaz>Сейшель рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SYC</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>115</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1212</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SGD</Code3A>
+			<Code3N>702</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сингапурский доллар</NameRus>
+			<ShortNameRus>Сингапурск. доллар</ShortNameRus>
+			<NameKaz>Сингапур доллары</NameKaz>
+			<ShortNameKaz>Сингапур доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CGP</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>116</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1213</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SYP</Code3A>
+			<Code3N>760</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сирийский фунт</NameRus>
+			<ShortNameRus>Сирийск. фунт</ShortNameRus>
+			<NameKaz>Сирия фунты</NameKaz>
+			<ShortNameKaz>Сирия фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SYR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>117</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1214</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SKK</Code3A>
+			<Code3N>703</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Словакская крона</NameRus>
+			<ShortNameRus>Словакск. крона</ShortNameRus>
+			<NameKaz>Словак кронасы</NameKaz>
+			<ShortNameKaz>Словак кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SVK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>118</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1216</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SIT</Code3A>
+			<Code3N>705</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Толар</NameRus>
+			<ShortNameRus>Толар</ShortNameRus>
+			<NameKaz>Толар</NameKaz>
+			<ShortNameKaz>Толар</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SVN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>119</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1217</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>GBP</Code3A>
+			<Code3N>826</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Фунт Стерлингов</NameRus>
+			<ShortNameRus>Фунт Стерлингов</ShortNameRus>
+			<NameKaz>Стерлингтер фунты</NameKaz>
+			<ShortNameKaz>Стерлингтер фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>GBR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>120</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1218</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>USS</Code3A>
+			<Code3N>998</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар США(текущего дня)</NameRus>
+			<ShortNameRus>Доллар США(тек. дня)</ShortNameRus>
+			<NameKaz>АҚШ доллары(ағымдағы күнгі)</NameKaz>
+			<ShortNameKaz>АҚШ доллары(ағымдағы күнгі)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>USA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>121</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1219</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>USN</Code3A>
+			<Code3N>997</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар США(следующего дня)</NameRus>
+			<ShortNameRus>Доллар США(сл. дня)</ShortNameRus>
+			<NameKaz>АҚШ доллары(келесі күнгі)</NameKaz>
+			<ShortNameKaz>АҚШ доллары(келесі күнгі)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>USA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>122</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1222</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SOS</Code3A>
+			<Code3N>706</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сомалийский шиллинг</NameRus>
+			<ShortNameRus>Сомалийск. шиллинг</ShortNameRus>
+			<NameKaz>Сомали шиллингі</NameKaz>
+			<ShortNameKaz>Сомали шиллингі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SOM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>123</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1223</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SDD</Code3A>
+			<Code3N>736</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Суданский динар</NameRus>
+			<ShortNameRus>Суданск. динар</ShortNameRus>
+			<NameKaz>Судан динары</NameKaz>
+			<ShortNameKaz>Судан динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SDN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>124</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1225</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SLL</Code3A>
+			<Code3N>694</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Леоне</NameRus>
+			<ShortNameRus>Леоне</ShortNameRus>
+			<NameKaz>Леоне</NameKaz>
+			<ShortNameKaz>Леоне</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SLE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>125</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2006-01-04</OperDate>
+			<EntityID>1226</EntityID>
+			<BeginDate>2006-01-04</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TJS</Code3A>
+			<Code3N>972</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Сомони</NameRus>
+			<ShortNameRus>Сомони</ShortNameRus>
+			<NameKaz>Сомони</NameKaz>
+			<ShortNameKaz>Сомони</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TJK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>126</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1227</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TWD</Code3A>
+			<Code3N>901</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Новый тайваньский доллар</NameRus>
+			<ShortNameRus>Нов.тайваньск.доллар</ShortNameRus>
+			<NameKaz>Жаңа тайвань доллары</NameKaz>
+			<ShortNameKaz>Жаңа тайвань доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>127</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1228</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>THB</Code3A>
+			<Code3N>764</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Бат</NameRus>
+			<ShortNameRus>Бат</ShortNameRus>
+			<NameKaz>Бат</NameKaz>
+			<ShortNameKaz>Бат</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10042</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>THA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>128</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1229</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TZS</Code3A>
+			<Code3N>834</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Танзанийский шиллинг</NameRus>
+			<ShortNameRus>Танзанийск. шиллинг</ShortNameRus>
+			<NameKaz>Танзания шиллингі</NameKaz>
+			<ShortNameKaz>Танзания шиллингі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TZA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>129</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1230</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TOP</Code3A>
+			<Code3N>776</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Паанга</NameRus>
+			<ShortNameRus>Паанга</ShortNameRus>
+			<NameKaz>Паанга</NameKaz>
+			<ShortNameKaz>Паанга</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TON</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>130</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1232</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TND</Code3A>
+			<Code3N>943</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Тунисский динар</NameRus>
+			<ShortNameRus>Тунисск. динар</ShortNameRus>
+			<NameKaz>Тунис динары</NameKaz>
+			<ShortNameKaz>Тунис динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10027</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TUN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>131</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1233</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TMM</Code3A>
+			<Code3N>795</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Манат</NameRus>
+			<ShortNameRus>Манат</ShortNameRus>
+			<NameKaz>Манат</NameKaz>
+			<ShortNameKaz>Манат</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TKM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>132</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1235</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>UGX</Code3A>
+			<Code3N>800</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Угандский шиллинг</NameRus>
+			<ShortNameRus>Угандск. шиллинг</ShortNameRus>
+			<NameKaz>Уганда шиллингі</NameKaz>
+			<ShortNameKaz>Уганда шиллингі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>UGA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>133</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1236</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>UZS</Code3A>
+			<Code3N>860</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Узбекский сум</NameRus>
+			<ShortNameRus>Узбекск. сум</ShortNameRus>
+			<NameKaz>Өзбек сумы</NameKaz>
+			<ShortNameKaz>Өзбек сумы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>UZB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>134</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1237</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>UAH</Code3A>
+			<Code3N>980</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Гривна</NameRus>
+			<ShortNameRus>Гривна</ShortNameRus>
+			<NameKaz>Гривна</NameKaz>
+			<ShortNameKaz>Гривна</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10053</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>UKR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>135</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1238</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>UYU</Code3A>
+			<Code3N>858</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Уругвайское песо</NameRus>
+			<ShortNameRus>Уругвайск. песо</ShortNameRus>
+			<NameKaz>Уругвай песосы</NameKaz>
+			<ShortNameKaz>Уругвай песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>URY</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>136</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1239</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>FJD</Code3A>
+			<Code3N>242</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Фиджи</NameRus>
+			<ShortNameRus>Доллар Фиджи</ShortNameRus>
+			<NameKaz>Фиджи доллары</NameKaz>
+			<ShortNameKaz>Фиджи доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AUT</Country>
+			<Country>FJI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>137</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1240</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>PHP</Code3A>
+			<Code3N>608</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Филиппинское песо</NameRus>
+			<ShortNameRus>Филиппинск. песо</ShortNameRus>
+			<NameKaz>Филиппин песосы</NameKaz>
+			<ShortNameKaz>Филиппин песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10044</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>PHL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>138</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>1242</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>FKP</Code3A>
+			<Code3N>238</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Фунт Фолклендских островов</NameRus>
+			<ShortNameRus>Фунт Фолкленд. остр.</ShortNameRus>
+			<NameKaz>Фолкленд аралдарының фунты</NameKaz>
+			<ShortNameKaz>Фолкленд аралдарының фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>FLK</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>139</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1243</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>HRK</Code3A>
+			<Code3N>191</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Хорватская куна</NameRus>
+			<ShortNameRus>Хорватск. куна</ShortNameRus>
+			<NameKaz>Хорват кунасы</NameKaz>
+			<ShortNameKaz>Хорват кунасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10025</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HRV</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>140</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1245</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CLP</Code3A>
+			<Code3N>152</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Чилийское песо</NameRus>
+			<ShortNameRus>Чилийское песо</ShortNameRus>
+			<NameKaz>Чили песосы</NameKaz>
+			<ShortNameKaz>Чили песосы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CHL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>141</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1246</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CLF</Code3A>
+			<Code3N>990</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Денежная единица Чили</NameRus>
+			<ShortNameRus>Денежная ед. Чили</ShortNameRus>
+			<NameKaz>Чилидің ақша бірлігі</NameKaz>
+			<ShortNameKaz>Чилидің ақша бірлігі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CHL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>142</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1247</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SEK</Code3A>
+			<Code3N>752</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Шведская крона</NameRus>
+			<ShortNameRus>Шведск. крона</ShortNameRus>
+			<NameKaz>Швед кронасы</NameKaz>
+			<ShortNameKaz>Швед кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>SWE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>143</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1248</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LKR</Code3A>
+			<Code3N>144</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Рупия Шри-Ланки</NameRus>
+			<ShortNameRus>Рупия Шри-Ланки</ShortNameRus>
+			<NameKaz>Шри-Ланки рупиясы</NameKaz>
+			<ShortNameKaz>Шри-Ланки рупиясы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10009</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LKA</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>144</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1249</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SVC</Code3A>
+			<Code3N>222</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сальвадорский колон</NameRus>
+			<ShortNameRus>Сальвадор.колон</ShortNameRus>
+			<NameKaz>Сальвадор колоны</NameKaz>
+			<ShortNameKaz>Сальвадор колоны</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10027</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SLV</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>145</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1250</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ERN</Code3A>
+			<Code3N>232</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Накфа</NameRus>
+			<ShortNameRus>Накфа</ShortNameRus>
+			<NameKaz>Накфа</NameKaz>
+			<ShortNameKaz>Накфа</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ERI</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>146</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1251</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>EEK</Code3A>
+			<Code3N>233</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Эстонская крона</NameRus>
+			<ShortNameRus>Эстонск. крона</ShortNameRus>
+			<NameKaz>Эстон кронасы</NameKaz>
+			<ShortNameKaz>Эстон кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>EST</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>147</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1252</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ETB</Code3A>
+			<Code3N>230</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Эфиопский быр</NameRus>
+			<ShortNameRus>Эфиопск. быр</ShortNameRus>
+			<NameKaz>Эфиопия быры</NameKaz>
+			<ShortNameKaz>Эфиопия быры</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ETH</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>148</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1254</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>JMD</Code3A>
+			<Code3N>388</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Ямайский доллар</NameRus>
+			<ShortNameRus>Ямайск. доллар</ShortNameRus>
+			<NameKaz>Ямайка доллары</NameKaz>
+			<ShortNameKaz>Ямайка доллары</ShortNameKaz>
+			<NameEng>dddd</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10051</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HND</Country>
+			<Country>NER</Country>
+			<Country>JAM</Country>
+			<Country>ABC</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>149</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1255</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>JPY</Code3A>
+			<Code3N>392</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Йена</NameRus>
+			<ShortNameRus>Йена</ShortNameRus>
+			<NameKaz>Йена</NameKaz>
+			<ShortNameKaz>Йена</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>JPN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>150</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1257</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KYD</Code3A>
+			<Code3N>136</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Островов Кайман</NameRus>
+			<ShortNameRus>Доллар Островов Кайман</ShortNameRus>
+			<NameKaz>Кайман аралдары доллары</NameKaz>
+			<ShortNameKaz>Кайман аралдары доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CYM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>151</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1261</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>ANG</Code3A>
+			<Code3N>532</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Нидерландск.антильск.гульден</NameRus>
+			<ShortNameRus>Нидерл.антил.гульден</ShortNameRus>
+			<NameKaz>Нидерланд.антильдік гульден</NameKaz>
+			<ShortNameKaz>Нидерланд.антильдік гульден</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10015</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ANT</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>152</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1263</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SBD</Code3A>
+			<Code3N>090</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Соломоновых островов</NameRus>
+			<ShortNameRus>Доллар Солом. остр.</ShortNameRus>
+			<NameKaz>Соломон аралдары доллары</NameKaz>
+			<ShortNameKaz>Соломон аралдары доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SLB</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>153</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1268</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>KZT</Code3A>
+			<Code3N>398</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Тенге</NameRus>
+			<ShortNameRus>Тенге</ShortNameRus>
+			<NameKaz>Тенге</NameKaz>
+			<ShortNameKaz>Тенге</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10043</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>KAZ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>154</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1269</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AED</Code3A>
+			<Code3N>784</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Дирхам</NameRus>
+			<ShortNameRus>Дирхам</ShortNameRus>
+			<NameKaz>Дирхам</NameKaz>
+			<ShortNameKaz>Дирхам</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10017</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>ARE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>155</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1270</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>HKD</Code3A>
+			<Code3N>344</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Гонконгский доллар</NameRus>
+			<ShortNameRus>Гонконгск. доллар</ShortNameRus>
+			<NameKaz>Гонконг доллары</NameKaz>
+			<ShortNameKaz>Гонконг доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10036</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>HKG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>156</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1272</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SAR</Code3A>
+			<Code3N>682</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Саудовский риял</NameRus>
+			<ShortNameRus>Саудовск. риял</ShortNameRus>
+			<NameKaz>Саудов риялы</NameKaz>
+			<ShortNameKaz>Саудов риялы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>10018</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AIA</Country>
+			<Country>SAU</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>157</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1273</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TTD</Code3A>
+			<Code3N>780</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Доллар Тринидада и Тобаго</NameRus>
+			<ShortNameRus>Дол. Тринид. и Тоб.</ShortNameRus>
+			<NameKaz>Тринидада мен Тобого доллары</NameKaz>
+			<ShortNameKaz>Тринидада мен Тобого доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TTO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>158</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1275</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LAK</Code3A>
+			<Code3N>418</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Кип</NameRus>
+			<ShortNameRus>Кип</ShortNameRus>
+			<NameKaz>Кип</NameKaz>
+			<ShortNameKaz>Кип</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LAO</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>159</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1292</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XAU</Code3A>
+			<Code3N>959</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Золото</NameRus>
+			<ShortNameRus>Золото</ShortNameRus>
+			<NameKaz>Алтын</NameKaz>
+			<ShortNameKaz>Алтын</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>160</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1293</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XBA</Code3A>
+			<Code3N>955</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Европейск. составн. ед (EURCO)</NameRus>
+			<ShortNameRus>Европ сост.ед(EURCO)</ShortNameRus>
+			<NameKaz>Еуроп. құрамдас.бір. (EURCO)</NameKaz>
+			<ShortNameKaz>Еуроп. құрамдас.бір. (EURCO)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>161</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1294</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XBB</Code3A>
+			<Code3N>956</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Европ.вал.ед.(E.M.U.-6)</NameRus>
+			<ShortNameRus>Евр.вал.ед(E.M.U.-6)</ShortNameRus>
+			<NameKaz>Еуроп.вал.бірлігі(E.M.U.-6)</NameKaz>
+			<ShortNameKaz>Еуроп.вал.бірлігі(E.M.U.-6)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>162</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1295</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XBC</Code3A>
+			<Code3N>957</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Европ. ед. счетов 9(E.U.A.-9)</NameRus>
+			<ShortNameRus>Евр.ед.сч9(E.U.A.-9)</ShortNameRus>
+			<NameKaz>Еур.бірыңғай шоттары 9(E.U.A.-9)</NameKaz>
+			<ShortNameKaz>Еур.бірыңғай шоттары 9(E.U.A.-9)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>163</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1296</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XBD</Code3A>
+			<Code3N>958</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Евр.ед.сч.17(E.U.A.-17)</NameRus>
+			<ShortNameRus>Евр.ед.сч17(EUA-17)</ShortNameRus>
+			<NameKaz>Еур.бір.шоты17(E.U.A.-17)</NameKaz>
+			<ShortNameKaz>Еур.бір.шоты17(E.U.A.-17)</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>164</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1297</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XPD</Code3A>
+			<Code3N>964</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Палладий</NameRus>
+			<ShortNameRus>Палладий</ShortNameRus>
+			<NameKaz>Палладий</NameKaz>
+			<ShortNameKaz>Палладий</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>165</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1298</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XPT</Code3A>
+			<Code3N>962</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Платина</NameRus>
+			<ShortNameRus>Платина</ShortNameRus>
+			<NameKaz>Платина</NameKaz>
+			<ShortNameKaz>Платина</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>166</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1299</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XAG</Code3A>
+			<Code3N>961</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Серебро</NameRus>
+			<ShortNameRus>Серебро</ShortNameRus>
+			<NameKaz>Күміс</NameKaz>
+			<ShortNameKaz>Күміс</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>167</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1300</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XTS</Code3A>
+			<Code3N>963</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Спец.коды,зарез. для контроля</NameRus>
+			<ShortNameRus>Сп.код.зар.для конт.</ShortNameRus>
+			<NameKaz>Бақылау үшін арнайы кодтар</NameKaz>
+			<ShortNameKaz>Бақылау үшін арнайы кодтар</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>168</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1302</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XXX</Code3A>
+			<Code3N>999</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Коды,.оп.,в кот.не задей.вал.</NameRus>
+			<ShortNameRus>Коды,не задей.вал.</ShortNameRus>
+			<NameKaz>Валюта қолданылмайтын оп. кодтары</NameKaz>
+			<ShortNameKaz>Валюта қолданылмайтын оп. кодтары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>YEM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>169</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1303</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>EUR</Code3A>
+			<Code3N>978</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Евро</NameRus>
+			<ShortNameRus>Евро</ShortNameRus>
+			<NameKaz>Еуро</NameKaz>
+			<ShortNameKaz>Еуро</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>1</IsQuoted>
+			<CurrencyRate>6</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>AUT</Country>
+			<Country>AND</Country>
+			<Country>BEL</Country>
+			<Country>BFA</Country>
+			<Country>IRL</Country>
+			<Country>ESP</Country>
+			<Country>ITA</Country>
+			<Country>GLP</Country>
+			<Country>DEU</Country>
+			<Country>GRC</Country>
+			<Country>LUX</Country>
+			<Country>MYT</Country>
+			<Country>MTQ</Country>
+			<Country>MCO</Country>
+			<Country>NLD</Country>
+			<Country>PRT</Country>
+			<Country>REU</Country>
+			<Country>SMR</Country>
+			<Country>FIN</Country>
+			<Country>FRA</Country>
+			<Country>GUF</Country>
+			<Country>VAT</Country>
+			<Country>SPM</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>170</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1304</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>IQD</Code3A>
+			<Code3N>368</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Иракский динар</NameRus>
+			<ShortNameRus>Иракск. динар</ShortNameRus>
+			<NameKaz>Ирак динары</NameKaz>
+			<ShortNameKaz>Ирак динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>IRQ</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>171</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1305</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CZK</Code3A>
+			<Code3N>203</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Чешская крона</NameRus>
+			<ShortNameRus>Чешская крона</ShortNameRus>
+			<NameKaz>Чех кронасы</NameKaz>
+			<ShortNameKaz>Чех кронасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10039</CurrencyRate>
+			<IsOESRCurr>1</IsOESRCurr>
+			<Country>CZE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>172</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>1306</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CSD</Code3A>
+			<Code3N>891</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Сербский динар</NameRus>
+			<ShortNameRus>Сербский динар</ShortNameRus>
+			<NameKaz>Серб динары</NameKaz>
+			<ShortNameKaz>Серб динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>173</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1307</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XFU</Code3A>
+			<Code3N>Nil</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Франк</NameRus>
+			<ShortNameRus>Франк</ShortNameRus>
+			<NameKaz>Франк</NameKaz>
+			<ShortNameKaz>Франк</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>174</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2002-02-18</OperDate>
+			<EntityID>1308</EntityID>
+			<BeginDate>2002-02-18</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>XFO</Code3A>
+			<Code3N>Nil</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Золото-франк</NameRus>
+			<ShortNameRus>Золото-франк</ShortNameRus>
+			<NameKaz>Алтын-франк</NameKaz>
+			<ShortNameKaz>Алтын-франк</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>175</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-05-26</OperDate>
+			<EntityID>1319</EntityID>
+			<BeginDate>2003-05-12</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CDF</Code3A>
+			<Code3N>976</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Конголезский франк</NameRus>
+			<ShortNameRus>Конголезский франк</ShortNameRus>
+			<NameKaz>Конголез франкі</NameKaz>
+			<ShortNameKaz>Конголез франкі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>COD</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>176</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-05-22</OperDate>
+			<EntityID>1320</EntityID>
+			<BeginDate>2003-05-12</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LRD</Code3A>
+			<Code3N>430</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Либерийский доллар</NameRus>
+			<ShortNameRus>Либерийский доллар</ShortNameRus>
+			<NameKaz>Либерия доллары</NameKaz>
+			<ShortNameKaz>Либерия доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LBR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>177</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>1321</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LBP</Code3A>
+			<Code3N>422</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Ливанский фунт</NameRus>
+			<ShortNameRus>Ливанский фунт</ShortNameRus>
+			<NameKaz>Ливан фунты</NameKaz>
+			<ShortNameKaz>Ливан фунты</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10028</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LBN</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>178</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2003-05-26</OperDate>
+			<EntityID>1322</EntityID>
+			<BeginDate>2003-05-12</BeginDate>
+			<EndDate>2099-01-01</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>LYD</Code3A>
+			<Code3N>434</Code3N>
+			<SmallUnit>3</SmallUnit>
+			<NameRus>Ливийский динар</NameRus>
+			<ShortNameRus>Ливийский динар</ShortNameRus>
+			<NameKaz>Ливия динары</NameKaz>
+			<ShortNameKaz>Ливия динары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>LBY</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>179</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2008-10-13</OperDate>
+			<EntityID>6333</EntityID>
+			<BeginDate>2008-10-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>AFN</Code3A>
+			<Code3N>971</Code3N>
+			<NameRus>Афгани_</NameRus>
+			<ShortNameRus>Афгани</ShortNameRus>
+			<NameKaz>Ауған</NameKaz>
+			<ShortNameKaz>Ауған</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>AFG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>180</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2007-01-01</OperDate>
+			<EntityID>6341</EntityID>
+			<BeginDate>2007-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>MGA</Code3A>
+			<Code3N>969</Code3N>
+			<NameRus>Малагасийский ариари</NameRus>
+			<ShortNameRus>Малагас. ариари</ShortNameRus>
+			<NameKaz>Малагасия ариариы</NameKaz>
+			<ShortNameKaz>Малагас. ариариы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>MDG</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>181</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2005-01-13</OperDate>
+			<EntityID>6342</EntityID>
+			<BeginDate>2005-01-13</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>COU</Code3A>
+			<Code3N>970</Code3N>
+			<NameRus>Единица реальной стоимости</NameRus>
+			<ShortNameRus>Ед. реальной стоимости</ShortNameRus>
+			<NameKaz>Нақты құн бірлігі</NameKaz>
+			<ShortNameKaz>Нақты құн бірлігі</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>COL</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>182</EntityNum>
+			<OperType>UPD</OperType>
+			<OperDate>2014-09-11</OperDate>
+			<EntityID>6406</EntityID>
+			<BeginDate>2014-09-11</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>TRY</Code3A>
+			<Code3N>949</Code3N>
+			<SmallUnit>0</SmallUnit>
+			<NameRus>Новая турецкая лира</NameRus>
+			<ShortNameRus>Новая турецкая лира</ShortNameRus>
+			<NameKaz>Жаңа түрік лирасы</NameKaz>
+			<ShortNameKaz>Жаңа түрік лирасы</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<CurrencyRate>10024</CurrencyRate>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>TUR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>183</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2006-12-29</OperDate>
+			<EntityID>6407</EntityID>
+			<BeginDate>2007-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>SRD</Code3A>
+			<Code3N>968</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>Суринамский доллар</NameRus>
+			<ShortNameRus>Суринамский доллар</ShortNameRus>
+			<NameKaz>Суринам доллары</NameKaz>
+			<ShortNameKaz>Суринам доллары</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>SUR</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>184</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2006-12-29</OperDate>
+			<EntityID>6410</EntityID>
+			<BeginDate>2007-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CHW</Code3A>
+			<Code3N>948</Code3N>
+			<SmallUnit>2</SmallUnit>
+			<NameRus>WIR Франк</NameRus>
+			<ShortNameRus>WIR Франк</ShortNameRus>
+			<NameKaz>WIR Франк</NameKaz>
+			<ShortNameKaz>WIR Франк</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+			<Country>CHE</Country>
+		</EntityCustom>
+	</Entity>
+	<Entity>
+		<EntitySystem>
+			<EntityNum>185</EntityNum>
+			<OperType>ADD</OperType>
+			<OperDate>2006-12-29</OperDate>
+			<EntityID>6411</EntityID>
+			<BeginDate>2007-01-01</BeginDate>
+			<EndDate>2099-12-31</EndDate>
+		</EntitySystem>
+		<EntityCustom>
+			<Code3A>CHE</Code3A>
+			<Code3N>947</Code3N>
+			<SmallUnit>1</SmallUnit>
+			<NameRus>WIR Евро</NameRus>
+			<ShortNameRus>WIR Евро</ShortNameRus>
+			<NameKaz>WIR Евро</NameKaz>
+			<ShortNameKaz>WIR Евро</ShortNameKaz>
+			<NameEng>1</NameEng>
+			<ShortNameEng>1</ShortNameEng>
+			<IsQuoted>0</IsQuoted>
+			<IsOESRCurr>0</IsOESRCurr>
+		</EntityCustom>
+	</Entity>
+</Body>
+</Envelope>

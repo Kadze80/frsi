@@ -1,0 +1,214 @@
+/* Version 1.5 */
+table.layoutTable {
+    border-collapse: collapse;
+    border-style: none;
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+}
+table.layoutTable td {
+    border-style: none;
+    padding: 0;
+}
+table.textLayoutTable {
+    border-collapse: collapse;
+    border-style: none;
+    background-color: transparent;
+}
+table.textLayoutTable td {
+    border-style: none;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+}
+table.dataTable {
+    border-collapse: collapse;
+    border-style: none;
+    width: 100%;
+    margin: 0;
+    background-color: transparent;
+}
+table.dataTable th {
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 0.5em 0 0.5em;
+    text-align: center;
+    background-color: rgb(191, 192, 194);
+}
+table.dataTable td {
+    border-style: solid;
+    border-width: 1px;
+    padding: 0 0.5em 1px 0.5em;
+    text-align: center;
+}
+table.dataTable input {
+    /*width: 8em;
+    padding: 2px 0.5em 1px 0.5em;*/
+    padding-top:  2px;
+    padding-bottom:  1px;
+    text-align: right;
+}
+tr.groupHeader td {
+    font-weight: bold;
+    background-color: rgb(215, 217, 218);
+}
+input[type="text"].auto {
+    font-weight: bold;
+}
+input[type="text"].readOnly, textarea.readOnly{
+    border-color: silver;
+    background: transparent;
+}
+input[type="button"].toolButton, button[type="button"].toolButton {
+    width: 2em;
+    height: 1.5em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: small;
+    font-weight: normal;
+}
+.layout-main .ui-layout-resizer-closed {
+    background: white;
+}
+div.lu-form {
+    background: transparent;
+}
+.lu-form .ui-layout-unit-content {
+    background: transparent;
+    padding: 0.5em;
+    font-size: small;
+}
+div.lu-messages {
+    background: white;
+}
+.lu-messages .ui-layout-unit-content {
+    background: white;
+    padding: 0.5em;
+    font-size: small;
+}
+
+.focused {
+    outline: 2px solid red;
+}
+
+/*input.inputAuto {
+    background-color: green;
+    font-weight: bold;
+}
+
+input.inputReadOnly {
+    background-color: green;
+}*/
+
+.s-dialog {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.s-dialog .s-dialog-content {
+    position: absolute;
+    width: 600px;
+    height: 25em;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.s-dialog .dialog-body {
+    padding: 0;
+    height: 100%;
+    overflow: scroll;
+    position: relative;
+}
+
+.s-dialog-body tr:active {
+    background-color: #FECA40;
+}
+
+.s-data-table .s-selected-row {
+    background-color: #F39814;
+    color: #ffffff;
+}
+
+
+.m-dialog {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.m-dialog .m-dialog-content {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.m-dialog .dialog-body {
+    padding: 0;
+    height: 370px;
+    overflow: scroll;
+    position: relative;
+}
+
+.m-dialog .m-dialog-footer {
+    padding: 3px;
+    bottom: 0;
+    position: absolute;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dialog-body table, .dialog-body th, .dialog-body td {
+    border: 1px solid black;
+}
+
+.dialog-body tr {
+    cursor: pointer;
+}
+
+.dialog-body tr:active {
+    background-color: #FECA40;
+}
+
+.dialog-body tr:hover {
+    background-color: #99CCFF;
+}
+
+.data-table .selected-row {
+    background-color: #787878;
+    color: #ffffff;
+}
+
+
+td.hidden-column {
+    display: none;
+}
+
+.ref-value textarea[refCaption="code"]{
+    text-align: center;
+}
+
+textarea.autoHeight {
+    overflow: hidden;
+}
+
+/* Стили для результатов лог. контроля */
+.controlFail .customColControlResult { color: red; }
+.controlSuccess .customColControlResult { color: green; }
+
+/* Таблица без шапки колонок */
+.noHeader thead {
+    display: none;
+}

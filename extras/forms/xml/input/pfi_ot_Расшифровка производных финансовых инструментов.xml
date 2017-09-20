@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="pfi_ot"
+languageCode="ru" title="Расшифровка производных финансовых инструментов, взвешенных с учетом кредитного риска (ОТ)"
+shortName="Расш произв фин инстр,взвеш с уч кред риска(ОТ)"
+beginDate="2014-01-01" endDate=""
+typeCode="INPUT"
+tag='{ "keyFields" : {"pfi_ot_array":"num"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+Приложение 3<br/>
+к Правилам расчета пруденциальных<br/>
+нормативов для организатора торгов
+</span>
+
+<h3 style="text-align: center;">
+Расшифровка производных финансовых инструментов, взвешенных с учетом кредитного риска
+</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th>№</th>
+	<th>Наименование статей</th>
+	<th>Номинальная стоимость производных финансовых инструментов</th>
+	<th>Коэффициент кредитного риска для производных финансовых инструментов в процентах</th>
+	<th>Сумма с учетом кредитного риска для производных финансовых инструментов</th>
+	<th>Рыночная стоимость производных финансовых инструментов</th>
+	<th>Коэффициент кредитного риска для контрагента в процентах в соответствии с приложением 1 к настоящим Правилам</th>
+	<th>Сумма к расчету</th>
+</tr>
+<tr>
+	<th>1</th>
+	<th>2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5=3*4</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8=(5+6)*7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>1</td>
+	<td>Операции с производными финансовыми инструментами, связанные с государственными ценными бумагами, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="1" readonly="true" value="0.02" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="1" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>Операции с производными финансовыми инструментами, связанные с государственными ценными бумагами, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="2" readonly="true" value="0.03" mask="money2"/> </td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="2" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>Операции с производными финансовыми инструментами, связанные с государственными ценными бумагами, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="3" readonly="true" value="0.04" mask="money2"/> </td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="3" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>Операции с производными финансовыми инструментами, связанные с валютными сделками, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="4" readonly="true" value="0.05" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="4" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>Операции с производными финансовыми инструментами, связанные с валютными сделками, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="5" readonly="true" value="0.07" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="5" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>6</td>
+	<td>Операции с производными финансовыми инструментами, связанные с валютными сделками, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="6" readonly="true" value="0.09" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="6" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>7</td>
+	<td>Операции с производными финансовыми инструментами, связанные с процентными сделками, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="7" readonly="true" value="0.03" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="7" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>8</td>
+	<td>Операции с производными финансовыми инструментами, связанные с процентными сделками, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="8" readonly="true" value="0.06" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="8" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>9</td>
+	<td>Операции с производными финансовыми инструментами, связанные с процентными сделками, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="9" readonly="true" value="0.09" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="9" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>10</td>
+	<td>Операции с производными финансовыми инструментами, связанные с не государственными ценными бумагами, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="10" readonly="true" value="0.06" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="10" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>11</td>
+	<td>Операции с производными финансовыми инструментами, связанные с не государственными ценными бумагами, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="11" readonly="true" value="0.08" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="11" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="11" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>12</td>
+	<td>Операции с производными финансовыми инструментами, связанные с не государственными ценными бумагами, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="12" readonly="true" value="0.1" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="12" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="12" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>13</td>
+	<td>Операции с производными финансовыми инструментами, связанные с драгоценными металлами, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="13" readonly="true" value="0.07" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="13" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="13" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>14</td>
+	<td>Операции с производными финансовыми инструментами, связанные с драгоценными металлами, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="14" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="14" readonly="true" value="0.07" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="14" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="14" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="14" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>15</td>
+	<td>Операции с производными финансовыми инструментами, связанные с драгоценными металлами, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="15" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="15" readonly="true" value="0.08" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="15" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="15" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="15" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="15" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>16</td>
+	<td>Операции с производными финансовыми инструментами, связанные с прочими операциями, со сроком погашения до 1 (одного) года</td>
+	<td><InputText name="nom_val" key="num" keyValue="16" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="16" readonly="true" value="0.1" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="16" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="16" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="16" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="16" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>17</td>
+	<td>Операции с производными финансовыми инструментами, связанные с прочими операциями, со сроком погашения от 1 (одного) года до 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="17" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="17" readonly="true" value="0.12" mask="money2"/></td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="17" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="17" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="17" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr>
+	<td>18</td>
+	<td>Операции с производными финансовыми инструментами, связанные с прочими операциями, со сроком погашения более 5 (пяти) лет</td>
+	<td><InputText name="nom_val" key="num" keyValue="18" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_perc" key="num" keyValue="18" readonly="true" value="0.15" mask="money2"/> </td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="18" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="18" mask="money0"/></td>
+	<td><InputText name="ratio_credrisk_ca_perc" key="num" keyValue="18" mask="money0"/></td>
+	<td><InputText name="sum_calc" key="num" keyValue="18" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td colspan="2">Итого производные финансовые инструменты, взвешенные с учетом кредитного риска</td>
+	<td><InputText name="nom_val" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td>x</td>
+	<td><InputText name="sum_cred_risk" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="market_val" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td>x</td>
+	<td><InputText name="sum_calc" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<br/>
+<br/>
+<br/>
+<table class="textLayoutTable">
+<tr>
+<td>Первый руководитель:</td>
+<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Главный бухгалтер:</td>
+<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Исполнитель:</td>
+<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+</tr>
+<tr>
+<td>Дата:</td>
+<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+</tr>
+</table>
+
+<style>
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+table.dataTable td:nth-child(n+3) {
+text-align: right;
+}
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+var cn=[];
+cn[3]="nom_val";
+cn[4]="ratio_credrisk_perc";
+cn[5]="sum_cred_risk";
+cn[6]="market_val";
+cn[7]="ratio_credrisk_ca_perc";
+cn[8]="sum_calc";
+
+var sumA=0;
+var sumC=0;
+var sumD=0;
+var sumF=0;
+for (var arow=1; arow<=18; arow++ ) {
+var a = Cells(cn,arow,3);
+var b= Cells(cn,arow,4);
+
+var c = a*b/100;
+Print(cn,c,arow,5);
+
+var d = Cells(cn,arow,6);
+var e = Cells(cn,arow,7);
+
+var f = (c+d)*e/100;
+Print(cn,f,arow,8);
+
+sumA += a;
+sumC += c;
+sumD += d;
+sumF += f;
+}
+Cells(cn,"Itogo",3,sumA);
+Cells(cn,"Itogo",5,sumC);
+Cells(cn,"Itogo",6,sumD);
+Cells(cn,"Itogo",8,sumF);
+}
+function Cells(cn, prow, pcol) {
+var pp = "pfi_ot_array*"+cn[pcol]+":num:"+prow;
+// Если указано значение то, передать это
+if (arguments[3]) {
+setInputValue(pp, arguments[3]);
+}else{
+return getInputValue(pp);
+}
+}
+function floorN(x,n){
+var mult = Math.pow(10,n);
+return Math.floor(x*mult)/mult;
+}
+function Print(cn,c, arow, icol){
+if (c) {
+// Cells(cn,arow,icol, floorN(c,2));
+Cells(cn,arow,icol, round2(c,2));
+} else{
+Cells(cn,arow,icol, "0");
+}
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#pfi_ot_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

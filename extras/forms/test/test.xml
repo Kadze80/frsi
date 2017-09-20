@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="test"
+	languageCode="ru" title="Тестовая форма"
+    shortName="Тест"
+	beginDate="2015-01-01" endDate=""
+	typeCode="INPUT"
+    tag='{ "updateCalculatedFieldsManually" : true }'
+	style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 1<br/>к постановлению Правления<br/>Национального Банка<br/>Республики Казахстан
+	</span>
+
+	<h3 style="text-align: center;">Тестовая форма</h3>
+
+	<p style="text-align: right;">Paragraph</p>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/><br/>
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+
+	<table name="mainTable" class="dataTable">
+		<tr>
+			<th rowspan="2">Заголовок на две строки</th>
+			<th colspan="2">Заголовок на две колонки</th>
+		</tr>
+		<tr>
+			<th>Подзаголовок 2:2</th>
+			<th>Подзаголовок 2:3</th>
+		</tr>
+		<tr>
+			<th>Наименование показателя</th>
+			<th style="width: 10em;">Код показателя</th>
+			<th>Значение показателя</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		<tr class="groupHeader">
+			<td>Группа показателей</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Наименование показателя</td>
+			<td>1</td>
+			<td><InputText name="col3" key="code" keyValue="1" readonly="true" auto="true" mask="money2"/></td>
+		</tr>
+		<tr>
+			<td>из них:</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;Наименование показателя</td>
+			<td>1.1</td>
+			<td><InputText name="col3" key="code" keyValue="1.1" mask="money4"/></td>
+		</tr>
+		<tr>
+			<td>&#160;&#160;Наименование показателя</td>
+			<td>1.2</td>
+			<td><InputDate name="col3" key="code" keyValue="1.2"/></td>
+		</tr>
+		<tr>
+			<td>Наименование &amp; показателя</td>
+			<td>2</td>
+			<td><InputDate name="col3" key="code" keyValue="2"/></td>
+		</tr>
+
+		<tr class="groupHeader">
+			<td>Итого</td>
+			<td>3</td>
+			<td><InputText name="col3" key="code" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+
+        <tr>
+            <td>Страна</td>
+            <td>4</td>
+            <td><InputSelect name="col3" key="code" keyValue="4" ref="ref_country" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+        </tr>
+
+	</table>
+	<br/>
+	Примечание: Текст примечания.
+	<br/><br/>
+    <table class="textLayoutTable">
+        <tr>
+            <td>Первый руководитель:</td>
+            <td><InputText name="ceo" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Главный бухгалтер:</td>
+            <td><InputText name="chief_accountant" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Исполнитель:</td>
+            <td><InputText name="drafted_by" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Дата:</td>
+            <td><InputDate name="signature_date" style="width: 6em; text-align: center;"/></td>
+        </tr>
+    </table>
+
+	<br/><br/><br/><br/>
+	<InputText name="executorName" readonly="true" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" readonly="true" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+
+table.dataTable td:nth-child(1) {
+	text-align: left;
+}
+table.dataTable td:nth-child(2) {
+	text-align: center;
+}
+
+]]>
+</style>
+
+<script>
+<![CDATA[
+
+function updateCalculatedFields() {
+
+	var groups = document.getElementsByTagName('input');
+	var v1 = sumInputValuesByKeyValueRange(groups, "test_mainTable*col3:code:1.1", "test_mainTable*col3:code:1.2");
+	setInputValue("test_mainTable*col3:code:1", v1);
+
+	var v2 = getInputValue("test_mainTable*col3:code:2");
+	var v3 = v1 + v2;
+	setInputValue("test_mainTable*col3:code:3", v3);
+}
+
+]]>
+</script>
+
+</Form>

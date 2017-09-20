@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="fs_pz_mfo_out"
+languageCode="ru" title="Сводный отчет о микрокредитах, в том числе, по которым имеется просроченная задолженность по ОД и (или) НВ в деталях, а также о размере резервов (провизий) МФО РК (МФО)"
+shortName="Свод отчет о микрокред., просроч. задолж. по ОД и НВ (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"fs_pz_mfo_out_array":"n"} }'
+typeCode="CONSOLIDATED"
+xmlVersion="1"
+style="" styleClass="">
+
+	<h3 style="text-align: center;">Сводный отчет о микрокредитах, в том числе, по которым имеется просроченная задолженность по основному долгу и (или) начисленному вознаграждению в деталях, а также о размере резервов (провизий) микрофинансовых организаций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th rowspan="2">№ п/п</th>
+					<th rowspan="2" style="min-width: 25em;">Наименование</th>
+					<th>Основной долг</th>
+					<th>Начисленное вознаграждение</th>
+					<th>Стоимость обеспечения </th>
+					<th>Резервы (провизии)</th>
+				</tr>
+				<tr fixed="nf">
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Микрокредиты, выданные юридическим лицам в том числе:</td>
+					<td><InputText name="v1" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.1</td>
+					<td>Микрокредиты, по которым просроченная задолженность отсутствует</td>
+					<td><InputText name="v1" key="n" keyValue="1.1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.2</td>
+					<td>Микрокредиты, по  которым имеется просроченная задолженность по основному долгу и/или начисленному вознаграждению, в том числе:</td>
+					<td><InputText name="v1" key="n" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.2.1</td>
+					<td>от 1 до 30 дней </td>
+					<td><InputText name="v1" key="n" keyValue="1.2.1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.2.1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.2.1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.2.1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.2.2</td>
+					<td>от 31 до 60 дней </td>
+					<td><InputText name="v1" key="n" keyValue="1.2.2" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.2.2" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.2.2" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.2.2" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.2.3</td>
+					<td>от 61 до 90 дней </td>
+					<td><InputText name="v1" key="n" keyValue="1.2.3" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.2.3" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.2.3" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.2.3" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1.2.4</td>
+					<td>более 90 дней </td>
+					<td><InputText name="v1" key="n" keyValue="1.2.4" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1.2.4" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1.2.4" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1.2.4" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Микрокредиты, выданные физическим лицам, в том числе:</td>
+					<td><InputText name="v1" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.1</td>
+					<td>Микрокредиты, по которым просроченная задолженность отсутствует</td>
+					<td><InputText name="v1" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.2</td>
+					<td>Микрокредиты, по  которым имеется просроченная задолженность по основному долгу и/или начисленному вознаграждению, в том числе:</td>
+					<td><InputText name="v1" key="n" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.2.1</td>
+					<td>от 1 до 30 дней </td>
+					<td><InputText name="v1" key="n" keyValue="2.2.1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2.1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2.1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2.1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.2.2</td>
+					<td>от 31 до 60 дней </td>
+					<td><InputText name="v1" key="n" keyValue="2.2.2" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2.2" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2.2" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2.2" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.2.3</td>
+					<td>от 61 до 90 дней </td>
+					<td><InputText name="v1" key="n" keyValue="2.2.3" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2.3" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2.3" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2.3" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2.2.4</td>
+					<td>более 90 дней </td>
+					<td><InputText name="v1" key="n" keyValue="2.2.4" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2.4" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2.4" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2.4" mask="money0"/></td>
+				</tr>
+				<tr class="groupHeader">
+					<td></td>
+					<td>всего (1+2)</td>
+					<td><InputText name="v1" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: center;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_pz_mfo_out_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{noticeUserSetBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+
+        <h:form id="mainForm">
+            <h:panelGroup id ="actions" >
+                <p:toolbar id ="mbActions" >
+                    <f:facet name="left">
+                        <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{noticeUserSetBean.refreshSettings()}"
+                                         disabled="#{!userBean.hasPermission('NOTICE:USER_SETTING:REFRESH')}" update="@form:pgdt, @form:actions" icon="ui-icon-arrowrefresh-1-s" />
+                        <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                        <p:commandButton value="Сохранить изменения" actionListener="#{noticeUserSetBean.saveSettings()}"
+                                         disabled="#{noticeUserSetBean.btnSaveDisable}" update="@form:pgdt, @form:actions, :messages" />
+                    </f:facet>
+                </p:toolbar>
+            </h:panelGroup>
+
+            <h:panelGroup id ="pgdt">
+                <p:dataTable id="settingTable" value="#{noticeUserSetBean.settingsList}" var="setting" rowKey="#{setting}" emptyMessage="#{res.noRecordsFound}"
+                             selectionMode="single" sortBy="#{setting.name}" >
+                    <p:column headerText="Уведомлять на почту" sortBy="#{setting.noticeMail}" style="width:5em; text-align: center" >
+                        <p:selectBooleanCheckbox value="#{setting.noticeMail}">
+                            <p:ajax listener="#{noticeUserSetBean.onChangeFlag()}" update="@form:actions"/>
+                        </p:selectBooleanCheckbox>
+                    </p:column>
+                    <p:column headerText="Уведомлять в системе" sortBy="#{setting.noticeSystem}" style="width:5em; text-align: center" >
+                        <p:selectBooleanCheckbox value="#{setting.noticeSystem}">
+                            <p:ajax listener="#{noticeUserSetBean.onChangeFlag()}" update="@form:actions"/>
+                        </p:selectBooleanCheckbox>
+                    </p:column>
+                    <p:column headerText="Наименование уведомления" sortBy="#{setting.name}" style="width: 20em"><h:outputText value="#{setting.name}"/></p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+
+        <p:growl id="messages" showDetail="true" />
+    </h:body>
+</f:view>

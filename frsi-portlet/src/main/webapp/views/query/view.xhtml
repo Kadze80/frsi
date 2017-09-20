@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/form.css?v=1.5"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body>
+        <components:ajax-status/>
+        <h:form>
+            <h3 style="margin-top: 0">Query string</h3>
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <p:outputLabel for="query_type" value="Type:"/>
+                <p:selectOneRadio id="query_type" value="#{queryBean.queryType}">
+                    <f:selectItem itemLabel="Select" itemValue="SELECT"/>
+                    <f:selectItem itemLabel="Insert, Update, Remove" itemValue="INSERT_OR_UPDATE"/>
+                    <f:selectItem itemLabel="Explain plan" itemValue="EXPLAIN_PLAN"/>
+                </p:selectOneRadio>
+            </h:panelGrid>
+            <p:inputTextarea rows="10" cols="50" value="#{queryBean.queryString}"/><br/>
+            <p:commandButton value="Execute" actionListener="#{queryBean.execute}" process="@form" update="result"/><br/>
+            <h:panelGroup id="result">
+                <h:outputText value="${queryBean.queryResult}" escape="false"/>
+                <h:panelGrid columns="2">
+                    rowsCount: <h:outputText value="#{queryBean.dataSet.rowsCount}"/>
+                    executionTimeMillis: <h:outputText value="#{queryBean.dataSet.executionTimeMillis}"/>
+                    affectedRowsCount: <h:outputText value="#{queryBean.dataSet.affectedRowsCount}"/>
+                    exceptionMessage: <h:outputText value="#{queryBean.dataSet.exceptionMessage}"/>
+                    sqlErrorPosition: <h:outputText value="#{queryBean.dataSet.sqlErrorPosition}"/>
+                </h:panelGrid>
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+</f:view>

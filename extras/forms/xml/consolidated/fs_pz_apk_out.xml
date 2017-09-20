@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+	name="fs_pz_apk_out"
+	languageCode="ru" title="Сводный отчет о предоставленных займах (АПК)"
+    shortName="Свод отч о пред займах (АПК)"
+	beginDate="2014-08-01"
+	typeCode="CONSOLIDATED"
+	tag='{ "keyFields" : {"fs_pz_apk_out_1_array":"num", "fs_pz_apk_out_2_array":"num", "fs_pz_apk_out_3_array":"num"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">
+		Сводный отчет о предоставленных займах организаций, осуществляющих отдельные виды банковских операций Республики Казахстан
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+	
+    <span style="display: block; text-align: left;">Таблица 1. Займы по типу заемщиков и  целевому назначению:</span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	
+	<table name= "1_array" class="dataTable">	
+	  <thead>	
+		<tr>
+			<th style="width:4em;">№ п/п</th>
+			<th style="width:40em;">Займы</th>
+			<th style="width:10em;">Остаток на отчетную дату</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>Займы банкам и организациям, осуществляющим отдельные виды банковских операций</td>
+			<td><InputText name="bal_sum" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Займы юридическим лицам, в том числе:</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>&#160;&#160;На сельскохозяйственные цели</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.2</td>
+			<td>&#160;&#160;На производственные цели</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.3</td>
+			<td>&#160;&#160;На строительство</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.3" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.4</td>
+			<td>&#160;&#160;На покупку недвижимости</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.4" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.5</td>
+			<td>&#160;&#160;На развитие сферы услуг</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.5" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.6</td>
+			<td>&#160;&#160;Прочие займы</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.6" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Займы физическим лицам, в том числе:</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.1</td>
+			<td>&#160;&#160;На сельскохозяйственные цели</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.2</td>
+			<td>&#160;&#160;На потребительские цели </td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.3</td>
+			<td>&#160;&#160;На покупку жилья</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.3" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.4</td>
+			<td>&#160;&#160;На строительство </td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.4" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.5</td>
+			<td>&#160;&#160;На развитие сферы услуг</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.5" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.6</td>
+			<td>Прочие займы</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.6" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr >
+			<td>4</td>
+			<td>Операции «обратное РЕПО»</td>
+			<td><InputText name="bal_sum" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Справочно: займы, выданные юридическим лицам посредством финансового лизинга</td>
+			<td><InputText name="bal_sum" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Справочно: займы, выданные физическим лицам посредством финансового лизинга</td>
+			<td><InputText name="bal_sum" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Итого займов</td>
+			<td>
+				<InputText name="bal_sum" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+    <br/>
+	<span style="display: block; text-align: left;">Таблица 2. Займы по типу залога:</span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	
+	<table name="2_array" class="dataTable">		
+	<thead>
+		<tr>
+			<th style="width:4em;">№ п/п</th>
+			<th style="width:40em;">Займы</th>
+			<th style="width:10em;">Остаток на отчетную дату</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>Недвижимость, в том числе:</td>
+			<td><InputText name="bal_sum" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>1.1</td>
+			<td>&#160;&#160;под залог земли</td>
+			<td><InputText name="bal_sum" key="num" keyValue="1.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Гарантии и поручительства, в том числе:</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>&#160;&#160;под гарантии Правительства Республики Казахстан </td>
+			<td><InputText name="bal_sum" key="num" keyValue="2.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>&#160;&#160;Вклады</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Ценные бумаги</td>
+			<td><InputText name="bal_sum" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Многозалоговые</td>
+			<td><InputText name="bal_sum" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Другое обеспечение</td>
+			<td><InputText name="bal_sum" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Бланковые займы</td>
+			<td><InputText name="bal_sum" key="num" keyValue="7" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class ="groupHeader">
+			<td>8</td>
+			<td>Итого займов</td>
+			<td>
+				<InputText name="bal_sum" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+    <br/>
+	<span style="display: block; text-align: left;">Таблица 3. Займы, выданные субъектам малого предпринимательства:</span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	
+	<table name ="3_array" class="dataTable">	
+	<thead>	
+		<tr>
+			<th style="width:4em;">№ п/п</th>
+			<th style="width:40em;">Займы</th>
+			<th style="width:10em;">Остаток на отчетную дату</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>Юридическим лицам</td>
+			<td><InputText name="bal_sum" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Индивидуальным предпринимателям</td>
+			<td><InputText name="bal_sum" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Итого займов, выданных субъектам малого предпринимательства, в том числе</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.1</td>
+			<td>&#160;&#160;На сельскохозяйственные цели</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.1" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.2</td>
+			<td>&#160;&#160;На производственные цели</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.2" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.3</td>
+			<td>&#160;&#160;На строительство</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.3" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.4</td>
+			<td>&#160;&#160;На покупку недвижимости</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.4" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.5</td>
+			<td>&#160;&#160;На развитие сферы услуг</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.5" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>3.6</td>
+			<td>&#160;&#160;Прочие займы</td>
+			<td><InputText name="bal_sum" key="num" keyValue="3.6" readonly="true" mask="money0"/></td>
+		</tr>						
+	</tbody>
+	</table>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+	<style>
+	table.dataTable td:nth-child(1) {
+		text-align: center;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var i, sum;
+
+	sum = 0;
+	for (i = 1; i < 5; i++)
+		sum += getInputValue("fs_pz_apk_out_1_array*bal_sum:num:" + i);
+	setInputValue("fs_pz_apk_out_1_array*bal_sum:num:7", sum);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#t1").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

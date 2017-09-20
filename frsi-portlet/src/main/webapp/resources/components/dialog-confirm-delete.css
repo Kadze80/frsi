@@ -1,0 +1,36 @@
+.confirm-dialog-wrapper {
+    top: 0;
+    left: 0;
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, .1);
+    z-index: 3001;
+}
+
+.confirm-dialog-wrapper .confirm-dialog-content {
+    position: absolute;
+    /*width: 200px;
+    height: 60px*/;
+    width: 17em;
+    height: 6em;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.confirm-dialog-wrapper .confirm-dialog-body {
+    padding: 5px 3px;
+    position: relative;
+}
+
+.confirm-dialog-wrapper .confirm-dialog-footer {
+    padding: 3px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 2px;
+    position: absolute;
+    border-top: 1px solid #000;
+}

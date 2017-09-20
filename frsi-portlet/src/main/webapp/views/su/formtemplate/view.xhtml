@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+		encoding="UTF8"
+		locale="#{facesContext.externalContext.requestLocale}"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:c="http://java.sun.com/jsp/jstl/core"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:components="http://java.sun.com/jsf/composite/components">
+
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{suFormBean.preRender}"/>
+	</f:metadata>
+
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+		<style>
+			.centeredText input { text-align: center!important; }
+		</style>
+	</h:head>
+
+	<h:body onload="PF('statusDialog').hide()">
+		<p:dialog widgetVar="statusDialog"/>
+		<components:ajax-status/>
+		<components:dialog-error id="ccDialogError"/>
+		<h:form id="mainForm">
+
+			<h:panelGroup id ="actions" >
+				<p:toolbar id ="mbActions" >
+					<f:facet name="left">
+						<p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{suFormBean.refreshTemplates}" update="@form:grpFilters,@form:pgdt,@form:actions" icon="ui-icon-arrowrefresh-1-s" />
+						<p:commandButton value="Make Expression" actionListener="#{suFormBean.generateConsFormExpr}"/>
+
+                        <span class="ui-separator">
+                            <span class="ui-icon ui-icon-grip-dotted-vertical" />
+                        </span>
+						<p:commandButton value="Свойства" title="Свойства" oncomplete="PF('wDlgFormProps').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:PROPS')}" update=":frmFormProps" />
+
+						<p:menuButton value="Действия">
+							<p:menuitem value="#{res.validate}" actionListener="#{suFormBean.validate()}" oncomplete="PF('wValidationDialog').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null,'SU:TEMPL:VALIDATE')}" update=":validationDialog" />
+							<p:menuitem value="#{res.view}" action="/views/su/formtemplate/form?faces-redirect=true" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:VIEW')}" />
+							<p:menuitem value="#{res.add}" actionListener="#{suFormBean.updateExistingFormFlag(false)}" oncomplete="PF('wUploadDialog').show()" disabled="#{userBean.disabled(false, 'SU:TEMPL:ADD')}"/>
+							<p:menuitem value="#{res.edit}" actionListener="#{suFormBean.updateExistingFormFlag(true)}" oncomplete="PF('wUploadDialog').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:EDIT')}" />
+							<p:menuitem value="Изменить XML" actionListener="#{suFormBean.updateOnlyXml()}" oncomplete="PF('wUploadDialogXml').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:EDIT')}" />
+							<p:menuitem value="Изменить XLS" actionListener="#{suFormBean.updateExistingFormFlag(true)}" oncomplete="PF('wUploadDialogXls').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null || !suFormBean.selectedForm.typeCode.equals('INPUT'), 'SU:TEMPL:EDIT_XLS')}" />
+							<p:menuitem value="Изменить вых. XLS" actionListener="#{suFormBean.updateExistingFormFlag(true)}" oncomplete="PF('wUploadDialogXlsOut').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:EDIT_XLS_OUT')}" />
+							<p:menuitem value="#{res.delete}" onclick="PF('wConfirmDialog').show()" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:DELETE')}" />
+							<p:menuitem value="#{suFormBean.selectedForm.fillList ? 'Не заполнять список' : 'Заполнять список'}" actionListener="#{suFormBean.updateIsFillList()}" disabled="#{userBean.disabled(suFormBean.selectedForm==null, 'SU:TEMPL:EDIT')}" update="@form:formsTable,@form:actions" />
+							<p:menuitem value="Обновить шаблон балансовых счетов(вход/свод)" actionListener="#{suFormBean.updateBalanceAccountsTemplate()}" update="@form:formsTable,:messages,:validationDialog" disabled="#{userBean.disabled(false, 'SU:TEMPL:UPD_BA')}"/>
+							<p:menuitem value="Выгрузить вых. XLS" ajax="false" disabled="#{suFormBean.selectedForm==null}" >
+								<p:fileDownload value="#{suFormBean.onDownloadXlsOut()}"/>
+							</p:menuitem>
+						</p:menuButton>
+					</f:facet>
+				</p:toolbar>
+			</h:panelGroup>
+
+			<p:fieldset id="grpFilters" legend="Фильтры" toggleable="true" toggleSpeed="250" style="margin-top: 0.5em">
+				<p:ajax event="toggle" listener="#{suFormBean.onFiltersToggle}" update=":messages"/>
+				<h:outputText value="Период: с&#160;"/>
+				<p:calendar value="#{suFormBean.filterReportDateBegin}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+							navigator="true" locale="ru" mask="true">
+					<p:ajax event="dateSelect" listener="#{suFormBean.onDateSelect}" update="@form:grpFilters"/>
+				</p:calendar>
+				<h:outputText value="&#160;по&#160;"/>
+				<p:calendar value="#{suFormBean.filterReportDateEnd}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+							navigator="true" locale="ru" mask="true">
+					<p:ajax event="dateSelect" listener="#{suFormBean.onDateSelect}" update="@form:grpFilters"/>
+				</p:calendar>
+				<h:outputText value="&#160;&#160;&#160;&#160;Наименование отчетов:&#160;"/>
+				<p:inputText value="#{suFormBean.filterFormsText}" readonly="true" style="width:15em"/>
+				<p:commandButton value="..." actionListener="#{suFormBean.onFilterFormsShow}" oncomplete="PF('wDlgFilterForms').show()" update=":frmFilterForms"/>
+				<h:outputText value="&#160;&#160;&#160;&#160;Код отчета:&#160;"/>
+				<p:inputText value="#{suFormBean.filterCodeText}" style="width:15em"/>
+				<h:outputText value="&#160;&#160;&#160;&#160;Язык:&#160;"/>
+				<h:selectOneMenu value="#{suFormBean.filterLanguageText}" style="width: 8em">
+					<f:selectItem itemLabel=" " itemValue=" "/>
+					<f:selectItem itemLabel="kz" itemValue="kz"/>
+					<f:selectItem itemLabel="ru" itemValue="ru"/>
+					<f:selectItem itemLabel="en" itemValue="en"/>
+				</h:selectOneMenu>
+				&#160;&#160;&#160;&#160;
+				<p:commandButton value="Поиск" actionListener="#{suFormBean.refreshTemplates}" update="@form:pgdt,@form:grpFilters,@form:actions" title="Поиск по выбранным параметрам" icon="ui-icon-search"/>
+				<p:commandButton value="Очистить" actionListener="#{suFormBean.clearFilters}" update="@form:grpFilters,:frmFilterForms" style="font-weight: normal" title="Очистить параметры поиска" icon="ui-icon-trash"/>&#160;
+			</p:fieldset>
+
+			<h:panelGroup id ="pgdt" >
+				<p:dataTable id="formsTable" widgetVar="wFormsTable"  value="#{suFormBean.formsList}"  var="form" rowKey="#{form}" filterDelay="1000"
+							 selectionMode="single" selection="#{suFormBean.selectedForm}" scrollable="true" scrollHeight="501" rows="25"
+							 resizableColumns="true" emptyMessage="#{res.noRecordsFound}"
+							 paginator="true" paginatorPosition="bottom"
+							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							 currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="10,25,50">
+					<p:ajax event="rowSelect" update="@form:actions"/>
+					<p:ajax event="rowUnselect" update="@form:actions"/>
+					<p:column headerText="Код" sortBy="#{form.code}" style="width:10em;"><h:outputText value="#{form.code}"/></p:column>
+					<p:column headerText="Список" width="55" ><p:selectBooleanCheckbox value="#{form.fillList}" disabled="true" style="width:3em;text-align:center;"/></p:column>
+					<p:column headerText="Наименование" sortBy="#{form.name}" style="width:80em;"><h:outputText value="#{form.name}"/></p:column>
+					<p:column headerText="#{res.dateBegin}" sortBy="#{form.beginDate}" style="width:10em;text-align:center;"><h:outputText value="#{form.beginDate}"/></p:column>
+					<p:column headerText="#{res.dateEnd}" sortBy="#{form.endDate}" style="width:10em;text-align:center;"><h:outputText value="#{form.endDate}"/></p:column>
+					<p:column headerText="Дата обновления XML" sortBy="#{form.lastUpdateXml}" style="width:15em;text-align:center;"><h:outputText value="#{form.lastUpdateXml}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+					<p:column headerText="Дата обновления XLS" sortBy="#{form.lastUpdateXls}" style="width:15em;text-align:center;"><h:outputText value="#{form.lastUpdateXls}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+					<p:column headerText="Дата обновления XLS_OUT" sortBy="#{form.lastUpdateXlsOut}" style="width:15em;text-align:center;"><h:outputText value="#{form.lastUpdateXlsOut}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+					<p:column headerText="#{res.language}" sortBy="#{form.languageCode}" filterStyle="width: 3em;" style="width:5em;text-align:center;"><h:outputText value="#{form.languageCode}"/></p:column>
+					<p:column headerText="Id детализации" sortBy="#{form.fhId}" style="width:15em;"><h:outputText value="#{form.fhId}"/></p:column>
+				</p:dataTable>
+			</h:panelGroup>
+		</h:form>
+
+		<p:dialog id="dlgFormProps" widgetVar="wDlgFormProps" header="Свойства формы" modal="true" width="600" height="200" >
+			<h:form id="frmFormProps">
+				<h:outputText value="Наименование:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.name}"/><br/><br/>
+				<h:outputText value="ID:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.formId}"/><br/>
+				<h:outputText value="Код:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.code}"/><br/>
+				<h:outputText value="Язык:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.languageCode}"/><br/>
+				<h:outputText value="Дата начала действия:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.beginDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy" /></h:outputText><br/>
+				<h:outputText value="Дата окончания действия:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.endDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy" /></h:outputText><br/>
+				<h:outputText value="Дата изменения XML:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.lastUpdateXml}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText><br/>
+				<h:outputText value="Версия XML:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.xmlVersion}"/><br/>
+				<h:outputText value="Дата изменения XLS:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.lastUpdateXls}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText><br/>
+				<h:outputText value="Версия XLS:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.xlsVersion}"/><br/>
+				<h:outputText value="Тэг:&#160;&#160;" style="font-weight: bold"/>
+				<h:outputText value="#{suFormBean.selectedForm.tag}"/><br/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="validationDialog" widgetVar="wValidationDialog" header="Validation" modal="true" >
+			<p:scrollPanel style="width:640px; height:320px; border: none !important;">
+				<p:panel style="border: none !important;">
+					<h:outputText value="#{res.validationResult}:&#xA0;"/>
+					<h:outputText value="#{suFormBean.formValidationMessage}" style="#{suFormBean.formValidationOk ? 'color: green;' : 'color: red;'}" /><br/>
+					<h:outputText value="#{suFormBean.formValidationErrorMessage}" escape="false" /><br/>
+				</p:panel>
+			</p:scrollPanel>
+		</p:dialog>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadDialog" modal="true" onHide="" >
+			<h:outputText value="#{res.downloadXMLFormHint}"/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{suFormBean.onUploadXml}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xml)$/" update=":messages,:mainForm,:validationDialog" oncomplete="PF('wUploadDialog').hide()"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadDialogXml" modal="true" onHide="" >
+			<h:outputText value="#{res.downloadXMLFormHint}"/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{suFormBean.onUploadXml}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xml)$/" update=":messages,:mainForm,:validationDialog" oncomplete="PF('wUploadDialogXml').hide()"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadDialogXls" modal="true" onHide="" >
+			<h:outputText value="#{res.downloadXLSFormHint}"/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{suFormBean.onUploadXls}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xlsm)$/" update=":messages,:mainForm,:validationDialog" oncomplete="PF('wUploadDialogXls').hide()"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadDialogXlsOut" modal="true" onHide="" >
+			<h:outputText value="#{res.downloadXLSFormHint}"/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{suFormBean.onUploadXlsOut}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xlsx)$/" update=":messages,:mainForm,:validationDialog" oncomplete="PF('wUploadDialogXlsOut').hide()"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"/>
+			</h:form>
+		</p:dialog>
+
+		<p:confirmDialog id="confirmDialog" widgetVar="wConfirmDialog" message="#{res.deleteItemConfirmMessage}" header="#{res.deletion}" severity="alert">
+			<h:form>
+				<p:commandButton value="#{res.delete}" actionListener="#{suFormBean.deleteSelectedForm}" oncomplete="PF('wConfirmDialog').hide()" update=":messages,:mainForm"/>
+				<p:commandButton value="#{res.cancel}" onclick="PF('wConfirmDialog').hide()"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<p:dialog id="dlgFilterForms" widgetVar="wDlgFilterForms" header="Фильтр по наименованию отчета" modal="true" resizable="false" width="740">
+			<h:form id="frmFilterForms">
+				<p:dataTable value="#{suFormBean.forms}" var="form"
+							 rowKey="#{form.code}" sortBy="#{form.name}" scrollable="true" scrollHeight="440"
+							 emptyMessage="#{res.noRecordsFound}" selection="#{suFormBean.filterForms}" rowSelectMode="add">
+					<p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+					<p:column headerText="Название" sortBy="#{form.name}">
+						<h:outputText value="#{form.name}"/>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Ok" actionListener="#{suFormBean.onFilterFormsHide}" oncomplete="PF('wDlgFilterForms').hide()" update=":mainForm:grpFilters" style="margin-top: 5px" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+				<p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterForms').hide()"/>
+			</h:form>
+		</p:dialog>
+
+		<p:growl id="messages" showDetail="true" />
+	</h:body>
+</f:view>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="prud_kp"
+        languageCode="ru" title="Отчет о выполнении пруденциальных нормативов (КП)"
+        shortName="Отч о вып пруденц нормативов(КП)"
+        beginDate="2014-01-01" endDate="2017-04-01"
+        typeCode="INPUT"
+        tag='{ "keyFields" : {"prud_kp_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+    <span style="display: block; text-align: right;">
+        Приложение 1 <br/>
+        к постановлению Правления<br/>
+        Агентства Республики Казахстан<br/>
+        по регулированию и надзору<br/>
+        финансового рынка и финансовых<br/>
+        организаций<br/>
+        от 12 июля 2004 года № 200<br/>
+        «Об установлении пруденциальных<br/>
+        нормативов для Национального<br/>
+        оператора почты, а также форм и<br/>
+        сроков представления отчетов об их<br/>
+        выполнении»
+    </span>
+
+    <h3 style="text-align: center;">
+        Отчет о выполнении пруденциальных нормативов
+    </h3>
+
+    <span style="display: block; text-align: center;">
+        <StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+    </span>
+    <span style="display: block; text-align: center;">
+        по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+    <table  name="array" class="dataTable">
+<thead>
+        <tr>
+            <th>№</th>
+            <th>Наименование</th>
+            <th>Сумма</th>
+        </tr>
+</thead>
+<tbody>
+        <tr>
+            <td>1</td>
+            <td>Собственный капитал</td>
+            <td><InputText name="value" key="num" keyValue="1" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Активы</td>
+            <td><InputText name="value" key="num" keyValue="2" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Коэффициент достаточности собственных средств (не менее 0,12)</td>
+            <td><InputText name="value" key="num" keyValue="3" readonly="true" auto="true" mask="money2"/></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Высоколиквидные активы</td>
+            <td><InputText name="value" key="num" keyValue="4" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Обязательства до востребования</td>
+            <td><InputText name="value" key="num" keyValue="5" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Коэффициент текущей ликвидности (не менее 0,3)</td>
+            <td><InputText name="value" key="num" keyValue="6" readonly="true" auto="true" mask="money2"/></td>
+        </tr>
+</tbody>
+    </table>
+</div>
+    <br/>
+    <table class="textLayoutTable">
+        <tr>
+            <td>Первый руководитель:</td>
+            <td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Главный бухгалтер:</td>
+            <td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Исполнитель:</td>
+            <td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+        </tr>
+        <tr>
+            <td>Дата:</td>
+            <td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+        </tr>
+    </table>
+    <style>
+        table.dataTable td:nth-child(1) {
+        text-align: center;
+        }
+        table.dataTable td:nth-child(2) {
+        text-align: left;
+        }
+    </style>
+    <script>
+        <![CDATA[
+function updateCalculatedFields() {
+	var A1 = Cells("1");
+	var A2 = Cells("2");
+	var A4 = Cells("4");
+	var A5 = Cells("5");
+
+	if (A2){ var A3 = A1 / A2;
+	Print("3",A3,2);}
+
+	if (A4){ var A6 = A4 / A5;
+	Print("6",A6,2);}
+}
+function Cells( prefix ) {
+var pp = "prud_kp_array*value:num:"+prefix;
+return getInputValue(pp);
+}
+function ToCellsValue( pref, v){
+var pp = "prud_kp_array*value:num:"+pref;
+setInputValue(pp, v);
+}
+function Print(prefix, v, digit){
+if (v) {
+		var n=v;
+		if (digit === 0)
+		  ToCellsValue(prefix,round0(n));
+		else if (digit === 1)
+		  ToCellsValue(prefix,round1(n));
+		else if (digit === 2)
+		  ToCellsValue(prefix,round2(n));
+		else if (digit === 3)
+		  ToCellsValue(prefix,round3(n));
+		else if (digit === 4)
+		  ToCellsValue(prefix,round4(n));
+		else if (digit === 5)
+		  ToCellsValue(prefix,round5(n));
+		else if (digit === 6)
+		  ToCellsValue(prefix,round6(n));
+	} else {
+		ToCellsValue(prefix,"0");
+	}
+}
+]]>
+    </script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+//    $("#prud_kp_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

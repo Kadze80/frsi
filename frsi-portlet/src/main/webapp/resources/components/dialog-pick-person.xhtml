@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:dialog id="dialogPickPerson" widgetVar="wDialogPickPerson" header="Выбор субъекта" width="800" height="640" modal="true">
+            <h:form id="form">
+                <p:tabView activeIndex="#{pickPersonBean.activeTabIndex}">
+                    <p:ajax event="tabChange" update="@form"/>
+                    <p:tab title="Юридические лица">
+                        <h:outputText value="БИН: "/>
+                        <p:inputText value="#{pickPersonBean.lpBinFilter}" style="width: 8em;"/>&#160;&#160;
+                        <h:outputText value="Наименование: "/>
+                        <p:inputText value="#{pickPersonBean.lpNameFilter}" style="width: 12em;"/>&#160;&#160;
+                        <p:commandButton value="#{res.search}" actionListener="#{pickPersonBean.searchLegalPersons}" update="@form"/>&#160;
+                        <p:commandButton value="#{res.clear}" actionListener="#{pickPersonBean.clearLpFilters}" style="font-weight: normal;" update="@form"/>
+                        <br/><br/>
+                        <p:dataTable id="tableLps" var="lp" value="#{pickPersonBean.legalPersons}" scrollable="true" scrollHeight="451"
+                                     selection="#{pickPersonBean.selectedLegalPerson}" rowKey="#{lp.id}" selectionMode="single" sortBy="#{lp.nameRu}" emptyMessage="#{res.noRecordsFound}">
+                            <p:ajax event="rowSelect" update="@form"/>
+                            <p:ajax event="rowUnselect" update="@form"/>
+                            <p:column headerText="БИН" sortBy="#{lp.idn}" style="width: 8em;">
+                                <h:outputText value="#{lp.idn}"/>
+                            </p:column>
+                            <p:column headerText="Наименование" sortBy="#{lp.nameRu}">
+                                <h:outputText value="#{lp.nameRu}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:tab>
+                    <p:tab title="Физические лица">
+                        <h:outputText value="Сведения о физических лицах заносятся вручную."/><br/>
+                        <h:outputText value="Пожалуйста, введите данные и нажмите &#171;Выбрать&#187;"/><br/><br/>
+                        <table style="border-collapse:collapse; border-style:none;">
+                            <tr>
+                                <td style="text-align:left; vertical-align:bottom;">
+                                    <h:outputText value="ИИН: "/><br/>
+                                    <p:inputText id="iin" value="#{pickPersonBean.npIin}" style="width: 10em;" disabled="#{pickPersonBean.disableNpIdn}"/><br/>
+                                </td>
+                                <td>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                <td style="text-align:left; vertical-align:bottom;">
+                                    <table style="border-collapse:collapse; border-style:none;">
+                                        <tr>
+                                            <td style="width:auto; text-align:right; vertical-align:middle;">
+                                                <p:selectBooleanCheckbox value="#{pickPersonBean.minor}" style="vertical-align:-0.25em;">
+                                                    <p:ajax listener="#{pickPersonBean.onNpCheckBoxChange}" update="iin"/>
+                                                </p:selectBooleanCheckbox>&#160;
+                                                <h:outputText value="Несовершеннолетний без ИИН"/><br/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <h:outputText value="Фамилия Имя Отчество: "/><br/>
+                        <p:inputText value="#{pickPersonBean.npFullName}" style="width: 36em;"/><br/>
+                    </p:tab>
+                    <p:tab title="Нерезиденты РК">
+                        <h:outputText value="Сведения о нерезидентах РК заносятся вручную."/><br/>
+                        <h:outputText value="Пожалуйста, введите данные и нажмите &#171;Выбрать&#187;"/><br/><br/>
+                        <table style="border-collapse:collapse; border-style:none;">
+                            <tr>
+                                <td style="text-align:left; vertical-align:bottom;">
+                                    <h:outputText value="БИН/ИИН: "/><br/>
+                                    <p:inputText id="idn" value="#{pickPersonBean.nrIdn}" style="width: 10em;" disabled="#{pickPersonBean.disableNrIdn}"/><br/>
+                                </td>
+                                <td>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                <td style="text-align:left; vertical-align:bottom;">
+                                    <table style="border-collapse:collapse; border-style:none;">
+                                        <tr>
+                                            <td style="width:auto; text-align:right; vertical-align:middle;">
+                                                <p:selectBooleanCheckbox value="#{pickPersonBean.nonresident}" style="vertical-align:-0.25em;">
+                                                    <p:ajax listener="#{pickPersonBean.onNrCheckBoxChange}" update="idn"/>
+                                                </p:selectBooleanCheckbox>&#160;
+                                            </td>
+                                            <td style="width:auto; text-align:left; vertical-align:middle;">
+                                                <h:outputText value="Нерезидент РК без БИН/ИИН"/><br/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <h:outputText value="Наименование/Ф.И.О.: "/><br/>
+                        <p:inputText value="#{pickPersonBean.nrName}" style="width: 36em;"/><br/><br/>
+                        <h:outputText value="Страна резидентства: "/><br/>
+                        <p:selectOneMenu value="#{pickPersonBean.nrCountryCode}">
+                            <f:selectItem itemLabel="- Выберите страну -" itemValue=""/>
+                            <f:selectItems value="#{pickPersonBean.countries}"/>
+                        </p:selectOneMenu>
+                    </p:tab>
+                </p:tabView>
+                <br/>
+                <p:commandButton value="#{res.pick}" onclick="updatePickedValue()" actionListener="#{cc.attrs.pickAction}" oncomplete="passPerson()" disabled="#{pickPersonBean.pickButtonDisabled}" update="#{cc.attrs.update}"/>
+                <p:remoteCommand name="updatePickedValue" update=":#{fn:substringAfter(cc.clientId,':')}:hidden:pickedValue" />
+            </h:form>
+            <h:form id="hidden">
+                <h:inputHidden id="receiverInfo"/>
+                <h:inputHidden id="pickedValue" value="#{pickPersonBean.pickedValue}"/>
+            </h:form>
+        </p:dialog>
+        <h:outputScript library="components" name="dialog-pick-person.js"/>
+    </composite:implementation>
+</ui:component>

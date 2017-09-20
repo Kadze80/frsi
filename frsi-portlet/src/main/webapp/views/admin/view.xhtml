@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{adminBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="mainForm">
+            <p:panel header="Привязка форм к типам субъектов" style="margin-bottom:10px;">
+                <table>
+                    <tr>
+                        <td rowspan="3" align="top" style="padding-right:1em; width:15%">
+                            <p:dataTable id="subjectTypeTable" value="#{adminBean.subjectTypes}" var="subjectType" resizableColumns="true"
+                                         selectionMode="single" selection="#{adminBean.selectedSubjectType}" rowKey="#{subjectType}"
+                                         scrollable="true" scrollHeight="500" sortBy="#{subjectType.getName(sessionBean.languageCode)}" emptyMessage="#{res.noRecordsFound}">
+                                <p:ajax event="rowSelect" listener="#{adminBean.onRowSelect}" update=":mainForm:subjTypeFormsTable,:mainForm:formsTable"/>
+                                <p:ajax event="rowUnselect" listener="#{adminBean.onRowUnselect}"/>
+                                <p:column headerText="Тип субъекта" sortBy="#{subjectType.getName(sessionBean.languageCode)}" style="width:50px"><h:outputText value="#{subjectType.getName(sessionBean.languageCode)}"/></p:column>
+                            </p:dataTable>
+                        </td>
+                        <td>&#160;</td>
+                        <td style="vertical-align: top">
+                            <p:dataTable id="formsTable" value="#{adminBean.forms}" var="form" resizableColumns="true"
+                                         selectionMode="single" selection="#{adminBean.selectedForm}" rowKey="#{form.code}"
+                                         scrollable="true" scrollHeight="200" sortBy="#{form.formHistory.name}" emptyMessage="#{res.noRecordsFound}">
+                                <f:facet name="header">
+                                    Доступные формы
+                                </f:facet>
+                                <p:ajax event="rowSelect" update=":mainForm:btnAdd"/>
+                                <p:column headerText="#{res.code}" sortBy="#{form.code}" width="120"
+                                          filterBy="#{form.code}" filterMatchMode="contains">
+                                    <h:outputText value="#{form.code}"/></p:column>
+                                <p:column headerText="Название" sortBy="#{form.formHistory.name}" style="width:500px" ><h:outputText value="#{form.formHistory.name}"/></p:column>
+                                <p:column headerText="Тип" sortBy="#{form.typeName}" width="55"><h:outputText value="#{form.typeName}"/></p:column>
+                            </p:dataTable>
+                        </td>
+                    </tr>
+                    <tr style="height: 45px; vertical-align: top;">
+                        <td colspan="2" align="center" style="padding-top: 5px">
+                            <p:commandButton value="Добавить" id="btnAdd" styleClass="ui-icon-add" actionListener="#{adminBean.addForm()}" update=":mainForm:subjTypeFormsTable,:mainForm:formsTable, :mainForm:btnAdd" disabled="#{userBean.disabled(adminBean.selectedForm == null, 'ADM_FORMS:ADD')}"/>&#160;&#160;
+                            <p:commandButton value="Удалить" id="btnDelete" actionListener="#{adminBean.delForm()}" update=":mainForm:subjTypeFormsTable,:mainForm:formsTable :mainForm:btnDelete" disabled="#{userBean.disabled(adminBean.selectedSubjForm==null, 'ADM_FORMS:DELETE')}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="vertical-align: top">
+                            <p:dataTable id="subjTypeFormsTable" value="#{adminBean.subjectType_forms}" var="stForm" resizableColumns="true"
+                                         selectionMode="single" selection="#{adminBean.selectedSubjForm}" rowKey="#{stForm.formCode}"
+                                         scrollable="true" scrollHeight="200" sortBy="#{stForm.formName}" emptyMessage="#{res.noRecordsFound}">
+                                <f:facet name="header">
+                                    Добавленные формы
+                                </f:facet>
+                                <p:ajax event="rowSelect" update=":mainForm:btnDelete"/>
+                                <p:column headerText="#{res.code}" sortBy="#{stForm.formCode}" width="120"
+                                          filterBy="#{stForm.formCode}" filterMatchMode="contains">
+                                    <h:outputText value="#{stForm.formCode}"/></p:column>
+                                <p:column headerText="Название" sortBy="#{stForm.formName}" style="width: auto"><h:outputText value="#{stForm.formName}"/></p:column>
+                                <p:column headerText="Тип" sortBy="#{stForm.formTypeName}" width="55"><h:outputText value="#{stForm.formTypeName}"/></p:column>
+                                <p:column headerText="Тип периода" sortBy="#{stForm.periodName}" style="width: 200px">
+                                    <p:selectOneMenu id="period" value="#{stForm.periodId}">
+                                        <p:ajax listener="#{adminBean.onChangePeriod(stForm)}"/>
+                                        <f:selectItems value="#{adminBean.periods}" var="period" itemLabel="#{period.name}" itemValue="#{period.id}"/>
+                                    </p:selectOneMenu>
+                                </p:column>
+                                <p:column headerText="Срок предоставления" sortBy="#{stForm.refPeriodRecId}" style="width: 200px">
+                                    <p:selectOneMenu id="refPeriod" value="#{stForm.refPeriodRecId}">
+                                        <p:ajax listener="#{adminBean.onChangeRefPeriod(stForm)}"/>
+                                        <f:selectItem itemLabel="Выберите значение" itemValue="#{null}" />
+                                        <f:selectItems value="#{adminBean.refPeriodItems}" var="refPeriod" itemLabel="#{refPeriod.nameRu}" itemValue="#{refPeriod.recId}"/>
+                                    </p:selectOneMenu>
+                                </p:column>
+                            </p:dataTable>
+                        </td>
+                    </tr>
+                </table>
+                    <!--
+                    <p:outputLabel for="subjectType" value="Тип субъекта: " />
+                    <p:selectOneMenu id="subjectType" value="#{adminBean.subjectType}" style="width:150px">
+                        <p:ajax listener="#{adminBean.onSubjectTypeFormsChange}" update="" />
+                        <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{adminBean.subjectTypes}" />
+                    </p:selectOneMenu>
+                    -->
+
+
+                <p:separator />
+
+            </p:panel>
+        </h:form>
+    </h:body>
+
+</f:view>

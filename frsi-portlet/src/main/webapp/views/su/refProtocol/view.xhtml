@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{refProtocolBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <style>
+            .ui-datatable tbody td.wrap {
+                white-space: normal;
+                width: auto;
+            }
+            .customRowRed .customColStatus { color: red; }
+            .customRowGreen .customColStatus { color: green; }
+        </style>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <p:growl id="messages" showDetail="true" />
+        <h:form id="mainForm">
+            <table>
+                <tr>
+                    <td>
+                        <h:panelGroup id="pgL" >
+                            <p:toolbar id="tbL" >
+                                <f:facet name="left">
+                                    <p:commandButton value="Обновить" title="#{res.updateList}" icon="ui-icon-arrowrefresh-1-s"
+                                                     actionListener="#{refProtocolBean.refreshList()}" update="pgdtL"
+                                                     disabled="#{userBean.disabled(false, 'ADM:REF:REFRESH')}"
+                                            />
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <p:commandButton title="Фильтр" icon="ui-icon-search"
+                                                     oncomplete="PF('wDlgRefMainFilter').show()" update=":frmRefMainFilter"/>
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <p:commandButton value="Включить загрузку справочников" title="Включает таймер для автоматической загрузки справочников из других систем" actionListener="#{refProtocolBean.setTimer}"/>
+                                </f:facet>
+                            </p:toolbar>
+                        </h:panelGroup>
+                    </td>
+                    <td>
+                        <!--<h:panelGroup id="pgR">
+                            <p:toolbar id="tbR">
+                                <p:commandButton value="Обновить" title="#{res.updateList}" icon="ui-icon-arrowrefresh-1-s"
+                                                 actionListener="#{refUnLoadBean.refreshList()}" update="@form:pgdt"
+                                                 disabled="#{userBean.disabled(, 'ADM:REF:LOG:REFRESH')}"/>
+                            </p:toolbar>
+
+                        </h:panelGroup>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:panelGroup id ="pgdtL" >
+                            <p:dataTable id="reftable" value="#{refProtocolBean.refList}" var="refItem" scrollable="true" resizableColumns="true" selection="#{refProtocolBean.selectedRef}"
+                                         rowKey="#{refItem}" selectionMode="single" paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="5,10,15,20,25,30" rows="15" emptyMessage="#{res.noRecordsFound}"
+                                         rowStyleClass="#{refProtocolBean.getRowStyleClass(refItem)}">
+                                <!--<p:ajax event="rowSelect" update="@form:pgL " />
+                                <p:ajax event="rowUnselect" update="@form:pgL" />-->
+                                <p:column headerText="#{res.name}" sortBy="#{refItem.name}" styleClass="wrap" style="width: 35em"><h:outputText value="#{refItem.name}" title="#{refItem.name}"/></p:column>
+                                <p:column headerText="Код" sortBy="#{refItem.code}" style="width: 15em"><h:outputText value="#{refItem.code}" /></p:column>
+                                <p:column headerText="Дата Загрузки" sortBy="#{refItem.dateLoad}" style="width: 10em"><h:outputText value="#{refItem.dateLoad}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText></p:column>
+                                <p:column headerText="Статус Загрузки" sortBy="#{refItem.stsLoad}" style="width: auto" styleClass="customColStatus"><h:outputText value="#{refItem.stsLoad}"/></p:column>
+                                <!--<p:column headerText="Кол-во не отправл. записей" sortBy="#{refItem.cntNotSent}" style="width: 15em; text-align: center"><h:outputText value="#{refItem.cntNotSent}"/></p:column>
+                                <p:column headerText="Кол-во ожидаемых записей" sortBy="#{refItem.cntWait}" style="width: 15em; text-align: center"><h:outputText value="#{refItem.cntWait}"/></p:column>-->
+                            </p:dataTable>
+                        </h:panelGroup>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+
+            </table>
+        </h:form>
+
+        <p:dialog id="DlgRefMainFilter" widgetVar="wDlgRefMainFilter" modal="true" resizable="false" draggable="false" header="Фильтр справочников" >
+            <h:form id="frmRefMainFilter">
+                <p:panelGrid columns="2" style="margin-bottom:10px; height: 100px" cellpadding="5">
+                    <!--<h:outputLabel for="fRefMainKnd" value="Вид справочника:" style="font-weight:bold; margin-right: 10px;"/>
+                    <h:selectOneMenu id="fRefMainKnd" value="#{refProtocolBean.filterRefMainItem.refKnd}" style="width: 250px">
+                        <f:selectItem itemLabel="Все" itemValue="#{-1}"/>
+                        <f:selectItem itemLabel="Обычный" itemValue="#{0}"/>
+                        <f:selectItem itemLabel="Загружаемый" itemValue="#{1}"/>
+                        <f:selectItem itemLabel="KASE" itemValue="#{2}"/>
+                    </h:selectOneMenu>-->
+
+                    <h:outputLabel for="fRefMainName" value="Наименование:" style="font-weight:bold; margin-right: 10px;"/>
+                    <p:inputText id="fRefMainName" value="#{refProtocolBean.filterRefMainItem.name}" style="width: 250px"/>
+
+                    <h:outputLabel for="fRefMainCode" value="Код:" style="font-weight:bold; margin-right: 10px;"/>
+                    <p:inputText id="fRefMainCode" value="#{refProtocolBean.filterRefMainItem.code}" style="width: 250px"/>
+                </p:panelGrid>
+                <br/>
+                <p:commandButton value="#{res.ok}" actionListener="#{refProtocolBean.refreshList()}" disabled="#{userBean.disabled(false, 'ADM:REF:REFRESH')}" validateClient="true"
+                                 update=":mainForm:pgdtL,:mainForm:pgL" oncomplete="PF('wDlgRefMainFilter').hide()" />
+                <p:commandButton value="#{res.cancel}" onclick="PF('wDlgRefMainFilter').hide()" />
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</f:view>

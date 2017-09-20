@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+        <composite:attribute name="update"/>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:dialog id="dialogPickSecurityInfo_v2" widgetVar="wDialogPickSecurityInfo_v2" header="Поиск ценной бумаги"
+                  width="640" modal="true">
+            <h:form id="form">
+                <p:messages/>
+                <h:outputText value="НИН: "/>
+                <p:inputText value="#{pickSecurityInfoBeanV2.nin}" style="width: 12em;"/>&#160;
+                <p:commandButton value="#{res.search}" type="button"
+                                 onclick="rcSearch();"/>
+                <br/>
+                <p:dataTable id="tblMain" widgetVar="wTblMain" lazy="true"
+                             value="#{pickSecurityInfoBeanV2.ldmRefSecuritiesItem}" var="item"
+                             selectionMode="single" selection="#{pickSecurityInfoBeanV2.security}" rows="25" resizableColumns="true"
+                             paginator="true" paginatorPosition="bottom"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}"
+                             rowsPerPageTemplate="10,25,50" emptyMessage="#{res.noRecordsFound}"
+                             resizeMode="expand" reflow="true" draggableColumns="true"
+                             scrollable="true" scrollHeight="320">
+                    <p:column headerText="НИН" style="width:7em;text-align:center;">
+                        <h:outputText value="#{item.nin}"/>
+                    </p:column>
+                    <p:column headerText="Вид ЦБ" style="width:7em;text-align:center;">
+                        <h:outputText value="#{item.varietyName}"/>
+                    </p:column>
+                    <p:column headerText="Тип ЦБ" style="width:13em;text-align:center;" styleClass="wrap">
+                        <h:outputText value="#{item.typeName}"/>
+                    </p:column>
+                    <p:column headerText="Номинал" style="width:7em;text-align:center;">
+                        <h:outputText value="#{item.nominalValue}"/>
+                    </p:column>
+                    <p:column headerText="Валюта номинала" style="width:10em;text-align:center;">
+                        <h:outputText value="#{item.currencyName}"/>
+                    </p:column>
+                    <p:column headerText="Эмитент" style="width:13em;text-align:center;" styleClass="wrap">
+                        <h:outputText value="#{item.issuerName}"/>
+                    </p:column>
+                    <p:column headerText="Признак эмитента" style="width:13em;text-align:center;" styleClass="wrap">
+                        <h:outputText value="#{item.signName}"/>
+                    </p:column>
+                    <p:column headerText="Государственный" style="width:7em;text-align:center;">
+                        <p:selectBooleanCheckbox value="#{item.isState}" disabled="true"/>
+                    </p:column>
+                    <p:column headerText="Резидент" style="width:7em;text-align:center;">
+                        <p:selectBooleanCheckbox value="#{item.isResident}" disabled="true"/>
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton value="Выбрать" actionListener="#{pickSecurityInfoBeanV2.passSecurityInfo}" oncomplete="pass_securityinfo()" update="#{cc.attrs.update} pickedValue"/>
+                <p:commandButton type="button" value="Пустое значение" onclick="pass_securityinfo(true)"/>
+
+                <p:remoteCommand name="rcSearch" actionListener="#{pickSecurityInfoBeanV2.search}" oncomplete="PF('wTblMain').filter();"/>
+                <h:inputHidden id="receiverInfo"/>
+                <h:inputHidden id="pickedValue" value="#{pickSecurityInfoBeanV2.pickedValue}"/>
+            </h:form>
+        </p:dialog>
+        <h:outputScript library="pickers" name="dialog-pick-securityinfo2_0_2.js"/>
+    </composite:implementation>
+</ui:component>

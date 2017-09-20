@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="I112"
+        languageCode="ru" title="Сводный отчет о доходах и расходах по ИО (ИО)"
+        shortName="Сводный отчет о доходах и расходах по ИО (ИО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"I112_a":"n"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Сводный отчет о доходах и расходах по ипотечным организациям Республики Казахстан</h3>
+
+    <span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+    <br/>
+
+    <div id="div_1" style="width:47%; float:left;">
+        <span style="text-align: left; font-weight: bold;">I. Доходы, связанные с получением вознаграждения</span>
+        <span style="text-align: right; font-weight: bold;">( тыс. тенге)</span>
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование доходов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4050</td>
+                    <td>Доходы, связанные с получением вознаграждения по корреспондентским счетам</td>
+                    <td><InputText name="v1" key="n" keyValue="4050" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4100</td>
+                    <td>Доходы, связанные с получением вознаграждения  по вкладам, размещенным в Национальном Банке Республике Казахстан</td>
+                    <td><InputText name="v1" key="n" keyValue="4100" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4200</td>
+                    <td>Доходы, связанные с получением вознаграждения по ценным бумагам</td>
+                    <td><InputText name="v1" key="n" keyValue="4200" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4250</td>
+                    <td>Доходы, связанные с получением вознаграждения по вкладам, размещенным в других банках</td>
+                    <td><InputText name="v1" key="n" keyValue="4250" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4300</td>
+                    <td>Доходы, связанные с получением вознаграждения по займам, предоставленным другим банкам</td>
+                    <td><InputText name="v1" key="n" keyValue="4300" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4320</td>
+                    <td>Доходы, связанные с получением вознаграждения по займам и финансовому лизингу, предоставленным организациям, осуществляющим отдельные виды банковских операций или полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+                    <td><InputText name="v1" key="n" keyValue="4320" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4350</td>
+                    <td> Доходы по расчетам с филиалами</td>
+                    <td><InputText name="v1" key="n" keyValue="4350" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4400</td>
+                    <td>Доходы, связанные с получением вознаграждения по требованиям банка к клиентам</td>
+                    <td><InputText name="v1" key="n" keyValue="4400" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4450</td>
+                    <td>Доходы, связанные с получением вознаграждения по прочим ценным бумагам</td>
+                    <td><InputText name="v1" key="n" keyValue="4450" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4465</td>
+                    <td>Доходы, связанные с получением вознаграждения по операциям "обратное РЕПО" с ценными бумагами</td>
+                    <td><InputText name="v1" key="n" keyValue="4465" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4470</td>
+                    <td>Доходы, связанные с получением вознаграждения по инвестициям в капитал и субординированный долг</td>
+                    <td><InputText name="v1" key="n" keyValue="4470" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4480</td>
+                    <td>Доходы, связанные с получением вознаграждения по ценным бумагам, удерживаемым до погашения</td>
+                    <td><InputText name="v1" key="n" keyValue="4480" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>4490</td>
+                    <td>Доходы, связанные с получением вознаграждения по прочим долговым инструментам в категории «займы и дебиторская задолженность»</td>
+                    <td><InputText name="v1" key="n" keyValue="4490" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left; font-weight: bold;">Итого доходы, связанные с получением вознаграждения:</td>
+                    <td style="text-align: center;"><InputText name="v1" key="n" keyValue="1" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <span style="text-align: left; font-weight: bold;">II. Доходы, не связанные с получением вознаграждения</span>
+        <table name="a" class="dataTable">
+            <tr>
+                <td style="width:9%;">4500</td>
+                <td>Доходы по дилинговым операциям</td>
+                <td><InputText name="v1" key="n" keyValue="4500" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4600</td>
+                <td>Комиссионные доходы </td>
+                <td><InputText name="v1" key="n" keyValue="4600" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4700</td>
+                <td>Доходы от  переоценки</td>
+                <td><InputText name="v1" key="n" keyValue="4700" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4730</td>
+                <td>Реализованные доходы от  переоценки</td>
+                <td><InputText name="v1" key="n" keyValue="4730" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4850</td>
+                <td>Доходы от продажи </td>
+                <td><InputText name="v1" key="n" keyValue="4850" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4870</td>
+                <td>Доходы, связанные с изменением доли участия в уставном капитале юридических лиц</td>
+                <td><InputText name="v1" key="n" keyValue="4870" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4890</td>
+                <td>Доходы по операциям с производными финансовыми инструментами</td>
+                <td><InputText name="v1" key="n" keyValue="4890" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4900</td>
+                <td>Неустойка (штраф, пеня)</td>
+                <td><InputText name="v1" key="n" keyValue="4900" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4920</td>
+                <td>Прочие доходы</td>
+                <td><InputText name="v1" key="n" keyValue="4920" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4950</td>
+                <td>Доходы от восстановления резервов (провизий)</td>
+                <td><InputText name="v1" key="n" keyValue="4950" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td style="width:9%;">4999</td>
+                <td>Доход до налогов</td>
+                <td><InputText name="v1" key="n" keyValue="4999" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">Итого доходы, не связанные с получением вознаграждения</td>
+                <td style="text-align: center;"><InputText name="v1" key="n" keyValue="2" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">Всего доходов    ( I+II )</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="3" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <span style="text-align: left; font-weight: bold;">IV. Расходы, связанные с выплатой вознаграждения</span>
+        <span style="text-align: right;">( тыс. тенге)</span>
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование расходов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5020</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по корреспондентским счетам</td>
+                    <td><InputText name="v1" key="n" keyValue="5020" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5030</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по займам, полученным от Правительства и местных органов власти РК</td>
+                    <td><InputText name="v1" key="n" keyValue="5030" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5040</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по займам, полученным от международных финансовых организаций</td>
+                    <td><InputText name="v1" key="n" keyValue="5040" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5050</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по займам, полученным от других банков</td>
+                    <td><InputText name="v1" key="n" keyValue="5050" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5060</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по займам, полученным от организаций, осуществляющих отдельные виды банковских операций</td>
+                    <td><InputText name="v1" key="n" keyValue="5060" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5090</td>
+                    <td>Другие расходы, связанные с выплатой вознаграждения </td>
+                    <td><InputText name="v1" key="n" keyValue="5090" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5110</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по займам овернайт</td>
+                    <td><InputText name="v1" key="n" keyValue="5110" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5120</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по вкладам других банков</td>
+                    <td><InputText name="v1" key="n" keyValue="5120" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5150</td>
+                    <td>Расходы по расчетам с филиалами</td>
+                    <td><InputText name="v1" key="n" keyValue="5150" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5200</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по требованиям клиентов</td>
+                    <td><InputText name="v1" key="n" keyValue="5200" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5250</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по операциям "РЕПО" с ценными бумагами</td>
+                    <td><InputText name="v1" key="n" keyValue="5250" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5300</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по ценным бумагам </td>
+                    <td><InputText name="v1" key="n" keyValue="5300" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5400</td>
+                    <td>Расходы, связанные с выплатой вознаграждения по субординированному долгу</td>
+                    <td><InputText name="v1" key="n" keyValue="5400" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left; font-weight: bold;">Итого расходы , связанные с выплатой вознаграждения:</td>
+                    <td style="text-align: center;"><InputText name="v1" key="n" keyValue="4" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+    </div>
+
+    <div id="div_2" style="width:47%; float:right;">
+        <span style="text-align: left; font-weight: bold;">V. Расходы, не связанные с выплатой вознаграждения (интереса)</span>
+        <span style="text-align: right; font-weight: bold;">( тыс. тенге)</span>
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>N группы счетов</th>
+                    <th>Наименование расходов</th>
+                    <th>Сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5450</td>
+                    <td>Ассигнования на обеспечение</td>
+                    <td><InputText name="v1" key="n" keyValue="5450" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5500</td>
+                    <td>Расходы по дилинговым операциям</td>
+                    <td><InputText name="v1" key="n" keyValue="5500" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5600</td>
+                    <td>Комиссионные расходы </td>
+                    <td><InputText name="v1" key="n" keyValue="5600" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5700</td>
+                    <td>Расходы от переоценки</td>
+                    <td><InputText name="v1" key="n" keyValue="5700" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5720</td>
+                    <td>Расходы по оплате труда и обязательным отчислениям,  всего, в том числе на :</td>
+                    <td><InputText name="v1" key="n" keyValue="5720" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5730</td>
+                    <td>Реализованные расходы от переоценки</td>
+                    <td><InputText name="v1" key="n" keyValue="5730" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5740</td>
+                    <td>Общехозяйственные расходы</td>
+                    <td><InputText name="v1" key="n" keyValue="5740" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5760</td>
+                    <td>Налоги, сборы и другие обязательные платежи в бюджет, кроме подоходного налога</td>
+                    <td><InputText name="v1" key="n" keyValue="5760" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5780</td>
+                    <td>Амортизационные отчисления</td>
+                    <td><InputText name="v1" key="n" keyValue="5780" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5850</td>
+                    <td>Расходы от продажи</td>
+                    <td><InputText name="v1" key="n" keyValue="5850" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5870</td>
+                    <td>Расходы, связанные с изменением доли участия в уставном капитале юридических лиц</td>
+                    <td><InputText name="v1" key="n" keyValue="5870" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5890</td>
+                    <td>Расходы по операциям с производными финансовыми инструментами</td>
+                    <td><InputText name="v1" key="n" keyValue="5890" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5900</td>
+                    <td>Неустойка (штраф, пеня)</td>
+                    <td><InputText name="v1" key="n" keyValue="5900" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td>5920</td>
+                    <td> Прочие расходы</td>
+                    <td><InputText name="v1" key="n" keyValue="5920" mask="money0"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left; font-weight: bold;">Итого расходы, не связанные с выплатой вознаграждения</td>
+                    <td style="text-align: center;"><InputText name="v1" key="n" keyValue="5" auto="true" mask="money0"/></td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">Итого расходов без подоходного налога      ( IV+V )</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="6" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <span style="display: block; text-align: left; font-weight: bold;">VII. Подоходный налог</span>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td style="width:9%; font-weight: bold;">5999</td>
+                <td style="font-weight: bold;">Подоходный налог</td>
+                <td><InputText name="v1" key="n" keyValue="5999" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">Всего расходов с учетом  подоходного налога      ( IV+V+VII )</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="7" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">VIII. Превышение текущих доходов  (расходов) над текущими расходами (доходами) до уплаты подоходного налога   ( I+II-IV-V )</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="8" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;">IX. Превышение текущих доходов (расходов) над текущими расходами (доходами ) после уплаты подоходного налога   ( VIII-VII )</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="9" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <table name="a" class="dataTable">
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;"> Превышение текущих доходов над текущими расходами *</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="10" auto="true" mask="money0"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left; font-weight: bold;"> Превышение текущих расходов над текущими доходами **</td>
+                <td style="text-align: center; width:20%;"><InputText name="v1" key="n" keyValue="11" auto="true" mask="money0"/></td>
+            </tr>
+        </table>
+        <br/>
+        <span style="display: block; text-align: left;">* - справочно : по ипотечным организациям, у которых текущие доходы превышают текущие расходы</span>
+        <span style="display: block; text-align: left;">** - справочно : по ипотечным организациям, у которых текущие расходы превышают текущие доходы</span>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: center;
+}
+table.dataTable td:nth-child(2) {
+text-align: left;
+width:80%;
+}
+table.dataTable td:nth-child(3) {
+text-align: center;
+width:15%;
+}
+]]>
+    </style>
+    <script>
+        <![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+    </script>
+    <script2>
+        <![CDATA[
+function fixTable(fix){ 
+
+}
+]]>
+    </script2>
+</Form>

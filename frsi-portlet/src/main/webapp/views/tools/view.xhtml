@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:components="http://java.sun.com/jsf/composite/components"
+    xmlns:portlet="http://java.sun.com/portlet_2_0"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/form.css?v=1.5"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+        <style>
+            .customCalendar input {
+                text-align: center!important;
+                width: 6em;
+            }
+            table.dataTable td:nth-child(1) { text-align: left; }
+            table.dataTable td:nth-child(2) { text-align: left; }
+        </style>
+    </h:head>
+
+    <h:body>
+        <components:ajax-status/>
+        <portlet:namespace var="ns"/>
+        <components:dialog-error id="ccDialogError"/>
+        <h:form id="mainForm">
+            <p:growl id="msgs" showDetail="true"/>
+            <h:outputText value="Portlet namespace: #{ns}"/><br/>
+            <h:outputText value="New session: #{sessionBean.newSession}"/><br/>
+            <p:commandLink value="Инициализировать приложение" actionListener="#{applicationBean.init}" update="@form"/><br/>
+            <br/>
+            <p:commandLink value="Обновить" update="@form"/><br/>
+            <h:outputText value="#{applicationBean.applicationProperties}" escape="false"/>
+
+            <br/>
+            <h:outputText value="#{testBean.msg}"/><br/>
+            <p:commandLink value="Test" actionListener="#{testBean.doSomething}" update="@form" /><br/>
+            <p:commandButton value="Export statuses from couchbase" actionListener="#{testBean.exportStatuses}"/>
+
+            <br/>
+            <br/>
+            <h:outputText value="Проверка расчета"/><br/>
+            <h:outputText value="БИН подотчетной организаций:&#160;"/>
+            <p:inputText value="#{testBean.idn}" style="width:15em"/><br/>
+            <h:outputText value="Отчетная дата:&#160;"/>
+            <p:calendar value="#{testBean.reportDate}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                        navigator="true" locale="ru" mask="true">
+                <p:ajax event="dateSelect"/>
+            </p:calendar><br/>
+            <h:outputText value="Код формы:&#160;"/>
+            <p:inputText value="#{testBean.code}" style="width:15em"/><br/>
+            <h:outputText value="Тип отчета:&#160;"/>
+            <p:selectOneMenu id="formType" value="#{testBean.selectedFormTypeCode}" style="width:450px">
+                <f:selectItem itemLabel="#{res.all}..." itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{testBean.formTypeCodesMap}" />
+            </p:selectOneMenu><br/>
+            <p:commandButton value="Проверить расчеты" actionListener="#{testBean.doControlCalc()}" update="msgs"/>
+            <p:commandButton value="Пересчитать" actionListener="#{testBean.recalculate()}" update="msgs"/>
+
+            <br/>
+            <br/>
+
+            <h:outputText value="Перевод на rec_id"/><br/>
+            <h:outputText value="БИН подотчетной организаций:&#160;"/>
+            <p:inputText value="#{testBean.idnPick}" style="width:15em"/><br/>
+            <h:outputText value="Отчетная дата:&#160;"/>
+            <p:calendar value="#{testBean.reportDatePick}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                        navigator="true" locale="ru" mask="true">
+                <p:ajax event="dateSelect"/>
+            </p:calendar><br/>
+            <h:outputText value="Код формы:&#160;"/>
+            <p:inputText value="#{testBean.codePick}" style="width:15em"/><br/>
+            <h:outputText value="Название таблицы:&#160;"/>
+            <p:inputText value="#{testBean.tableNamePick}" style="width:15em"/><br/>
+            <h:outputText value="Название колонки:&#160;"/>
+            <p:inputText value="#{testBean.columnNamePick}" style="width:15em"/><br/>
+            <p:commandButton value="Проверить перевод" actionListener="#{testBean.checkTransformation()}" update="msgs"/>
+            <p:commandButton value="Переводить" actionListener="#{testBean.doTransformation()}" update="msgs"/><br/>
+            <h:outputText id="txtReportHistoryId" value="report_history_id"/>
+            <p:inputText value="#{toolBean.reportHistoryId}" style="width:15em"/><br/>
+            <p:commandButton value="Сохранить в report_history_list" actionListener="#{toolBean.saveToReportHistoryList()}"/>
+        </h:form>
+        <hr width="100%"/>
+
+        <h:form id="frmTestUniq">
+            <p:dataList value="#{toolBean.testNumbers}" var="n" id="listTestNumbers">
+                #{n}
+            </p:dataList>
+            <h:inputText value="#{toolBean.testNumber}"/>
+            <p:commandButton value="insert" actionListener="#{toolBean.insertTestNumber}"/>
+            <p:commandButton value="refresh" actionListener="#{toolBean.refreshTestNumbers}" update="listTestNumbers"/>
+        </h:form>
+        <hr width="100%"/>
+        <h:form id="frmReference">
+            <p:commandButton value="setTimerForLoadReference" actionListener="#{toolBean.setTimer}"/>
+        </h:form>
+        <hr width="100%"/>
+        <h:form id="frmNotice">
+            <p:commandButton value="Принудительная отправка уведомлений" actionListener="#{toolBean.searchNotice}"/>
+        </h:form>
+        <hr width="100%"/>
+
+        <!--<h:form>
+            <p:commandButton value="Отправка письма" actionListener="#{toolBean.sendNotice}"/>
+        </h:form>
+        <hr width="100%"/>-->
+
+        <h:form id="frmValidateNumber">
+            <h:outputText value="Проверка формата чисел"/><br/>
+            <h:outputText value="БИН подотчетной организаций:&#160;"/>
+            <p:inputText value="#{testBean.idn2}" style="width:15em"/><br/>
+            <h:outputText value="Отчетная дата:&#160;"/>
+            <p:calendar value="#{testBean.reportDate2}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                        navigator="true" locale="ru" mask="true">
+                <p:ajax event="dateSelect"/>
+            </p:calendar><br/>
+            <h:outputText value="Код формы:&#160;"/>
+            <p:inputText value="#{testBean.code2}" style="width:15em"/><br/>
+            <h:outputText value="Тип отчета:&#160;"/>
+            <p:selectOneMenu value="#{testBean.selectedFormTypeCode2}" style="width:450px">
+                <f:selectItem itemLabel="#{res.all}..." itemValue="" noSelectionOption="true"/>
+                <f:selectItems value="#{testBean.formTypeCodesMap}"/>
+            </p:selectOneMenu><br/>
+            <p:commandButton value="Проверить" actionListener="#{testBean.validateNumberFormat()}"/>
+        </h:form>
+        <hr width="100%"/>
+        <h:form id="frmReportRefLink">
+            <h:outputText value="Связь между отчетами и справочниками"/><br/>
+            <p:calendar value="#{toolBean.reportDate}" pattern="dd.MM.yyyy" styleClass="customCalendar"
+                        navigator="true" locale="ru" mask="true">
+            </p:calendar><br/>
+            <p:inputText value="#{toolBean.reportId}" style="width:15em"/>
+            &#160;&#160;
+            <!--<p:commandButton value="Добавить по конкретному ID" actionListener="#{toolBean.insertIntoReportRefLink(toolBean.reportId)}"/>-->
+            &#160;&#160;
+            <p:commandButton value="Добавить По всем" actionListener="#{toolBean.insertIntoReportRefLinkAll()}" update=":frmReportRefLink"/>
+            <br/>
+            <h:outputText value="#{toolBean.reportId}"/>
+        </h:form>
+        <hr width="100%"/>
+        <h:form id="frmReportFile">
+            <h:outputText value="Формирование pdf файла для пояснительной записки"/><br/>
+            <p:inputText value="#{toolBean.reportId}" style="width:15em"/>
+            &#160;&#160;
+            <p:commandButton value="Добавить по конкретному ID" actionListener="#{toolBean.insertPdfFile(toolBean.reportId)}"/>
+            &#160;&#160;
+            <p:commandButton value="Добавить По всем" actionListener="#{toolBean.insertPdfFile()}" update=":frmReportFile"/>
+            <br/>
+            <h:outputText value="#{toolBean.reportId}"/>
+        </h:form>
+        <hr width="100%"/>
+
+        <!--<p:dialog id="dlgRespondents" widgetVar="wDlgRespondents" header="Респонденты" modal="true" resizable="false" width="1000">
+            <h:form id="frmRespondents">
+                <p:dataTable value="#{toolBean.respondents}" var="resp"
+                             rowKey="#{resp.id}" sortBy="#{resp.legalPersonName}" scrollable="true" scrollHeight="600"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{toolBean.selectedRespondent}" selectionMode="single">
+                    <p:column headerText="БИН" sortBy="#{resp.idn}" style="width:8em; text-align:center">
+                        <h:outputText value="#{resp.idn}"/>
+                    </p:column>
+                    <p:column headerText="Наименование" sortBy="#{resp.legalPersonName}">
+                        <h:outputText value="#{resp.legalPersonName}"/>
+                    </p:column>
+                </p:dataTable>
+                <br/>
+                <p:commandButton value="#{res.pick}" actionListener="#{toolBean.onDialogRespondentsHide}" oncomplete="PF('wDlgRespondents').hide()" process="@form"/>&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgRespondents').hide()"/>
+            </h:form>
+        </p:dialog>-->
+
+        <h:form id="frmCopyHistories">
+            Скопировано:
+            <h:outputText id="txtCopiedHistories" value="#{toolBean.copiedHostories}"/><br/>
+            <p:commandButton value="Скопировать истории отчетов" actionListener="#{toolBean.copyHistories()}" update="txtCopiedHistories"/>
+        </h:form>
+
+    </h:body>
+</f:view>

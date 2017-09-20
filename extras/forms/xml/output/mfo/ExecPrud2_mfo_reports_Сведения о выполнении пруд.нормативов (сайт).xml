@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="ExecPrud2_mfo_reports"
+languageCode="ru"
+title="Сведения о выполнении пруденциальных нормативов МФО РК (сайт) (МФО)"
+shortName="ПН_Сайт (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "sortFields" : [{"name":"ExecPrud2_mfo_reports_array*v3", "desc":"true"}], "keyFields" : {"ExecPrud2_mfo_reports_array":"num"} }'
+typeCode="OUTPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+    <span style="display: block; text-align: right;">
+
+    </span>
+
+    <h3 style="text-align: center;">
+        Сведения о выполнении пруденциальных нормативов микрофинансовыми организациями Республики Казахстан
+    </h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+
+    <div>
+        <table name="array" class="dataTable">
+            <thead>
+                <tr>
+                    <th>№ п/п</th>
+                    <th>Наименование микрофинансовых организаций</th>
+                    <th>Оплаченный уставный капитал (мин.размер 30 млн. тенге)</th>
+                    <th>Расчетный собственный капитал (мин. размер 30 млн. тенге)</th>
+                    <th>Коэффициент достаточности собственного капитала (k1&gt;=0,1)</th>
+                    <th>Коэффициент максимального размера риска на одного заемщика (к2&lt;=0,25)</th>
+                    <th>Коэффициент максимального лимита совокупных обязательств  (к3 &lt;= 10)</th>
+                    <th>Выполнение пруденциальных нормативов, да/нет</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="group" class="groupHeader">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <DynamicRow>
+                    <td><StaticText value="$DynamicRowIdText"/></td>
+                    <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" readonly="true" style="width: 40em; text-align: left;"/></td>
+                    <td><InputText name="v3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v4" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+                    <td><InputText name="v5" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="v6" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="v7" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+                    <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+                </DynamicRow>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+    table.dataTable td:nth-child(2) {
+    text-align: left;
+    }
+    table.dataTable td:nth-child(n+3) {
+    text-align: right;
+    }
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrud2_mfo_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+}
+]]>
+</script2>
+</Form>

@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+	encoding="UTF8"
+	locale="#{facesContext.externalContext.requestLocale}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:components="http://java.sun.com/jsf/composite/components"
+	xmlns:pickers="http://java.sun.com/jsf/composite/pickers"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/form.css?v=1.5"/>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/picker.css?v=0.8"/>
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/picker2.css?v=0.9"/>
+		<script type="text/javascript" src="/frsi-portlet/js/autoNumeric.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/datepicker-ru.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/timepicker-ru.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/jquery.scrollTo.min.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/common.js"/>
+		<script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+		<script type="text/javascript" src="/frsi-portlet/js/form.js?v=15"/>
+		<script type="text/javascript" src="/frsi-portlet/js/form2.js?v=11.7"/>
+		<script type="text/javascript" src="/frsi-portlet/js/custom-select.js?v=1.5"/>
+		<script type="text/javascript" src="/frsi-portlet/js/tableHeadFixer.js?v=14.3"/>
+
+		<link rel="stylesheet" type="text/css" href="/frsi-portlet/css/report_preview.css?v=0.2"/>
+		<script type="text/javascript">
+			var isConfirmLeavePage = false;
+			window.onbeforeunload = confirmLeavePage;
+			function confirmLeavePage() {
+				var message = "Пожалуйста, не забудьте сохранить изменения перед тем, как перейти на другую страницу.";
+				if (isConfirmLeavePage) return message;
+			}
+//<![CDATA[
+            // Prevent the backspace key from navigating back.
+            $(document).unbind('keydown').bind('keydown', function (event) {
+                var doPrevent = false;
+                if (event.keyCode === 8) {
+                    var d = event.srcElement || event.target;
+                    if ((d.tagName.toUpperCase() === 'INPUT' &&
+                            (d.type.toUpperCase() === 'TEXT' ||
+                             d.type.toUpperCase() === 'PASSWORD' ||
+                             d.type.toUpperCase() === 'FILE' ||
+                             d.type.toUpperCase() === 'EMAIL' ||
+                             d.type.toUpperCase() === 'SEARCH' ||
+                             d.type.toUpperCase() === 'DATE')
+                        ) || d.tagName.toUpperCase() === 'TEXTAREA') {
+                        doPrevent = d.readOnly || d.disabled;
+                    } else {
+                        doPrevent = true;
+                    }
+                }
+                if (doPrevent) event.preventDefault();
+            });
+
+			function overlayPrintPreview(){
+				var div = document.getElementById("dlgPrintPreview");
+				if(div.style.visibility == "visible"){
+					div.style.visibility = "hidden";
+				} else {
+					div.style.visibility = "visible";
+				}
+			}
+
+			function overlayGalleriaPreview(){
+				var div = document.getElementById("dlgGalleriaPreview");
+				if(div.style.visibility == "visible"){
+					div.style.visibility = "hidden";
+				} else {
+					div.style.visibility = "visible";
+				}
+			}
+
+			function overlayGalleriaLetterPreview(){
+				var div = document.getElementById("dlgGalleriaLetterPreview");
+				if(div.style.visibility == "visible"){
+					div.style.visibility = "hidden";
+				} else {
+					div.style.visibility = "visible";
+				}
+			}
+
+			function overlayGalleriaWarrantPreview(){
+				var div = document.getElementById("dlgGalleriaWarrantPreview");
+				if(div.style.visibility == "visible"){
+					div.style.visibility = "hidden";
+				} else {
+					div.style.visibility = "visible";
+				}
+			}
+
+			function onAutoSaveChange(el) {
+				if (el.checked) {
+					PF('wPoll').start();
+				} else {
+					PF('wPoll').stop();
+				}
+			}
+
+			function onValidateClick() {
+				if (isReportDirty()) {
+					PF('wDlgConfirmValidationSave').show();
+				} else {
+					rcValidateSaveControl();
+				}
+			}
+
+			function isStatusDraft() {
+				return $("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:hiStatusCode").val() == 'DRAFT';
+			}
+
+			function isAutoSaveRendered() {
+				return $("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:pollSwitch").length > 0;
+			}
+
+			function onStartPoll() {
+				if (isReportDirty() && isAutoSaveRendered()) rcAutoSave();
+			}
+
+			function onDownloadExcel(){
+				if(isReportDirty()){
+					PF('wDlgConfirmDownloadSave').show();
+				} else {
+					doDownloadExcel(false);
+				}
+			}
+
+			function onPrint(){
+				if(isReportDirty()){
+					PF('wDlgConfirmPrintSave').show();
+				} else {
+					doPrint(false);
+				}
+			}
+
+			function doDownloadExcel(save){
+				if (save)
+					$("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:rcSaveNDownloadExcel").click();
+				else
+					$("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:rcDownloadExcel").click();
+			}
+
+			function doPrint(save){
+				if (save)
+					$("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:rcSaveNPrint").click();
+				else
+					$("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:rcPrint").click();
+			}
+
+			function closeUploadDialog(fileupload, kind) {
+				if (fileupload.files.length == 0) {
+					if(kind == 1){
+						rcFile();
+					}else if (kind == 2){
+						rcLetter();
+					}
+				}
+			}
+
+			/**
+			 * Enables save button if the report is dirty
+			 */
+			$(document).ready(function () {
+				$("#hiDirtyReport").change(function () {
+					if ($("#hiDirtyReport").val() == 'true') {
+						var rightSave = $("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:hiRightSave").val();
+						var status = $("#" + "#{applicationBean.liferayFacesResponseNamespace}\\:dynamic-form\\:hiStatusCode").val();
+						if (rightSave == 'true' && status != 'APPROVED')
+							PF('wBtnSave').enable();
+					}
+				});
+			});
+
+
+			/*Temp*/
+			/*var reference_data = {
+				ref_bank: [],
+				ref_legal_person: [],
+				ref_country: []
+			};
+
+			for (var i = 1; i < 20; i++) {
+				reference_data.ref_bank.push({name_ru: 'Банк ' + i, rec_id: i});
+			}
+
+			for (var i = 1; i < 1000; i++) {
+				reference_data.ref_legal_person.push({name: 'Физ. лицо ' + i, rec_id: i, bin: 'БИН ' + i});
+			}
+
+			for (var i = 1; i < 120; i++) {
+				reference_data.ref_country.push({name: 'Страна ' + i, rec_id: i});
+			}*/
+
+//]]>
+        </script>
+		<style>
+		</style>
+	</h:head>
+
+	<!-- Добавлен параметр для вьюшки reportId для корректной работы из нескольких вкладок.
+	Также необходимо добавлять при необходимости в каждую кнопку дополнительный параметр reportId !!!!!-->
+
+	<f:metadata>
+		<f:viewParam name="reportId" value="#{reportBean.reportId}"/>
+	</f:metadata>
+
+	<h:body onload="updateLayout();updateCalculatedFields();textAreaAdjustAll();">
+		<h:form id="dynamic-form">
+			<input type="hidden" id="hiDirtyReport" name="hiDirtyReport"/>
+			<h:inputHidden id="hiStatusCode" value="${reportBean.status}"/>
+			<h:inputHidden id="hiRightSave" value="${reportBean.rightSave}"/>
+			<h:inputHidden id="hiReportDate" value="${reportBean.reportDate}">
+				<f:convertDateTime type="both" pattern="yyyy-MM-dd'T'HH:mm:ss'Z'" />
+			</h:inputHidden>
+			<p:growl id="msg"/>
+			<p:toolbar id="toolbar">
+				<f:facet name="left">
+					<p:commandButton value="Выйти" type="button" onclick="if(isReportDirty()) PF('wDlgConfirmBack').show(); else rcExit();" icon="ui-icon-arrowreturn-1-w" title="Выйти из формы"/>
+					<p:remoteCommand name="rcExit" value="Выйти" action="/views/reports/view?faces-redirect=true"/>
+					<!--<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>-->
+					<h:outputLabel value="Статус: #{reportBean.statusName}" style="font-weight: normal;" />
+					<!--<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>-->
+					<h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;" rendered="#{!reportBean.haveAttachedFile}"/>
+					<h:graphicImage url="/resources/icons16/paperclip.png" rendered="#{reportBean.haveAttachedFile}" style="position:relative; top:3px;" />
+					<h:outputText value="&#160;"/>
+					<h:graphicImage url="/resources/icons16/letter.png" rendered="#{reportBean.haveAttachedLetter}" style="position:relative; top:3px;" />
+					<!--<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>-->
+					<p:commandButton value="#{res.save}" type="button"
+									 onclick=" if(isReportDirty()) rcSave();" title="Сохранить данные на сервере"
+									 icon="ui-icon-disk" disabled="true" id="btnSave" widgetVar="wBtnSave">
+						<!--onstart="if (isElementEnabled(':dynamic-form:btnCalculate')) updateCalculatedFields(); destroyAllMasks();" oncomplete="initAllMasks();PF('statusDialog').hide();" update=":messages,:formPoll" title="Сохранить данные на сервере" icon="ui-icon-disk" disabled="#{!reportBean.saveEnabled || !reportBean.rightSave}">-->
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:commandButton>
+					<!--<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>-->
+					<p:commandButton value="Проверить" onclick="onValidateClick()" disabled="#{reportBean.approved}" icon="ui-icon-gear" title="Предварительная проверка формы"/>
+					<p:remoteCommand name="rcValidate" actionListener="#{reportBean.validateSubmittedByReportId(reportBean.reportId, false, false)}" update="messagesPanel textMessages" oncomplete="PF('wLayoutMain').show('south');PF('wLayoutMain').layout.open('south');gotoPortletElement(':dynamic-form:groupMessages', {offset: -80, axis: 'y'})" >
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:remoteCommand>
+					<p:remoteCommand name="rcValidateSaveControl" actionListener="#{reportBean.validateSubmittedByReportId(reportBean.reportId, false, true)}" update="messagesPanel textMessages" oncomplete="PF('wLayoutMain').show('south');PF('wLayoutMain').layout.open('south');gotoPortletElement(':dynamic-form:groupMessages', {offset: -80, axis: 'y'})" >
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:remoteCommand>
+					<p:remoteCommand name="rcSaveNValidate" actionListener="#{reportBean.validateSubmittedByReportId(reportBean.reportId, true, true)}"
+									 update="messagesPanel textMessages :messages,:formPoll, @form:toolbar, :frmReportFile, :frmReportLetter "
+									 onstart="updateCalculatedFields();"
+									 oncomplete="makeReportClear();PF('wLayoutMain').show('south');PF('wLayoutMain').layout.open('south');gotoPortletElement(':dynamic-form:groupMessages', {offset: -80, axis: 'y'})" >
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:remoteCommand>
+					<p:commandButton id="btnCalculate" value="Рассчитать" icon="ui-icon-calculator" onclick="updateCalculatedFields();" title="Рассчитать значения всех вычисляемых полей" global="false" disabled="#{!reportBean.updateCalculatedFieldsManually || reportBean.approved}">
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:commandButton>
+					<!--<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>-->
+					<p:selectBooleanButton title="Нажмите, чтобы зафиксировать или снять фиксацию с таблицы" offLabel="Зафиксировать" onLabel="Снять фиксацию" value="#{reportBean.fixed}" >
+						<p:ajax listener="#{reportBean.fixTable()}"/>
+					</p:selectBooleanButton>
+					<p:commandButton id="fix"  value="тест фикс" oncomplete="fixTable(true,1)" style="display: none"/>
+					<p:menuButton value="Просмотр">
+						<p:menuitem value="Статусы" actionListener="#{reportBean.refreshStatusesByReportId(reportBean.reportId, false)}"
+									action="#{reportBean.setDraftStatusesHidden(true)}"
+									oncomplete="PF('wDlgStatuses').show()" update=":frmStatuses"
+									disabled="#{userBean.disabled(reportBean.reportId==null, 'RESP:FORM:HISTORY')}"
+									title="История статусов" icon="ui-icon-script">
+							<f:param name="reportId" value="#{reportBean.reportId}"/>
+						</p:menuitem>
+						<p:menuitem value="Свойства" update=":frmReportProps" actionListener="#{reportBean.refreshProps(reportBean.reportId, false)}" oncomplete="PF('wDlgReportProps').show()"
+									disabled="#{userBean.disabled(reportBean.reportId==null,'RESP:FORM:PROPS')}"
+									title="Свойства выбранного отчёта" icon="ui-icon-tag">
+							<f:param name="reportId" value="#{reportBean.reportId}"/>
+						</p:menuitem>
+					</p:menuButton>
+					<p:menuButton value="Действия">
+						<p:menuitem value="Выгрузить в Excel" icon="ui-icon-arrowthickstop-1-s" disabled="#{userBean.disabled(false, 'RESP:FORM:DOWNLOAD_EXCEL')}"
+									onclick="onDownloadExcel();" process="@this" global="false"/>
+						<p:menuitem value="Печать" disabled="#{userBean.disabled(false, 'RESP:FORM:PRINT')}"  icon="ui-icon-print" onclick="onPrint()" process="@this" global="false"/>
+					</p:menuButton>
+					<p:menuButton value="Приложения">
+						<p:menuitem value="Пояснительная записка" title="Прикрепить пояснительную записку" rendered="#{reportBean.canAttachedFile}"
+									actionListener="#{reportBean.refreshFileList(reportBean.reportId, null,'RESP', 1)}"
+									oncomplete="PF('wDlgReportFile').show()" update=":frmReportFile"
+									disabled="#{userBean.disabled(!reportBean.canAttachedFile, 'RESP:FORM:ATTACH_FILE')}">
+							<f:param name="reportId" value="#{reportBean.reportId}"/>
+						</p:menuitem>
+						<p:separator rendered="#{reportBean.canAttachedFile}"/>
+						<p:menuitem value="Сопроводительное письмо" title="Прикрепить сопроводительное письмо"
+									actionListener="#{reportBean.refreshFileList(reportBean.reportId, null,'RESP', 2)}"
+									oncomplete="PF('wDlgReportLetter').show()" update=":frmReportLetter"
+									disabled="#{!userBean.hasPermission('RESP:FORM:ATTACH_LETTER')}">
+						</p:menuitem>
+					</p:menuButton>
+					<span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical"/></span>
+					<h:outputText value="Автосохранение: " rendered="#{reportBean.isAutoSaveRendered(reportBean.reportId)}"/>
+					<p:inputSwitch id="pollSwitch" widgetVar="wPollSwitch" value="#{reportBean.pollEnabled}"
+								   onchange="onAutoSaveChange(this)" onLabel="Вкл" offLabel="Выкл"
+								   rendered="#{reportBean.isAutoSaveRendered(reportBean.reportId)}"
+								   style="vertical-align: middle">
+						<p:ajax listener="#{reportBean.onPollSwitch}" update="@form:poll, @form:msg"/>
+						<f:param name="reportId" value="#{reportBean.reportId}"/>
+					</p:inputSwitch>
+				</f:facet>
+			</p:toolbar>
+			<p:poll id="poll" widgetVar="wPoll" interval="#{sessionBean.autosaveDuration}"
+					onstart="onStartPoll();"
+					global="false" autoStart="true">
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:poll>
+			<p:layout id="layoutMain" widgetVar="wLayoutMain" styleClass="layout-main" style="width: 100%; height: 320px;" resizeTitle="Переместить" expandTitle="Развернуть" collapseTitle="Свернуть" closeTitle="Закрыть">
+				<p:ajax event="resize" listener="#{reportBean.onResizeMainLayout}"/>
+				<p:layoutUnit id="luForm" position="center" styleClass="lu-form" style="width: 100%;">
+					<h:outputText value="#{reportBean.html}" escape="false"/>
+				</p:layoutUnit>
+				<p:layoutUnit id="luMessages" position="south" size="35%" resizable="true" closable="true" collapsible="true" collapsed="#{!reportBean.validationVisible}" styleClass="lu-messages">
+					<f:facet name="header">
+						<h:outputText id="textMessages" value="Сообщения"/>
+					</f:facet>
+					<h:panelGroup id="messagesPanel">
+						<h:panelGroup id="groupMessages" layout="block">
+							<h:panelGroup layout="block">
+								<h:panelGroup layout="block" style="width: 2.4em; float: left"
+											  rendered="#{reportBean.validationResult == 'ERRORS'}">
+									<p:commandButton title="Печать" icon="ui-icon-print"
+													 actionListener="#{reportBean.prepareValidationResultsPdfFile(reportBean.reportId)}"
+													 oncomplete="if(!args.hasErrors) overlayPrintPreview();"
+													 update=":frmPrintPreview">
+										<f:param name="reportId" value="#{reportBean.reportId}"/>
+									</p:commandButton><br/>
+									<p:commandButton title="Выгрузить в Excel" ajax="false"
+													 icon="ui-icon-arrowthickstop-1-s" style="margin-top: 3px">
+										<p:fileDownload
+												value="#{reportBean.downloadValidationResults(reportBean.reportId)}">
+											<f:param name="reportId" value="#{reportBean.reportId}"/>
+										</p:fileDownload>
+									</p:commandButton>
+								</h:panelGroup>
+								<h:panelGroup id="groupValidation"
+											  rendered="#{reportBean.validationVisible}"
+											  layout="block" style="float: left; margin-left: 3px; clear: right">
+									<h:outputText value="Результат предварительной проверки: "/>
+									<h:outputText value="#{reportBean.validationMessage}"
+												  style="#{reportBean.getValidationMessageStyle(reportBean.validationResult)}"/><br/>
+									<ui:repeat value="#{reportBean.errors}" var="error">
+										<h:outputText value="&#160;&#160;#{reportBean.getErrorLevel(error)}&#160;&#160;"
+													  style="#{reportBean.getErrorStyle(error)}"/>
+										<p:commandLink value="#{error.descriptionRu}"
+													   rendered="#{not empty error.location}"
+													   onclick="gotoElement('#{error.location}', {offset: {top: -80, left: -320}})"/>
+										<h:outputText value="#{error.descriptionRu}"
+													  rendered="#{empty error.location}"/>
+										<br/>
+									</ui:repeat>
+									<br/>
+								</h:panelGroup>
+							</h:panelGroup>
+							<h:panelGroup id="groupControls" layout="block" rendered="#{reportBean.validationResult == 'OK'}" style="float: right">
+								<h:panelGroup layout="block" style="width: 2.4em; float: left; margin-right: 0.5em">
+									<p:commandButton title="Печать" icon="ui-icon-print"
+													 actionListener="#{reportBean.prepareControlResultsPdfFile(reportBean.reportId)}"
+													 oncomplete="if(!args.hasErrors) overlayPrintPreview();"
+													 update=":frmPrintPreview">
+										<f:param name="reportId" value="#{reportBean.reportId}"/>
+									</p:commandButton><br/>
+									<p:commandButton title="Выгрузить в Excel" ajax="false"
+													 icon="ui-icon-arrowthickstop-1-s" style="margin-top: 3px">
+										<p:fileDownload
+												value="#{reportBean.downloadControlResults(reportBean.reportId)}">
+											<f:param name="reportId" value="#{reportBean.reportId}"/>
+										</p:fileDownload>
+									</p:commandButton>
+								</h:panelGroup>
+								<p:dataTable id="tblControlResults" widgetVar="wTblControlResults"
+											 value="#{reportBean.controlResults}" var="controlResult"
+											 rows="2147483647" resizableColumns="true"
+											 emptyMessage="#{res.noRecordsFound}"
+											 rowStyleClass="#{reportsBean.getControlRowStyleClass(controlResult.resultType)}">
+											 <!--styleClass="noHeader">-->
+									<p:column headerText="Тип контроля" style="width: 15em"><h:outputText
+											value="#{controlResult.crosscheckTypeNameRu}"/></p:column>
+									<p:column headerText="Внешняя система" style="width: 10em"><h:outputText value="#{controlResult.externalSystemNameRu}"/></p:column>
+									<p:column headerText="#{res.expression}" styleClass="wrap"><h:outputText
+											value="#{controlResult.descriptionRu}"/></p:column>
+									<p:column headerText="#{res.resultPerformControl}" style="width: 10em"
+											  styleClass="customColControlResult"><h:outputText
+											value="#{reportsBean.getControlResultTypeName(controlResult.resultType)}"/></p:column>
+									<!--<p:column headerText="#{res.reportDate}" style="width:7em;text-align:center;">
+										<h:outputText value="#{controlResult.reportDate}"><f:convertDateTime type="date"
+																											 pattern="dd.MM.yyyy"/></h:outputText>
+									</p:column>-->
+								</p:dataTable>
+							</h:panelGroup>
+						</h:panelGroup>
+					</h:panelGroup>
+				</p:layoutUnit>
+			</p:layout>
+
+			<p:remoteCommand name="rcSave" actionListener="#{reportBean.save(reportBean.reportId, false)}"
+							 onstart="updateCalculatedFields();"
+							 oncomplete="PF('statusDialog').hide();makeReportClear();"
+							 update=":messages,:formPoll, @form:toolbar, :messages, :frmReportFile, :frmReportLetter, @form:hiStatusCode, @form:poll">
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:remoteCommand>
+
+			<p:remoteCommand name="rcAutoSave" actionListener="#{reportBean.save(reportBean.reportId, true)}"
+							 onstart="updateCalculatedFields();" oncomplete="PF('statusDialog').hide();makeReportClear();"
+							 update=":messages,:formPoll, @form:toolbar, @form:hiStatusCode">
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:remoteCommand>
+
+			<p:commandButton id="rcDownloadExcel" value="Download excel" ajax="false" style="display: none">
+				<p:fileDownload value="#{reportsBean.downloadSingleFile(null, reportBean.reportId)}">
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:fileDownload>
+			</p:commandButton>
+
+			<p:commandButton id="rcSaveNDownloadExcel" value="Download excel" ajax="false" style="display: none"
+							 update="messagesPanel textMessages :messages,:formPoll, @form:toolbar, :frmReportFile"
+							 onclick="makeReportClear();updateCalculatedFields();"
+							 oncomplete="makeReportClear();">
+				<p:fileDownload value="#{reportsBean.saveNDownloadSingleFile(reportBean.reportId)}">
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:fileDownload>
+			</p:commandButton>
+
+			<p:commandButton id="rcPrint" value="Print"
+							 actionListener="#{reportsBean.preparePdfFile(null, reportBean.reportId, true)}"
+							 oncomplete="if(!args.hasErrors) overlayPrintPreview();"
+							 update=":frmPrintPreview" style="display: none">
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:commandButton>
+
+			<p:commandButton id="rcSaveNPrint" value="Print"
+							 actionListener="#{reportsBean.saveNPreparePdfFile(reportBean.reportId)}"
+							 oncomplete="if(!args.hasErrors) overlayPrintPreview();PF('statusDialog').hide();makeReportClear();"
+							 update=":frmPrintPreview :messages,:formPoll, @form:toolbar, @form:hiStatusCode"
+							 onstart="updateCalculatedFields();"
+							 style="display: none">
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:commandButton>
+
+			<p:confirmDialog id="dlgConfirmBack" widgetVar="wDlgConfirmBack" header="Внимание!" message="Сохранить данные перед выходом?" severity="alert">
+                <p:commandButton value="Выйти" action="/views/reports/view?faces-redirect=true">
+				</p:commandButton>&#160;&#160;&#160;&#160;
+                <p:commandButton value="Сохранить и выйти" actionListener="#{reportBean.save(reportBean.reportId, false)}"
+								 oncomplete="PF('statusDialog').hide();"
+								 action="#{reportBean.saveAndQuitAction}"
+								 disabled="#{!reportBean.saveEnabled || !reportBean.rightSave}">
+					<!--onstart="if (isElementEnabled(':dynamic-form:btnCalculate')) updateCalculatedFields(); destroyAllMasks();" oncomplete="initAllMasks();PF('statusDialog').hide();" action="#{reportBean.saveAndQuitAction}" disabled="#{!reportBean.saveEnabled || !reportBean.rightSave}">-->
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:commandButton>
+				&#160;&#160;&#160;&#160;
+                <p:commandButton type="button" value="Остаться" onclick="PF('wDlgConfirmBack').hide()"/>
+			</p:confirmDialog>
+		</h:form>
+
+		<p:dialog id="dlgSignDate" widgetVar="wDlgSignDate" header="Внимание!" modal="true">
+			<h:outputText value="Дата подписания изменена на текущую дату!" escape="false" /><br/><br/>
+			<h:form>
+				<p:commandButton value="#{res.continue}" action="/views/reports/form?faces-redirect=true" oncomplete="PF('wDlgSignDate').hide()" update=":messages,:dynamic-form"/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="dlgStatuses" widgetVar="wDlgStatuses" header="История статусов" modal="true" width="1000" height="600">
+			<h:form id="frmStatuses">
+				<table style="border-collapse:collapse; border-style:none; width:100%;">
+					<tr>
+						<td><h:outputText value="Количество отправок: #{reportBean.sendCount}"/></td>
+						<td style="width:auto; text-align:right; vertical-align:middle;">
+							<p:selectBooleanCheckbox id="globalFilter" value="#{reportBean.draftStatusesHidden}" style="vertical-align:-0.25em;">
+								<p:ajax listener="#{reportBean.refreshStatusesByReportId(reportBean.reportId, false)}" update="tblStatuses">
+									<f:param name="reportId" value="#{reportBean.reportId}"/>
+								</p:ajax>
+							</p:selectBooleanCheckbox>&#160;&#160;&#160;&#160;
+							<h:outputText value="Скрыть &#171;черновики&#187;"/>
+						</td>
+					</tr>
+				</table><br/>
+				<p:dataTable id="tblStatuses" widgetVar="wTblStatuses" lazy="true" value="#{reportBean.ldmReportStatus}" filteredValue="#{reportBean.filteredStatuses}" var="status"
+							 rows="2147483647" scrollable="true" scrollHeight="480" resizableColumns="true"
+							 sortBy="#{status.statusDate}" emptyMessage="#{res.noRecordsFound}" style="width:99%">
+					<p:column headerText="Статус" filterBy="#{status.statusName}" filterStyle="display:none" style="width:12em;"><h:outputText value="#{status.getStatusName('ru')}"/></p:column>
+					<p:column headerText="Дата изменения" style="width:10em; text-align:center;"><h:outputText value="#{status.statusDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText></p:column>
+					<p:column headerText="#{res.comment}" styleClass="wrap">
+						<h:outputText value="#{status.message}"/>&#160;&#160;&#160;&#160;
+						<p:commandButton icon="ui-icon-document" actionListener="#{reportBean.prepareWarrantGalleriaByStatus(reportsBean.selectedReportListItem.id, status)}" rendered="#{status.haveUserWarrant || status.haveRespWarrant}"
+										 title="Просмотр прикрепленной доверенности"
+										 oncomplete="if(!args.hasErrors) overlayGalleriaWarrantPreview();" update=":frmGalleriaWarrantPreview, :frmWarrantFooter">
+							<f:setPropertyActionListener value="#{status}" target="#{reportsBean.selectedStatus}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgStatuses').hide()" />
+				<br/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog id="dlgReportProps" widgetVar="wDlgReportProps" header="Свойства отчёта" modal="true" width="600" height="250">
+			<h:form id="frmReportProps">
+				<h:outputText value="Наименование:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.formName}"/><br/><br/>
+				<h:outputText value="Организация:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.respondentName}"/><br/>
+				<h:outputText value="Доверенная организация:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.respondentChildName}"/><br/>
+				<h:outputText value="Отчетная дата:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.reportDate}"><f:convertDateTime type="date" pattern="dd.MM.yyyy"/></h:outputText><br/>
+				<h:outputText value="Код:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.formCode}"/><br/>
+				<h:outputText value="Дата последнего изменения:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.saveDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText><br/>
+				<h:outputText value="Статус:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.statusName}"/><br/>
+				<h:outputText value="Дата последнего изменения статуса:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+				<h:outputText value="#{reportBean.statusDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss"/></h:outputText><br/>
+				<h:outputText value="Подписи:&#160;&#160;&#160;&#160;" style="font-weight:bold"/><br/>
+				<ui:repeat value="#{reportBean.signeInfos}" var="signInfo">
+					<h:outputText value="#{signInfo.refPostItem.nameRu}:&#160;&#160;&#160;&#160;" style="font-weight:bold"/>
+					<h:outputText value="#{signInfo.info}"/><br/>
+				</ui:repeat>
+				<br/>
+				<p:commandButton type="button" value="#{res.close}" onclick="PF('wDlgReportProps').hide()" />
+				<br/>
+			</h:form>
+		</p:dialog>
+
+		<p:dialog header="Загрузка/выгрузка пояснительной записки" widgetVar="wDlgReportFile" modal="true" width="1000" height="420" resizable="false" >
+			<p:ajax event="close" update=":dynamic-form:toolbar" listener="#{reportBean.setHaveAttachedFile(reportsBean.haveAttachedFile(reportBean.getCurrentReportListItem(reportBean.reportId)))}"  >
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:ajax>
+			<h:form id="frmReportFile">
+				<h:panelGroup id="pgReportFile">
+					<p:toolbar>
+						<f:facet name="left">
+							<p:commandButton value="Обновить" title="Обновить список" actionListener="#{reportBean.refreshFileList(reportBean.reportId, null,'RESP',1)}" update=":frmReportFile">
+								<f:param name="reportId" value="#{reportBean.reportId}"/>
+							</p:commandButton>
+							<p:separator/>
+							<p:commandButton value="Просмотреть" actionListener="#{reportBean.prepareGalleria(reportBean.reportId, reportBean.reportFileListItem, reportBean.selectedReportFileItem,1)}" disabled="#{reportBean.selectedReportFileItem == null}"
+											 oncomplete="if(!args.hasErrors) overlayGalleriaPreview();" update=":frmGalleriaPreview, :frmFooter"/>
+							<p:separator/>
+							<p:commandButton value="Загрузить" title="Загрузить записку" disabled="#{!reportBean.status.equals('DRAFT')}" oncomplete="PF('wUploadFileDlg').show()" icon="ui-icon-arrowreturnthick-1-n"/>
+							<p:commandButton value="Выгрузить" title="Выгрузить записку" ajax="false" icon="ui-icon-arrowthickstop-1-s" disabled="#{reportBean.selectedReportFileItem == null}">
+								<p:fileDownload value="#{reportBean.onDownloadFile(reportBean.reportId,'RESP', reportBean.selectedReportFileItem,1)}"/>
+								<f:param name="reportId" value="#{reportBean.reportId}"/>
+							</p:commandButton>
+							<p:commandButton value="Удалить" title="Удалить выбранную записку" oncomplete="PF('wDlgConfirmDeleteFile').show()" disabled="#{!reportBean.status.equals('DRAFT') || reportBean.selectedReportFileItem == null}" icon="ui-icon-trash" />
+						</f:facet>
+					</p:toolbar>
+				</h:panelGroup>
+				<p:dataTable value="#{reportBean.reportFileListItem}" sortBy="#{reportFileItem.fileDate}" var="reportFileItem"  resizableColumns="true" selection="#{reportBean.selectedReportFileItem}"
+							 rowKey="#{reportFileItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" scrollable="true" scrollHeight="300" rows="2147483647" >
+					<p:ajax event="rowSelect" update=":frmReportFile:pgReportFile" global="false"/>
+					<p:ajax event="rowUnselect" update=":frmReportFile:pgReportFile" global="false"/>
+					<p:ajax event="sort" global="false"/>
+					<p:column headerText="Наименование файла" sortBy="#{reportFileItem.fileName}" styleClass="wrap" style="width:40em;" ><h:outputText value="#{reportFileItem.fileName}"/></p:column>
+					<p:column headerText="Дата загрузки файла" sortBy="#{reportFileItem.fileDate}" style="width:15em"><h:outputText value="#{reportFileItem.fileDate}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText></p:column>
+					<p:column headerText="Пользователь, загрузивший файл" sortBy="#{reportFileItem.userName}" style="width:20em"><h:outputText value="#{reportFileItem.userName}"/></p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton value="#{res.close}" onclick="PF('wDlgReportFile').hide()" />
+				<br/>
+			</h:form>
+		</p:dialog>
+
+		<div id="dlgGalleriaPreview" class="customDialog ui-widget">
+			<div class="customDialogContent">
+				<div class="customDialogBody">
+					<h:form id="frmGalleriaPreview" style="width: 100%; height: 100%;">
+						<object data="#{reportBean.curImage.path}" type="application/pdf" style="height: 100%; width: 100%;">
+							Возникла ошибка при отображении записки
+						</object>
+					</h:form>
+				</div>
+				<div class="customDialogFooter">
+					<h:form id="frmFooter">
+						<p style="position: absolute; left:0.5%; top: 40%;font-size: 11pt;">#{reportBean.curImage.title}</p>
+						<div style="position: absolute; left: 44%; top:10%">
+							<p:commandButton title="Первая" actionListener="#{reportBean.getCurObject('FIRST', reportBean.curImage,reportBean.imageList,1)}" icon="ui-icon-seek-prev" update=":frmGalleriaPreview,:frmFooter" disabled="#{reportBean.curImage.index == 0}"/>
+							<p:commandButton title="Предыдущая" actionListener="#{reportBean.getCurObject('PREV',reportBean.curImage,reportBean.imageList,1)}" icon="ui-icon-carat-1-w" update=":frmGalleriaPreview,:frmFooter" disabled="#{reportBean.curImage.index == 0}"/>
+						</div>
+						<div style="position: absolute; left: 49%; top: 15%;">
+							<p style="font-size: 11pt; font-weight: bold;">(#{reportBean.curImage.index+1}/#{reportBean.imageList.size()})</p>
+						</div>
+						<div style="position: absolute; left: 52%; top: 10%;">
+							<p:commandButton title="Следующая" actionListener="#{reportBean.getCurObject('NEXT',reportBean.curImage,reportBean.imageList,1)}" icon="ui-icon-carat-1-e" update=":frmGalleriaPreview,:frmFooter" disabled="#{reportBean.curImage.index == reportBean.imageList.size() - 1}" />
+							<p:commandButton title="Последняя" actionListener="#{reportBean.getCurObject('LAST',reportBean.curImage,reportBean.imageList,1)}" icon="ui-icon-seek-next" update=":frmGalleriaPreview,:frmFooter" disabled="#{reportBean.curImage.index == reportBean.imageList.size() - 1}" />
+						</div>
+						<button type="button" style="float: right" onclick="overlayGalleriaPreview();">Закрыть</button>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+		<div id="dlgPrintPreview" class="customDialog ui-widget">
+			<div class="customDialogContent">
+				<div class="customDialogBody">
+					<h:form id="frmPrintPreview" style="width: 100%; height: 100%">
+						<object data="#{reportBean.pdfFilePath}" type="application/pdf"
+								style="width: 100%; height: 100%"
+								id="pdfDocument">
+							Возникла ошибка при печати
+						</object>
+					</h:form>
+				</div>
+				<div class="customDialogFooter">
+					<button class="customDialogCloseButton" onclick="overlayPrintPreview();">Закрыть</button>
+				</div>
+			</div>
+		</div>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadFileDlg" modal="true" onHide="" >
+			<h:outputText value="Выберите файл и нажмите кнопку загрузить"/><br/><br/>
+			<h:outputText value="Название файла не должно превышать 100 символов. Размер файла не должен превышать 5 мегабайт."/><br/><br/>
+			<h:outputText value="Для загрузки доступны следующие типы файлов:"/><br/>
+			<h:outputText value="- Microsoft Word (*.doc, *.docx);"/><br/>
+			<h:outputText value="- Microsoft Excel (*.xls, *.xlsx, *.xlsxm);"/><br/>
+			<h:outputText value="- Pdf-файл (*.pdf);"/><br/>
+			<h:outputText value="- Jpeg, Gif, Png, Tif, Tiff -файлы (*.jpg,*.jpeg,*.gif,*.png,*.tif,*.tiff)."/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{reportBean.onUploadFile}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xls|xlsx|xlsm|pdf|doc|docx|jpg|jpeg|gif|png|tif|tiff|XLS|XLSX|XLSM|PDF|DOC|DOCX|JPG|JPEG|GIF|PNG|TIF|TIFF)$/"
+							  update=":frmReportFile" oncomplete="closeUploadDialog(this,1);"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}" multiple="true"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}">
+					<f:attribute name="reportId" value="#{reportBean.reportId}" />
+					<f:attribute name="userKind" value="RESP" />
+					<f:attribute name="fileKind" value= "1"/>
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:fileUpload>
+				<p:remoteCommand name="rcFile" oncomplete="PF('wUploadFileDlg').hide()"/>
+			</h:form>
+		</p:dialog>
+
+		<p:confirmDialog id="dlgConfirmDeleteFile" widgetVar="wDlgConfirmDeleteFile" message="#{res.deleteItemConfirmMessage}" header="#{res.deletion}" severity="alert">
+			<h:form>
+				<p:commandButton value="#{res.delete}" actionListener="#{reportBean.deleteReportFile(reportBean.reportId,'RESP', reportBean.selectedReportFileItem,1)}" oncomplete="PF('wDlgConfirmDeleteFile').hide()" update=":frmReportFile">
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:commandButton>
+				<p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDeleteFile').hide()"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<p:dialog header="Загрузка/выгрузка сопроводительного письма" widgetVar="wDlgReportLetter" modal="true" width="1000" height="420" resizable="false" >
+			<p:ajax event="close" update=":dynamic-form:toolbar" listener="#{reportBean.setHaveAttachedLetter(reportsBean.haveAttachedLetter(reportBean.getCurrentReportListItem(reportBean.reportId)))}"  >
+				<f:param name="reportId" value="#{reportBean.reportId}"/>
+			</p:ajax>
+			<h:form id="frmReportLetter">
+				<h:panelGroup id="pgReportLetter">
+					<p:toolbar>
+						<f:facet name="left">
+							<p:commandButton value="Обновить" title="Обновить список" actionListener="#{reportBean.refreshFileList(reportBean.reportId, null,'RESP',2)}" update=":frmReportLetter">
+								<f:param name="reportId" value="#{reportBean.reportId}"/>
+							</p:commandButton>
+							<p:separator/>
+							<p:commandButton value="Просмотреть" actionListener="#{reportBean.prepareGalleria(reportBean.reportId, reportBean.reportLetterListItem, reportBean.selectedReportLetterItem,2)}" disabled="#{reportBean.selectedReportLetterItem == null}"
+											 oncomplete="if(!args.hasErrors) overlayGalleriaLetterPreview();" update=":frmGalleriaLetterPreview, :frmLetterFooter"/>
+							<p:separator/>
+							<p:commandButton value="Загрузить" title="Загрузить записку" disabled="#{!reportBean.status.equals('DRAFT')}" oncomplete="PF('wUploadLetterDlg').show()" icon="ui-icon-arrowreturnthick-1-n"/>
+							<p:commandButton value="Выгрузить" title="Выгрузить записку" ajax="false" icon="ui-icon-arrowthickstop-1-s" disabled="#{reportBean.selectedReportLetterItem == null}">
+								<p:fileDownload value="#{reportBean.onDownloadFile(reportBean.reportId,'RESP', reportBean.selectedReportLetterItem,2)}"/>
+								<f:param name="reportId" value="#{reportBean.reportId}"/>
+							</p:commandButton>
+							<p:commandButton value="Удалить" title="Удалить выбранную записку" oncomplete="PF('wDlgConfirmDeleteLetter').show()" disabled="#{!reportBean.status.equals('DRAFT') || reportBean.selectedReportLetterItem == null}" icon="ui-icon-trash" />
+						</f:facet>
+					</p:toolbar>
+				</h:panelGroup>
+				<p:dataTable value="#{reportBean.reportLetterListItem}" sortBy="#{reportLetterItem.fileDate}" var="reportLetterItem"  resizableColumns="true" selection="#{reportBean.selectedReportLetterItem}"
+							 rowKey="#{reportLetterItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" scrollable="true" scrollHeight="300" rows="2147483647" >
+					<p:ajax event="rowSelect" update=":frmReportLetter:pgReportLetter" global="false"/>
+					<p:ajax event="rowUnselect" update=":frmReportLetter:pgReportLetter" global="false"/>
+					<p:ajax event="sort" global="false"/>
+					<p:column headerText="Наименование файла" sortBy="#{reportLetterItem.fileName}" styleClass="wrap" style="width:40em;" ><h:outputText value="#{reportLetterItem.fileName}"/></p:column>
+					<p:column headerText="Дата загрузки файла" sortBy="#{reportLetterItem.fileDate}" style="width:15em"><h:outputText value="#{reportLetterItem.fileDate}"><f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText></p:column>
+					<p:column headerText="Пользователь, загрузивший файл" sortBy="#{reportLetterItem.userName}" style="width:20em"><h:outputText value="#{reportLetterItem.userName}"/></p:column>
+				</p:dataTable>
+				<br/>
+				<p:commandButton value="#{res.close}" onclick="PF('wDlgReportLetter').hide()" />
+				<br/>
+			</h:form>
+		</p:dialog>
+
+		<div id="dlgGalleriaLetterPreview" class="customDialog ui-widget">
+			<div class="customDialogContent">
+				<div class="customDialogBody">
+					<h:form id="frmGalleriaLetterPreview" style="width: 100%; height: 100%;">
+						<object data="#{reportBean.curImageLetter.path}" type="application/pdf" style="height: 100%; width: 100%;">
+							Возникла ошибка при отображении записки
+						</object>
+					</h:form>
+				</div>
+				<div class="customDialogFooter">
+					<h:form id="frmLetterFooter">
+						<p style="position: absolute; left:0.5%; top: 40%;font-size: 11pt;">#{reportBean.curImageLetter.title}</p>
+						<div style="position: absolute; left: 44%; top:10%">
+							<p:commandButton title="Первая" actionListener="#{reportBean.getCurObject('FIRST', reportBean.curImageLetter,reportBean.imageLetterList,2)}" icon="ui-icon-seek-prev" update=":frmGalleriaLetterPreview,:frmLetterFooter" disabled="#{reportBean.curImageLetter.index == 0}"/>
+							<p:commandButton title="Предыдущая" actionListener="#{reportBean.getCurObject('PREV',reportBean.curImageLetter,reportBean.imageLetterList,2)}" icon="ui-icon-carat-1-w" update=":frmGalleriaLetterPreview,:frmLetterFooter" disabled="#{reportBean.curImageLetter.index == 0}"/>
+						</div>
+						<div style="position: absolute; left: 49%; top: 15%;">
+							<p style="font-size: 11pt; font-weight: bold;">(#{reportBean.curImageLetter.index+1}/#{reportBean.imageLetterList.size()})</p>
+						</div>
+						<div style="position: absolute; left: 52%; top: 10%;">
+							<p:commandButton title="Следующая" actionListener="#{reportBean.getCurObject('NEXT',reportBean.curImageLetter,reportBean.imageLetterList,2)}" icon="ui-icon-carat-1-e" update=":frmGalleriaLetterPreview,:frmLetterFooter" disabled="#{reportBean.curImageLetter.index == reportBean.imageLetterList.size() - 1}" />
+							<p:commandButton title="Последняя" actionListener="#{reportBean.getCurObject('LAST',reportBean.curImageLetter,reportBean.imageLetterList,2)}" icon="ui-icon-seek-next" update=":frmGalleriaLetterPreview,:frmLetterFooter" disabled="#{reportBean.curImageLetter.index == reportBean.imageLetterList.size() - 1}" />
+						</div>
+						<button type="button" style="float: right" onclick="overlayGalleriaLetterPreview();">Закрыть</button>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+		<div id="dlgGalleriaWarrantPreview" class="customDialog ui-widget">
+			<div class="customDialogContent">
+				<div class="customDialogBody">
+					<h:form id="frmGalleriaWarrantPreview" style="width: 100%; height: 100%;">
+						<object data="#{reportBean.curImageWarrant.path}" type="application/pdf" style="height: 100%; width: 100%;">
+							Возникла ошибка при отображении записки
+						</object>
+					</h:form>
+				</div>
+				<div class="customDialogFooter">
+					<h:form id="frmWarrantFooter">
+						<p style="position: absolute; left:0.5%; top: 40%;font-size: 11pt;">#{reportBean.curImageWarrant.title}</p>
+						<div style="position: absolute; left: 44%; top:10%">
+							<p:commandButton title="Первая" actionListener="#{reportBean.getCurObject('FIRST',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-seek-prev" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == 0}"/>
+							<p:commandButton title="Предыдущая" actionListener="#{reportBean.getCurObject('PREV',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-carat-1-w" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == 0}"/>
+						</div>
+						<div style="position: absolute; left: 49%; top: 15%;">
+							<p style="font-size: 11pt; font-weight: bold;">(#{reportBean.curImageWarrant.index+1}/#{reportBean.imageWarrantList.size()})</p>
+						</div>
+						<div style="position: absolute; left: 52%; top: 10%;">
+							<p:commandButton title="Следующая" actionListener="#{reportBean.getCurObject('NEXT',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-carat-1-e" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == reportBean.imageWarrantList.size() - 1}" />
+							<p:commandButton title="Последняя" actionListener="#{reportBean.getCurObject('LAST',reportBean.curImageWarrant,reportBean.imageWarrantList,1)}" icon="ui-icon-seek-next" update=":frmGalleriaWarrantPreview,:frmWarrantFooter" disabled="#{reportBean.curImageWarrant.index == reportBean.imageWarrantList.size() - 1}" />
+						</div>
+						<button type="button" style="float: right" onclick="overlayGalleriaWarrantPreview();">Закрыть</button>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+		<p:dialog header="#{res.downloadDialog}" widgetVar="wUploadLetterDlg" modal="true" onHide="" >
+			<h:outputText value="Выберите файл и нажмите кнопку загрузить"/><br/><br/>
+			<h:outputText value="Название файла не должно превышать 100 символов. Размер файла не должен превышать 5 мегабайт."/><br/><br/>
+			<h:outputText value="Для загрузки доступны следующие типы файлов:"/><br/>
+			<h:outputText value="- Microsoft Word (*.doc, *.docx);"/><br/>
+			<h:outputText value="- Microsoft Excel (*.xls, *.xlsx, *.xlsxm);"/><br/>
+			<h:outputText value="- Pdf-файл (*.pdf);"/><br/>
+			<h:outputText value="- Jpeg, Gif, Png, Tif, Tiff -файлы (*.jpg,*.jpeg,*.gif,*.png,*.tif,*.tiff)."/><br/><br/>
+			<h:form>
+				<p:fileUpload fileUploadListener="#{reportBean.onUploadFile}" mode="advanced" dragDropSupport="false"
+							  sizeLimit="5242880" allowTypes="/(\.|\/)(xls|xlsx|xlsm|pdf|doc|docx|jpg|jpeg|gif|png|tif|tiff|XLS|XLSX|XLSM|PDF|DOC|DOCX|JPG|JPEG|GIF|PNG|TIF|TIFF)$/"
+							  update=":frmReportLetter" oncomplete="closeUploadDialog(this,2);"
+							  label="#{res.choose}" uploadLabel="#{res.download}" cancelLabel="#{res.cancel}" multiple="true"
+							  invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}">
+					<f:attribute name="reportId" value="#{reportBean.reportId}" />
+					<f:attribute name="userKind" value="RESP" />
+					<f:attribute name="fileKind" value= "2"/>
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:fileUpload>
+				<p:remoteCommand name="rcLetter" oncomplete="PF('wUploadLetterDlg').hide()"/>
+			</h:form>
+		</p:dialog>
+
+		<p:confirmDialog id="dlgConfirmDeleteLetter" widgetVar="wDlgConfirmDeleteLetter" message="#{res.deleteItemConfirmMessage}" header="#{res.deletion}" severity="alert">
+			<h:form>
+				<p:commandButton value="#{res.delete}" actionListener="#{reportBean.deleteReportFile(reportBean.reportId,'RESP', reportBean.selectedReportLetterItem,2)}" oncomplete="PF('wDlgConfirmDeleteLetter').hide()" update=":frmReportLetter">
+					<f:param name="reportId" value="#{reportBean.reportId}"/>
+				</p:commandButton>
+				<p:commandButton value="#{res.cancel}" onclick="PF('wDlgConfirmDeleteLetter').hide()"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<p:confirmDialog id="dlgConfirmValidationSave" widgetVar="wDlgConfirmValidationSave" message="Отчет был изменен, сохранить измененния в базе?" header="Подтверждение сохранения" severity="alert">
+			<h:form>
+				<p:commandButton value="Сохранить" type="button" onclick="PF('wDlgConfirmValidationSave').hide();rcSaveNValidate();" />
+				<p:commandButton value="Не сохранять" onclick="PF('wDlgConfirmValidationSave').hide();rcValidate();"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<p:confirmDialog id="dlgConfirmDownloadSave" widgetVar="wDlgConfirmDownloadSave" message="Отчет был изменен, продолжить сохранив измененния в базе?" header="Подтверждение сохранения" severity="alert">
+			<h:form>
+				<p:commandButton value="Продолжить" type="button" onclick="PF('wDlgConfirmDownloadSave').hide();doDownloadExcel(true);" />
+				<p:commandButton value="Отмена" onclick="PF('wDlgConfirmDownloadSave').hide();"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<p:confirmDialog id="dlgConfirmPrintSave" widgetVar="wDlgConfirmPrintSave" message="Отчет был изменен, продолжить сохранив измененния в базе?" header="Подтверждение сохранения" severity="alert">
+			<h:form>
+				<p:commandButton value="Продолжить" type="button" onclick="PF('wDlgConfirmPrintSave').hide();doPrint(true);" />
+				<p:commandButton value="Отмена" onclick="PF('wDlgConfirmPrintSave').hide();"/>
+			</h:form>
+		</p:confirmDialog>
+
+		<h:form id="hidden" style="display: none;">
+			<input type="button" value="Test" onclick="updateHiddenValue([{name:'tag', value: 'test'}]);" />
+			<p:remoteCommand name="updateHiddenValue" actionListener="#{reportBean.hiddenListener}" oncomplete="onUpdateHiddenValue();" update=":hidden:hiddenValue" />
+			<h:inputText id="hiddenValue" value="#{reportBean.hiddenValue}" style="width: 100%;" />
+		</h:form>
+
+        <h:form id="formPoll">
+            <!-- <h:outputText value="Poll count: #{sessionBean.pollCount}, Stop: #{sessionBean.pollStop}"/><br/> -->
+            <p:poll interval="#{sessionBean.pollInterval}" listener="#{sessionBean.onPoll}" update="@form" stop="#{sessionBean.pollStop}" />
+        </h:form>
+
+		<p:growl id="messages" showDetail="true" />
+
+		<components:ajax-status/>
+		<components:dialog-error id="ccDialogError"/>
+		<!--<components:dialog-pick-bank id="ccDialogPickBank" update="@all"/>-->
+		<components:dialog-pick-issuer id="ccDialogPickIssuer" update="@all"/>
+		<components:dialog-pick-security id="ccDialogPickSecurity" update="@all"/>
+		<components:dialog-pick-securityinfo id="ccDialogPickSecurityInfo" update="@all"/>
+		<!--<components:dialog-pick-lp id="ccDialogPickLegalPerson" update="@all"/>-->
+		<!--<components:dialog-pick-person id="ccDialogPickPerson" update="@all"/>-->
+
+		<components:pick-bank id="ccPickBank" update="@all"/>
+		<components:pick-person id="ccPickPerson" update="@all"/>
+		<components:pick-legal-person id="ccPickLegalPerson" update="@all"/>
+
+		<pickers:pick-bank-v2 id="ccPickBank2" update="@all"/>
+		<!--<pickers:pick-legal-person-v2 id="ccPickLegalPerson2" update="@all"/>-->
+		<pickers:pick-person-v2 id="ccPickPerson2" update="@all"/>
+		<pickers:pick-securityinfo-v2 id="ccDialogPickSecurityInfo2" update="@all"/>
+
+		<pickers:pick-general id="ccGeneralPicker"/>
+		<pickers:pick-union-person id="ccUnionPersonPicker"/>
+		<pickers:pick-lp id="ccLpPicker"/>
+
+		<components:dialog-confirm-delete id="ccDialogConfirmDelete" update="@all"/>
+
+		<div id="ref_template_single" class="s-dialog">
+			<div class="s-dialog-content">
+				<div class="dialog-body">
+					<table class="data-table">
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div id="ref_template_multiple" class="m-dialog ui-widget">
+			<div class="m-dialog-content">
+				<div class="dialog-body">
+					<table class="data-table">
+					</table>
+				</div>
+				<div class="m-dialog-footer">
+					<button class="m-dialog-select-button" value="Select" disabled="disabled">Выбрать</button>
+					<button class="m-dialog-cancel-button" value="Cancel">Отмена</button>
+					<button class="m-dialog-empty-button" value="Empty">Пустое значение</button>
+				</div>
+			</div>
+		</div>
+		<div class="s-dialog" id="temp_picker">
+			<div class="s-dialog-content">
+				<div class="dialog-body">
+					<table class="data-table">
+					</table>
+				</div>
+			</div>
+		</div>
+	</h:body>
+</f:view>

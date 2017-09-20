@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+    name="ExecPrudIO_reports"
+    languageCode="ru" title="Выполнение пруденциальных нормативов ипотечными организациями Республики Казахстан (ИО)"
+    shortName="Вып пруденц норм-ов ипот орг РК(ИО)"
+    beginDate="2014-01-01" endDate=""
+    tag='{ "sortFields" : [{"name":"ExecPrudIO_reports_array*sk", "desc":"true"}], "keyFields" : {"ExecPrudIO_reports_array":"num"} }'
+    typeCode="OUTPUT"
+    xmlVersion="1"
+    style="" styleClass="">
+
+    <h3 style="text-align: center;">Выполнение пруденциальных нормативов ипотечными организациями Республики Казахстан</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <br/>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+        <tr>
+            <th>№ п/п</th>
+            <th>Наименование ипотечных организаций</th>
+            <th>Расчетный собственный капитал, тыс. тенге (мин. размер 800 млн. тенге)</th>
+            <th>Коэффициент достаточности собственного капитала (k1&gt;=0,06)</th>
+            <th>Коэффициент достаточности собственного капитала (k1-2&gt;=0,06)</th>
+            <th>Коэффициент достаточности собственного капитала (k1-3&gt;=0,12)</th>
+            <th>Коэффициент максимального размера риска на одного заемщика (k2&lt;=0,25)</th>
+            <th>Коэффициент максимального размера ссудного портфеля (k2'&lt;= 8)</th>
+            <th>Коэффициент краткосрочной ликвидности (k3&gt;= 0,5)</th>
+            <th>Коэффициент максимального лимита краткосрочных обязательств перед нерезидентами (k4&lt;=1)</th>
+            <th>Коэффициент капитализации организации к обязательствам перед нерезидентами Республики Казахстан (k5&lt;=2)</th>
+            <th>Коэффициент капитализации организации к обязательствам перед нерезидентами Республики Казахстан (k6&lt;=3)</th>
+            <th>Выполнение пруденциальных нормативов, да/нет</th>
+        </tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="sk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k1" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k1-2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k1-3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="max_sp_k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k4" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k5" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="k6" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+        </DynamicRow>
+</tbody>
+    </table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+    table.dataTable td:nth-child(1) {
+	    text-align: left;
+    }
+    table.dataTable td:nth-child(2) {
+	    text-align: center;
+    }
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrudIO_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});
+}
+]]>
+</script2>
+
+
+</Form>

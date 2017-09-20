@@ -1,0 +1,618 @@
+<?xml version="1.0"?>
+
+<portlet-app
+    xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+    version="2.0">
+
+	<portlet>
+		<portlet-name>frsi-admin</portlet-name>
+		<display-name>FRSI. Admin</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/admin/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.admin.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-adm</portlet-name>
+		<display-name>FRSI. Admin Permissions</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/adm/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.adm.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-tools</portlet-name>
+		<display-name>FRSI. Tools</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/tools/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.tools.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+    <portlet>
+        <portlet-name>frsi-su-refunload</portlet-name>
+        <display-name>FRSI. References unLoad</display-name>
+        <portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+        <init-param>
+            <name>javax.portlet.faces.defaultViewId.view</name>
+            <value>/views/su/refunload/view.xhtml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+
+        <supported-locale>en</supported-locale>
+        <supported-locale>kk</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <resource-bundle>i18n.su.refunload.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-ref-protocol</portlet-name>
+		<display-name>FRSI. References upLoad</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/su/refProtocol/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.su.refProtocol.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-template</portlet-name>
+		<display-name>FRSI. Template</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/template/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.template.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+    <portlet>
+		<portlet-name>frsi-su-formtemplate</portlet-name>
+		<display-name>FRSI. Superuser. Form templates</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/su/formtemplate/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.su.formtemplate.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-formdata</portlet-name>
+		<display-name>FRSI. Superuser. Forms</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/su/formdata/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.su.formdata.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-info</portlet-name>
+		<display-name>FRSI. Superuser. Information</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/su/info/infoFilter.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.su.info.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-download</portlet-name>
+		<display-name>FRSI. Download</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/download/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+        <supported-locale>en</supported-locale>
+        <supported-locale>kk</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <resource-bundle>i18n.download.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+        <portlet-name>frsi-upload</portlet-name>
+        <display-name>FRSI. Upload</display-name>
+        <portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+        <init-param>
+            <name>javax.portlet.faces.defaultViewId.view</name>
+            <value>/views/upload/view.xhtml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+
+        <supported-locale>en</supported-locale>
+        <supported-locale>kk</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <resource-bundle>i18n.upload.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-reports</portlet-name>
+		<display-name>FRSI. Reports</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/reports/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.reports.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+    <portlet>
+        <portlet-name>frsi-su-ref</portlet-name>
+        <display-name>FRSI. Superuser. References</display-name>
+        <portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+        <init-param>
+            <name>javax.portlet.faces.defaultViewId.view</name>
+            <value>/views/su/ref/ref_view.xhtml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+        </supports>
+
+        <supported-locale>en</supported-locale>
+        <supported-locale>kk</supported-locale>
+        <supported-locale>ru</supported-locale>
+        <resource-bundle>i18n.su.ref.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+
+	<portlet>
+		<portlet-name>frsi-su-outputdata</portlet-name>
+		<display-name>FRSI. Output. Data</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/su/outputdata/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.su.outputdata.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-audit</portlet-name>
+		<display-name>FRSI. Audit</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/audit/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.audit.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-query</portlet-name>
+		<display-name>FRSI. Query</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/query/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.query.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-settings</portlet-name>
+		<display-name>FRSI. Notice settings</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/notice/adm_settings/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.notice.adm_settings.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-user-settings</portlet-name>
+		<display-name>FRSI. Notice user settings</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/notice/user_settings/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.notice.user_settings.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-notice-mail</portlet-name>
+		<display-name>FRSI. Notice mail</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/notice/mail/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.notice.mail.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-settings</portlet-name>
+		<display-name>FRSI. Settings</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/settings/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.settings.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>frsi-garter</portlet-name>
+		<display-name>FRSI. Garter</display-name>
+		<portlet-class>javax.portlet.faces.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/views/garter/view.xhtml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<supported-locale>en</supported-locale>
+		<supported-locale>kk</supported-locale>
+		<supported-locale>ru</supported-locale>
+		<resource-bundle>i18n.garter.portlet</resource-bundle> <!-- portlet-info (title, short-title, keywords) should be localizable. See i18n...portlet.properties -->
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+</portlet-app>

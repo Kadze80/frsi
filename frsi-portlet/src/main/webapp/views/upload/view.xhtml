@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+    encoding="UTF8"
+    locale="#{facesContext.externalContext.requestLocale}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:components="http://java.sun.com/jsf/composite/components"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{uploadBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body>
+        <components:dialog-error id="ccDialogError"/>
+        <h:outputText value="#{res.upload_hint}"/><br/><br/>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+            <h:outputText value="#{res.reportDate}: "/>
+            <p:calendar id="loadReportDate" value="#{uploadBean.reportDate}" pattern="dd.MM.yyyy"
+                        navigator="true" locale="ru" mask="true">
+                <p:ajax event="change" listener="#{uploadBean.onDateSelect}" update="msgs" />
+                <p:ajax event="dateSelect" listener="#{uploadBean.onDateSelect}" update="msgs" />
+            </p:calendar>
+            &#160;&#160;&#160;&#160;
+            <h:outputText value="Подотчетное лицо:" rendered="#{uploadBean.haveWarrant}"/>
+            <h:selectOneMenu value="#{uploadBean.selectedRespId}" style="width: 500px" rendered="#{uploadBean.haveWarrant}">
+                <p:ajax event="valueChange" update="msgs" listener="#{uploadBean.onRespSelect}" />
+                <f:selectItems value="#{uploadBean.respList}" var="respList" itemLabel="#{respList.nameRu}" itemValue="#{respList.id}" />
+            </h:selectOneMenu>
+            <br/><br/>
+            <p:fileUpload fileUploadListener="#{uploadBean.handleFileUpload}" mode="advanced" dragDropSupport="false"
+                sizeLimit="12000000" allowTypes="/(\.|\/)(xlsx|xlsm|xml|zip)$/" update="messages,:uploadDialog"
+                label="#{res.choose}" uploadLabel="#{res.download}" multiple="true" cancelLabel="#{res.cancel}"
+                invalidFileMessage="#{res.invalidFileType}" invalidSizeMessage="#{res.invalidFileSize}"
+                disabled="#{!userBean.hasPermission('RESP:UPLOAD:PROCESS')}"/>
+            <p:growl id="messages" showDetail="true" />
+        </h:form>
+
+        <p:dialog id="uploadDialog" header="#{res.downloadDialog}" widgetVar="wUploadDialog" modal="true" onHide="" >
+            <h:outputText value="#{uploadBean.resultMessage}" escape="false"/><br/><br/>
+        </p:dialog>
+    </h:body>
+
+</f:view>

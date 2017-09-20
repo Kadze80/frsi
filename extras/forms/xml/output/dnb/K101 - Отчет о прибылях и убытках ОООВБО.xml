@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+    name="K101"
+    languageCode="ru" title="Отчет о прибылях и убытках (КП, обзор)"
+    shortName="Отчет о приб. и убыт.(КП)"
+    beginDate="2016-01-01" endDate=""
+    typeCode="OUTPUT"
+    tag='{ "keyFields" : {"K101_array":"num"} }'
+    xmlVersion="1"
+    style="" styleClass="">
+
+    <h3 style="text-align: center;">Отчет о прибылях и убытках (КП, обзор)</h3>
+    <span style="display: block; text-align: center;">
+        <StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+    </span>
+    <span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+    <br />
+<div>
+<table name="array" class="dataTable">
+    <thead>
+        <tr>
+            <th rowspan="2">№ п/п</th>
+            <th rowspan="2">Наименование статьи</th>
+            <th><StaticText value="$ReportDate(.f(Y))"/></th>
+            <th><StaticText value="$ReportDate(.q(-1))"/></th>
+            <th><StaticText value="$ReportDate(.f(Q))"/></th>
+            <th>изменение за квартал</th>
+        </tr>
+        <tr fixed="nf">
+            <th>тыс.тенге</th>
+            <th>тыс.тенге</th>
+            <th>тыс.тенге</th>
+            <th>тыс.тенге</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Доход от реализации готовой продукции (работ, услуг)</td>
+            <td><InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Себестоимость реализованной готовой продукции (работ, услуг), из них</td>
+            <td><InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>&#160;&#160;расходы на материалы</td>
+            <td><InputText name="v1" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>&#160;&#160;расходы на оплату труда и командировочные</td>
+            <td><InputText name="v1" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Валовая прибыль (стр.1 - стр. 2)</td>
+            <td><InputText name="v1" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Доходы, связанные с получением вознаграждения, в том числе:</td>
+            <td><InputText name="v1" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="6" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>&#160;&#160;по корреспондентским и текущим счетам</td>
+            <td><InputText name="v1" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>&#160;&#160;по размещенным вкладам</td>
+            <td><InputText name="v1" key="num" keyValue="8" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="8" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="8" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="8" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>&#160;&#160;по предоставленным займам</td>
+            <td><InputText name="v1" key="num" keyValue="9" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="9" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="9" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="9" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>&#160;&#160;по предоставленной финансовой аренде</td>
+            <td><InputText name="v1" key="num" keyValue="10" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="10" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="10" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="10" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>&#160;&#160;по приобретенным ценным бумагам</td>
+            <td><InputText name="v1" key="num" keyValue="11" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="11" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="11" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="11" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>&#160;&#160;по операциям «обратное РЕПО»</td>
+            <td><InputText name="v1" key="num" keyValue="12" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="12" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="12" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="12" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>&#160;&#160;прочие доходы, связанные с получением вознаграждения</td>
+            <td><InputText name="v1" key="num" keyValue="13" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="13" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="13" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="13" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Доходы, не связанные с получением вознаграждения, в том числе:</td>
+            <td><InputText name="v1" key="num" keyValue="14" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="14" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="14" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="14" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>&#160;&#160;доходы от осуществления переводных операций</td>
+            <td><InputText name="v1" key="num" keyValue="15" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="15" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="15" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="15" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>&#160;&#160;доходы от осуществления клиринговых операций</td>
+            <td><InputText name="v1" key="num" keyValue="16" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="16" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="16" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="16" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>&#160;&#160;доходы от осуществления кассовых операций</td>
+            <td><InputText name="v1" key="num" keyValue="17" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="17" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="17" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="17" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>&#160;&#160;доходы от осуществления инкассации</td>
+            <td><InputText name="v1" key="num" keyValue="18" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="18" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="18" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="18" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Прочие доходы, связанные с финансовой деятельностью</td>
+            <td><InputText name="v1" key="num" keyValue="19" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="19" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="19" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="19" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>Доходы (расходы) по финансовым активам (нетто), в том числе:</td>
+            <td><InputText name="v1" key="num" keyValue="20" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="20" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="20" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="20" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>&#160;&#160;доходы (расходы) от купли-продажи финансовых активов (нетто)</td>
+            <td><InputText name="v1" key="num" keyValue="21" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="21" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="21" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="21" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>&#160;&#160;доходы (расходы) от изменения стоимости финансовых активов, оцениваемых по справедливой стоимости (нетто)</td>
+            <td><InputText name="v1" key="num" keyValue="22" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="22" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="22" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="22" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>Доходы (расходы) от переоценки иностранной валюты (нетто)</td>
+            <td><InputText name="v1" key="num" keyValue="23" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="23" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="23" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="23" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>Прочие доходы, не связанные с финансовой деятельностью</td>
+            <td><InputText name="v1" key="num" keyValue="24" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="24" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="24" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="24" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>Доходы от участия в капитале других юридических лиц</td>
+            <td><InputText name="v1" key="num" keyValue="25" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="25" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="25" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="25" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>Доходы от реализации (выбытия) активов</td>
+            <td><InputText name="v1" key="num" keyValue="26" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="26" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="26" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="26" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>Прочие доходы</td>
+            <td><InputText name="v1" key="num" keyValue="27" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="27" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="27" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="27" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">28</td>
+            <td style="font-weight: bold;">Итого доходов (сумма строк с 3 по 12)</td>
+            <td><InputText name="v1" key="num" keyValue="28" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="28" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="28" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="28" readonly="true" auto="true" mask="money0"/></td>
+        </tr>
+        <tr class="groupHeader">
+            <td>&#xA0;</td>
+            <td>&#xA0;</td>
+            <td colspan="4">&#xA0;</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>Расходы, связанные с реализацией готовой продукции (работ, услуг)</td>
+            <td><InputText name="v1" key="num" keyValue="29" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="29" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="29" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="29" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>Операционные расходы, в том числе:м</td>
+            <td><InputText name="v1" key="num" keyValue="30" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="30" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="30" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="30" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>&#160;&#160;расходы на оплату труда и командировочные</td>
+            <td><InputText name="v1" key="num" keyValue="31" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="31" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="31" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="31" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>&#160;&#160;амортизационные отчисления</td>
+            <td><InputText name="v1" key="num" keyValue="32" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="32" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="32" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="32" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>&#160;&#160;расходы по уплате налогов и других обязательных платежей в бюджет (кроме корпоративного подоходного налога)</td>
+            <td><InputText name="v1" key="num" keyValue="33" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="33" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="33" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="33" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>34</td>
+            <td>Расходы, связанные с финансовой деятельностью</td>
+            <td><InputText name="v1" key="num" keyValue="34" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="34" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="34" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="34" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>Расходы, связанные с выплатой вознаграждения, в том числе:</td>
+            <td><InputText name="v1" key="num" keyValue="35" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="35" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="35" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="35" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>36</td>
+            <td>&#160;&#160;по привлеченным вкладам</td>
+            <td><InputText name="v1" key="num" keyValue="36" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="36" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="36" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="36" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>37</td>
+            <td>&#160;&#160;по полученным займам</td>
+            <td><InputText name="v1" key="num" keyValue="37" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="37" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="37" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="37" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>38</td>
+            <td>&#160;&#160;по полученной финансовой аренде</td>
+            <td><InputText name="v1" key="num" keyValue="38" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="38" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="38" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="38" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>39</td>
+            <td>&#160;&#160;по выпущенным ценным бумагам</td>
+            <td><InputText name="v1" key="num" keyValue="39" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="39" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="39" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="39" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>40</td>
+            <td>&#160;&#160;по операциям «РЕПО»</td>
+            <td><InputText name="v1" key="num" keyValue="40" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="40" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="40" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="40" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>&#160;&#160;прочие расходы, связанные с выплатой вознаграждения</td>
+            <td><InputText name="v1" key="num" keyValue="41" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="41" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="41" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="41" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>Расходы по финансовой деятельности, не связанные с выплатой вознаграждения, в том числе:</td>
+            <td><InputText name="v1" key="num" keyValue="42" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="42" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="42" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="42" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>43</td>
+            <td>&#160;&#160;расходы от осуществления переводных операций</td>
+            <td><InputText name="v1" key="num" keyValue="43" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="43" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="43" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="43" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>44</td>
+            <td>&#160;&#160;расходы от осуществления клиринговых операций</td>
+            <td><InputText name="v1" key="num" keyValue="44" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="44" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="44" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="44" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>&#160;&#160;расходы от осуществления кассовых операций</td>
+            <td><InputText name="v1" key="num" keyValue="45" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="45" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="45" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="45" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>46</td>
+            <td>&#160;&#160;расходы от осуществления инкассации</td>
+            <td><InputText name="v1" key="num" keyValue="46" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="46" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="46" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="46" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>47</td>
+            <td>Прочие расходы</td>
+            <td><InputText name="v1" key="num" keyValue="47" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="47" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="47" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="47" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">48</td>
+            <td style="font-weight: bold;">Итого расходов (сумма строк с 14 по 19)</td>
+            <td><InputText name="v1" key="num" keyValue="48" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="48" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="48" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="48" readonly="true" auto="true" mask="money0"/></td>
+        </tr>
+        <tr class="groupHeader">
+            <td>&#xA0;</td>
+            <td>&#xA0;</td>
+            <td colspan="4">&#xA0;</td>
+        </tr>
+        <tr>
+            <td>49</td>
+            <td>Чистая прибыль (убыток) до уплаты корпоративного подоходного налога (стр. 13 - стр. 20)</td>
+            <td><InputText name="v1" key="num" keyValue="49" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="49" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="49" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="49" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>50</td>
+            <td>Корпоративный подоходный налог</td>
+            <td><InputText name="v1" key="num" keyValue="50" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="50" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="50" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="50" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>51</td>
+            <td>Чистая прибыль (убыток) после уплаты корпоративного подоходного налога (стр. 21 - стр. 22)</td>
+            <td><InputText name="v1" key="num" keyValue="51" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="51" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="51" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="51" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td>52</td>
+            <td>Прибыль (убыток) от прекращенной деятельности</td>
+            <td><InputText name="v1" key="num" keyValue="52" readonly="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="52" readonly="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="52" readonly="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="52" readonly="true" mask="money0"/></td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">53</td>
+            <td style="font-weight: bold;">Итого чистая прибыль (убыток) за период (стр. 23 +/- стр. 24)</td>
+            <td><InputText name="v1" key="num" keyValue="53" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v2" key="num" keyValue="53" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v3" key="num" keyValue="53" readonly="true" auto="true" mask="money0"/></td>
+            <td><InputText name="v4" key="num" keyValue="53" readonly="true" auto="true" mask="money0"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+    table.dataTable {
+		width:inherit ;
+	}
+    table.dataTable td:nth-child(1) {
+	    text-align: left;
+    }
+    table.dataTable td:nth-child(2) {
+        min-width: 400px;
+        max-width: 400px;
+	    text-align: left;
+    }
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#K101_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:components="http://java.sun.com/jsf/composite/components"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h2 style="color: red;">Ошибка</h2>
+            <h:outputText value="Потеряна связь между серверами."/><br/>
+            <h:outputText value="По истечении десяти секунд сессия будет завершена."/><br/>
+            <h:outputText value="Попробуйте заново авторизоваться."/><br/>
+            <h:outputText value="Если ошибка будет повторяться, пожалуйста, обратитесь в службу технической поддержки."/><br/>
+            <!--<p:commandButton value="logout" actionListener="#{sessionBean.logout}"/>-->
+            <p:poll id="poll" widgetVar="wPoll" interval="10" listener="#{sessionBean.logout}" global="true"/>
+        </h:form>
+    </h:body>
+
+</f:view>

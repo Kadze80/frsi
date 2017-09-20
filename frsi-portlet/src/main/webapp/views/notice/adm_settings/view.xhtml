@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+        encoding="UTF8"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:components="http://java.sun.com/jsf/composite/components">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{noticeAdmSetBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.2"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+
+        <h:form id="mainForm">
+            <table>
+                <tr>
+                    <td style="width: 25%; vertical-align: top;">
+                        <h:panelGroup id ="actions" >
+                            <p:toolbar id ="mbActions" >
+                                <f:facet name="left">
+                                    <p:commandButton value="Обновить" title="#{res.updateList}" actionListener="#{noticeAdmSetBean.refreshNotice()}"
+                                                     disabled="#{!userBean.hasPermission('NOTICE:SETTING:REFRESH')}" update="@form:pgdt, @form:pgDTActions, @form:actions" icon="ui-icon-arrowrefresh-1-s" />
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <p:commandButton value="Изменить сообщение" title="Изменить шаблон сообщения" actionListener="#{noticeAdmSetBean.onDlgMessageShow()}"
+                                                     oncomplete="PF('wDlgMessage').show()"
+                                                     disabled="#{userBean.disabled(noticeAdmSetBean.selectedNotice == null ,'NOTICE:SETTING:EDIT')}" update=":frmMessage" icon="ui-icon-pencil" />
+                                </f:facet>
+                            </p:toolbar>
+                        </h:panelGroup>
+
+                        <p:fieldset id="grpFilters" legend="Фильтры" toggleable="true" toggleSpeed="250" style="margin-top: 0.5em" collapsed="true">
+                            <p:ajax event="toggle" listener="#{noticeAdmSetBean.onFiltersToggle}" update=":messages"/>
+                            <p:panel>
+                                <h:outputText value="Наименование группы:&#160;"/>
+                                <p:inputText value="#{noticeAdmSetBean.filterEventNamesText}" readonly="true" style="width:8em"/>
+                                <p:commandButton value="..." actionListener="#{noticeAdmSetBean.onFilterEventNameShow}" oncomplete="PF('wDlgFilterEventNames').show()" update=":frmFilterEventNames"/>&#160;
+                                <p:commandButton value="Очистить" actionListener="#{noticeAdmSetBean.clearFilters}" update="@form:grpFilters" style="font-weight: normal" title="Очистить параметры поиска" />
+
+                                <h:outputText value="Наименование уведомления:&#160;"/>
+                                <p:inputText value="#{noticeAdmSetBean.filterNameNotice}" style="width:15em"/>
+                                <!--<p:commandButton value="Поиск" actionListener="#{noticeBean.refreshNotice}" disabled="#{!userBean.hasPermission('NOTICE:SETTING:REFRESH')}" update="@form" title="Поиск по выбранным параметрам" icon="ui-icon-search"/>-->
+                            </p:panel>
+                        </p:fieldset>
+
+                        <h:panelGroup id ="pgdt" >
+                            <p:dataTable id="noticeTable" widgetVar="wNoticeTable" value="#{noticeAdmSetBean.noticeList}" var="notice" filterDelay="1000" rowKey="#{notice}"
+                                         selectionMode="single" selection="#{noticeAdmSetBean.selectedNotice}" scrollable="true" scrollHeight="500" rows="25" scrollWidth="465"
+                                         resizableColumns="true" emptyMessage="#{res.noRecordsFound}"
+                                         paginator="true" paginatorPosition="bottom"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord} - {endRecord} из {totalRecords}" rowsPerPageTemplate="10,25,50">
+                                <p:ajax event="rowSelect" update="@form:actions, @form:pgTables, @form:pgDTActions" listener="#{noticeAdmSetBean.refreshTables}" />
+                                <p:ajax event="rowUnselect" update="@form:actions, @form:pgTables, @form:pgDTActions" listener="#{noticeAdmSetBean.refreshTables}" />
+                                <p:column headerText="Наименование" sortBy="#{notice.name}" style="width:25em; #{noticeAdmSetBean.getNoticeRowStyle(notice.message)}"><h:outputText value="#{notice.name}"/></p:column>
+                                <p:column headerText="Наименование модуля" sortBy="#{notice.nameEvent}" style="width:12em; #{noticeAdmSetBean.getNoticeRowStyle(notice.message)}"><h:outputText value="#{notice.nameEvent}"/></p:column>
+                            </p:dataTable>
+                        </h:panelGroup>
+                    </td>
+                    <td style="width: 75%; vertical-align: top;">
+                        <h:panelGroup id ="pgDTActions" >
+                            <p:toolbar id ="tbDTActions" >
+                                <f:facet name="left">
+                                    <p:commandButton value="Сохранить" disabled="#{userBean.disabled(noticeAdmSetBean.selectedNotice == null || noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice,'NOTICE:SETTING:SAVE')}" actionListener="#{noticeAdmSetBean.saveSettings}" update=":messages" />
+                                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                                    <p:commandButton value="Очистить" disabled="#{noticeAdmSetBean.selectedNotice == null || noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}" actionListener="#{noticeAdmSetBean.clearSettings}" update="@form:pgTables, @form:pgDTActions" />
+                                </f:facet>
+                            </p:toolbar>
+                        </h:panelGroup>
+                        <h:panelGroup id ="pgTables" >
+                            <table>
+                                <tr>
+                                    <td style="width: 50%; padding: 5px;">
+                                        <p:dataTable id="tblRole" value="#{noticeAdmSetBean.roleList}" var="role" rowKey="#{role}" emptyMessage="#{res.noRecordsFound}" selectionMode="single" rendered="#{noticeAdmSetBean.selectedNotice.roleRender}"
+                                                     scrollable="true" scrollHeight="160" sortBy="#{role.name}" >
+                                            <f:facet name="header">Роли</f:facet>
+                                            <p:column headerText="Название" sortBy="#{role.name}" style="width: 10em">
+                                                <h:outputText value="#{role.name}"/>
+                                            </p:column>
+                                            <p:column headerText="Признак" sortBy="#{role.notice}" style="width: 6em">
+                                                <h:selectOneMenu value="#{role.notice}" style="width: 120px" disabled="#{noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}">
+                                                    <p:ajax event="valueChange" listener="#{noticeAdmSetBean.setChanged(true)}" />
+                                                    <f:selectItem itemLabel=" " itemValue=""/>
+                                                    <f:selectItem itemLabel="Не уведомлять" itemValue="false"/>
+                                                    <f:selectItem itemLabel="Уведомлять" itemValue="true"/>
+                                                </h:selectOneMenu>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </td>
+                                    <td style="width: 50%; padding: 5px;">
+                                        <p:dataTable id="tblGroup" value="#{noticeAdmSetBean.groupList}" var="group" rowKey="#{group}" emptyMessage="#{res.noRecordsFound}" selectionMode="single" rendered="#{noticeAdmSetBean.selectedNotice.groupRender}"
+                                                     scrollable="true" scrollHeight="160" sortBy="#{group.name}" >
+                                            <f:facet name="header">Группы пользователей</f:facet>
+                                            <p:column headerText="Название" sortBy="#{group.name}" style="width: 10em">
+                                                <h:outputText value="#{group.name}"/>
+                                            </p:column>
+                                            <p:column headerText="Признак" sortBy="#{group.notice}" style="width: 6em">
+                                                <h:selectOneMenu value="#{group.notice}" style="width: 120px" disabled="#{noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}">
+                                                    <p:ajax event="valueChange" listener="#{noticeAdmSetBean.setChanged(true)}" />
+                                                    <f:selectItem itemLabel=" " itemValue=""/>
+                                                    <f:selectItem itemLabel="Не уведомлять" itemValue="false"/>
+                                                    <f:selectItem itemLabel="Уведомлять" itemValue="true"/>
+                                                </h:selectOneMenu>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%; padding: 5px;">
+                                        <p:dataTable id="tblSubjectTypes" value="#{noticeAdmSetBean.subjectTypeList}" var="subjectType" rowKey="#{subjectType}" emptyMessage="#{res.noRecordsFound}" selectionMode="single" rendered="#{noticeAdmSetBean.selectedNotice.stRender}"
+                                                     scrollable="true" scrollHeight="160" sortBy="#{subjectType.name}" >
+                                            <f:facet name="header">Типы субъектов</f:facet>
+                                            <p:column headerText="Название" sortBy="#{subjectType.name}" style="width: 10em">
+                                                <h:outputText value="#{subjectType.name}"/>
+                                            </p:column>
+                                            <p:column headerText="Признак" sortBy="#{subjectType.notice}" style="width: 6em">
+                                                <h:selectOneMenu value="#{subjectType.notice}" style="width: 120px" disabled="#{noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}">
+                                                    <p:ajax event="valueChange" listener="#{noticeAdmSetBean.setChanged(true)}" />
+                                                    <f:selectItem itemLabel=" " itemValue=""/>
+                                                    <f:selectItem itemLabel="Не уведомлять" itemValue="false"/>
+                                                    <f:selectItem itemLabel="Уведомлять" itemValue="true"/>
+                                                </h:selectOneMenu>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </td>
+                                    <td style="width: 50%; padding: 5px;">
+                                        <p:dataTable id="tblRespondent" value="#{noticeAdmSetBean.respondentList}" var="respondent" rowKey="#{respondent}" emptyMessage="#{res.noRecordsFound}" selectionMode="single" rendered="#{noticeAdmSetBean.selectedNotice.respondentRender}"
+                                                     scrollable="true" scrollHeight="160" sortBy="#{respondent.name}" >
+                                            <f:facet name="header">Подотчетные организации</f:facet>
+                                            <p:column headerText="Название" sortBy="#{respondent.name}" style="width: 10em">
+                                                <h:outputText value="#{respondent.name}"/>
+                                            </p:column>
+                                            <p:column headerText="Признак" sortBy="#{respondent.notice}" style="width: 6em">
+                                                <h:selectOneMenu value="#{respondent.notice}" style="width: 120px" disabled="#{noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}">
+                                                    <p:ajax event="valueChange" listener="#{noticeAdmSetBean.setChanged(true)}" />
+                                                    <f:selectItem itemLabel=" " itemValue=""/>
+                                                    <f:selectItem itemLabel="Не уведомлять" itemValue="false"/>
+                                                    <f:selectItem itemLabel="Уведомлять" itemValue="true"/>
+                                                </h:selectOneMenu>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p:dataTable id="tblUser" value="#{noticeAdmSetBean.userList}" var="user" rowKey="#{user}" emptyMessage="#{res.noRecordsFound}" selectionMode="single" rendered="#{noticeAdmSetBean.selectedNotice.userRender}"
+                                                     scrollable="true" scrollHeight="160" sortBy="#{user.name}" >
+                                            <f:facet name="header">Пользователи</f:facet>
+                                            <p:column headerText="Название" sortBy="#{user.name}" style="width: 10em">
+                                                <h:outputText value="#{user.name}"/>
+                                            </p:column>
+                                            <p:column headerText="Признак" sortBy="#{user.notice}" style="width: 6em">
+                                                <h:selectOneMenu value="#{user.notice}" style="width: 120px" disabled="#{noticeAdmSetBean.selectedNotice.id == noticeAdmSetBean.msgNotice}">
+                                                    <p:ajax event="valueChange" listener="#{noticeAdmSetBean.setChanged(true)}" />
+                                                    <f:selectItem itemLabel=" " itemValue=""/>
+                                                    <f:selectItem itemLabel="Не уведомлять" itemValue="false"/>
+                                                    <f:selectItem itemLabel="Уведомлять" itemValue="true"/>
+                                                </h:selectOneMenu>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h:panelGroup>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+
+        <p:dialog id="dlgFilterEventNames" widgetVar="wDlgFilterEventNames" header="Фильтр по наименованию группы" modal="true" resizable="false" width="740">
+            <h:form id="frmFilterEventNames">
+                <p:dataTable value="#{noticeAdmSetBean.eventNames}" var="eventName"
+                             rowKey="#{eventName.id}" sortBy="#{eventName.getName()}" scrollable="true" scrollHeight="440"
+                             emptyMessage="#{res.noRecordsFound}" selection="#{noticeAdmSetBean.filterEventNames}" rowSelectMode="add">
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+                    <p:column headerText="Название" sortBy="#{eventName.getName()}">
+                        <h:outputText value="#{eventName.getName()}"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="Ok" actionListener="#{noticeAdmSetBean.onFilterEventNamesHide}" oncomplete="PF('wDlgFilterEventNames').hide()" update=":mainForm:grpFilters" style="margin-top: 5px" styleClass="filter-button" process="@form"/>&#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgFilterEventNames').hide()" styleClass="filter-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgMessage" widgetVar="wDlgMessage" header="Шаблон сообщения" modal="true" resizable="false">
+            <h:form id="frmMessage">
+                <p:messages />
+                <h:outputLabel value="Тема:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputText value="#{noticeAdmSetBean.noticeSubjectMsg}" style="width: 700px;" maxlength="250" />
+                <br/><br/>
+                <h:outputLabel value="Текст:" style="font-weight:bold;"/>
+                <br/>
+                <p:inputTextarea value="#{noticeAdmSetBean.noticeMessage}" style="width: 700px; min-height: 450px" maxlength="2048" />
+                <br/>
+                <p:commandButton value="Ok" actionListener="#{noticeAdmSetBean.onDlgMessageHide}" update=":mainForm:pgdt, :mainForm:pgDTActions, :frmMessage" style="margin-top: 5px" />
+                &#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="#{res.cancel}" type="button" onclick="PF('wDlgMessage').hide()" />
+                &#160;&#160;&#160;&#160;&#160;&#160;
+                <p:commandButton value="Переменные" actionListener="#{noticeAdmSetBean.onDlgVariableShow}" oncomplete="PF('wDlgVariable').show()" update=":frmVariable" style="margin-top: 5px" />
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="dlgVariable" widgetVar="wDlgVariable" header="Выбор переменной" modal="true" resizable="false" width="740" height="300">
+            <h:form id="frmVariable">
+                <p:dataTable value="#{noticeAdmSetBean.variableList}" var="variable"
+                             rowKey="#{variable.id}" sortBy="#{variable.getName()}" scrollable="true" scrollHeight="240"
+                             emptyMessage="#{res.noRecordsFound}" >
+                    <p:column headerText="Название" sortBy="#{variable.name}"><h:outputText value="#{variable.name}"/></p:column>
+                    <p:column headerText="Код" sortBy="#{variable.code}"><h:outputText value="#{variable.code}"/></p:column>
+                </p:dataTable>
+
+                <p:commandButton value="#{res.close}" type="button" onclick="PF('wDlgVariable').hide()" />
+            </h:form>
+        </p:dialog>
+
+        <p:confirmDialog id="dlgConfirmSave" widgetVar="wDlgConfirmSave" message="Были произведены изменения, сохранить ?" header="Подтверждение" severity="alert">
+            <h:form>
+                <p:commandButton value="#{res.save}" actionListener="#{noticeAdmSetBean.onConfirmSaveHide(true)}" update=":mainForm:actions, :mainForm:pgTables" oncomplete="PF('wDlgConfirmSave').hide()" />
+                <p:commandButton value="#{res.cancel}" actionListener="#{noticeAdmSetBean.onConfirmSaveHide(false)}" update=":mainForm:actions, :mainForm:pgTables" oncomplete="PF('wDlgConfirmSave').hide()" />
+            </h:form>
+        </p:confirmDialog>
+
+        <p:growl id="messages" showDetail="true" />
+    </h:body>
+</f:view>

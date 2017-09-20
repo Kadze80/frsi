@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+	name="I107"
+	languageCode="ru" title="Таблица 4 - Структура совокупных обязательств ИО РК (ИО)"
+	shortName="Таблица 4 - Стр. совокуп. обязат. ИО РК (ИО)"
+	beginDate="2016-01-01" endDate=""
+	typeCode="OUTPUT"
+	tag='{ "keyFields" : {"I107_array":"num"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">
+		Таблица 4 - Структура совокупных обязательств ипотечных организаций РК
+	</h3>
+	<span style="display: block; text-align: center;">
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+<div>
+	<table name="array" class="dataTable">
+		<thead>
+			<tr>
+				<th rowspan="2">№ п/п</th>
+				<th rowspan="2">Наименование показателя</th>
+				<th colspan="2"><StaticText value="$ReportDate(.f(Y))"/></th>
+				<th colspan="2"><StaticText value="$ReportDate"/></th>
+				<th rowspan="2">Прирост, в %</th>
+			</tr>
+			<tr fixed="nf">
+				<th>тыс.тенге</th>
+				<th>в % к итогу</th>
+				<th>тыс.тенге</th>
+				<th>в % к итогу</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th style="min-width: 45em;"></th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Займы полученные</td>
+				<td><InputText name="v1" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="1" readonly="true" mask="money3"/></td>
+				<td><InputText name="v3" key="num" keyValue="1" readonly="true" mask="money0"/></td>
+				<td><InputText name="v4" key="num" keyValue="1" readonly="true" mask="money3"/></td>
+				<td><InputText name="v5" key="num" keyValue="1" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Выпущенные в обращение ценные бумаги</td>
+				<td><InputText name="v1" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="2" readonly="true" mask="money3"/></td>
+				<td><InputText name="v3" key="num" keyValue="2" readonly="true" mask="money0"/></td>
+				<td><InputText name="v4" key="num" keyValue="2" readonly="true" mask="money3"/></td>
+				<td><InputText name="v5" key="num" keyValue="2" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Прочие кредиторы</td>
+				<td><InputText name="v1" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="3" readonly="true" mask="money3"/></td>
+				<td><InputText name="v3" key="num" keyValue="3" readonly="true" mask="money0"/></td>
+				<td><InputText name="v4" key="num" keyValue="3" readonly="true" mask="money3"/></td>
+				<td><InputText name="v5" key="num" keyValue="3" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Прочие обязательства</td>
+				<td><InputText name="v1" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="4" readonly="true" mask="money3"/></td>
+				<td><InputText name="v3" key="num" keyValue="4" readonly="true" mask="money0"/></td>
+				<td><InputText name="v4" key="num" keyValue="4" readonly="true" mask="money3"/></td>
+				<td><InputText name="v5" key="num" keyValue="4" readonly="true" mask="money3"/></td>
+			</tr>
+			<tr class ="groupHeader">
+				<td>5</td>
+				<td>Всего обязательств</td>
+				<td><InputText name="v1" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+				<td><InputText name="v2" key="num" keyValue="5" readonly="true" mask="money3"/></td>
+				<td><InputText name="v3" key="num" keyValue="5" readonly="true" mask="money0"/></td>
+				<td><InputText name="v4" key="num" keyValue="5" readonly="true" mask="money3"/></td>
+				<td><InputText name="v5" key="num" keyValue="5" readonly="true" mask="money3"/></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(1) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(n+3) {
+		text-align: left;
+	}
+	]]>
+</style>
+<script>
+	<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#I107_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>

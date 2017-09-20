@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="t2_mfo"
+languageCode="ru" title="Таблица 2. Классификация микрокредитов, предоставленных  физическим лицам (МФО)"
+shortName="Клас микрокред, пред физ лиц (МФО)"
+beginDate="2016-07-01" endDate=""
+typeCode="INPUT"
+tag='{ "keyFields" : {"t2_mfo_array":"n"} }'
+xmlVersion="1"
+style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Таблица 2 Приложения<br/>
+		к Правилам осуществления<br/>
+		классификации активов и условных<br/>
+		обязательств по предоставленным<br/>
+		микрокредитам и создания провизий<br/>
+		(резервов) против них<br/>
+	</span>
+
+	<h3 style="text-align: center;">
+		Классификация микрокредитов, предоставленных  физическим лицам (за исключением включенных в портфель однородных микрокредитов)
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	<div>
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th>Группа микрокредитов согласно классификации</th>
+					<th>Всего сумма основного долга</th>
+					<th>Сумма начисленного вознаграждения</th>
+					<th>Штрафы, пени за несвоевременное погашение</th>
+					<th>Размер провизий  (в %)</th>
+					<th>Всего сумма фактически созданных провизий</th>
+					<th>Стоимость обеспечения</th>
+				</tr>
+				<tr>
+					<th style="min-width: 25em;"></th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="font-weight: bolder; font-style: italic;">1.Стандартные</td>
+					<td><InputText name="v1" key="n" keyValue="1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="1" value="0" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="1" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight: bolder; font-style: italic;">2.Сомнительные</td>
+					<td><InputText name="v1" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td><InputText name="v5" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>1)сомнительные 1 категории</td>
+					<td><InputText name="v1" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.1" value="0,01-5" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2.1" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2.1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2)сомнительные 2 категории</td>
+					<td><InputText name="v1" key="n" keyValue="2.2" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.2" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.2" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.2" value="5,01-10" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2.2" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2.2" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>3)сомнительные 3 категории</td>
+					<td><InputText name="v1" key="n" keyValue="2.3" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.3" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.3" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.3" value="10,01-20" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2.3" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2.3" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>4)сомнительные 4 категории</td>
+					<td><InputText name="v1" key="n" keyValue="2.4" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.4" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.4" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.4" value="20,01-25" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2.4" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2.4" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>5)сомнительные 5 категории</td>
+					<td><InputText name="v1" key="n" keyValue="2.5" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="2.5" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="2.5" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="2.5" value="25,01-50" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="2.5" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="2.5" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td style="font-weight: bolder; font-style: italic;">3.Безнадежные</td>
+					<td><InputText name="v1" key="n" keyValue="3" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="3" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="3" mask="money0"/></td>
+					<td><InputText name="v4" key="n" keyValue="3" value="50,01-100" readonly="true" style="text-align: center;"/></td>
+					<td><InputText name="v5" key="n" keyValue="3" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="3" mask="money0"/></td>
+				</tr>
+				<tr class="groupHeader">
+					<td>Всего (1+2+3)</td>
+					<td><InputText name="v1" key="n" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v2" key="n" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v3" key="n" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+					<td></td>
+					<td><InputText name="v5" key="n" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+					<td><InputText name="v6" key="n" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель (на период его отсутствия – лицо, его замещающее)</td>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(фамилия, имя, при наличии - отчество)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер</td>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(фамилия, имя, при наличии - отчество)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Исполнитель</td>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+			<td><InputText name="drafted_by_tel" style="width: 20em;" required="true"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(должность, фамилия и имя)</td>
+			<td style="text-align: center;">(номер телефона)</td>
+		</tr>
+		<tr>
+			<td>Дата подписания отчета</td>
+			<td><InputDate name="signature_date" valueType="date" valueFunc="LastSignDate" readonly="true" style="width: 20em;"/></td>
+		</tr>
+	</table>
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+text-align: left;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+	var groupId, v1, v2, v3, sum;
+
+	for (var i = 1; i < 7; i++) {
+	    if (i != 4) {
+			groupId = "t2_mfo_array*v" + i + ":n:";
+			v1 = getInputValue(groupId + "1");
+			v2 = getInputValue(groupId + "2.1") + getInputValue(groupId + "2.2") + getInputValue(groupId + "2.3") +
+			     getInputValue(groupId + "2.4") + getInputValue(groupId + "2.5");
+			setInputValue(groupId + "2", v2);
+			v3 = getInputValue(groupId + "3");
+			sum = v1 + v2 + v3;
+			setInputValue(groupId + "Itogo", sum);
+		}
+	}
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#t2_mfo_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+</Form>

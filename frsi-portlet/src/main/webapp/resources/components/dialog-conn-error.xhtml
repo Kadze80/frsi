@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+        xmlns:composite="http://java.sun.com/jsf/composite"
+        xmlns:p="http://primefaces.org/ui">
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+        <p:dialog id="dlgConnError" widgetVar="wDlgConnError" header="Ошибка" modal="true" width="640"
+                  height="320">
+            <h:form id="frmConnError">
+                <h:outputText value="Потеряна связь между серверами."/><br/>
+                <h:outputText value="По истечении десяти секунд сессия будет завершена."/><br/>
+                <h:outputText value="Попробуйте заново авторизоваться."/><br/>
+                <h:outputText value="Если ошибка будет повторяться, пожалуйста, обратитесь в службу технической поддержки."/><br/>
+                <p:poll id="connPoll" widgetVar="wConnPoll" interval="10" listener="#{sessionBean.logout}" global="true"
+                        stop="#{connectionErrorBean.pollDisabled}" autoStart="false"/>
+            </h:form>
+        </p:dialog>
+    </composite:implementation>
+</ui:component>

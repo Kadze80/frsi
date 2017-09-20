@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<f:view
+	encoding="UTF8"
+	locale="#{facesContext.externalContext.requestLocale}"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:components="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{suInfoBean.preRender}"/>
+    </f:metadata>
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/main.css?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/main.js?v=0.3"/>
+        <script type="text/javascript" src="/frsi-portlet/js/locales.js?v=0.2"/>
+        <link rel="stylesheet" type="text/css" href="/frsi-portlet/css/report_preview.css?v=0.2"/>
+        <script type="text/javascript">
+            function overlaySuInfoPreview(){
+                var div = document.getElementById("dlgSuInfoPreview");
+                if(div.style.visibility == "visible"){
+                    div.style.visibility = "hidden";
+                } else {
+                    div.style.visibility = "visible";
+                }
+            }
+        </script>
+    </h:head>
+
+    <h:body onload="PF('statusDialog').hide()">
+        <p:dialog widgetVar="statusDialog"/>
+        <components:ajax-status/>
+        <components:dialog-error id="ccDialogError"/>
+        <p:growl id="messages" showDetail="true" />
+        <h:form id="mainForm">
+            <p:toolbar id="tbL">
+                <f:facet name="left">
+                    <p:commandButton value="#{res.back}" title="Вернуться назад к фильтру" icon="ui-icon-arrowreturn-1-w"
+                                     action="/views/su/info/infoFilter?faces-redirect=true" />
+                    <span class="ui-separator"><span class="ui-icon ui-icon-grip-dotted-vertical" /></span>
+                    <p:commandButton value="Печать" actionListener="#{suInfoBean.prepareSuInfoPdfFile()}" oncomplete="if(!args.hasErrors) overlaySuInfoPreview();" update=":frmSuInfoPreview" icon="ui-icon-print"
+                                     disabled="#{userBean.disabled(suInfoBean.reportValueNameListItems == null || suInfoBean.reportValueNameListItems.size() == 0, 'INFO:DOWN_PRINT')}">
+                    </p:commandButton>
+                    <p:commandButton value="Выгрузить в Excel" icon="ui-icon-arrowthickstop-1-s" ajax="false" disabled="#{userBean.disabled(suInfoBean.reportValueNameListItems == null || suInfoBean.reportValueNameListItems.size() == 0, 'INFO:DOWN_PRINT')}">
+                        <p:fileDownload value="#{suInfoBean.downloadExcel()}"/>
+                    </p:commandButton>
+                </f:facet>
+            </p:toolbar>
+
+            <p:panel id="pnlMain">
+                <p:dataTable id="reportsTable" rendered="#{suInfoBean.btnReportsClicked}" value="#{suInfoBean.reportValueNameListItems}" var="repRespItem"
+                             scrollable="true" scrollHeight="630"
+                             resizableColumns="true"
+                             rowKey="#{repRespItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" >
+                    <f:facet name="header">
+                        <h:outputText value="#{suInfoBean.infoName}" />
+                    </f:facet>
+                    <p:column headerText="№" style="width:3em;"/>
+                    <p:column style="width:5em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Периодичность отчета" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Наименование формы" style="width:30em;"/>
+                    <p:column headerText="Отправлен" style="width:9em; text-align: center"/>
+                    <p:column style="width:9em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Дата первой загрузки" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Дата последней загрузки" style="width:9em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Дата последней загрузки" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column style="width:3em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Кол-во загр." escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column style="width:7em;">
+                        <f:facet name="header">
+                            <h:outputText value="Результат контроля" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Статус" style="width:6em;"/>
+                    <p:column headerText="Дата статуса" style="width:10em;text-align:center;"/>
+                    <p:column style="width:3em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Просроченные дни" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+
+                    <p:subTable var="reports" value="#{repRespItem.reportListItems}" >
+                        <f:facet name="header">
+                            <h:outputText value="#{repRespItem.valueName}"/>
+                        </f:facet>
+                        <p:column headerText="№" style="width: 3em;">
+                            <h:outputText value="#{reports.rowNum}"/>
+                        </p:column>
+                        <p:column style="width:5em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Периодичность отчета" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{reports.periodCode}" />
+                        </p:column>
+                        <p:column headerText="Наименование формы" sortBy="#{reports.formName}" style="width:30em;" styleClass="wrap">
+                            <h:outputText value="#{reports.formName}"/>
+                        </p:column>
+                        <p:column headerText="Отправлен" style="width:9em; text-align: center; #{suInfoBean.getSubmitRowStyle(reports.submitReport)}">
+                                <h:outputText value="#{reports.submitReportText}" />
+                        </p:column>
+                        <p:column sortBy="#{reports.firstCompletedDate}" style="width:9em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Дата первой загрузки" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{reports.firstCompletedDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{reports.lastCompletedDate}" headerText="Дата последней загрузки" style="width:9em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Дата последней загрузки" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{reports.lastCompletedDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{reports.completeCount}" style="width:3em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Кол-во загр." escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{reports.completeCount}"/>
+                        </p:column>
+                        <p:column sortBy="#{reports.controlResultName}" style="width:7em;#{suInfoBean.getControlRowStyle(reports.controlResultCode)}" >
+                            <f:facet name="header">
+                                <h:outputText value="Результат контроля" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{reports.controlResultName}"/>
+                        </p:column>
+                        <p:column headerText="Статус" sortBy="#{reports.statusName}" style="width:6em;#{suInfoBean.getRowStyleForSts(reports.status)}" >
+                            <h:outputText value="#{reports.statusName}"/>
+                        </p:column>
+                        <p:column headerText="Дата статуса" sortBy="#{reports.statusDate}" style="width:10em;text-align:center;">
+                            <h:outputText value="#{reports.statusDate}">
+                                <f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{suInfoBean.getOverdueDaysForSort(reports)}" style="width:3em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Просроченные дни" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{suInfoBean.getOverdueDays(reports)}" style="color:red;"/>
+                        </p:column>
+                    </p:subTable>
+                </p:dataTable>
+
+                <p:dataTable id="formsTable" rendered="#{suInfoBean.btnRespondentsClicked}" value="#{suInfoBean.reportValueNameListItems}" var="repFormItem"
+                             scrollable="true" scrollHeight="630" resizableColumns="true"
+                             rowKey="#{repFormItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}">
+                    <f:facet name="header">
+                        <h:outputText value="#{suInfoBean.infoName}" />
+                    </f:facet>
+                    <p:column headerText="№" style="width:3em;"/>
+                    <p:column style="width:5em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Периодичность отчета" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Наименование респондента" style="width:30em;"/>
+                    <p:column headerText="Отправлен" style="width:9em; text-align: center"/>
+                    <p:column style="width:9em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Дата первой загрузки" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Дата последней загрузки" style="width:9em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Дата последней загрузки" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column style="width:3em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Кол-во загр." escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column style="width:7em;">
+                        <f:facet name="header">
+                            <h:outputText value="Результат контроля" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+                    <p:column headerText="Статус" style="width:6em;"/>
+                    <p:column headerText="Дата статуса" style="width:10em;text-align:center;"/>
+                    <p:column style="width:3em;text-align:center;">
+                        <f:facet name="header">
+                            <h:outputText value="Просроченные дни" escape="false" style="white-space:pre-line;"/>
+                        </f:facet>
+                    </p:column>
+
+                    <p:subTable var="forms" value="#{repFormItem.reportListItems}">
+                        <f:facet name="header">
+                            <h:outputText value="#{repFormItem.valueName}"/>
+                        </f:facet>
+                        <p:column headerText="№" style="width: 5em;">
+                            <h:outputText value="#{forms.rowNum}"/>
+                        </p:column>
+                        <p:column style="width:5em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Периодичность отчета" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.periodCode}" />
+                        </p:column>
+                        <p:column headerText="Наименование респондента" style="width:30em;" styleClass="wrap">
+                            <h:outputText value="#{forms.respondentNameRu}" />
+                        </p:column>
+                        <p:column headerText="Отправлен" style="width:9em; text-align: center;#{suInfoBean.getSubmitRowStyle(forms.submitReport)}">
+                            <h:outputText value="#{forms.submitReportText}" />
+                        </p:column>
+                        <p:column sortBy="#{forms.firstCompletedDate}" style="width:9em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Дата первой загрузки" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.firstCompletedDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{forms.lastCompletedDate}" headerText="Дата последней загрузки" style="width:9em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Дата последней загрузки" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.lastCompletedDate}"><f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" /></h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{forms.completeCount}" style="width:3em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Кол-во загр." escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.completeCount}"/>
+                        </p:column>
+                        <p:column sortBy="#{forms.controlResultName}" style="width:7em;#{suInfoBean.getControlRowStyle(forms.controlResultCode)}">
+                            <f:facet name="header">
+                                <h:outputText value="Результат контроля" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.controlResultName}"/>
+                        </p:column>
+                        <p:column headerText="Статус" sortBy="#{forms.statusName}" style="width:6em;#{suInfoBean.getRowStyleForSts(forms.status)}">
+                            <h:outputText value="#{forms.statusName}"/>
+                        </p:column>
+                        <p:column headerText="Дата статуса" sortBy="#{forms.statusDate}" style="width:10em;text-align:center;">
+                            <h:outputText value="#{forms.statusDate}">
+                                <f:convertDateTime type="both" pattern="dd.MM.yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column sortBy="#{forms.overdueDays}" style="width:3em;text-align:center;">
+                            <f:facet name="header">
+                                <h:outputText value="Просроченные дни" escape="false" style="white-space:pre-line;"/>
+                            </f:facet>
+                            <h:outputText value="#{forms.overdueDays}" style="color:red;"/>
+                        </p:column>
+                    </p:subTable>
+                </p:dataTable>
+
+                <p:dataTable id="summaryTable" rendered="#{suInfoBean.btnSummaryClicked}"  value="#{suInfoBean.reportValueNameListItems}" var="summaryItem" scrollable="true" scrollHeight="500" resizableColumns="true"
+                             rowKey="#{summaryItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" >
+                    <f:facet name="header">
+                        <h:outputText value="#{suInfoBean.infoName}" />
+                    </f:facet>
+                    <p:column headerText="№" style="width:3em;">
+                        <h:outputText value="#{summaryItem.rowNum}"/>
+                    </p:column>
+                    <p:column headerText="Наименование" style="width:30em;" styleClass="wrap">
+                        <h:outputText value="#{summaryItem.valueName}" />
+                    </p:column>
+                    <p:column headerText="Всего" style="width:10em; ">
+                        <h:outputText value="#{summaryItem.cnt}" style="color:#008080;" />
+                    </p:column>
+                    <p:column headerText="Отправленные" style="width:10em;">
+                        <h:outputText value="#{summaryItem.submitCnt}" style="color:green;" />
+                    </p:column>
+                    <p:column headerText="Не отправленные" style="width:10em;">
+                        <h:outputText value="#{summaryItem.notSubmitCnt}" style="color:red;" />
+                    </p:column>
+                    <p:column headerText="Просроченные" style="width:10em;">
+                        <h:outputText value="#{summaryItem.overdueReportsCount}" style="color:red;" />
+                    </p:column>
+                </p:dataTable>
+
+                <p:dataTable id="matrixTable" rendered="#{suInfoBean.btnMatrixClicked}" var="repFormItem" value="#{suInfoBean.reportValueNameListItems}"
+                             scrollHeight="500" resizableColumns="true" rowKey="#{repFormItem}" selectionMode="single" emptyMessage="#{res.noRecordsFound}" >
+                    <f:facet name="header">
+                        <h:outputText value="#{repFormItem.infoName}" />
+                    </f:facet>
+                    <p:column headerText="№" style="width:3em;">
+                        <h:outputText value="#{repFormItem.rowNum}"/>
+                    </p:column>
+                    <p:column headerText="Наименование" style="width:30em;" styleClass="wrap">
+                        <h:outputText value="#{repFormItem.valueName}" />
+                    </p:column>
+                    <p:columns value="#{suInfoBean.columns}" var="column" columnIndexVar="colIndex" style="width:7em; white-space:pre-line;">
+                        <f:facet name="header">
+                            <h:outputText value="#{column.header}" />
+                        </f:facet>
+                        <h:outputText value="#{repFormItem.getSubmitReportTextByFormCode(column.name)}" />
+                    </p:columns>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+
+
+        <div id="dlgSuInfoPreview" class="customDialog ui-widget">
+            <div class="customDialogContent">
+                <div class="customDialogBody">
+                    <h:form id="frmSuInfoPreview" style="width: 100%; height: 100%">
+                        <object data="#{suInfoBean.pdfFilePath}" type="application/pdf"
+                                style="width: 100%; height: 100%">
+                            Возникла ошибка при печати результатов лог. контроля
+                        </object>
+                    </h:form>
+                </div>
+                <div class="customDialogFooter">
+                    <button class="customDialogCloseButton" onclick="overlaySuInfoPreview();">Закрыть</button>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</f:view>

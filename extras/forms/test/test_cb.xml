@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="test_cb"
+	languageCode="ru" title="Тестовая форма (Ценные бумаги)"
+	shortName="Тест ЦБ"
+	beginDate="2014-10-01" endDate=""
+	typeCode="INPUT"
+	tag=""
+	style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение 1<br/>к постановлению Правления<br/>Национального Банка<br/>Республики Казахстан
+	</span>
+
+	<h3 style="text-align: center;">Тестовая форма (Ценные бумаги)</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/><br/>
+		по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+
+	<table name="mainTable" class="dataTable">
+		<tr>
+			<th>№</th>
+			<th>Эмитент</th>
+			<th>Страна</th>
+			<th>НИН</th>
+			<th>Валюта</th>
+			<th>Значение показателя</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+		</tr>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Группа показателей</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td><InputText name="issuer" key="row" keyValue="1" style="width: 24em; text-align: left;"/><Pick ref="issuer" receiver="issuer" key="row" keyValue="1"/></td>
+			<td><InputSelect name="country" key="row" keyValue="1" ref="ref_country" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="nin" key="row" keyValue="1" style="width: 24em; text-align: left;"/><Pick ref="security" receiver="nin" key="row" keyValue="1"/></td>
+			<td><InputSelect name="currency" key="row" keyValue="1" ref="ref_currency" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="val" key="row" keyValue="1"/></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td><InputText name="issuer" key="row" keyValue="2" style="width: 24em; text-align: left;"/><Pick ref="issuer" receiver="issuer" key="row" keyValue="2"/></td>
+			<td><InputSelect name="country" key="row" keyValue="2" ref="ref_country" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="nin" key="row" keyValue="2" style="width: 24em; text-align: left;"/><Pick ref="security" receiver="nin" key="row" keyValue="2"/></td>
+			<td><InputSelect name="currency" key="row" keyValue="2" ref="ref_currency" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="val" key="row" keyValue="2"/></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td><InputText name="issuer" key="row" keyValue="3" style="width: 24em; text-align: left;"/><Pick ref="issuer" receiver="issuer" key="row" keyValue="3"/></td>
+			<td><InputSelect name="country" key="row" keyValue="3" ref="ref_country" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="nin" key="row" keyValue="3" style="width: 24em; text-align: left;"/><Pick ref="security" receiver="nin" key="row" keyValue="3"/></td>
+			<td><InputSelect name="currency" key="row" keyValue="3" ref="ref_currency" refCode="code" refCaption="name_ru" style="width: 11em;" /></td>
+			<td><InputText name="val" key="row" keyValue="3"/></td>
+		</tr>
+
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><InputText name="val" key="row" keyValue="TOTAL" readonly="true" auto="true"/></td>
+		</tr>
+
+	</table>
+
+<style>
+<![CDATA[
+
+table.dataTable td:nth-child(2) {
+	text-align: left;
+}
+
+]]>
+</style>
+
+<script>
+<![CDATA[
+
+function updateCalculatedFields() {
+
+	var groupId = "testForm_mainTable*col3:code:1";
+	var v1 = sumInputValuesByRange(groupId, 1, 2);
+	document.getElementById(groupId).value = round2(v1);
+
+	var v2 = getInputValue("testForm_mainTable*col3:code:2");
+	var v3 = v1 + v2;
+	document.getElementById("testForm_mainTable*col3:code:3").value = round2(v3);
+}
+
+]]>
+</script>
+
+</Form>

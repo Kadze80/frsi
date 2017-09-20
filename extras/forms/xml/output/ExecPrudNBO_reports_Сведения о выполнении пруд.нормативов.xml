@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="ExecPrudNBO_reports"
+        languageCode="ru"
+        title="Сведения о выполнении пруденциальных нормативов дочерними орг. нац. упр. холдинга в сфере АПК (АПК)"
+        shortName="Свед о вып пруденц норм-ов доч орг нац упр холдинга в сфере АПК(АПК)"
+        beginDate="2014-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"ExecPrudNBO_reports_array":"num"} }'
+        xmlVersion="1"
+        style="" styleClass="">
+
+    <span style="display: block; text-align: right;">
+
+    </span>
+
+    <h3 style="text-align: center;">
+        Сведения о выполнении пруденциальных нормативов дочерними организациями национального управляющего холдинга в
+        сфере агропромышленного комплекса
+    </h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+
+    <span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+    <table name="array" class="dataTable">
+<thead>
+        <tr>
+            <th rowspan="3">№ п/п</th>
+            <th rowspan="3">Наименование организаций</th>
+            <th rowspan="2">Оплаченный уставный капитал (в т.ч. дополнительный капитал)</th>
+            <th rowspan="2">Инвестиции</th>
+            <th rowspan="2">Активы, взвешенные по степени кредитного риска</th>
+            <th rowspan="2">Условные и возможные обязательства, взвешенные по степени кредитного риска</th>
+            <th rowspan="2">Общие резервы (провизии), включенные в расчет СК</th>
+            <th rowspan="2">Капитал 1 уровня</th>
+            <th rowspan="2">Капитал 2 уровня</th>
+            <th rowspan="2">Расчетный собственный капитал (мин. размер 800 млн. тенге)</th>
+            <th rowspan="2">Активы</th>
+            <th rowspan="2">Операционный риск</th>
+            <th colspan="3">Коэффициенты достаточности собственного капитала</th>
+            <th colspan="2">Максимальный размер риска на одного заемщика</th>
+            <th colspan="2">Коэффициент максимального размера ссудного портфеля</th>
+            <th colspan="3">Коэффициент краткосрочной ликвидности</th>
+            <th colspan="2">Коэффициент максимального лимита краткосрочных обязательств перед нерезидентами (k4)</th>
+            <th colspan="2">Коэффициент капитализации организации к обязательствам перед нерезидентами Республики
+                Казахстан (k5)
+            </th>
+            <th colspan="2">Коэффициент капитализации организации к обязательствам перед нерезидентами Республики
+                Казахстан (k6)
+            </th>
+            <th rowspan="3">Выполнение пруденциальных нормативов, да/нет</th>
+        </tr>
+        <tr fixed="nf">
+            <th>k1=K1/A</th>
+            <th>k1-2=К1/(Ав+УВОв-ОР)</th>
+            <th>k1-3=СК/(Ав+УВОв-ОР+ОпР)</th>
+            <th>Совокупная задолженность одного заемщика</th>
+            <th>к2=Р'/CК</th>
+            <th>Ссудный портфель организации</th>
+            <th>к2' = P''/СК</th>
+            <th>Сумма активов со сроком погашения не более 3 мес.</th>
+            <th>Сумма обязательств со сроком погашения не более 3 мес.</th>
+            <th>к3 = A'/ O</th>
+            <th>Краткосрочные обязательства перед нерезидентами</th>
+            <th>k4=ОН4/СК</th>
+            <th>Обязательства перед нерезидентами, включаемые в расчет коэффициента k5</th>
+            <th>k5=ОН5/СК</th>
+            <th>Обязательства перед нерезидентами и долговые ценные бумаги, включаемые в расчет коэффициента k6</th>
+            <th>k6=ОН6/СК</th>
+
+        </tr>
+        <tr fixed="nf">
+            <th>УК</th>
+            <th>ИК</th>
+            <th>Ав</th>
+            <th>УВОв</th>
+            <th>ОР</th>
+            <th>К1</th>
+            <th>К2</th>
+            <th>СК</th>
+            <th>A</th>
+            <th>ОпР</th>
+            <th>k1&gt;=0,06</th>
+            <th>k1-2&gt;=0,06</th>
+            <th>k1-3&gt;=0,12</th>
+            <th>Р'</th>
+            <th>к2&lt;=0,25</th>
+            <th>Р''</th>
+            <th>к2' &lt;= 8</th>
+            <th>A'</th>
+            <th>O</th>
+            <th>к3 &gt;= 0,5</th>
+            <th>ОН4</th>
+            <th>k4&lt;=1</th>
+            <th>ОН5</th>
+            <th>k5&lt;=2</th>
+            <th>ОН6</th>
+            <th>k6&lt;=3</th>
+
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>19</th>
+            <th>20</th>
+            <th>21</th>
+            <th>22</th>
+            <th>23</th>
+            <th>24</th>
+            <th>25</th>
+            <th>26</th>
+            <th>27</th>
+            <th>28</th>
+            <th>29</th>
+        </tr>
+</thead>
+<tbody>
+        <tr id="group" class="groupHeader">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <DynamicRow>
+            <td><StaticText value="$DynamicRowIdText"/></td>
+            <td><ReceiverInput name="respondent_rec_id" key="num" keyValue="$DynamicRowId" readonly="true" multiLine="true" ref="ref_respondent_v" refCode="rec_id" refCaption="name_ru" style="width: 40em; text-align: left;"/></td>
+            <td><InputText name="uk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="ik" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="av" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="uvo" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="or" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k1" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="sk" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="assets" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="opr" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="kf_sk_k1" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="kf_sk_k1-2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="kf_sk_k1-3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="max_risk_debtor" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="max_risk_k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="max_sp_org" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="max_sp_k2" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="likv_sum_ass" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="likv_sum_liab" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="likv_k3" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="oh4" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k4" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="oh5" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k5" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="oh6" key="num" keyValue="$DynamicRowId" readonly="true" mask="money0"/></td>
+            <td><InputText name="k6" key="num" keyValue="$DynamicRowId" readonly="true" mask="money3"/></td>
+            <td><InputText name="result" key="num" keyValue="$DynamicRowId" readonly="true" style="text-align: center;"/></td>
+        </DynamicRow>
+</tbody>
+    </table>
+</div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+    table.dataTable td:nth-child(2) {
+    text-align: left;
+    }
+    table.dataTable td:nth-child(n+3) {
+    text-align: right;
+    }
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#ExecPrudNBO_reports_array").tableHeadFixer({unFix:!fix, head:true, left:2});     
+}
+]]>
+</script2>
+</Form>

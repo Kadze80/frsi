@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+	name="kl_7_out"
+	languageCode="ru" title="Сводный отчет об остатках на внебалансовых счетах меморандума (7 класс) (ИО)"
+    shortName="Свод отч об ост на внебал счетах меморандума (ИО)"
+	beginDate="2014-01-01" endDate=""
+	typeCode="CONSOLIDATED"
+	tag='{ "keyFields" : {"kl_7_out_array":"num_acc"} }'
+	xmlVersion="1"
+	style="" styleClass="">
+
+	<h3 style="text-align: center;">Сводный отчет об остатках на внебалансовых счетах меморандума ипотечных организаций Республики Казахстан</h3>
+	<span style="display: block; text-align: center;">по состоянию на &#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/></span>
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+	<table name="array" class="dataTable">
+<thead>
+		<tr>
+			<th>Номера  счетов</th>
+			<th>Наименования счетов</th>
+			<th>Сумма</th>
+		</tr>
+		<tr>						
+			<td colspan="3">VII класс - СЧЕТА МЕМОРАНДУМА</td>						
+		</tr>
+</thead>
+<tbody>
+		<tr class="groupHeader">
+			<td>7100</td>
+			<td>Мемориальные счета - активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7100" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7110</td>
+			<td>Здания, машины, оборудование, транспортные и другие средства, переданные в аренду</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7110" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7115</td>
+			<td>Основные средства, реализуемые с рассрочкой платежа</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7115" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7150</td>
+			<td>Документы и ценности по иностранным операциям, отосланные на инкассо</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7150" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7160</td>
+			<td>Имущество, переданное в обеспечение (залог) обязательств </td>
+			<td><InputText name="sum" key="num_acc" keyValue="7160" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7200</td>
+			<td>Мемориальные счета - пассивы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7200" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7220</td>
+			<td>Здания, машины, оборудование, транспортные и другие средства, принятые в аренду</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7220" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7240</td>
+			<td>Документы и ценности, принятые на инкассо</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7240" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7250</td>
+			<td>Имущество, принятое в обеспечение (залог) обязательств клиента</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7250" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7300</td>
+			<td>Мемориальные счета - прочие</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7300" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7303</td>
+			<td>Платежные документы, не оплаченные в срок</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7303" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7320</td>
+			<td>Секьюритизируемые активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7320" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7321</td>
+			<td>Кредитные линии, открытые иностранными государствами и зарубежными банками организациям Республики Казахстан </td>
+			<td><InputText name="sum" key="num_acc" keyValue="7321" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7330</td>
+			<td>Займы, обслуживаемые на основе агентских соглашений</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7330" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7331</td>
+			<td>Начисленное вознаграждение по агентским займам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7331" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7339</td>
+			<td>Разные ценности и документы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7339" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7342</td>
+			<td>Разные ценности и документы, отосланные и выданные под отчет</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7342" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7345</td>
+			<td>Драгоценные металлы на хранении</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7345" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7360</td>
+			<td>Акции и другие ценные бумаги клиентов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7360" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7363</td>
+			<td>Активы клиентов, находящиеся на кастодиальном обслуживании</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7363" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7400</td>
+			<td>Пенсионные активы добровольных накопительных пенсионных фондов, принятые на хранение</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7400" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7401</td>
+			<td>Краткосрочные государственные ценные бумаги Республики Казахстан </td>
+			<td><InputText name="sum" key="num_acc" keyValue="7401" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7403</td>
+			<td>Долгосрочные государственные ценные бумаги Республики Казахстан </td>
+			<td><InputText name="sum" key="num_acc" keyValue="7403" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7404</td>
+			<td>Негосударственные эмиссионные ценные бумаги, включенные в официальный список Казахстанской фондовой биржи</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7404" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7405</td>
+			<td>Ценные бумаги международных финансовых организаций</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7405" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7406</td>
+			<td>Вклады в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7406" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7407</td>
+			<td>Прочие пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7407" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7408</td>
+			<td>Начисленное вознаграждение (купон, дисконт/премия) по краткосрочным государственным ценным бумагам Республики Казахстан, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7408" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7409</td>
+			<td>Начисленное вознаграждение (купон, дисконт/премия) по долгосрочным государственным ценным бумагам Республики Казахстан, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7409" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7410</td>
+			<td>Начисленное вознаграждение (купон, дисконт/премия) по негосударственным эмиссионным ценным бумагам, включенным в официальный список Казахстанской фондовой биржи, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7410" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7411</td>
+			<td>Начисленное вознаграждение (купон, дисконт/премия) по ценным бумагам международных финансовых организаций, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7411" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7412</td>
+			<td>Начисленное вознаграждение по вкладам в других банках, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7412" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7413</td>
+			<td>Начисленное вознаграждение по прочим финансовым активам, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7413" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7414</td>
+			<td>Обязательства добровольных накопительных пенсионных фондов по опера-циям с ценными бумагами, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7414" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7416</td>
+			<td>Операции «обратное РЕПО» с ценными бумагами, в которые размещены пенсионные активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7416" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7500</td>
+			<td>Ипотечные займы, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7500" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7535</td>
+			<td>Ипотечные займы, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7535" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7536</td>
+			<td>Просроченные ипотечные займы, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7536" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7542</td>
+			<td>Начисленное вознаграждение по ипотечным займам, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7542" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7543</td>
+			<td>Неустойка (штраф, пеня) по ипотечным займам, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7543" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7544</td>
+			<td>Просроченное вознаграждение по ипотечным займам, права требования по которым приняты в доверительное управление</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7544" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7600</td>
+			<td>Активы клиентов, находящиеся в доверительном (инвестиционном) управлении</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7600" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7601</td>
+			<td>Деньги</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7601" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7602</td>
+			<td>Аффинированные драгоценные металлы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7602" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7604</td>
+			<td>Вклады размещенные</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7604" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7610</td>
+			<td>Вознаграждение</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7610" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7611</td>
+			<td>Прочие требования</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7611" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7630</td>
+			<td>Обязательства по операциям по доверительному (инвестиционному) управлению</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7630" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7631</td>
+			<td>Счета к оплате</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7631" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7632</td>
+			<td>Прочие обязательства</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7632" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7650</td>
+			<td>Капитал</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7650" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7651</td>
+			<td>Капитал</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7651" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7660</td>
+			<td>Доходы по операциям по доверительному (инвестиционному) управлению</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7660" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7661</td>
+			<td>Поступление активов от клиента</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7661" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7662</td>
+			<td>Доходы в виде вознаграждения</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7662" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7663</td>
+			<td>Доходы от купли-продажи активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7663" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7664</td>
+			<td>Реализованные доходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7664" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7665</td>
+			<td>Реализованные доходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7665" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7666</td>
+			<td>Нереализованные доходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7666" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7667</td>
+			<td>Нереализованные доходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7667" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7668</td>
+			<td>Прочие доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7668" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7680</td>
+			<td>Расходы по операциям по доверительному (инвестиционному) управлению</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7680" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7681</td>
+			<td>Изъятие активов клиента</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7681" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7682</td>
+			<td>Расходы по выплате комиссионных вознаграждений</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7682" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7683</td>
+			<td>Расходы от купли-продажи активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7683" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7684</td>
+			<td>Реализованные расходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7684" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7685</td>
+			<td>Реализованные расходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7685" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7686</td>
+			<td>Нереализованные расходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7686" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7687</td>
+			<td>Нереализованные расходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7687" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7688</td>
+			<td>Прочие расходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7688" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7700</td>
+			<td>Активы, принятые на кастодиальное хранение, за исключением пенсионных ак-тивов добровольных накопительных пенсионных фондов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7700" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7701</td>
+			<td>Ценные бумаги</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7701" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7702</td>
+			<td>Вклады в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7702" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7703</td>
+			<td>Аффинированные драгоценные металлы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7703" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7704</td>
+			<td>Операции «обратное РЕПО»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7704" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7705</td>
+			<td>Операции «РЕПО»</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7705" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7706</td>
+			<td>Производные финансовые инструменты</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7706" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7707</td>
+			<td>Инвестиции в капитал</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7707" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7708</td>
+			<td>Инвестиции в здания, машины, оборудование, транспортные и другие основные средства</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7708" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7709</td>
+			<td>Прочие активы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7709" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7710</td>
+			<td>Дивиденды</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7710" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7711</td>
+			<td>Вознаграждение</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7711" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7712</td>
+			<td>Вознаграждение, начисленное предыдущим держателем по ценным бумагам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7712" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7713</td>
+			<td>Прочие требования</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7713" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7800</td>
+			<td>Активы по договору об инвестиционном депозите</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7800" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7801</td>
+			<td>Деньги</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7801" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7802</td>
+			<td>Аффинированные драгоценные металлы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7802" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7803</td>
+			<td>Вклады в других банках</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7803" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7804</td>
+			<td>Исламские ценные бумаги</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7804" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7805</td>
+			<td>Акции (доли участия)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7805" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7806</td>
+			<td>Требования по операциям финансирования торговой деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7806" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7807</td>
+			<td>Вознаграждение</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7807" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7808</td>
+			<td>Запасы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7808" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7809</td>
+			<td>Здания, машины, оборудование, транспортные и другие средства</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7809" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7810</td>
+			<td>Строящиеся (устанавливаемые) основные средства</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7810" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7811</td>
+			<td>Основные средства, переданные в лизинг (аренду)</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7811" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7820</td>
+			<td>Прочие требования</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7820" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7830</td>
+			<td>Обязательства по договору об инвестиционном депозите</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7830" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7831</td>
+			<td>Счета к оплате</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7831" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7832</td>
+			<td>Доходы будущих периодов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7832" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7833</td>
+			<td>Прочие обязательства</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7833" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7850</td>
+			<td>Капитал</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7850" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7851</td>
+			<td>Капитал</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7851" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7860</td>
+			<td>Доходы по договору об инвестиционном депозите</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7860" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7861</td>
+			<td>Поступления денег от клиента</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7861" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7862</td>
+			<td>Доходы в виде вознаграждения</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7862" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7863</td>
+			<td>Доходы от купли-продажи активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7863" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7864</td>
+			<td>Дивиденды</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7864" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7865</td>
+			<td>Реализованные доходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7865" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7866</td>
+			<td>Реализованные доходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7866" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7867</td>
+			<td>Нереализованные доходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7867" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7868</td>
+			<td>Нереализованные доходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7868" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7869</td>
+			<td>Доходы в виде лизинговых (арендных) платежей</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7869" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7870</td>
+			<td>Доходы по операциям финансирования торговой деятельности</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7870" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7871</td>
+			<td>Прочие доходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7871" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td>7880</td>
+			<td>Расходы по договору об инвестиционном депозите</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7880" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7881</td>
+			<td>Изъятие денег клиента</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7881" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7882</td>
+			<td>Расходы по выплате комиссионного вознаграждения</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7882" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7883</td>
+			<td>Расходы от купли-продажи активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7883" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7884</td>
+			<td>Реализованные расходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7884" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7885</td>
+			<td>Реализованные расходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7885" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7886</td>
+			<td>Нереализованные расходы по курсовой разнице</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7886" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7887</td>
+			<td>Нереализованные расходы от переоценки активов по справедливой стоимости</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7887" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7888</td>
+			<td>Амортизационные отчисления по основным средствам</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7888" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7889</td>
+			<td>Убытки от обесценения активов</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7889" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr>
+			<td>7890</td>
+			<td>Прочие расходы</td>
+			<td><InputText name="sum" key="num_acc" keyValue="7890" readonly="true" mask="money0"/></td>
+		</tr>
+		<tr class="groupHeader">
+			<td></td>
+			<td>Итого: Счета меморандума к балансу</td>
+			<td><InputText name="sum" key="num_acc" keyValue="ItogoAccMem" readonly="true" auto="true" mask="money0"/></td>
+		</tr>
+</tbody>
+	</table>
+</div>
+
+	<br/>
+	<br/>
+	<InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+	<br/><br/><br/><br/>
+	<InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+	<br/>
+	<InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+<style>
+<![CDATA[
+	table.dataTable td:nth-child(2) {
+		text-align: left;
+	}
+	table.dataTable td:nth-child(n+3) {
+		text-align: right;
+	}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+function fixTable(fix){ 
+    $("#kl_7_out_array").tableHeadFixer({unFix:!fix, head:true});     
+}
+]]>
+</script2>
+</Form>

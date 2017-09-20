@@ -1,0 +1,11 @@
+-- Add/modify columns 
+alter table REPORT_HISTORY add is_exist_list integer default 0 not null;
+-- Add comments to the columns 
+comment on column REPORT_HISTORY.is_exist_list
+  is 'Наличие данных в виде списка 0 - нет, 1 - да';
+
+-- Add/modify columns 
+alter table FORM_HISTORY add is_fill_list integer default 0 not null;
+-- Add comments to the columns 
+comment on column FORM_HISTORY.is_fill_list
+  is 'Заполнять данные в списочном виде';

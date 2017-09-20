@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+        name="N110"
+        languageCode="ru" title="Для графика 5 - Динамика активов и ссудного портфеля НБО (ОООВБО)"
+        shortName="Для графика 5 - Динам. актив. и ссудн. портф. НБО (ОООВБО)"
+        beginDate="2016-01-01" endDate=""
+        typeCode="OUTPUT"
+        tag='{ "keyFields" : {"N110_a":"n"}, "periodType":"q" }'
+        xmlVersion="1"
+        periodCount="1"
+        style="" styleClass="">
+
+    <h3 style="text-align: center;">Для графика  5 - Динамика активов и ссудного портфеля небанковских организаций</h3>
+
+    <span style="display: block; text-align: center;">
+        по состоянию на &#xA0;
+        <StaticText name="$ReportDate" value="Отчетная дата"/>
+    </span>
+
+    <div>
+        <table name="a" class="dataTable">
+            <thead>
+                <tr>
+                    <th>№, п/п</th>
+                    <th>Наименование показателя</th>
+                    <DynamicCell header="true"><StaticText value="@DynamicCellDate"/></DynamicCell>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Активы организаций, осуществляющих отдельные виды банковских операций</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="1" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ссудный портфель с учетом фин. аренды за вычетом резервов</td>
+                    <DynamicCell class="dynCell"><InputText name="v1@DynamicCellId" key="n" keyValue="2" readonly="true" mask="money0"/></DynamicCell>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br/>
+    <br/>
+    <InputText name="sign" style="font-weight:bold; width: 100em;border:0;margin-left:10em"/>
+    <br/><br/><br/><br/>
+    <InputText name="executorName" style="width: 50em;border:0;margin-left:5em"/>
+    <br/>
+    <InputText name="executorPhone" style="width: 50em;border:0;margin-left:5em"/>
+
+    <style>
+        <![CDATA[
+            table.dataTable td:nth-child(1) {
+                text-align: left;
+                width:20px
+            }
+            table.dataTable td:nth-child(2) {
+                text-align: left;
+            }
+        ]]>
+    </style>
+    <script>
+        <![CDATA[
+            function updateCalculatedFields() {
+            }
+        ]]>
+    </script>
+    <script2>
+        <![CDATA[
+            function fixTable(fix){
+                $("#N110_a").tableHeadFixer({unFix:!fix, head:true});
+            }
+        ]]>
+    </script2>
+</Form>

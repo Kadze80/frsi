@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form
+name="fs_oi_apk_kp"
+languageCode="ru" title="Отчет об основных источниках привлеченных денег (АПК,КП)"
+shortName="Отч об осн ист привл денег(АПК,КП)"
+beginDate="2017-04-01" endDate=""
+typeCode="INPUT"
+tag='{ "keyFields" : {"fs_oi_apk_kp_array":"num"} }'
+xmlVersion="11"
+style="" styleClass="">
+
+<span style="display: block; text-align: right;">
+	Приложение 10<br/>
+	к постановлению Правления<br/>
+	Национального Банка<br/>
+	Республики Казахстан<br/>
+	от 24 сентября 2014 года № 178
+</span>
+<h3 style="text-align: center;">Отчет об основных источниках привлеченных денег</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+<div>
+<table name="array" class="dataTable">
+<thead>
+<tr>
+	<th rowspan="2">№</th>
+	<th rowspan="2">Наименование кредитора</th>
+	<th rowspan="2">Код отрасли</th>
+	<th colspan="2">Займы полученные</th>
+	<th rowspan="2">Субординированный долг</th>
+	<th colspan="2">Кредиторская задолженность</th>
+	<th rowspan="2">Долговые и иные ценные бумаги (в том числе по операции "РЕПО")</th>
+	<th rowspan="2">Расчеты с акционерами по дивидендам</th>
+	<th rowspan="2">Прочие источники</th>
+	<th rowspan="2">Всего</th>
+</tr>
+<tr fixed="nf">
+	<th>долгосрочные</th>
+	<th>краткосрочные</th>
+	<th>долгосрочные</th>
+	<th>краткосрочные</th>
+</tr>
+<tr>
+	<th>1</th>
+	<th style="min-width: 25em;">2</th>
+	<th>3</th>
+	<th>4</th>
+	<th>5</th>
+	<th>6</th>
+	<th>7</th>
+	<th>8</th>
+	<th>9</th>
+	<th>10</th>
+	<th>11</th>
+	<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr id="1" class="groupHeader">
+	<td>1</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="1" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="2" class="groupHeader">
+	<td>2</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="2" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="3" class="groupHeader">
+	<td>3</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="3" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="4" class="groupHeader">
+	<td>4</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="4" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="5" class="groupHeader">
+	<td>5</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="5" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="6" class="groupHeader">
+	<td>6</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="6" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="7" class="groupHeader">
+	<td>7</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="7" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="8" class="groupHeader">
+	<td>8</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="8" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="9" class="groupHeader">
+	<td>9</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr id="10" class="groupHeader">
+	<td>10</td>
+	<td><Plus/></td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="10" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<tr class="groupHeader">
+	<td></td>
+	<td>Итого</td>
+	<td></td>
+	<td><InputText name="loan_long" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="Itogo" readonly="true" auto="true" mask="money0"/></td>
+</tr>
+<DynamicRow>
+	<td><StaticText value="$DynamicRowIdText" mask="money0"/></td>
+	<td>
+		<Minus/>
+		<InputText name="name_creditor" key="num" keyValue="$DynamicRowId" required="true" readonly="true" multiLine="true" style="width: 18em; text-align: left;"/>
+		<Pick ref="person" receiver="name_creditor" key="num" keyValue="$DynamicRowId"/>
+	</td>
+	<td><InputSelect name="code_branch" key="num" keyValue="$DynamicRowId" required="true" ref="ref_branch" refCode="rec_id" refCaption="code" style="width: 12em;" /></td>
+	<td><InputText name="loan_long" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="loan_short" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="subs_debt" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="accpayable_long" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="accpayable_short" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="cb_repo" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="div_pay" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="other_sources" key="num" keyValue="$DynamicRowId" mask="money0"/></td>
+	<td><InputText name="vsego" key="num" keyValue="$DynamicRowId" readonly="true" auto="true" mask="money0"/></td>
+</DynamicRow>
+</tbody>
+</table>
+</div>
+<br/>
+<table class="textLayoutTable">
+	<tr>
+		<td>Первый руководитель:</td>
+		<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Главный бухгалтер:</td>
+		<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Исполнитель:</td>
+		<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+	</tr>
+	<tr>
+		<td>Дата:</td>
+		<td><InputDate name="signature_date" valueType="date" style="width: 20em;" valueFunc="LastSignDate" readonly="true"/></td>
+	</tr>
+</table>
+
+<style>
+<![CDATA[
+table.dataTable td:nth-child(1) {
+	text-align: center;
+	width: 5em;
+}
+table.dataTable td:nth-child(2) {
+	text-align: left;
+	width: 15em;
+}
+]]>
+</style>
+<script>
+<![CDATA[
+
+function updateCalculatedFields() {
+
+var argColumns = ["loan_long","loan_short","subs_debt","accpayable_long","accpayable_short","cb_repo","div_pay","other_sources"];
+
+var i, gid;
+var sum, totalSum;
+var groupId;
+
+for (i = 0; i <= 7; i++) {
+	totalSum = 0;
+	for (gid = 1; gid <= 10; gid++) {
+		groupId = "fs_oi_apk_kp_array*" + argColumns[i] + ":num:" + gid;
+		sum = sumInputValuesByGroup(groupId);
+		setInputValue(groupId, sum);
+		totalSum += sum;
+	}
+	setInputValue("fs_oi_apk_kp_array*" + argColumns[i] + ":num:Itogo", totalSum);
+}
+
+for (gid = 1; gid <= 10; gid++) {
+    totalSum = 0;
+    for (i = 0; i <= 7; i++) {
+		groupId = "fs_oi_apk_kp_array*" + argColumns[i] + ":num:" + gid;
+		totalSum += getInputValue(groupId);
+	}
+	var colGroupId = "fs_oi_apk_kp_array*vsego:num:" + gid;
+	setInputValue(colGroupId, totalSum);
+	updateDynamicRowsColumn(colGroupId, argColumns);
+}
+totalSum = 0;
+for (i = 0; i <= 7; i++) {
+	groupId = "fs_oi_apk_kp_array*" + argColumns[i] + ":num:Itogo";
+	totalSum += getInputValue(groupId);
+}
+var colGroupId = "fs_oi_apk_kp_array*vsego:num:Itogo";
+setInputValue(colGroupId, totalSum);
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	if((type==1 && fixed) || (type == 0)) {
+    	$("#fs_oi_apk_kp_array").tableHeadFixer({unFix:!fix, head:true});
+        fixed = fix;
+    }
+}
+]]>
+</script2>
+
+</Form>

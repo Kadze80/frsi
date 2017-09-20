@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Form
+name="prud_mfo"
+languageCode="ru" title="Отчет о выполнении пруденциальных нормативов и иных обязательных для соблюдения норм и лимитов (МФО)"
+shortName="Отчет о выпол пурд норм (МФО)"
+beginDate="2016-07-01" endDate=""
+tag='{ "hasDynamicRows" : true, "keyFields" : {"prud_mfo_array":"n"} }'
+typeCode="INPUT"
+xmlVersion="1"
+style="" styleClass="">
+
+	<span style="display: block; text-align: right;">
+		Приложение<br/>
+		к Пруденциальным<br/>
+		нормативам  и иным обязательным к<br/>
+		соблюдению микрофинансовой организацией<br/>
+		нормам и лимитам и методике их расчетов, а<br/>
+		также формам и срокам представления<br/>
+		отчетности об их выполнении<br/>
+	</span>
+
+	<h3 style="text-align: center;">
+		Отчет о выполнении пруденциальных нормативов и иных обязательных для соблюдения норм и лимитов
+	</h3>
+
+	<span style="display: block; text-align: center;">
+		<StaticText name="$RespondentInfo" value="БИН, Полное наименование респондента" class="" style=""/>
+	</span>
+	<span style="display: block; text-align: center;">
+		по состоянию на&#xA0;<StaticText name="$ReportDate" value="Отчетная дата"/>
+	</span>
+
+	<div style="width:55%; padding:1em 0em 0em 0em;">
+		<span style="display: block; text-align: right;">(в тысячах тенге)</span>
+	</div>
+
+	<div style="width:55%;">
+		<table name="array" class="dataTable">
+			<thead>
+				<tr>
+					<th>№ п/п</th>
+					<th>Наименование статей</th>
+					<th>Сумма</th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Оплаченный уставный капитал</td>
+					<td><InputText name="v3" key="n" keyValue="1" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Дополнительный капитал</td>
+					<td><InputText name="v3" key="n" keyValue="2" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Нераспределенная чистая прибыль (убыток) прошлых лет</td>
+					<td><InputText name="v3" key="n" keyValue="3" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Фонды, резервы, сформированные за счет чистого дохода прошлых лет</td>
+					<td><InputText name="v3" key="n" keyValue="4" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Нераспределенная чистая прибыль (убыток) отчетного периода</td>
+					<td><InputText name="v3" key="n" keyValue="5" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>Переоценка основных средств</td>
+					<td><InputText name="v3" key="n" keyValue="6" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>Нематериальные активы, за исключением лицензионного программного обеспечения, приобретенного для целей основной деятельности микрофинансовой организации</td>
+					<td><InputText name="v3" key="n" keyValue="7" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Инвестиции в акции или доли участия в уставном капитале кредитных бюро, микрофинансовых организаций, организаций, оказывающих услуги по инкассации банкнот, монет и ценностей, и организаций, имеющих лицензию на охранную деятельность</td>
+					<td><InputText name="v3" key="n" keyValue="8" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>Расчетный собственный капитал микрофинансовой организации</td>
+					<td><InputText name="v3" key="n" keyValue="9" readonly="true" auto="true" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>Активы по балансу микрофинансовой организации</td>
+					<td><InputText name="v3" key="n" keyValue="10" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>11</td>
+					<td>Коэффициент достаточности собственного капитала k1</td>
+					<td><InputText name="v3" key="n" keyValue="11" readonly="true" auto="true" mask="money3"/></td>
+				</tr>
+				<tr>
+					<td>12*</td>
+					<td>Совокупная задолженность одного заемщика перед микрофинансовой организацией (включая списанные с баланса организации)</td>
+					<td><InputText name="v3" key="n" keyValue="12" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>13*</td>
+					<td>Обеспечение заемщика в виде аффинированных драгоценных металлов, соответствующие международным стандартам качества, принятым Лондонской ассоциацией рынка драгоценных металлов (London billion market association) и обозначенным в документах данной ассоциации как стандарт «Лондонская качественная поставка» («London good delivery»)</td>
+					<td><InputText name="v3" key="n" keyValue="13" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>14*</td>
+					<td>Обеспечение заемщика в виде гарантии банков, имеющих долгосрочный долговой рейтинг не ниже «А» агентства Standard &amp; Poor's или рейтинг аналогичного уровня одного из других рейтинговых агентств</td>
+					<td><InputText name="v3" key="n" keyValue="14" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>15*</td>
+					<td>Коэффициент максимального размера риска на одного заемщика k2</td>
+					<td><InputText name="v3" key="n" keyValue="15" readonly="true" auto="true" mask="money3"/></td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td>Совокупные обязательства микрофинансовой организации, за исключением обязательств перед нерезидентами Республики Казахстан, являющимися международными финансовыми организациями</td>
+					<td><InputText name="v3" key="n" keyValue="16" mask="money0"/></td>
+				</tr>
+				<tr>
+					<td>17</td>
+					<td>Коэффициент максимального лимита совокупных обязательств k3</td>
+					<td><InputText name="v3" key="n" keyValue="17" readonly="true" auto="true" mask="money3"/></td>
+				</tr>
+				<tr>
+					<td>18</td>
+					<td>Совокупный размер микрокредитов микрофинансовой организации</td>
+					<td><InputText name="v3" key="n" keyValue="18" mask="money0"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<br/>
+	<div style="width:55%; padding:1em 0em 0em 0em;">
+		<span style="display: block; text-align: left;">* по строкам 12, 13, 14 и 15 представляется информация по заемщику с максимальной совокупной задолженностью перед микрофинансовой организацией</span>
+	</div>
+
+	<br/>
+	<table class="textLayoutTable">
+		<tr>
+			<td>Первый руководитель (на период его отсутствия – лицо, его замещающее)</td>
+			<td><InputText name="ceo" required="true" style="width: 20em;"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(фамилия, имя, при наличии - отчество)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Главный бухгалтер</td>
+			<td><InputText name="chief_accountant" required="true" style="width: 20em;"/></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(фамилия, имя, при наличии - отчество)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Исполнитель</td>
+			<td><InputText name="drafted_by" required="true" style="width: 20em;"/></td>
+			<td><InputText name="drafted_by_tel" style="width: 20em;" required="true"/></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td style="text-align: center;">(должность, фамилия и имя)</td>
+			<td style="text-align: center;">(номер телефона)</td>
+		</tr>
+		<tr>
+			<td>Дата подписания отчета</td>
+			<td><InputDate name="signature_date" valueType="date" valueFunc="LastSignDate" readonly="true" style="width: 20em;"/></td>
+		</tr>
+	</table>
+<style>
+<![CDATA[
+		table.dataTable td:nth-child(1) {
+		text-align: center;
+		}
+		table.dataTable td:nth-child(2) {
+		text-align: left;
+		}
+		table.dataTable td:nth-child(3) {
+		text-align: center;
+		}
+]]>
+</style>
+<script>
+<![CDATA[
+function updateCalculatedFields() {
+    var groupId
+	var v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v12, v13, v14, v16;
+
+	groupId = "prud_mfo_array*v3:n:";
+
+	v1 = getInputValue(groupId + "1");
+	v2 = getInputValue(groupId + "2");
+	v3 = getInputValue(groupId + "3");
+	v4 = getInputValue(groupId + "4");
+	v5 = getInputValue(groupId + "5");
+	v6 = getInputValue(groupId + "6");
+	v7 = getInputValue(groupId + "7");
+	v8 = getInputValue(groupId + "8");
+	v9 = v1 + v2 + v3 + v4 + v5 + v6 - v7 - v8;
+	setInputValueV2(groupId + "9", v9);
+	v10 = getInputValue(groupId + "10");
+	v12 = getInputValue(groupId + "12");
+	v13 = getInputValue(groupId + "13");
+	v14 = getInputValue(groupId + "14");
+	v16 = getInputValue(groupId + "16");
+
+	if (v10){
+		var v11 = round3(v9/v10);
+		setInputValueV2(groupId + "11", v11);
+	}
+
+	if (v9){
+		var v15 = round3((v12 - v13 - v14)/v9);
+		setInputValueV2(groupId + "15", v15);
+	}
+
+	if (v9){
+		var v17 = round3(v16/v9);
+		setInputValueV2(groupId + "17", v17);
+	}
+}
+function setInputValueV2(key, value){
+	if (value)
+	    setInputValue(key, value);
+	else
+		setInputValue(key, "0");
+}
+]]>
+</script>
+<script2>
+<![CDATA[
+var fixed;
+function fixTable(fix,type){
+	$("#prud_mfo_array").tableHeadFixer({unFix:!fix, head:true});
+}
+]]>
+</script2>
+</Form>
